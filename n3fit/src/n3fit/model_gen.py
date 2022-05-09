@@ -82,9 +82,9 @@ class ObservableWrapper:
         if self.rotation is not None:
             ret = self.rotation(ret)
 
-        if fit_cfac is not None:
-            log.info(f"Applying fit_cfac layer")
-            ret = post_observable(ret, cfactor_values=coefficients)    
+        #if fit_cfac is not None:
+            #log.info(f"Applying fit_cfac layer")
+            #ret = post_observable(ret, cfactor_values=coefficients)    
 
         return ret
 
@@ -175,6 +175,7 @@ def observable_generator(
                 dataset_dict["tr_fktables"],
                 operation_name,
                 name=f"dat_{dataset_name}",
+                fit_cfac=fit_cfac
             )
             obs_layer_ex = obs_layer_vl = None
         elif spec_dict.get("data_transformation_tr") is not None:
@@ -184,6 +185,7 @@ def observable_generator(
                 dataset_dict["ex_fktables"],
                 operation_name,
                 name=f"exp_{dataset_name}",
+                fit_cfac=fit_cfac
             )
             obs_layer_tr = obs_layer_vl = obs_layer_ex
         else:
@@ -192,18 +194,21 @@ def observable_generator(
                 dataset_dict["tr_fktables"],
                 operation_name,
                 name=f"dat_{dataset_name}",
+                fit_cfac=fit_cfac
             )
             obs_layer_ex = Obs_Layer(
                 dataset_dict["fktables"],
                 dataset_dict["ex_fktables"],
                 operation_name,
                 name=f"exp_{dataset_name}",
+                fit_cfac=fit_cfac
             )
             obs_layer_vl = Obs_Layer(
                 dataset_dict["fktables"],
                 dataset_dict["vl_fktables"],
                 operation_name,
                 name=f"val_{dataset_name}",
+                fit_cfac=fit_cfac
             )
 
         # To know how many xpoints we compute we are duplicating functionality from obs_layer
