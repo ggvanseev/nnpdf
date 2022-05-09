@@ -407,9 +407,6 @@ class CoreConfig(configparser.Config):
             return len(fit_cfactors)
         return 0
 
-    def parse_fit_cfactors(self, fit_cfactors_ns: list):
-        return fit_cfactors_ns
-
     def produce_number_fitcfactors(self, fit_cfactors=None):
         if fit_cfactors is not None:
             return len(fit_cfactors)
