@@ -17,9 +17,10 @@ from n3fit.backends import MetaModel, clear_backend_state, callbacks
 from n3fit.backends import operations as op
 from n3fit.stopping import Stopping
 from n3fit.vpinterface import N3PDF
-from n3fit.layers.CombineCfac import CombineCfacLayer
 import n3fit.hyper_optimization.penalties
 import n3fit.hyper_optimization.rewards
+
+from n3fit.layers.CombineCfac import CombineCfacLayer
 
 log = logging.getLogger(__name__)
 
@@ -98,6 +99,7 @@ class ModelTrainer:
         model_file=None,
         sum_rules=None,
         parallel_models=1,
+        combiner=None
     ):
         """
         Parameters
@@ -146,9 +148,11 @@ class ModelTrainer:
         self.failed_status = failed_status
         self.debug = debug
         self.all_datasets = []
-        self.nfitcfactors = nfitcfactors
         self._scaler = None
         self._parallel_models = parallel_models
+
+        self.nfitcfactors = nfitcfactors
+        self.combiner = combiner 
 
         # Initialise internal variables which define behaviour
         if debug:

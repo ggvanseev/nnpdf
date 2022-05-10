@@ -20,6 +20,7 @@ from n3fit.backends import operations as op
 from n3fit.backends import MetaLayer, Lambda
 from n3fit.backends import base_layer_selector, regularizer_selector
 
+from n3fit.layers.CombineCfac import CombineCfacLayer
 import tensorflow as tf 
 
 import logging
@@ -48,6 +49,8 @@ class ObservableWrapper:
     positivity: bool = False
     data: np.array = None
     rotation: ObsRotation = None  # only used for diagonal covmat
+    combinationlayer: CombineCfacLayer = None 
+    nfitcfactors = None
 
     def _generate_loss(self, mask=None):
         """Generates the corresponding loss function depending on the values the wrapper
@@ -76,15 +79,19 @@ class ObservableWrapper:
         else:
             split_pdf = [pdf]
         # Every obs gets its share of the split
+        if self.nfitcfactors is not None:
+            combiner = CombineCfacLayer(self.nfitcfactors)
+            self.combiner = combiner
+            output_layers = [combiner(obs(p_pdf)) for p_pdf, obs in zip(split_pdf, self.observables)]
+
         output_layers = [obs(p_pdf) for p_pdf, obs in zip(split_pdf, self.observables)]
+
+        #output_layers = [self.combinationlayer(obs(p_pdf)) for p_pdf, obs in zip(split_pdf, self.observables)]
+        
         # Concatenate all datasets (so that experiments are one single entity)
         ret = op.concatenate(output_layers, axis=2)
         if self.rotation is not None:
             ret = self.rotation(ret)
-
-        #if fit_cfac is not None:
-            #log.info(f"Applying fit_cfac layer")
-            #ret = post_observable(ret, cfactor_values=coefficients)    
 
         return ret
 
@@ -150,6 +157,11 @@ def observable_generator(
         fit_cfac = dataset_dict.get('fit_cfac')
         if fit_cfac is not None:
             coefficients = tf.constant([i.central_value for i in fit_cfac.values()])
+            coefficients = tf.cast(coefficients, tf.float32)
+            #try:
+                #raise ValueError("hola")
+            #except:
+                #import IPython; IPython.embed()
 
         # Look at what kind of layer do we need for this dataset
         if dataset_dict["hadronic"]:
@@ -277,7 +289,13 @@ def observable_generator(
         data=spec_dict["expdata_true"],
         rotation=None,
     )
-
+    
+    #if fit_cfac is not None:
+        #log.info(f"Applying fit_cfac layer")
+        #out_tr = post_observable(out_tr, cfactor_values=coefficients) 
+        #out_vl = post_observable(out_vl, cfactor_values=coefficients)
+        #out_exp = post_observable(out_exp, cfactor_values=coefficients)
+    
     layer_info = {
         "inputs": model_inputs,
         "output": out_exp,

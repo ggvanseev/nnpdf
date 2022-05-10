@@ -17,5 +17,5 @@ class CombineCfacLayer(Layer):
             trainable=True,
         )
 
-    def call(self, inputs, cfactor_values):
+    def __call__(self, inputs, cfactor_values):
         return (1 + tf.reduce_sum(self.w[:, tf.newaxis] * cfactor_values, axis=0)) * inputs
