@@ -51,6 +51,7 @@ class ObservableWrapper:
     rotation: ObsRotation = None  # only used for diagonal covmat
     combinationlayer: CombineCfacLayer = None 
     nfitcfactors = None
+    fit_cfac = None
 
     def _generate_loss(self, mask=None):
         """Generates the corresponding loss function depending on the values the wrapper
@@ -65,7 +66,7 @@ class ObservableWrapper:
             loss = losses.LossIntegrability(name=self.name, c=self.multiplier)
         return loss
 
-    def _generate_experimental_layer(self, pdf):
+    def _generate_experimental_layer(self, pdf, split='ex'):
         """Generates the experimental layer from the PDF"""
         # First split the layer into the different datasets (if needed!)
         if len(self.dataset_xsizes) > 1:
@@ -79,12 +80,20 @@ class ObservableWrapper:
         else:
             split_pdf = [pdf]
         # Every obs gets its share of the split
-        if self.nfitcfactors is not None:
+        if self.fit_cfac is not None:
+            if split == 'ex':
+                cfacs = coefficients
+            elif split == 'tr':
+                cfacs = coefficients[:, dataset_dict['ds_tr_mask']]
+            elif split == 'val':  
+                cfacs = coefficients[:, ~dataset_dict['ds_tr_mask']]
+            
             combiner = CombineCfacLayer(self.nfitcfactors)
             self.combiner = combiner
-            output_layers = [combiner(obs(p_pdf)) for p_pdf, obs in zip(split_pdf, self.observables)]
 
-        output_layers = [obs(p_pdf) for p_pdf, obs in zip(split_pdf, self.observables)]
+            output_layers = [combiner(obs(p_pdf), cfactor_values=coefficients) for p_pdf, obs in zip(split_pdf, self.observables)]
+        else:
+            output_layers = [obs(p_pdf) for p_pdf, obs in zip(split_pdf, self.observables)]
 
         #output_layers = [self.combinationlayer(obs(p_pdf)) for p_pdf, obs in zip(split_pdf, self.observables)]
         
@@ -102,7 +111,7 @@ class ObservableWrapper:
 
 
 def observable_generator(
-    spec_dict, positivity_initial=1.0, integrability=False, post_observable=None
+    spec_dict, positivity_initial=1.0, integrability=False, post_observable=None 
 ):  # pylint: disable=too-many-locals
     """
     This function generates the observable model for each experiment.
@@ -156,12 +165,7 @@ def observable_generator(
 
         fit_cfac = dataset_dict.get('fit_cfac')
         if fit_cfac is not None:
-            coefficients = tf.constant([i.central_value for i in fit_cfac.values()])
-            coefficients = tf.cast(coefficients, tf.float32)
-            #try:
-                #raise ValueError("hola")
-            #except:
-                #import IPython; IPython.embed()
+            coefficients = np.array([i.central_value for i in fit_cfac.values()])
 
         # Look at what kind of layer do we need for this dataset
         if dataset_dict["hadronic"]:
