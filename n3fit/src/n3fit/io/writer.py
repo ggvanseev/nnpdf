@@ -13,6 +13,8 @@ import validphys
 import n3fit
 from n3fit import vpinterface
 
+import pandas as pd
+
 
 class WriterWrapper:
     def __init__(self, replica_number, pdf_object, stopping_object, q2, timings):
@@ -40,7 +42,7 @@ class WriterWrapper:
         self.q2 = q2
         self.timings = timings
 
-    def write_data(self, replica_path_set, fitname, tr_chi2, vl_chi2, true_chi2):
+    def write_data(self, replica_path_set, fitname, tr_chi2, vl_chi2, true_chi2, fit_cfactors=None):
         """
         Wrapper around the `storefit` function.
 
@@ -91,6 +93,7 @@ class WriterWrapper:
             preproc_lines,
             replica_status.positivity_status,
             self.timings,
+            fit_cfactors=fit_cfactors
         )
 
         # export all metadata from the fit to a single yaml file
@@ -254,6 +257,7 @@ def storefit(
     all_preproc_lines,
     pos_state,
     timings,
+    fit_cfactors=None,
 ):
     """
     One-trick function which generates all output in the NNPDF format
@@ -324,6 +328,11 @@ def storefit(
     with open(f"{replica_path}/{fitname}.preproc", "w") as fs:
         for line in all_preproc_lines:
             fs.write(line)
+
+    # Save fitcfactor tables
+    if fit_cfactors is not None:
+        with open(f"{replica_path}/fit_cfactors.csv", 'w') as fs:
+            fit_cfactors.to_csv(fs)
 
     # create info file
     arc_line = " ".join(str(i) for i in arc_lengths)

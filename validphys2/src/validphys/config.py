@@ -446,7 +446,7 @@ class CoreConfig(configparser.Config):
             log.warning(
                 ConfigError(f"Key '{k}' in dataset_input not known.", k, known_keys)
             )
-        
+
         fit_cfac = dataset.get("fit_cfac")
         if fit_cfac is not None:
             if not isinstance(fit_cfac, bool):

@@ -21,6 +21,7 @@ import n3fit.hyper_optimization.penalties
 import n3fit.hyper_optimization.rewards
 
 from n3fit.layers.CombineCfac import CombineCfacLayer
+import pandas as pd
 
 log = logging.getLogger(__name__)
 
@@ -91,6 +92,7 @@ class ModelTrainer:
         fitbasis,
         nnseeds,
         nfitcfactors=0,
+        fitcfactor_labels=None,
         pass_status="ok",
         failed_status="fail",
         debug=False,
@@ -152,6 +154,7 @@ class ModelTrainer:
         self._parallel_models = parallel_models
 
         self.nfitcfactors = nfitcfactors
+        self.fitcfactor_labels = fitcfactor_labels
         self.combiner = combiner 
 
         # Initialise internal variables which define behaviour
@@ -866,6 +869,7 @@ class ModelTrainer:
                 stopping_patience=stopping_epochs,
                 threshold_positivity=threshold_pos,
                 threshold_chi2=threshold_chi2,
+                combiner=self.combiner
             )
 
             # Compile each of the models with the right parameters
@@ -937,6 +941,9 @@ class ModelTrainer:
                     "hyper_losses": l_hyper,
                 },
             }
+
+            dict_out['fit_cfactors'] = pd.DataFrame(self.combiner.get_weights(), columns=self.fitcfactor_labels)
+
             return dict_out
 
         # Keep a reference to the models after training for future reporting

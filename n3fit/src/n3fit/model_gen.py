@@ -81,22 +81,19 @@ class ObservableWrapper:
             split_pdf = [pdf]
         # Every obs gets its share of the split
         if self.fit_cfac is not None:
-            if split == 'ex':
-                cfacs = coefficients
-            elif split == 'tr':
-                cfacs = coefficients[:, dataset_dict['ds_tr_mask']]
-            elif split == 'val':  
-                cfacs = coefficients[:, ~dataset_dict['ds_tr_mask']]
-            
+            #log.info("Applying combination layer")
+            #if split == 'ex':
+                #cfacs = coefficients
+            #elif split == 'tr':
+                #cfacs = coefficients[:, dataset ]
+            coefficients = np.array([i.central_value for i in self.fit_cfac.values()])
             combiner = CombineCfacLayer(self.nfitcfactors)
-            self.combiner = combiner
+            self.combinationlayer = combiner
 
             output_layers = [combiner(obs(p_pdf), cfactor_values=coefficients) for p_pdf, obs in zip(split_pdf, self.observables)]
         else:
             output_layers = [obs(p_pdf) for p_pdf, obs in zip(split_pdf, self.observables)]
 
-        #output_layers = [self.combinationlayer(obs(p_pdf)) for p_pdf, obs in zip(split_pdf, self.observables)]
-        
         # Concatenate all datasets (so that experiments are one single entity)
         ret = op.concatenate(output_layers, axis=2)
         if self.rotation is not None:
@@ -293,13 +290,7 @@ def observable_generator(
         data=spec_dict["expdata_true"],
         rotation=None,
     )
-    
-    #if fit_cfac is not None:
-        #log.info(f"Applying fit_cfac layer")
-        #out_tr = post_observable(out_tr, cfactor_values=coefficients) 
-        #out_vl = post_observable(out_vl, cfactor_values=coefficients)
-        #out_exp = post_observable(out_exp, cfactor_values=coefficients)
-    
+
     layer_info = {
         "inputs": model_inputs,
         "output": out_exp,

@@ -79,7 +79,7 @@ def parse_fit_cfac(fit_cfac, cuts, ndata):
     for name, path in fit_cfac.items():
         with open(path, 'rb') as stream:
             cfac = parse_cfactor(stream)
-            cfac.central_value = 1 - cfac.central_value[cuts]
+            cfac.central_value = (cfac.central_value[cuts] - 1) / (-10**(-4)) 
             cfac.uncertainty = cfac.central_value[cuts]
         name_cfac_map[name] = cfac
     return name_cfac_map
