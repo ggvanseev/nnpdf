@@ -471,20 +471,35 @@ class Loader(LoaderBase):
             for inp in default_filter_rules_input()
         ]
 
-    def check_fit_cfac(self, setname, fit_cfacs, theoryid):
+    def check_fit_cfactors(self, setname, fit_cfactors, theoryid):
+        """
+        Inputs
+        ------
+        setname: str 
+            name of the dataset
+        fit_cfactors: list
+            list of the SMEFT C-factors that we want to fit 
+        theoryid: str
+            name of the theory id we are using
+        Returns
+        fit_cfactor_path_mapping: dict
+            dictionary with the elements of `fit_cfactors` as keys and the
+            path until its SMEFT C-factor in the theory id. 
+            Ex: `{'Y': PosixPath(.../CF_Y_setname.dat)}`
+        """
         _, theopath = self.check_theoryID(theoryid)
-        fit_cfac_path_mapping = {}
+        fit_cfactor_path_mapping = {}
 
-        for fit_cfac in fit_cfacs:
-            cfactorpath = theopath / 'cfactor' / f'CF_{fit_cfac}_{setname}.dat'
+        for fit_cfactor in fit_cfactors:
+            cfactorpath = theopath / 'cfactor' / f'CF_{fit_cfactor}_{setname}.dat'
             if not cfactorpath.exists():
-                msg = (f"Could not find fit cfactor {fit_cfac} for {setname} in {theopath}. "
-                       f"The path {cfactorpath} does not exist."
+                msg = (f"Could not find fit_cfactor {fit_cfactor} for {setname} in {theopath}. "
+                    f"The path {cfactorpath} does not exist."
                 )
                 raise CfactorNotFound(msg)
-            fit_cfac_path_mapping[fit_cfac] = cfactorpath
+            fit_cfactor_path_mapping[fit_cfactor] = cfactorpath
         
-        return fit_cfac_path_mapping
+        return fit_cfactor_path_mapping
 
     def check_dataset(self,
                       name,
@@ -498,7 +513,7 @@ class Loader(LoaderBase):
                       use_fitcommondata=False,
                       fit=None,
                       weight=1,
-                      fit_cfac=None):
+                      fit_cfactors=None):
 
         if not isinstance(theoryid, TheoryIDSpec):
             theoryid = self.check_theoryID(theoryid)
@@ -529,12 +544,14 @@ class Loader(LoaderBase):
             elif cuts is CutsPolicy.FROM_CUT_INTERSECTION_NAMESPACE:
                 raise LoaderError(f"Intersection cuts not supported in loader calls.")
         
-        if fit_cfac is not None:
-            fit_cfac = self.check_fit_cfac(name, fit_cfac, theoryno)
+        if fit_cfactors is not None:
+            # declare `fit_cfactors` to be a dictionary 
+            # with `key` the SMEFT Wilson coefficient and `item` the path to the CF
+            fit_cfactors = self.check_fit_cfactors(name, fit_cfactors, theoryno)
 
         return DataSetSpec(name=name, commondata=commondata,
                            fkspecs=fkspec, thspec=theoryid, cuts=cuts,
-                           frac=frac, op=op, weight=weight, fit_cfac=fit_cfac)
+                           frac=frac, op=op, weight=weight, fit_cfactors=fit_cfactors)
 
     def check_experiment(self, name: str, datasets: List[DataSetSpec]) -> DataGroupSpec:
         """Loader method for instantiating DataGroupSpec objects. The NNPDF::Experiment

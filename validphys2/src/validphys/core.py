@@ -322,15 +322,15 @@ class CommonDataSpec(TupleComp):
 class DataSetInput(TupleComp):
     """Represents whatever the user enters in the YAML to specidy a
     dataset."""
-    def __init__(self, *, name, sys, cfac, frac, weight, custom_group, fit_cfac):
+    def __init__(self, *, name, sys, cfac, frac, weight, custom_group, fit_cfactors):
         self.name=name
         self.sys=sys
         self.cfac = cfac
         self.frac = frac
         self.weight = weight
         self.custom_group = custom_group
-        self.fit_cfac = fit_cfac
-        super().__init__(name, sys, cfac, frac, weight, custom_group)
+        self.fit_cfactors = fit_cfactors # List of strings denoting the SMEFT C-factors
+        super().__init__(name, sys, cfac, frac, weight, custom_group, fit_cfactors)
 
     def __str__(self):
         return self.name
@@ -446,7 +446,7 @@ def cut_mask(cuts):
 class DataSetSpec(TupleComp):
 
     def __init__(self, *, name, commondata, fkspecs, thspec, cuts,
-                 frac=1, op=None, weight=1, fit_cfac=None):
+                 frac=1, op=None, weight=1, fit_cfactors=None):
         self.name = name
         self.commondata = commondata
 
@@ -464,7 +464,7 @@ class DataSetSpec(TupleComp):
             op = 'NULL'
         self.op = op
         self.weight = weight
-        self.fit_cfac = fit_cfac
+        self.fit_cfactors = fit_cfactors # dictionary. Example {'Y': path_to_cfactor}. 
 
         super().__init__(name, commondata, fkspecs, thspec, cuts,
                          frac, op, weight)

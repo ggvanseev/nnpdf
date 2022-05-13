@@ -447,10 +447,13 @@ class CoreConfig(configparser.Config):
                 ConfigError(f"Key '{k}' in dataset_input not known.", k, known_keys)
             )
 
-        fit_cfac = dataset.get("fit_cfac")
+        # Determine if we want to use a dataset to perform PDF-EFT fits `fit_cfac` is a boolean. It's either True or None
+        fit_cfac = dataset.get("fit_cfac") 
         if fit_cfac is not None:
             if not isinstance(fit_cfac, bool):
                 raise ConfigError(f"fit_cfac must be bool not {type(fit_cfac)}")
+            # Returns `fit_cfac_ns`, a list of strings. The elements are the names of the C-factors
+            # in the runcard.
             _, fit_cfac_ns = self.parse_from_(None, "fit_cfactors", write=False)
         else:
             fit_cfac_ns = None
@@ -462,7 +465,7 @@ class CoreConfig(configparser.Config):
             frac=frac,
             weight=weight,
             custom_group=custom_group,
-            fit_cfac = fit_cfac_ns
+            fit_cfactors = fit_cfac_ns
         )
 
     def parse_use_fitcommondata(self, do_use: bool):
@@ -637,7 +640,7 @@ class CoreConfig(configparser.Config):
         cfac = dataset_input.cfac
         frac = dataset_input.frac
         weight = dataset_input.weight
-        fit_cfac = dataset_input.fit_cfac
+        fit_cfactors = dataset_input.fit_cfactors
 
         try:
             ds = self.loader.check_dataset(
@@ -650,7 +653,7 @@ class CoreConfig(configparser.Config):
                 use_fitcommondata=use_fitcommondata,
                 fit=fit,
                 weight=weight,
-                fit_cfac=fit_cfac
+                fit_cfactors=fit_cfactors
             )
         except DataNotFoundError as e:
             raise ConfigError(str(e), name, self.loader.available_datasets)

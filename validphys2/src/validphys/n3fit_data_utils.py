@@ -3,6 +3,7 @@ n3fit_data_utils.py
 
 Library of helper functions to n3fit_data.py for reading libnnpdf objects.
 """
+from multiprocessing.sharedctypes import Value
 import numpy as np
 from validphys.fkparser import parse_cfactor
 
@@ -71,19 +72,25 @@ def fk_parser(fk, is_hadronic=False):
     return dict_out
 
 def parse_fit_cfac(fit_cfac, cuts, ndata):
-    if fit_cfac is None:
-        return None
-    if hasattr(cuts, 'load'):
-        cuts = cuts.load()
-    name_cfac_map = {}
-    for name, path in fit_cfac.items():
-        with open(path, 'rb') as stream:
-            cfac = parse_cfactor(stream)
-            cfac.central_value = (cfac.central_value[cuts] - 1) / (-10**(-4)) 
-            cfac.uncertainty = cfac.central_value[cuts]
-        name_cfac_map[name] = cfac
-    return name_cfac_map
+    # Still has to be analised. Wait to handle the
+    # cuts for validphys to call the function. 
+    try:
+        if fit_cfac is None:
+            return None
+        if hasattr(cuts, 'load'):
+            cuts = cuts.load()
+        name_cfac_map = {}
+        for name, path in fit_cfac.items():
+            with open(path, 'rb') as stream:
+                cfac = parse_cfactor(stream)
+                cfac.central_value = (cfac.central_value[cuts] - 1) / (-10**(-4)) 
+                cfac.uncertainty = cfac.central_value[cuts]
+            name_cfac_map[name] = cfac
+        raise ValueError("")
+    except:
+        import IPython; IPython.embed()
 
+    return name_cfac_map  
 
 def common_data_reader_dataset(dataset_c, dataset_spec):
     """
