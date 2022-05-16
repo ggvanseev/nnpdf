@@ -72,23 +72,42 @@ def fk_parser(fk, is_hadronic=False):
     return dict_out
 
 def parse_fit_cfac(fit_cfac, cuts, ndata):
-    # Still has to be analised. Wait to handle the
-    # cuts for validphys to call the function. 
-    try:
-        if fit_cfac is None:
-            return None
-        if hasattr(cuts, 'load'):
-            cuts = cuts.load()
-        name_cfac_map = {}
-        for name, path in fit_cfac.items():
-            with open(path, 'rb') as stream:
-                cfac = parse_cfactor(stream)
-                cfac.central_value = (cfac.central_value[cuts] - 1) / (-10**(-4)) 
-                cfac.uncertainty = cfac.central_value[cuts]
-            name_cfac_map[name] = cfac
-        raise ValueError("")
-    except:
-        import IPython; IPython.embed()
+    """
+    This function extracts the numerical C-factors for a fit with SMEFT coefficients
+    from the `../theoryid/cfactor/CF_WilsonCoeff_dataset.dat` files. 
+
+    Inputs
+    ------
+        fit_cfac: dict
+            dictionary with the SMEFT C-factor we want to fit as 'key'
+            and the path to the C-factor dataset as `value`. 
+            Ex: {'Y': PosixPath(../theory53/cfactor/CF_Y_CMS_HMDY_13TEV.dat)}. 
+        cuts: np.array
+            numpy array with the indices of the datapoints of the C-factor file
+            that we are using for the fits. Ex: The array of indices of the 
+            43 datapoints in `CF_Y_CMS_HMDY_13TEV.dat`.
+        ndata: int
+            number of datapoints that we are using for the fit in the C-factor file. 
+            Ex: in `CF_Y_CMS_HMDY_13TEV.dat` ndata is '43'. 
+    Returns
+    -------
+        name_cfac_map: dict
+            dictionary with the SMEFT C-factor we want to fit as `key` and
+            the SMEFT C-factor dataset we are using, as a `CFactorData` object
+            as `value`. 
+
+    """
+    if fit_cfac is None:
+        return None
+    if hasattr(cuts, 'load'):
+        cuts = cuts.load()
+    name_cfac_map = {}
+    for name, path in fit_cfac.items():
+        with open(path, 'rb') as stream:
+            cfac = parse_cfactor(stream)
+            cfac.central_value = (cfac.central_value[cuts] - 1) / (-10**(-4)) 
+            cfac.uncertainty = cfac.central_value[cuts]
+        name_cfac_map[name] = cfac
 
     return name_cfac_map  
 
@@ -131,7 +150,7 @@ def common_data_reader_dataset(dataset_c, dataset_spec):
         "name": dataset_c.GetSetName(),
         "frac": dataset_spec.frac,
         "ndata": ndata,
-        "fit_cfac": parse_fit_cfac(dataset_spec.fit_cfac, cuts, ndata)
+        "fit_cfac": parse_fit_cfac(dataset_spec.fit_cfactors, cuts, ndata)
     }
 
     return [dataset_dict]

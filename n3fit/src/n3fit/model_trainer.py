@@ -134,6 +134,8 @@ class ModelTrainer:
                         whether sum rules should be enabled (All, MSR, VSR, False)
             parallel_models: int
                 number of models to fit in parallel
+            nfitcfactors: int
+                number of SMEFT Wilson coefficients to be fit along with the PDFs
         """
         # Save all input information
         self.exp_info = exp_info
@@ -153,7 +155,7 @@ class ModelTrainer:
         self._scaler = None
         self._parallel_models = parallel_models
 
-        self.nfitcfactors = nfitcfactors
+        self.nfitcfactors = nfitcfactors # number: number of SMEFT Wilsons to fit 
         self.fitcfactor_labels = fitcfactor_labels
         self.combiner = combiner 
 
