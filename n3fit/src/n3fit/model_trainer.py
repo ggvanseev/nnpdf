@@ -155,8 +155,8 @@ class ModelTrainer:
         self._scaler = None
         self._parallel_models = parallel_models
 
-        self.nfitcfactors = nfitcfactors # number: number of SMEFT Wilsons to fit 
-        self.fitcfactor_labels = fitcfactor_labels
+        self.nfitcfactors = nfitcfactors # int: number of SMEFT Wilsons to fit 
+        self.fitcfactor_labels = fitcfactor_labels # list: list of SMEFT Wilsons to fit
         self.combiner = combiner 
 
         # Initialise internal variables which define behaviour
