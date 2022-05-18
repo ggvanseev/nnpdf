@@ -84,20 +84,22 @@ class ObservableWrapper:
             split_pdf = [pdf]
 
         # Every obs gets its share of the split
-        #if self.fit_cfac is not None: #fit_cfac: dict. `key` is the Wilson coefficient and `value` is CFactorData object
-            #log.info("Applying combination layer")
-            #coefficients = np.array([i.central_value for i in self.fit_cfac.values()])
-            #combiner = CombineCfacLayer(self.nfitcfactors)
-            #self.combinationlayer = combiner
+        if self.fit_cfac is not None: #fit_cfac: dict. `key` is the Wilson coefficient and `value` is CFactorData object
+            log.info("Applying combination layer")
+            coefficients = np.array([i.central_value for i in self.fit_cfac.values()])
+            combiner = CombineCfacLayer(self.nfitcfactors)
+            self.combinationlayer = combiner
 
-            #output_layers = [combiner(inputs=obs(p_pdf), cfactor_values=coefficients) for p_pdf, obs in zip(split_pdf, self.observables)]
-        #else:
-        output_layers = [obs(p_pdf) for p_pdf, obs in zip(split_pdf, self.observables)]
+            output_layers = [combiner(inputs=obs(p_pdf), cfactor_values=coefficients) for p_pdf, obs in zip(split_pdf, self.observables)]
+        else:
+            output_layers = [obs(p_pdf) for p_pdf, obs in zip(split_pdf, self.observables)]
 
         # Concatenate all datasets (so that experiments are one single entity)
         ret = op.concatenate(output_layers, axis=2)
         if self.rotation is not None:
             ret = self.rotation(ret)
+
+        #import IPython; IPython.embed()
 
         return ret
 
@@ -196,7 +198,10 @@ def observable_generator(
             vl_fit_cfac[fit_cfac_key].central_value = vl_central_values 
             vl_fit_cfac[fit_cfac_key].uncertainty= vl_uncertainty
 
-        #import IPython; IPython.embed()
+        else:
+            fit_cfac = None
+            tr_fit_cfac = None
+            vl_fit_cfac = None
 
         # Now generate the observable layer, which takes the following information:
         # operation name
@@ -213,6 +218,7 @@ def observable_generator(
                 dataset_dict["tr_fktables"],
                 operation_name,
                 name=f"dat_{dataset_name}",
+                fit_cfac=tr_fit_cfac,
             )
             obs_layer_ex = obs_layer_vl = None
         elif spec_dict.get("data_transformation_tr") is not None:
@@ -222,6 +228,7 @@ def observable_generator(
                 dataset_dict["ex_fktables"],
                 operation_name,
                 name=f"exp_{dataset_name}",
+                fit_cfac=fit_cfac,
             )
             obs_layer_tr = obs_layer_vl = obs_layer_ex
         else:
@@ -230,18 +237,21 @@ def observable_generator(
                 dataset_dict["tr_fktables"],
                 operation_name,
                 name=f"dat_{dataset_name}",
+                fit_cfac=tr_fit_cfac
             )
             obs_layer_ex = Obs_Layer(
                 dataset_dict["fktables"],
                 dataset_dict["ex_fktables"],
                 operation_name,
                 name=f"exp_{dataset_name}",
+                fit_cfac=fit_cfac
             )
             obs_layer_vl = Obs_Layer(
                 dataset_dict["fktables"],
                 dataset_dict["vl_fktables"],
                 operation_name,
                 name=f"val_{dataset_name}",
+                fit_cfac=vl_fit_cfac,
             )
 
         # To know how many xpoints we compute we are duplicating functionality from obs_layer
@@ -267,6 +277,7 @@ def observable_generator(
             multiplier=positivity_initial,
             positivity=not integrability,
             integrability=integrability,
+            fit_cfac=tr_fit_cfac
         )
 
         layer_info = {
@@ -292,7 +303,7 @@ def observable_generator(
         invcovmat=spec_dict["invcovmat"],
         data=spec_dict["expdata"],
         rotation=obsrot_tr,
-        #fit_cfac=fit_cfac,
+        fit_cfac=tr_fit_cfac,
     )
     out_vl = ObservableWrapper(
         f"{spec_name}_val",
@@ -301,7 +312,7 @@ def observable_generator(
         invcovmat=spec_dict["invcovmat_vl"],
         data=spec_dict["expdata_vl"],
         rotation=obsrot_vl,
-        #fit_cfac=fit_cfac,
+        fit_cfac=vl_fit_cfac,
     )
     out_exp = ObservableWrapper(
         f"{spec_name}_exp",
