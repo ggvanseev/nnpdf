@@ -24,6 +24,7 @@ from n3fit.backends import base_layer_selector, regularizer_selector
 
 from n3fit.layers.CombineCfac import CombineCfacLayer
 import tensorflow as tf 
+import copy
 
 import logging
 log = logging.getLogger(__name__)
@@ -81,16 +82,17 @@ class ObservableWrapper:
             split_pdf = splitting_layer(pdf)
         else:
             split_pdf = [pdf]
-        # Every obs gets its share of the split
-        if self.fit_cfac is not None: #fit_cfac: dict. `key` is the Wilson coefficient and `value` is CFactorData object
-            log.info("Applying combination layer")
-            coefficients = np.array([i.central_value for i in self.fit_cfac.values()])
-            combiner = CombineCfacLayer(self.nfitcfactors)
-            self.combinationlayer = combiner
 
-            output_layers = [combiner(inputs=obs(p_pdf), cfactor_values=coefficients) for p_pdf, obs in zip(split_pdf, self.observables)]
-        else:
-            output_layers = [obs(p_pdf) for p_pdf, obs in zip(split_pdf, self.observables)]
+        # Every obs gets its share of the split
+        #if self.fit_cfac is not None: #fit_cfac: dict. `key` is the Wilson coefficient and `value` is CFactorData object
+            #log.info("Applying combination layer")
+            #coefficients = np.array([i.central_value for i in self.fit_cfac.values()])
+            #combiner = CombineCfacLayer(self.nfitcfactors)
+            #self.combinationlayer = combiner
+
+            #output_layers = [combiner(inputs=obs(p_pdf), cfactor_values=coefficients) for p_pdf, obs in zip(split_pdf, self.observables)]
+        #else:
+        output_layers = [obs(p_pdf) for p_pdf, obs in zip(split_pdf, self.observables)]
 
         # Concatenate all datasets (so that experiments are one single entity)
         ret = op.concatenate(output_layers, axis=2)
@@ -158,14 +160,6 @@ def observable_generator(
         # Get the generic information of the dataset
         dataset_name = dataset_dict["name"]
 
-        # fit_cfac: dict. Wilson coefficient as `key` and
-        # `CFactorData` object as `value`
-        #fit_cfac = dataset_dict.get('fit_cfac')
-        #dataset_mask = dataset_dict['ds_tr_mask']
-        # Split cfactor coefficients into training and validation
-        #fit_cfac_tr = fit_cfac.copy()
-
-
         # Look at what kind of layer do we need for this dataset
         if dataset_dict["hadronic"]:
             Obs_Layer = DY
@@ -174,6 +168,35 @@ def observable_generator(
 
         # Set the operation (if any) to be applied to the fktables of this dataset
         operation_name = dataset_dict["operation"]
+
+        # See if we want to use the SMEFT C-factors of the dataser
+        # to perform a SMEFT-PDF fit. 
+        # fit_cfac: dict. Wilson coefficient as `key` and
+        # `CFactorData` object as `value`
+        fit_cfac = dataset_dict.get('fit_cfac')
+        if fit_cfac is not None:
+            # Get the mask of the dataset to slice the C-factors
+            dataset_mask = dataset_dict['ds_tr_mask']
+            # Get the `key` of the C-factor
+            fit_cfac_key = list(fit_cfac.keys())[0]
+            # Get the `value` of the C-factor
+            #fit_cfac_value = fit_cfac.copy()[fit_cfac_key]
+
+            # Define the fit_cfac dictionary for training
+            tr_fit_cfac = copy.deepcopy(fit_cfac) 
+            tr_central_values = fit_cfac[fit_cfac_key].central_value[dataset_mask] 
+            tr_uncertainty= fit_cfac[fit_cfac_key].uncertainty[dataset_mask] 
+            tr_fit_cfac[fit_cfac_key].central_value = tr_central_values 
+            tr_fit_cfac[fit_cfac_key].uncertainty= tr_uncertainty
+
+            # Define the fit_cfac dictionary for validation 
+            vl_fit_cfac = copy.deepcopy(fit_cfac) 
+            vl_central_values = fit_cfac[fit_cfac_key].central_value[~dataset_mask] 
+            vl_uncertainty= fit_cfac[fit_cfac_key].uncertainty[~dataset_mask] 
+            vl_fit_cfac[fit_cfac_key].central_value = vl_central_values 
+            vl_fit_cfac[fit_cfac_key].uncertainty= vl_uncertainty
+
+        #import IPython; IPython.embed()
 
         # Now generate the observable layer, which takes the following information:
         # operation name
@@ -234,7 +257,7 @@ def observable_generator(
         model_obs_tr.append(obs_layer_tr)
         model_obs_vl.append(obs_layer_vl)
         model_obs_ex.append(obs_layer_ex)
-    
+
     full_nx = sum(dataset_xsizes)
     if spec_dict["positivity"]:
         out_positivity = ObservableWrapper(
@@ -288,7 +311,7 @@ def observable_generator(
         covmat=spec_dict["covmat"],
         data=spec_dict["expdata_true"],
         rotation=None,
-        #fit_cfac=fit_cfac,
+        fit_cfac=fit_cfac,
     )
 
     layer_info = {
