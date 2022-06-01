@@ -458,6 +458,8 @@ class CoreConfig(configparser.Config):
         else:
             fit_cfac_ns = None
 
+        #import IPython; IPython.embed()
+
         return DataSetInput(
             name=name,
             sys=sysnum,
@@ -640,6 +642,8 @@ class CoreConfig(configparser.Config):
         cfac = dataset_input.cfac
         frac = dataset_input.frac
         weight = dataset_input.weight
+
+        # List of strings with the Wilson we are fitting
         fit_cfactors = dataset_input.fit_cfactors
 
         try:

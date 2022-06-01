@@ -12,6 +12,7 @@ import pathlib
 import functools
 import logging
 import re
+from telnetlib import IP
 import tempfile
 import shutil
 import os
@@ -498,7 +499,7 @@ class Loader(LoaderBase):
                 )
                 raise CfactorNotFound(msg)
             fit_cfactor_path_mapping[fit_cfactor] = cfactorpath
-        
+
         return fit_cfactor_path_mapping
 
     def check_dataset(self,

@@ -333,6 +333,7 @@ def storefit(
     if fit_cfactors is not None:
         with open(f"{replica_path}/fit_cfactors.csv", 'w') as fs:
             fit_cfactors.to_csv(fs)
+            #import IPython; IPython.embed()
 
     # create info file
     arc_line = " ".join(str(i) for i in arc_lengths)

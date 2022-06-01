@@ -596,7 +596,9 @@ class Stopping:
         log.info(total_str)
 
         if self.combiner is not None:
-            log.info(self.combiner.get_weights())
+            log.info(f"Wilson coefficient = {self.combiner.get_weights()[0]}")
+
+        #import IPython; IPython.embed()
 
     def stop_here(self):
         """Returns the stopping status

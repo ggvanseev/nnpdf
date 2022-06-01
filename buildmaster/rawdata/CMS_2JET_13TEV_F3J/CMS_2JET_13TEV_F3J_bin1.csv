@@ -1,0 +1,23 @@
+#: table_doi: 10.17182/hepdata.91058.v1/t1
+#: name: Figure 1
+#: description: Dijet mass spectrum (points) compared to a fitted parameterization of the background (solid curve), where the fit is performed in the range 290 < $m_{jj}$ < 1000 GeV in the background-only hypothesis. The horizontal bars show the widths of each bin in dijet mass. The dashed lines represent the dijet mass distribution from 400, 550, and 700 GeV resonance signals expected to be excluded at 95% CL by this analysis.
+#: data_file: figure_1.yaml
+Dijet mass [GeV] Dijet mass [GeV] LOW Dijet mass [GeV] HIGH Cross-section [pb/GeV]
+293.0 290.0 296.0 107.99
+310.5 296.0 325.0 93.166
+339.5 325.0 354.0 71.68
+370.0 354.0 386.0 54.011
+402.5 386.0 419.0 40.035
+436.0 419.0 453.0 29.595
+471.0 453.0 489.0 21.792
+507.5 489.0 526.0 16.018
+545.5 526.0 565.0 11.771
+585.5 565.0 606.0 8.6233
+627.5 606.0 649.0 6.3116
+671.0 649.0 693.0 4.6164
+716.5 693.0 740.0 3.3835
+764.0 740.0 788.0 2.4806
+813.0 788.0 838.0 1.8215
+864.0 838.0 890.0 1.3419
+917.0 890.0 944.0 0.9866
+972.0 944.0 1000.0 0.7255

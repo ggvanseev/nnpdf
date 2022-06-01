@@ -475,7 +475,9 @@ class ModelTrainer:
             if not self.mode_hyperopt:
                 log.info("Generating layers for experiment %s", exp_dict["name"])
 
-            exp_layer = model_gen.observable_generator(exp_dict, post_observable=combiner)
+            #exp_layer = model_gen.observable_generator(exp_dict, post_observable=combiner)
+            exp_layer = model_gen.observable_generator(exp_dict)
+            #import IPython; IPython.embed()
 
             # Save the input(s) corresponding to this experiment
             self.input_list += exp_layer["inputs"]
@@ -944,8 +946,6 @@ class ModelTrainer:
                 },
             }
 
-            dict_out['fit_cfactors'] = pd.DataFrame(self.combiner.get_weights(), columns=self.fitcfactor_labels)
-
             return dict_out
 
         # Keep a reference to the models after training for future reporting
@@ -957,4 +957,10 @@ class ModelTrainer:
         # (which contains metadata about the stopping)
         # and the pdf models (which are used to generate the PDF grids and compute arclengths)
         dict_out = {"status": passed, "stopping_object": stopping_object, "pdf_models": pdf_models}
+
+        dict_out['fit_cfactors'] = pd.DataFrame(
+            self.combiner.get_weights()[0], columns=self.fitcfactor_labels)
+
+        #import IPython; IPython.embed()
+
         return dict_out

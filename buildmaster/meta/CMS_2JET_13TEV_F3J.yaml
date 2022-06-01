@@ -1,0 +1,4 @@
+ndata:  	  18 # Only one bin 
+nsys:   	  0 # No information on systematic errors.          
+setname:	  "CMS_2JET_13TEV_F3J" 
+proctype:	  "DIJET"

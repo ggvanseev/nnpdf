@@ -110,7 +110,7 @@ class ObservableWrapper:
 
 
 def observable_generator(
-    spec_dict, positivity_initial=1.0, integrability=False, post_observable=None 
+    spec_dict, positivity_initial=1.0, integrability=False 
 ):  # pylint: disable=too-many-locals
     """
     This function generates the observable model for each experiment.

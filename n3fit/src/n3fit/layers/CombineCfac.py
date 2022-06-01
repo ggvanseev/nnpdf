@@ -22,8 +22,8 @@ class CombineCfacLayer(Layer):
 
         init_value = tf.random_normal_initializer()
         self.w = tf.Variable(
-            initial_value=init_value(shape=(ncfacs,), dtype="float32"),
-            #initial_value=tf.zeros(shape=(ncfacs,), dtype="float32"),
+            #initial_value=init_value(shape=(ncfacs,), dtype="float32"),
+            initial_value=tf.zeros(shape=(ncfacs,), dtype="float32"),
             trainable=True,
         )
 
