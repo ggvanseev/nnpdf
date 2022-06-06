@@ -26,6 +26,7 @@ class CombineCfacLayer(Layer):
             initial_value=tf.zeros(shape=(ncfacs,), dtype="float32"),
             trainable=True,
         )
+        import IPython; IPython.embed()
 
     def __call__(self, inputs, cfactor_values):
         """

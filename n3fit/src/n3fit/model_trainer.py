@@ -10,6 +10,7 @@
 """
 import logging
 from itertools import zip_longest
+from tracemalloc import stop
 import numpy as np
 from scipy.interpolate import PchipInterpolator
 import n3fit.model_gen as model_gen
@@ -759,7 +760,9 @@ class ModelTrainer:
         train_chi2 = stopping_object.evaluate_training(self.training["model"])
         val_chi2 = stopping_object.vl_chi2
         exp_chi2 = self.experimental["model"].compute_losses()["loss"] / self.experimental["ndata"]
-        return train_chi2, val_chi2, exp_chi2
+        fit_cfac = [i for i in stopping_object.combiner.w if stopping_object is not None][0].numpy()
+        #import IPython; IPython.embed()
+        return train_chi2, val_chi2, exp_chi2, fit_cfac
 
     def hyperparametrizable(self, params):
         """

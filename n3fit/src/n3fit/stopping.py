@@ -156,7 +156,7 @@ class FitState:
     tr_ndata = None
     vl_suffix = None
 
-    def __init__(self, training_info, validation_info):
+    def __init__(self, training_info, validation_info, fit_cfac=None):
         if self.vl_ndata is None or self.tr_ndata is None or self.vl_suffix is None:
             raise ValueError(
                 "FitState cannot be instantiated until vl_ndata, tr_ndata and vl_suffix are filled"
@@ -168,6 +168,7 @@ class FitState:
         self._tr_chi2 = None
         self._vl_dict = None
         self._tr_dict = None
+        self.fit_cfac = fit_cfac
 
     @property
     def vl_loss(self):
@@ -368,7 +369,7 @@ class FitHistory:
         """ Returns the best validation loss for each replica """
         return np.array([i.best_vl for i in self._replicas])
 
-    def register(self, epoch, training_info, validation_info):
+    def register(self, epoch, training_info, validation_info, fit_cfac=None):
         """Save a new fitstate and updates the current final epoch
 
         Parameters
@@ -380,7 +381,7 @@ class FitHistory:
                 the current epoch of the fit
         """
         # Save all the information in a fitstate object
-        fitstate = FitState(training_info, validation_info)
+        fitstate = FitState(training_info, validation_info, fit_cfac=fit_cfac)
         self.final_epoch = epoch
         self._history.append(fitstate)
         return fitstate
@@ -536,11 +537,12 @@ class Stopping:
 
         # Step 2. Compute the validation metrics
         validation_info = self._validation.compute_losses()
+        fit_cfac = [i for i in self.combiner.w if self.combiner is not None][0].numpy()
 
         # Step 3. Register the current point in (the) history
-        fitstate = self._history.register(epoch, training_info, validation_info)
+        fitstate = self._history.register(epoch, training_info, validation_info, fit_cfac=fit_cfac)
         if print_stats:
-            self.print_current_stats(epoch, fitstate)
+            self.print_current_stats(epoch, fitstate, fit_cfac=fit_cfac)
 
         # Step 4. Check whether this is a better fit
         #         this means improving vl_chi2 and passing positivity
@@ -576,7 +578,7 @@ class Stopping:
         self.stop_now = True
         self._history.reload()
 
-    def print_current_stats(self, epoch, fitstate):
+    def print_current_stats(self, epoch, fitstate, fit_cfac=None):
         """
         Prints ``fitstate`` training and validation chi2s
         """
