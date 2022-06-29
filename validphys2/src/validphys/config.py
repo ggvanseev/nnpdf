@@ -450,10 +450,13 @@ class CoreConfig(configparser.Config):
             if not isinstance(fit_cfac, bool):
                 raise ConfigError(f"fit_cfac must be bool not {type(fit_cfac)}")
 
-            # TODO: change parsing from fit here. It runs havoc with {@with fits@}
-            # fit_cfac_ns is a list of string with the Wilsons to fit
-            _, fit_cfac_ns = self.parse_from_(None, "fit_cfactors", write=False)
-        else:
+	    if fit_cfac:
+            	# TODO: change parsing from fit here. It runs havoc with {@with fits@}
+            	# fit_cfac_ns is a list of string with the Wilsons to fit
+            	_, fit_cfac_ns = self.parse_from_(None, "fit_cfactors", write=False)
+	    else:
+		fit_cfac_ns = None
+	else:
             fit_cfac_ns = None
 
         return DataSetInput(
