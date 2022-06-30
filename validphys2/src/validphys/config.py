@@ -403,8 +403,8 @@ class CoreConfig(configparser.Config):
         """ Set the PDF and basis from the fit config. """
         return {**fitpdf, **basisfromfit}
 
-    def produce_nfitcfactors(self, fit_cfactors=None):
-        if fit_cfactors is not None:
+    def produce_nfitcfactors(self, simunet_on, fit_cfactors=None):
+        if fit_cfactors is not None and simunet_on:
             return len(fit_cfactors)
         return 0
 
@@ -468,6 +468,15 @@ class CoreConfig(configparser.Config):
             custom_group=custom_group,
             fit_cfac_ns=fit_cfac_ns
         )
+
+    def produce_fit_cfactors(self, simunet_on, fit_cfactors_list=None):
+        """Produces a global fit_cfactors variable from the list given in the runcard.
+        If simunet_on: False, then returns nothing.
+        """
+        if simunet_on:
+            return fit_cfactors_list
+        else:
+            return None
 
     def parse_use_fitcommondata(self, do_use: bool):
         """Use the commondata files in the fit instead of those in the data

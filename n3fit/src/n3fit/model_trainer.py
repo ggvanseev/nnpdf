@@ -467,14 +467,16 @@ class ModelTrainer:
 
         # Now we need to loop over all dictionaries (First exp_info, then pos_info and integ_info)
 
-        combiner = CombineCfacLayer(
-                    self.nfitcfactors,
-                    self.fit_cfactors,
-        )
+        if self.nfitcfactors != 0:
+            combiner = CombineCfacLayer(
+                        self.nfitcfactors,
+                        self.fit_cfactors,
+            )
+        else:
+            combiner = None
 
-        #log.info(f"Using cfactor scale {self.cfactor_scale}")
         self.combiner = combiner
-  
+
         for exp_dict in self.exp_info:
             if not self.mode_hyperopt:
                 log.info("Generating layers for experiment %s", exp_dict["name"])
