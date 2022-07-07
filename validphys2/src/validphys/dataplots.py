@@ -8,12 +8,14 @@ import logging
 import itertools
 from collections import defaultdict
 from collections.abc import Sequence
+from re import A
 
 import numpy as np
 import numpy.linalg as la
 import matplotlib.pyplot as plt
 from matplotlib import cm, colors as mcolors, ticker as mticker
 from matplotlib.gridspec import GridSpec
+from mpl_toolkits.axes_grid1 import make_axes_locatable
 import scipy.stats as stats
 import pandas as pd
 
@@ -803,7 +805,7 @@ def plot_2d_fit_cfactors(read_fit_cfactors, replica_data):
     chi2 = [info.chi2 for info in replica_data]
 
     scatter = ax_scatter.scatter(
-        read_fit_cfactors.iloc[:, 0], read_fit_cfactors.iloc[:, 1], c=chi2
+        read_fit_cfactors.iloc[:, 0], read_fit_cfactors.iloc[:, 1], c=chi2 
     )
     ax_scatter.ticklabel_format(
         axis='both', scilimits=(0, 0), style='sci', useOffset=True
@@ -821,7 +823,13 @@ def plot_2d_fit_cfactors(read_fit_cfactors, replica_data):
     ax_hist_x.grid(False)
     ax_hist_y.grid(False)
 
+    # https://stackoverflow.com/questions/32462881/add-colorbar-to-existing-axis
+    fig.colorbar(
+        scatter, orientation="horizontal", cax=ax_cbar, label=r"$\chi^2$", aspect=1, fraction=0.046, pad=0.04 
+    )
+
     fig.subplots_adjust(hspace=0.15, wspace=0.15)
+
     fig.canvas.draw()
 
     # Ugly but we need to do this annoying hack to prevent the offset_text
@@ -847,9 +855,84 @@ def plot_2d_fit_cfactors(read_fit_cfactors, replica_data):
         ax_scatter.set_ylabel(labels[1])
 
     # https://stackoverflow.com/questions/32462881/add-colorbar-to-existing-axis
-    fig.colorbar(
-        scatter, orientation="horizontal", cax=ax_cbar, label=r"$\chi^2$"
+    #fig.colorbar(
+        #scatter, orientation="horizontal", cax=ax_cbar, label=r"$\chi^2$", aspect=100, shrink=5.0
+    #)
+
+    return fig
+
+
+@figure
+def plot_2d_fit_cfactors_new(read_fit_cfactors, replica_data):
+    """Plot two dimensional distributions of the fit cfactors"""
+    rows, columns = read_fit_cfactors.shape
+    labels = read_fit_cfactors.columns
+    if columns != 2:
+        raise RuntimeError(f"Ensure the number of fitted cfactors is 2 not {columns}")
+
+    fig, ax = plt.subplots(figsize=(5, 5))
+
+    chi2 = [info.chi2 for info in replica_data]
+
+    scatter_plot = ax.scatter(
+        read_fit_cfactors.iloc[:, 0], read_fit_cfactors.iloc[:, 1], c=chi2 
     )
+
+    # create new axes on the right and on the top of the current axes
+    divider = make_axes_locatable(ax)
+    cax = divider.append_axes("bottom", size="5%", pad=0.5)
+    fig.colorbar(scatter_plot, cax=cax, label=r"$\chi^2$", orientation='horizontal')
+
+    # below height and pad are in inches
+    ax_histx = divider.append_axes("top", 0.5, pad=0.1, sharex=ax)
+    ax_histy = divider.append_axes("right", 0.5, pad=0.1, sharey=ax)
+
+    # make some labels invisible for the count in the histograms
+    ax_histx.xaxis.set_tick_params(labelbottom=False)
+    ax_histy.yaxis.set_tick_params(labelleft=False)
+    
+    ax.ticklabel_format(
+        axis='both', scilimits=(0, 0), style='sci', useOffset=True
+    )
+
+    ax_histx.hist(read_fit_cfactors.iloc[:, 0])
+    ax_histy.hist(read_fit_cfactors.iloc[:, 1], orientation='horizontal')
+
+    ax_histx.set_xticklabels([])
+    ax_histy.set_yticklabels([])
+    ax_histx.minorticks_on()
+    ax_histy.minorticks_on()
+    ax_histx.tick_params(axis='x', which='minor', bottom=False)
+    ax_histy.tick_params(axis='y', which='minor', left=False)
+    ax_histx.grid(False)
+    ax_histy.grid(False)
+
+    #fig.subplots_adjust(hspace=0.15, wspace=0.15)
+
+    #fig.canvas.draw()
+
+    # Ugly but we need to do this annoying hack to prevent the offset_text
+    # from being hidden beneath the upper histogram. Basically, this bit of
+    # code moves the offset_text multipler e.g 10^-5 and puts it in the
+    # axis labels so it reads e.g W/10^-5.
+
+    x_offset_text = ax.xaxis.get_offset_text()
+    y_offset_text = ax.yaxis.get_offset_text()
+    x_offset_text.set_visible(False)
+    y_offset_text.set_visible(False)
+
+    if x_offset_text.get_text():
+        ax.set_xlabel(
+            labels[0] + '/' + x_offset_text.get_text().replace('\\times', '')
+        )
+    else:
+        ax.set_xlabel(labels[0])
+    if y_offset_text.get_text():
+        ax.set_ylabel(
+            labels[1] + '/' + y_offset_text.get_text().replace('\\times', '')
+        )
+    else:
+        ax.set_ylabel(labels[1])
 
     return fig
 
