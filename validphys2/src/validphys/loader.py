@@ -29,7 +29,7 @@ from reportengine import filefinder
 from validphys.core import (CommonDataSpec, FitSpec, TheoryIDSpec, FKTableSpec,
                             PositivitySetSpec, DataSetSpec, PDF, Cuts, DataGroupSpec,
                             peek_commondata_metadata, CutsPolicy,
-                            InternalCutsWrapper, HyperscanSpec)
+                            InternalCutsWrapper, HyperscanSpec, FixedObservableSpec)
 from validphys.utils import tempfile_cleaner
 from validphys import lhaindex
 
@@ -46,6 +46,8 @@ class DataNotFoundError(LoadFailedError): pass
 class SysNotFoundError(LoadFailedError): pass
 
 class FKTableNotFound(LoadFailedError): pass
+
+class FixedPredictionNotFound(LoadFailedError): pass
 
 class CfactorNotFound(LoadFailedError): pass
 
@@ -611,6 +613,25 @@ class Loader(LoaderBase):
         except filefinder.FinderError as e:
             raise LoaderError(e) from e
         return path/name
+
+    def check_fixed_observable(self, fixed_observable_input, theoryid, fit_cfac):
+        setname = fixed_observable_input.dataset
+        cd = self.check_commondata(setname)
+        pred_path = theoryid.path / 'fixed' / f'FIXED_{setname}.dat'
+        if not pred_path.is_file():
+            raise FixedPredictionNotFound(
+                f"Could not find fixed prediction for set {setname}. "
+                f"File {pred_path} not found."
+            )
+        cfdict = self.get_fit_cfac_dict(setname, fit_cfac, theoryid.id)
+        return FixedObservableSpec(
+            name=setname,
+            commondata=cd,
+            pred_path=pred_path,
+            bsm_fac=tuple(cfdict.items()),
+            frac=fixed_observable_input.frac,
+            weight=fixed_observable_input.weight
+        )
 
 
 #http://stackoverflow.com/a/15645088/1007990

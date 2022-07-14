@@ -16,6 +16,8 @@ import inspect
 import json
 import logging
 from pathlib import Path
+import dataclasses
+from typing import Optional
 
 import numpy as np
 
@@ -860,3 +862,43 @@ class Filter:
 
     def __str__(self):
         return '%s: %s' % (self.label, self.indexes)
+
+@dataclasses.dataclass(frozen=True)
+class FixedObservableInput:
+    """Representation of the data the user inputs to obtain a fixed observable"""
+    dataset: str
+    weight: float = 1.
+    frac: float = 1.
+    # TODO: Enable this when we get around having selective coefs
+    # bsm_cfac: tuple[str, ...]
+
+
+@dataclasses.dataclass(frozen=True)
+class FixedObservableSpec:
+    """Representation of a fixed observable"""
+    name: str
+    commondata: CommonDataSpec
+    pred_path: Path
+    # Note: This is not a dict as we want it to be hashable
+    bsm_fac: tuple[tuple[str, Path], ...]
+    weight: float = 1.
+    frac: float = 1
+    custom_group: Optional[str]  = None
+
+    # Bogus cuts to make this more compatible with the usual data
+    @property
+    def cuts(self):
+        return None
+
+    def load_exp(self):
+        """Load the experimental data for the fixed observable"""
+        from validphys.commondata import load_commondata
+
+        return load_commondata(self.commondata)
+
+    def load_pred(self):
+        """Load the raw theory predictions (without wilson coefficients)"""
+        from validphys.fkparser import parse_cfactor
+
+        with open(self.pred_path, 'rb') as f:
+            return parse_cfactor(f)

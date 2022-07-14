@@ -66,6 +66,9 @@ dataset_inputs:
   - {dataset: HLLHC_HMDY_CC_EL_FINAL, frac: 0.5, cfac: [QCD, EWK], bsm_fac: True}                   # HL
   - {dataset: HLLHC_HMDY_CC_MU_FINAL, frac: 0.5, cfac: [QCD, EWK], bsm_fac: True}                   # HL
 
+fixed_observable_inputs:
+    - {dataset: ATLAS_CMS_WHEL_8TEV}
+
 ############################################################
 bsm_fac_data: ["W", "Y"]
 

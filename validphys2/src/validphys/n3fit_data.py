@@ -80,6 +80,26 @@ def tr_masks(data, replica_trvlseed):
         trmask_partial.append(mask)
     return trmask_partial
 
+def fixed_observables_masks(fixed_observables, replica_trvlseed):
+    nameseed = int(hashlib.sha256(str(fixed_observables).encode()).hexdigest(), 16) % 10 ** 8
+    nameseed += replica_trvlseed
+    # TODO: update this to new random infrastructure.
+    np.random.seed(nameseed)
+    trmask_partial = []
+    for dataset in fixed_observables:
+        cuts = dataset.cuts
+        ndata = len(cuts.load()) if cuts else dataset.commondata.ndata
+        frac = dataset.frac
+        trmax = int(frac * ndata)
+        mask = np.concatenate(
+            [np.ones(trmax, dtype=np.bool), np.zeros(ndata - trmax, dtype=np.bool)]
+        )
+        np.random.shuffle(mask)
+        trmask_partial.append(mask)
+    return trmask_partial
+
+
+
 def kfold_masks(kpartitions, data):
     """Collect the masks (if any) due to kfolding for this data.
     These will be applied to the experimental data before starting
@@ -188,9 +208,12 @@ def _mask_fk_tables(dataset_dicts, tr_masks):
 
 def fitting_data_dict(
     data,
+    fixed_observables,
+    fixed_observables_exp_data,
     make_replica,
     dataset_inputs_t0_covmat_from_systematics,
     tr_masks,
+    fixed_observables_masks,
     kfold_masks,
     diagonal_basis=None,
 ):
@@ -239,8 +262,13 @@ def fitting_data_dict(
     spec_c = data.load()
     ndata = spec_c.GetNData()
     expdata_true = spec_c.get_cv().reshape(1, ndata)
+    if fixed_observables:
+        fixed_true = np.concatenate([dt.central_values for dt in fixed_observables_exp_data])
+    else:
+        fixed_true = np.array([])
+    fixed_true = fixed_true.reshape(1, -1)
 
-    expdata = make_replica
+    expdata, fixed_data = make_replica[:ndata], make_replica[ndata:]
 
     datasets = common_data_reader_experiment(spec_c, data)
 
@@ -250,6 +278,8 @@ def fitting_data_dict(
 
     if diagonal_basis:
         log.info("working in diagonal basis.")
+        if fixed_observables:
+            raise NotImplementedError("Fixed observables not supported")
         eig, v = np.linalg.eigh(covmat)
         dt_trans = v.T
     else:
@@ -264,6 +294,18 @@ def fitting_data_dict(
     tr_mask = _mask_fk_tables(datasets_copy, tr_masks)
     vl_mask = ~tr_mask
 
+    if fixed_observables_masks:
+        fixed_observable_mask = np.concatenate(fixed_observables_masks, dtype=bool)
+        total_tr_mask = np.concatenate([tr_mask, fixed_observable_mask], dtype=bool)
+        fixed = fixed_data[fixed_observable_mask]
+        fixed_vl = fixed_data[~fixed_observable_mask]
+    else:
+        total_tr_mask = tr_mask
+        fixed = fixed_data
+        fixed_vl = np.array([])
+
+    total_vl_mask = ~total_tr_mask
+
     if diagonal_basis:
         expdata = np.matmul(dt_trans, expdata)
         # make a 1d array of the diagonal
@@ -277,10 +319,10 @@ def fitting_data_dict(
         dt_trans_tr = dt_trans[tr_mask]
         dt_trans_vl = dt_trans[vl_mask]
     else:
-        covmat_tr = covmat[tr_mask].T[tr_mask]
+        covmat_tr = covmat[total_tr_mask].T[total_tr_mask]
         invcovmat_tr = np.linalg.inv(covmat_tr)
 
-        covmat_vl = covmat[vl_mask].T[vl_mask]
+        covmat_vl = covmat[total_vl_mask].T[total_vl_mask]
         invcovmat_vl = np.linalg.inv(covmat_vl)
 
     ndata_tr = np.count_nonzero(tr_mask)
@@ -295,6 +337,8 @@ def fitting_data_dict(
     # for experimental we need to negate the mask
     folds = defaultdict(list)
     for fold in kfold_masks:
+        if fixed_observables_masks:
+            raise NotImplementedError("Fixed observables not supported")
         folds["training"].append(fold[tr_mask])
         folds["validation"].append(fold[vl_mask])
         folds["experimental"].append(~fold)
@@ -303,16 +347,19 @@ def fitting_data_dict(
         "datasets": datasets_copy,
         "name": str(data),
         "expdata_true": expdata_true,
+        "fixed_true": fixed_true,
         "invcovmat_true": inv_true,
         "covmat": covmat,
         "trmask": tr_mask,
         "invcovmat": invcovmat_tr,
         "ndata": ndata_tr,
         "expdata": expdata_tr,
+        "fixed": fixed,
         "vlmask": vl_mask,
         "invcovmat_vl": invcovmat_vl,
         "ndata_vl": ndata_vl,
         "expdata_vl": expdata_vl,
+        "fixed_vl": fixed_vl,
         "positivity": False,
         "count_chi2": True,
         "folds" : folds,
