@@ -1,0 +1,25 @@
+;
+; electroweak corrections calculated by Dittmaier, Huss, Speckner 
+; for ATLAS dijets jets R=0.4  2.5<ystar<3.0
+; for the ATLAS bins as in reference JHEP11(2012) 095 arXiv:1210.0438
+; no uncertainty is provided
+; xmin, xmax, ew-correction
+; 
+1600 1760 1.00013
+1760 1940 1.00043
+1940 2120 1.00079
+2120 2330 1.00123
+2330 2550 1.00166
+2550 2780 1.00214
+2780 3040 1.00262
+3040 3310 1.00307
+3310 3610 1.0035
+3610 3930 1.0038
+3930 4270 1.00403
+4270 4640 1.00411
+4640 5040 1.00392
+5040 5470 1.00363
+5470 5940 1.00292
+5940 6440 1.00183
+6440 9066 1.00069
+
