@@ -1,5 +1,5 @@
-setname: "ATLAS_Jet_13TeV"
-ndata: 177 # 33+32+31+31+28+22
+setname: "CMS_Jet_13TeV_r04"
+ndata: 78 # 22+21+19+16
 observable: {description: "double differential cross section w.r.t. pT and y", label: "$d^2\sigma/dp_T dy$", units: "pb/GeV"}
 kinematics:
   variables:
@@ -12,11 +12,11 @@ version:
 version_comment:
 
 arXiv:
-  url: "https://arxiv.org/abs/1711.02692"
+  url: "https://arxiv.org/abs/2111.10431"
 iNSPIRE:
-  url: "https://inspirehep.net/literature/1634970"
+  url: "https://inspirehep.net/literature/1972986"
 hepdata:
-  url: "https://www.hepdata.net/record/ins1634970"
+  url: "https://www.hepdata.net/record/ins1972986"
   version: 1
   tables: []
 
