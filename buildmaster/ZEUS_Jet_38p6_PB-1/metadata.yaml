@@ -1,0 +1,26 @@
+setname: "ZEUS_Jet_38p6_PB-1"
+ndata: 30
+observable: {description: "differential cross section w.r.t. E_T", label: "$d\\sigma/dE_T$", units: "pb/GeV"}
+kinematics:
+  variables:
+    sqrt_s: {description: "center of mass energy", label: "$\\sqrt{s}$", units: "GeV"}
+    q^2: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
+    E_T: {description: "transverse energy", label: "$E_T$", units: "GeV"}
+  file: kinematics.yaml
+
+version: 
+version_comment:
+
+arXiv:
+  url: "https://arxiv.org/abs/hep-ex/0208037"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/593409"
+hepdata:
+  url: "https://www.hepdata.net/record/ins593409"
+  version: 1
+  tables: []
+
+data_central: data.yaml
+data_uncertainties:
+  - uncertainties.yaml
+
