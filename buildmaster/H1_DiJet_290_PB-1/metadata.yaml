@@ -1,6 +1,6 @@
 setname: "H1_DiJet_290_PB-1"
 ndata: 48
-bservable: {description: "double differential cross section w.r.t. q^2 and pT", label: "$\\sigma", units: "pb"}
+observable: {description: "double differential cross section w.r.t. q^2 and pT", label: "$\\sigma", units: "pb"}
 kinematics:
   variables:
     qrt_s: {description: "center of mass energy", label: "$\\sqrt{s}$", units: "GeV"}

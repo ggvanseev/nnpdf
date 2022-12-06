@@ -1,4 +1,4 @@
-setname: "H1_DiJet_351_PB-1"
+setname: "H1_Jet_351_PB-1"
 ndata: 24
 observable: {description: "double differential cross section w.r.t. q^2 and pT", label: "$\\sigma", units: "pb"}
 kinematics:
@@ -18,7 +18,7 @@ iNSPIRE:
 hepdata:
   url: "https://www.hepdata.net/record/ins1301218"
   version: 1
-  tables: [7]
+  tables: [6]
 
 data_central: data.yaml
 data_uncertainties:
