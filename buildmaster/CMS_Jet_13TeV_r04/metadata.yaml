@@ -1,9 +1,9 @@
 setname: "CMS_Jet_13TeV_r04"
 ndata: 78 # 22+21+19+16
-observable: {description: "double differential cross section w.r.t. pT and y", label: "$d^2\\sigma/dp_T dy$", units: "pb/GeV"}
+observable: {description: "double differential cross section w.r.t. pT and y", label: '$d^2\sigma/dp_T dy$', units: "pb/GeV"}
 kinematics:
   variables:
-    sqrt_s: {description: "center of mass energy", label: "$\\sqrt{s}$", units: "GeV"}
+    sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
     pT: {description: "transverse momentum", label: "$p_T$", units: "GeV"}
     y: {description: "absolute rapidity", label: "$y$", units: ""}
   file: kinematics.yaml

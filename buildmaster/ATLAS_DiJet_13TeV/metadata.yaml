@@ -1,9 +1,9 @@
 setname: ATLAS_DiJet_13TeV
 ndata: 136 # 28+28+27+24+21+8
-observable: {description: "double differential cross section w.r.t. m_jj and y", label: "$d^2\\sigma/dm_{jj} dy$", units: "pb/GeV"}
+observable: {description: "double differential cross section w.r.t. m_jj and y", label: '$d^2\sigma/dm_{jj} dy$', units: "pb/GeV"}
 kinematics:
   variables:
-    sqrt_s: {description: "center of mass energy", label: "$\\sqrt{s}$", units: "GeV"}
+    sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
     m_jj: {description: "dijet invariant mass", label: "$m_{jj}$", units: "GeV"}
     y*: {description: "half the absolute rapidity between dijet", label: "$y^*$", units: ""}
   file: kinematics.yaml

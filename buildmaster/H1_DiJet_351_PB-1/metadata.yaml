@@ -1,11 +1,11 @@
 setname: "H1_DiJet_351_PB-1"
 ndata: 24
-observable: {description: "double differential cross section w.r.t. q^2 and pT", label: "$\\sigma", units: "pb"}
+observable: {description: "double differential cross section w.r.t. q^2 and pT", label: '$\sigma', units: "pb"}
 kinematics:
   variables:
-    qrt_s: {description: "center of mass energy", label: "$\\sqrt{s}$", units: "GeV"}
+    qrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
     q^2: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
-    p_T: {description: "transverse momentum", label: "$p_T$", units: "GeV"}
+    p_T: {description: "mean transverse momentum", label: '$\langle p_T \rangle$', units: "GeV"}
   file: kinematics.yaml
 
 version: 

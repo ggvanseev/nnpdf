@@ -26,7 +26,7 @@ def processData():
         elif i == 4:
             y_min = 1.5
             y_max = 2
-        y_central = float((y_min+y_max)/2)
+        y_central = None
         hepdata_tables="rawdata/ak4_xsec_ybin"+str(i)+".yaml"
         with open(hepdata_tables, 'r') as file:
             input = yaml.safe_load(file)
@@ -39,7 +39,7 @@ def processData():
             data_central.append(data_central_value)
             pT_min = input['independent_variables'][0]['values'][j]['low']
             pT_max = input['independent_variables'][0]['values'][j]['high']
-            pT_central = float((pT_min+pT_max)/2)
+            pT_central = None
             kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT': {'min': pT_min, 'mid': pT_central, 'max': pT_max}, 'y': {'min': y_min, 'mid': y_central, 'max': y_max}}
             kin.append(kin_value)
             

@@ -46,7 +46,7 @@ def processData():
             data_central.append(data_central_value)
             ET_max = input['independent_variables'][0]['values'][j]['high']
             ET_min = input['independent_variables'][0]['values'][j]['low']
-            ET_central = float((ET_max+ET_min)/2)
+            ET_central = None
             kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': q_sqr_central, 'max': q_sqr_max},'ET': {'min': ET_min, 'mid': ET_central, 'max': ET_max}}
             kin.append(kin_value)
 

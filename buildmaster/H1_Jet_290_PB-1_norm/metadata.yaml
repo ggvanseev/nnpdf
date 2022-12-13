@@ -1,11 +1,11 @@
 setname: "H1_Jet_290_PB-1_norm"
-ndata: 54
-observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: "$\\sigma", units: "pb"}
+ndata: 48
+observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\sigma', units: "pb"}
 kinematics:
   variables:
-    qrt_s: {description: "center of mass energy", label: "$\\sqrt{s}$", units: "GeV"}
-    q^2: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
-    p_T: {description: "transverse momentum", label: "$p_T$", units: "GeV"}
+    qrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+    q^2: {description: "momentum transferred squared", label: '$q^2$', units: "GeV^2"}
+    p_T: {description: "transverse momentum", label: '$p_T$', units: "GeV"}
   file: kinematics.yaml
 
 version: 
@@ -18,7 +18,7 @@ iNSPIRE:
 hepdata:
   url: "https://www.hepdata.net/record/ins1496981"
   version: 1
-  tables: [25, 26, 27, 28, 29, 30, 31, 32, 52]
+  tables: [25, 26, 27, 28, 29, 30, 31, 32]
 
 data_central: data.yaml
 data_uncertainties:

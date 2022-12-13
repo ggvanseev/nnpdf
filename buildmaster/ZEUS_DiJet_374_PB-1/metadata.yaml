@@ -1,11 +1,11 @@
 setname: "ZEUS_DiJet_374_PB-1"
 ndata: 22
-observable: {description: "differential cross section w.r.t. E_T", label: "$d\\sigma/dE_T$", units: "pb/GeV"}
+observable: {description: "differential cross section w.r.t. E_T", label: '$d\sigma/dE_T$', units: "pb/GeV"}
 kinematics:
   variables:
-    qrt_s: {description: "center of mass energy", label: "$\\sqrt{s}$", units: "GeV"}
+    qrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
     q^2: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
-    E_T: {description: "transverse energy", label: "$E_T$", units: "GeV"}
+    E_T: {description: "mean jet transverse energy of the dijet system in the Breit frame", label: '$\langle E_{T, B} \rangle$', units: "GeV"}
   file: kinematics.yaml
 
 version: 
