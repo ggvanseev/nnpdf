@@ -1,0 +1,25 @@
+setname: "CMS_ttBar_13TeV_var=dSig_dmttBar_norm"
+ndata: 15
+observable: {description: "normalized differential cross section w.r.t. invariant mass of ttBar", label: '$1/\sigma * d\sigma/dm_{t\bar{t}}$', units: "1/GeV"}
+kinematics:
+  variables:
+    sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+    m_ttBar: {description: "invariant mass of ttBar", label: '$m_{t\bar{t}}$', units: "GeV"}
+  file: kinematics.yaml
+
+version: 
+version_comment:
+
+arXiv:
+  url: "https://arxiv.org/abs/2108.02803"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1901295"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1901295"
+  version: 1
+  tables: ['parton_norm_ttm']
+
+data_central: data.yaml
+data_uncertainties:
+  - uncertainties.yaml
+
