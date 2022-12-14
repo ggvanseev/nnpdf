@@ -1,10 +1,10 @@
 setname: "ATLAS_ttBar_13TeV_var=dSig_dmttBar_norm"
 ndata: 9
-observable: {description: "normalized differential cross section w.r.t. ttBar invariant mass", label: '$1/\sigma * d\sigma/dm_{ttBar}$', units: "1/GeV"}
+observable: {description: "normalized differential cross section w.r.t. ttBar invariant mass", label: '$1/\sigma * d\sigma/dm_{t\bar{t}}$', units: "1/GeV"}
 kinematics:
   variables:
     sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-    m_ttBar: {description: "invariant mass of ttBar", label: 'm_{ttBar}', units: "GeV"}
+    m_ttBar: {description: "invariant mass of ttBar", label: 'm_{t\bar{t}}', units: "GeV"}
   file: kinematics.yaml
 
 version: 
