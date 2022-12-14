@@ -1,6 +1,6 @@
 setname: "H1_DiJet_351_PB-1_norm"
 ndata: 24
-observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\sigma', units: "pb"}
+observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\sigma/\sigma_{NC}$', units: ""}
 kinematics:
   variables:
     qrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
