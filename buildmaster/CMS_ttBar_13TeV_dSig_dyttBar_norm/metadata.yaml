@@ -1,0 +1,25 @@
+setname: "CMS_ttBar_13TeV_dSig_dyttBar_norm"
+ndata: 10
+observable: {description: "normalized differential cross section w.r.t. absolute rapidity of ttBar", label: '$1/\sigma * d\sigma/d|y_{t\bar{t}}|$', units: ""}
+kinematics:
+  variables:
+    sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+    y_ttBar: {description: "absolute rapidity of ttBar", label: '$|y_{t\bar{t}}|$', units: ""}
+  file: kinematics.yaml
+
+version: 
+version_comment:
+
+arXiv:
+  url: "https://arxiv.org/abs/2108.02803"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1901295"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1901295"
+  version: 1
+  tables: ['parton_norm_tty']
+
+data_central: data.yaml
+data_uncertainties:
+  - uncertainties.yaml
+

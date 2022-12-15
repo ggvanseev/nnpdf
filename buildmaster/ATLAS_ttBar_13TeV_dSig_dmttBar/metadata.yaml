@@ -1,0 +1,25 @@
+setname: "ATLAS_ttBar_13TeV_dSig_dmttBar"
+ndata: 9
+observable: {description: "differential cross section w.r.t. ttBar invariant mass", label: '$d\sigma/dm_{t\bar{t}}$', units: "pb/GeV"}
+kinematics:
+  variables:
+    sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+    m_ttBar: {description: "invariant mass of ttBar", label: 'm_{t\bar{t}}', units: "GeV"}
+  file: kinematics.yaml
+
+version: 
+version_comment:
+
+arXiv:
+  url: "https://arxiv.org/abs/1908.07305"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1750330"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1750330"
+  version: 1
+  tables: [618]
+
+data_central: data.yaml
+data_uncertainties:
+  - uncertainties.yaml
+

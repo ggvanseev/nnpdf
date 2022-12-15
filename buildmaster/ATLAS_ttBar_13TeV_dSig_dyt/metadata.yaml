@@ -1,0 +1,25 @@
+setname: "ATLAS_ttBar_13TeV_dSig_dyt"
+ndata: 5
+observable: {description: "differential cross section w.r.t. absolute rapidity of t", label: '$d\sigma/d|y_{t}|$', units: "pb"}
+kinematics:
+  variables:
+    sqrt_s: {description: "center of mass energy", label: '\sqrt{s}', units: "GeV"}
+    y_t: {description: "absolute rapidity of t", label: '|y_{t}|', units: ""}
+  file: kinematics.yaml
+
+version: 
+version_comment:
+
+arXiv:
+  url: "https://arxiv.org/abs/1908.07305"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1750330"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1750330"
+  version: 1
+  tables: [614]
+
+data_central: data.yaml
+data_uncertainties:
+  - uncertainties.yaml
+
