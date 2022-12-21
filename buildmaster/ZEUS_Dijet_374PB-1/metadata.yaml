@@ -1,0 +1,29 @@
+setname: 'ZEUS_Dijet_374PB-1'
+
+arXiv:
+  url: "https://arxiv.org/abs/1010.6167"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/875006"
+hepdata:
+  url: "https://www.hepdata.net/record/ins875006"
+  version: 1
+
+version: 
+version_comment:
+
+implemented_observables:
+
+  - observable: {description: "differential cross section w.r.t. E_T", label: '$d\sigma/dE_T$', units: "pb/GeV"}
+    ndata: 22
+    tables: [13, 14, 15, 16, 17, 18]
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        q^2: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
+        E_T: {description: "mean jet transverse energy of the dijet system in the Breit frame", label: '$\langle E_{T, B} \rangle$', units: "GeV"}
+      file: kinematics.yaml
+    data_central: 
+      file: data.yaml
+    data_uncertainties:
+      file:
+        - uncertainties.yaml

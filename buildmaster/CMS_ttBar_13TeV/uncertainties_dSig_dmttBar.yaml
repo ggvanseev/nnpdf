@@ -1,0 +1,40 @@
+definitions:
+  stat:
+    definition: total statistical uncertainty
+    treatment: ADD
+    type: UNCORR
+  sys:
+    definition: total systematic uncertainty
+    treatment: MULT
+    type: CORR
+bins:
+- stat: 0.001604
+  sys: 0.01319
+- stat: 0.004784
+  sys: 0.04129
+- stat: 0.004737
+  sys: 0.02307
+- stat: 0.004561
+  sys: 0.01422
+- stat: 0.004331
+  sys: 0.008395
+- stat: 0.003748
+  sys: 0.005468
+- stat: 0.002253
+  sys: 0.003026
+- stat: 0.00155
+  sys: 0.001988
+- stat: 0.0006554
+  sys: 0.0009134
+- stat: 0.0004129
+  sys: 0.0005086
+- stat: 0.0002151
+  sys: 0.0002024
+- stat: 0.0001441
+  sys: 0.0001108
+- stat: 6.014e-05
+  sys: 3.967e-05
+- stat: 3.459e-05
+  sys: 1.697e-05
+- stat: 4.692e-06
+  sys: 2.366e-06
