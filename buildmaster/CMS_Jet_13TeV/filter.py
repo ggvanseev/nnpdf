@@ -1,4 +1,3 @@
-import sys
 import yaml
 
 def processData():

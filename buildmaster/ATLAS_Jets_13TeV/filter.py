@@ -1,4 +1,3 @@
-import sys
 import yaml
 from utils import symmetrize_errors as se
 

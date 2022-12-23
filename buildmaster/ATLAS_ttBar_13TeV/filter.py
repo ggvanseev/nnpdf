@@ -1,4 +1,3 @@
-import sys
 import yaml
 from utils import symmetrize_errors as se
 from utils import percentage_to_absolute as pta

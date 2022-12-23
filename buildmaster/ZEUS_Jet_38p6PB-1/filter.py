@@ -1,4 +1,3 @@
-import sys
 import yaml
 from utils import symmetrize_errors as se
 
@@ -6,13 +5,15 @@ def processData():
     with open('metadata.yaml', 'r') as file:
         metadata = yaml.safe_load(file)
 
-    tables = metadata['implemented_observables'][0]['tables']
+    tables_q2_et = metadata['implemented_observables'][0]['tables']
 
-    data_central = []
-    kin = []
-    error = []
+    data_central_q2_et = []
+    kin_q2_et = []
+    error_q2_et = []
 
-    for i in tables:
+# q2_et data
+
+    for i in tables_q2_et:
 
         hepdata_tables="rawdata/Table"+str(i)+".yaml"
         with open(hepdata_tables, 'r') as file:
@@ -49,35 +50,48 @@ def processData():
                 ET_max = input['independent_variables'][0]['values'][k]['high']
                 ET_min = input['independent_variables'][0]['values'][k]['low']
                 kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max},'ET': {'min': ET_min, 'mid': None, 'max': ET_max}}
-                kin.append(kin_value)
+                kin_q2_et.append(kin_value)
+                value_delta = 0
                 error_value = {}
-                error_value['stat'] = values[k]['errors'][0]['symerror']
-                sys_delta, error_value['sys'] = se(values[k]['errors'][1]['asymerror']['plus'], values[k]['errors'][1]['asymerror']['minus'])
-                jet_es_delta, error_value['jet_es'] = se(values[k]['errors'][2]['asymerror']['plus'], values[k]['errors'][2]['asymerror']['minus'])
-                data_central_value = data_central_value + sys_delta + jet_es_delta
-                data_central.append(data_central_value)
-                error.append(error_value)
+                if 'symerror' in values[k]['errors'][0]:
+                    error_value['stat'] = values[k]['errors'][0]['symerror']
+                else:
+                    se_delta, se_sigma = se(values[k]['errors'][0]['asymerror']['plus'], values[k]['errors'][0]['asymerror']['minus'])
+                    value_delta = value_delta + se_delta
+                    error_value['stat'] = se_sigma
+                if 'symerror' in values[k]['errors'][1]:
+                    error_value['sys'] = values[k]['errors'][1]['symerror']
+                else:
+                    se_delta, se_sigma = se(values[k]['errors'][1]['asymerror']['plus'], values[k]['errors'][1]['asymerror']['minus'])
+                    value_delta = value_delta + se_delta
+                    error_value['sys'] = se_sigma
+                if 'symerror' in values[k]['errors'][2]:
+                    error_value['jet_es'] = values[k]['errors'][2]['symerror']
+                else:
+                    se_delta, se_sigma = se(values[k]['errors'][2]['asymerror']['plus'], values[k]['errors'][2]['asymerror']['minus'])
+                    value_delta = value_delta + se_delta
+                    error_value['jet_es'] = se_sigma
+                data_central_value = data_central_value + value_delta
+                data_central_q2_et.append(data_central_value)
+                error_q2_et.append(error_value)
 
-    error_definition = {
+    error_definition_q2_et = {
         'stat': {'description': 'statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
-        'sys': {'description': 'systematic uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
-        'jet_es': {'description': 'jet energy scale uncertainty', 'treatment': '', 'type': ''}
+        'sys': {'description': 'systematic uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'jet_es': {'description': 'jet energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR'}
     }
 
-    data_central_yaml = {'data_central': data_central}
-    kinematics_yaml = {'bins': kin}
-    uncertainties_yaml = {'definitions': error_definition, 'bins': error}
+    data_central_q2_et_yaml = {'data_central': data_central_q2_et}
+    kinematics_q2_et_yaml = {'bins': kin_q2_et}
+    uncertainties_q2_et_yaml = {'definitions': error_definition_q2_et, 'bins': error_q2_et}
 
-    with open('data.yaml', 'w') as file:
-        yaml.dump(data_central_yaml, file, sort_keys=False)
+    with open('data_q2_et.yaml', 'w') as file:
+        yaml.dump(data_central_q2_et_yaml, file, sort_keys=False)
 
-    with open('kinematics.yaml', 'w') as file:
-        yaml.dump(kinematics_yaml, file, sort_keys=False)
+    with open('kinematics_q2_et.yaml', 'w') as file:
+        yaml.dump(kinematics_q2_et_yaml, file, sort_keys=False)
 
-    with open('uncertainties.yaml', 'w') as file:
-        yaml.dump(uncertainties_yaml, file, sort_keys=False)
+    with open('uncertainties_q2_et.yaml', 'w') as file:
+        yaml.dump(uncertainties_q2_et_yaml, file, sort_keys=False)
 
 processData()
-
-
-    
