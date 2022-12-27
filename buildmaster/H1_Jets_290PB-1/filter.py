@@ -1,6 +1,7 @@
 import yaml
 from utils import percentage_to_absolute as pta
 from utils import symmetrize_errors as se
+from math import sqrt
 
 def processData():
     with open('metadata.yaml', 'r') as file:
@@ -76,19 +77,43 @@ def processData():
             kin_jet.append(kin_value)
             value_delta = 0
             error_value = {}
-            for k in range(12):
+            error_value
+            for k in 0, 1, 5, 6, 7, 8, 9, 10, 11:
                 if 'symerror' in values[j]['errors'][k]:
                     error_value[values[j]['errors'][k]['label']] = pta(values[j]['errors'][k]['symerror'], data_central_value)
                 else:
                     se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value))
                     value_delta = value_delta + se_delta
                     error_value[values[j]['errors'][k]['label']] = se_sigma
+            for k in 2, 3, 4:
+                if 'symerror' in values[j]['errors'][k]:
+                    error_value[values[j]['errors'][k]['label']+'_1'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                    error_value[values[j]['errors'][k]['label']+'_2'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                else:
+                    se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value)/sqrt(2), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value)/sqrt(2))
+                    value_delta = value_delta + se_delta + se_delta
+                    error_value[values[j]['errors'][k]['label']+'_1'] = se_sigma
+                    error_value[values[j]['errors'][k]['label']+'_2'] = se_sigma
             data_central_value = data_central_value + value_delta
             data_central_jet.append(data_central_value)
             error_jet.append(error_value)
 
     error_definition_jet = {
-
+        'stat':{'description': 'statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Uncorr':{'description': 'systematic uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Model_1':{'description': 'MC model uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Model_2':{'description': 'MC model uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ModelRW_1':{'description': 'reweighting uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'ModelRW_2':{'description': 'reweighting uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'JES_1':{'description': 'jet energy scale uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'JES_2':{'description': 'jet energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'RCES':{'description': 'remaining cluster energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ElEn':{'description': 'electron energy uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ElTh':{'description': 'electron theta uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'Lumi':{'description': 'luminosity', 'treatment': 'MULT', 'type': 'CORR'},
+        'LArN':{'description': 'lar noise', 'treatment': 'MULT', 'type': 'CORR'},
+        'StatMC':{'description': 'MC statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'RadErr':{'description': 'radiative uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     }
 
     data_central_jet_yaml = {'data_central': data_central_jet}
@@ -147,19 +172,42 @@ def processData():
             kin_jet_norm.append(kin_value)
             value_delta = 0
             error_value = {}
-            for k in range(12):
+            for k in 0, 1, 5, 6, 7, 8, 9, 10, 11:
                 if 'symerror' in values[j]['errors'][k]:
                     error_value[values[j]['errors'][k]['label']] = pta(values[j]['errors'][k]['symerror'], data_central_value)
                 else:
                     se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value))
                     value_delta = value_delta + se_delta
                     error_value[values[j]['errors'][k]['label']] = se_sigma
+            for k in 2, 3, 4:
+                if 'symerror' in values[j]['errors'][k]:
+                    error_value[values[j]['errors'][k]['label']+'_1'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                    error_value[values[j]['errors'][k]['label']+'_2'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                else:
+                    se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value)/sqrt(2), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value)/sqrt(2))
+                    value_delta = value_delta + se_delta + se_delta
+                    error_value[values[j]['errors'][k]['label']+'_1'] = se_sigma
+                    error_value[values[j]['errors'][k]['label']+'_2'] = se_sigma
             data_central_value = data_central_value + value_delta
             data_central_jet_norm.append(data_central_value)
             error_jet_norm.append(error_value)
 
     error_definition_jet_norm = {
-
+        'stat':{'description': 'statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Uncorr':{'description': 'systematic uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Model_1':{'description': 'MC model uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Model_2':{'description': 'MC model uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ModelRW_1':{'description': 'reweighting uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'ModelRW_2':{'description': 'reweighting uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'JES_1':{'description': 'jet energy scale uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'JES_2':{'description': 'jet energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'RCES':{'description': 'remaining cluster energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ElEn':{'description': 'electron energy uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ElTh':{'description': 'electron theta uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'Lumi':{'description': 'luminosity', 'treatment': 'MULT', 'type': 'CORR'},
+        'LArN':{'description': 'lar noise', 'treatment': 'MULT', 'type': 'CORR'},
+        'StatMC':{'description': 'MC statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'RadErr':{'description': 'radiative uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     }
 
     data_central_jet_norm_yaml = {'data_central': data_central_jet_norm}
@@ -194,19 +242,38 @@ def processData():
         kin_jet_highQ2.append(kin_value)
         value_delta = 0
         error_value = {}
-        for k in range(9):
+        for k in 0, 3, 4, 5, 6, 7, 8:
+                if 'symerror' in values[j]['errors'][k]:
+                    error_value[values[j]['errors'][k]['label']] = pta(values[j]['errors'][k]['symerror'], data_central_value)
+                else:
+                    se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value))
+                    value_delta = value_delta + se_delta
+                    error_value[values[j]['errors'][k]['label']] = se_sigma
+        for k in 1, 2:
             if 'symerror' in values[j]['errors'][k]:
-                error_value[values[j]['errors'][k]['label']] = pta(values[j]['errors'][k]['symerror'], data_central_value)
+                error_value[values[j]['errors'][k]['label']+'_1'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                error_value[values[j]['errors'][k]['label']+'_2'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
             else:
-                se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value))
-                value_delta = value_delta + se_delta
-                error_value[values[j]['errors'][k]['label']] = se_sigma
+                se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value)/sqrt(2), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value)/sqrt(2))
+                value_delta = value_delta + se_delta + se_delta
+                error_value[values[j]['errors'][k]['label']+'_1'] = se_sigma
+                error_value[values[j]['errors'][k]['label']+'_2'] = se_sigma
         data_central_value = data_central_value + value_delta
         data_central_jet_highQ2.append(data_central_value)
         error_jet_highQ2.append(error_value)
     
     error_definition_jet_highQ2 = {
-
+        'stat':{'description':'statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR' },
+        'Model_1':{'description':'MC model uncertainty', 'treatment': 'ADD', 'type': 'UNCORR' },
+        'Model_2':{'description':'MC model uncertainty', 'treatment': 'MULT', 'type': 'CORR' },
+        'JES_1':{'description':'jet energy scale uncertainty', 'treatment': 'ADD', 'type': 'UNCORR' },
+        'JES_2':{'description':'jet energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR' },
+        'RCES':{'description':'remaining cluster energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR' },
+        '$E_{e^\prime}$':{'description':'electron energy', 'treatment': 'MULT', 'type': 'CORR' },
+        '$\theta_{e^\prime}$':{'description':'electron theta', 'treatment': 'MULT', 'type': 'CORR' },
+        'ID(e)':{'description': 'electron identification', 'treatment': 'MULT', 'type': 'CORR'},
+        'LArNoise':{'description':'lar noice', 'treatment': 'MULT', 'type': 'CORR' },
+        'Norm':{'description': 'normalization uncertainty', 'treatment': 'MULT', 'type': 'CORR'}
     }
 
     data_central_jet_highQ2_yaml = {'data_central': data_central_jet_highQ2}
@@ -242,19 +309,36 @@ def processData():
         kin_jet_highQ2_norm.append(kin_value)
         value_delta = 0
         error_value = {}
-        for k in range(7):
+        for k in 0, 3, 4, 5, 6:
+                if 'symerror' in values[j]['errors'][k]:
+                    error_value[values[j]['errors'][k]['label']] = pta(values[j]['errors'][k]['symerror'], data_central_value)
+                else:
+                    se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value))
+                    value_delta = value_delta + se_delta
+                    error_value[values[j]['errors'][k]['label']] = se_sigma
+        for k in 1, 2:
             if 'symerror' in values[j]['errors'][k]:
-                error_value[values[j]['errors'][k]['label']] = pta(values[j]['errors'][k]['symerror'], data_central_value)
+                error_value[values[j]['errors'][k]['label']+'_1'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                error_value[values[j]['errors'][k]['label']+'_2'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
             else:
-                se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value))
-                value_delta = value_delta + se_delta
-                error_value[values[j]['errors'][k]['label']] = se_sigma
+                se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value)/sqrt(2), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value)/sqrt(2))
+                value_delta = value_delta + se_delta + se_delta
+                error_value[values[j]['errors'][k]['label']+'_1'] = se_sigma
+                error_value[values[j]['errors'][k]['label']+'_2'] = se_sigma
         data_central_value = data_central_value + value_delta
         data_central_jet_highQ2_norm.append(data_central_value)
         error_jet_highQ2_norm.append(error_value)
     
     error_definition_jet_highQ2_norm = {
-
+        'stat':{'description':'statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR' },
+        'Model_1':{'description':'MC model uncertainty', 'treatment': 'ADD', 'type': 'UNCORR' },
+        'Model_2':{'description':'MC model uncertainty', 'treatment': 'MULT', 'type': 'CORR' },
+        'JES_1':{'description':'jet energy scale uncertainty', 'treatment': 'ADD', 'type': 'UNCORR' },
+        'JES_2':{'description':'jet energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR' },
+        'RCES':{'description':'remaining cluster energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR' },
+        '$E_{e^\prime}$':{'description':'electron energy', 'treatment': 'MULT', 'type': 'CORR' },
+        '$\theta_{e^\prime}$':{'description':'electron theta', 'treatment': 'MULT', 'type': 'CORR' },
+        'LArNoise':{'description':'lar noice', 'treatment': 'MULT', 'type': 'CORR' }
     }
 
     data_central_jet_highQ2_norm_yaml = {'data_central': data_central_jet_highQ2_norm}
@@ -314,19 +398,42 @@ def processData():
             kin_dijet.append(kin_value)
             value_delta = 0
             error_value = {}
-            for k in range(12):
+            for k in 0, 1, 5, 6, 7, 8, 9, 10, 11:
                 if 'symerror' in values[j]['errors'][k]:
                     error_value[values[j]['errors'][k]['label']] = pta(values[j]['errors'][k]['symerror'], data_central_value)
                 else:
                     se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value))
                     value_delta = value_delta + se_delta
                     error_value[values[j]['errors'][k]['label']] = se_sigma
+            for k in 2, 3, 4:
+                if 'symerror' in values[j]['errors'][k]:
+                    error_value[values[j]['errors'][k]['label']+'_1'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                    error_value[values[j]['errors'][k]['label']+'_2'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                else:
+                    se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value)/sqrt(2), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value)/sqrt(2))
+                    value_delta = value_delta + se_delta + se_delta
+                    error_value[values[j]['errors'][k]['label']+'_1'] = se_sigma
+                    error_value[values[j]['errors'][k]['label']+'_2'] = se_sigma
             data_central_value = data_central_value + value_delta
             data_central_dijet.append(data_central_value)
             error_dijet.append(error_value)
 
     error_definition_dijet = {
-
+        'stat':{'description': 'statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Uncorr':{'description': 'systematic uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Model_1':{'description': 'MC model uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Model_2':{'description': 'MC model uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ModelRW_1':{'description': 'reweighting uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'ModelRW_2':{'description': 'reweighting uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'JES_1':{'description': 'jet energy scale uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'JES_2':{'description': 'jet energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'RCES':{'description': 'remaining cluster energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ElEn':{'description': 'electron energy uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ElTh':{'description': 'electron theta uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'Lumi':{'description': 'luminosity', 'treatment': 'MULT', 'type': 'CORR'},
+        'LArN':{'description': 'lar noise', 'treatment': 'MULT', 'type': 'CORR'},
+        'StatMC':{'description': 'MC statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'RadErr':{'description': 'radiative uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     }
 
     data_central_dijet_yaml = {'data_central': data_central_dijet}
@@ -385,19 +492,42 @@ def processData():
             kin_dijet_norm.append(kin_value)
             value_delta = 0
             error_value = {}
-            for k in range(12):
+            for k in 0, 1, 5, 6, 7, 8, 9, 10, 11:
                 if 'symerror' in values[j]['errors'][k]:
                     error_value[values[j]['errors'][k]['label']] = pta(values[j]['errors'][k]['symerror'], data_central_value)
                 else:
                     se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value))
                     value_delta = value_delta + se_delta
                     error_value[values[j]['errors'][k]['label']] = se_sigma
+            for k in 2, 3, 4:
+                if 'symerror' in values[j]['errors'][k]:
+                    error_value[values[j]['errors'][k]['label']+'_1'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                    error_value[values[j]['errors'][k]['label']+'_2'] = pta(values[j]['errors'][k]['symerror'], data_central_value)/sqrt(2)
+                else:
+                    se_delta, se_sigma = se(pta(values[j]['errors'][k]['asymerror']['plus'], data_central_value)/sqrt(2), pta(values[j]['errors'][k]['asymerror']['minus'], data_central_value)/sqrt(2))
+                    value_delta = value_delta + se_delta + se_delta
+                    error_value[values[j]['errors'][k]['label']+'_1'] = se_sigma
+                    error_value[values[j]['errors'][k]['label']+'_2'] = se_sigma
             data_central_value = data_central_value + value_delta
             data_central_dijet_norm.append(data_central_value)
             error_dijet_norm.append(error_value)
 
     error_definition_dijet_norm = {
-
+        'stat':{'description': 'statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Uncorr':{'description': 'systematic uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Model_1':{'description': 'MC model uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'Model_2':{'description': 'MC model uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ModelRW_1':{'description': 'reweighting uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'ModelRW_2':{'description': 'reweighting uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'JES_1':{'description': 'jet energy scale uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'JES_2':{'description': 'jet energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'RCES':{'description': 'remaining cluster energy scale uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ElEn':{'description': 'electron energy uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'ElTh':{'description': 'electron theta uncertainty', 'treatment': 'MULT', 'type': 'CORR'},
+        'Lumi':{'description': 'luminosity', 'treatment': 'MULT', 'type': 'CORR'},
+        'LArN':{'description': 'lar noise', 'treatment': 'MULT', 'type': 'CORR'},
+        'StatMC':{'description': 'MC statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'},
+        'RadErr':{'description': 'radiative uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     }
 
     data_central_dijet_norm_yaml = {'data_central': data_central_dijet_norm}
