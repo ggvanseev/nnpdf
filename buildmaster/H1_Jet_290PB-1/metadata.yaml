@@ -1,0 +1,74 @@
+setname: 'H1_Jet_290PB-1'
+
+arXiv:
+  url: "https://arxiv.org/abs/1611.03421"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1496981"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1496981"
+  version: 1
+
+version: 
+version_comment:
+
+implemented_observables:
+
+  - observable: {description: "double differential cross section w.r.t. q^2 and pT", label: '$\sigma', units: "pb"}
+    ndata: 48
+    tables: [1, 2, 3, 4, 5, 6, 7, 8]
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        q^2: {description: "momentum transferred squared", label: '$q^2$', units: "GeV^2"}
+        pT: {description: "mean transverse momentum", label: '$p_T$', units: "GeV"}
+      file: kinematics.yaml
+    data_central: 
+      file: data.yaml
+    data_uncertainties:
+      file:
+        - uncertainties.yaml
+
+  - observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\sigma/\sigma_{NC}$', units: ""}
+    ndata: 48
+    tables: [25, 26, 27, 28, 29, 30, 31, 32]
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        q^2: {description: "momentum transferred squared", label: '$q^2$', units: "GeV^2"}
+        pT: {description: "transverse momentum", label: '$p_T$', units: "GeV"}
+      file: kinematics_norm.yaml
+    data_central: 
+      file: data_norm.yaml
+    data_uncertainties:
+      file:
+        - uncertainties_norm.yaml
+
+  - observable: {description: "double differential cross section w.r.t. q^2 and pT", label: '$\sigma', units: "pb"}
+    ndata: 6
+    tables: [51]    
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        q^2: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
+        pT: {description: "transverse momentum", label: "$p_T$", units: "GeV"}
+      file: kinematics_highQ2.yaml
+    data_central: 
+      file: data_highQ2.yaml
+    data_uncertainties:
+      file:
+        - uncertainties_highQ2.yaml
+
+  - observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\sigma/\sigma_{NC}$', units: ""}
+    ndata: 6
+    tables: [52]
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        q^2: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
+        pT: {description: "transverse momentum", label: "$p_T$", units: "GeV"}
+      file: kinematics_highQ2_norm.yaml
+    data_central: 
+      file: data_highQ2_norm.yaml
+    data_uncertainties:
+      file:
+        - uncertainties_highQ2_norm.yaml

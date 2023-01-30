@@ -1,0 +1,44 @@
+setname: "ATLAS_Jet_13TeV"
+
+arXiv:
+  url: "https://arxiv.org/abs/1711.02692"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1634970"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1634970"
+  version: 1
+
+version: 
+version_comment:
+
+implemented_observables:
+
+  - observable: {description: "double differential cross section w.r.t. pT and y", label: '$d^2\sigma/dp_T dy$', units: "pb/GeV"}
+    ndata: 177 # 33+32+31+31+28+22
+    tables: [1, 2, 3, 4, 5, 6]
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        pT: {description: "jet transverse momentum", label: "$p_T$", units: "GeV"}
+        y: {description: "jet absolute rapidity", label: "$y$", units: ""}
+      file: kinematics.yaml
+    data_central: 
+      file: data.yaml
+    data_uncertainties:
+      file:
+        - uncertainties.yaml
+
+  - observable: {description: "double differential cross section w.r.t. pT and y - altcorr1", label: '$d^2\sigma/dp_T dy$', units: "pb/GeV"}
+    ndata: 177 # 33+32+31+31+28+22
+    tables: [1, 2, 3, 4, 5, 6]
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        pT: {description: "jet transverse momentum", label: "$p_T$", units: "GeV"}
+        y: {description: "jet absolute rapidity", label: "$y$", units: ""}
+      file: kinematics_altcorr1.yaml
+    data_central: 
+      file: data_altcorr1.yaml
+    data_uncertainties:
+      file:
+        - uncertainties_altcorr1.yaml

@@ -1,0 +1,29 @@
+setname: "ATLAS_DiJet_13TeV"
+
+arXiv:
+  url: "https://arxiv.org/abs/1711.02692"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1634970"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1634970"
+  version: 1
+
+version: 
+version_comment:
+
+implemented_observables:
+
+  - observable: {description: "double differential cross section w.r.t. m_jj and y", label: '$d^2\sigma/dm_{jj} dy$', units: "pb/GeV"}
+    ndata: 136 # 28+28+27+24+21+8
+    tables: [1, 2, 3, 4, 5, 6]
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        m_jj: {description: "dijet invariant mass", label: "$m_{jj}$", units: "GeV"}
+        y*: {description: "half the absolute rapidity between the dijet", label: "$y^*$", units: ""}
+      file: kinematics.yaml
+    data_central: 
+      file: data.yaml
+    data_uncertainties:
+      file:
+        - uncertainties.yaml

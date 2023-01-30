@@ -1,0 +1,44 @@
+setname: 'H1_JetDi_351PB-1'
+
+arXiv:
+  url: "https://arxiv.org/abs/1406.4709"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1301218"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1301218"
+  version: 1
+
+version: 
+version_comment:
+
+implemented_observables:
+
+  - observable: {description: "double differential cross section w.r.t. q^2 and pT", label: '$\sigma', units: "pb"}
+    ndata: 24
+    tables: [7]
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        q^2: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
+        pT: {description: "mean transverse momentum", label: '$\langle p_T \rangle$', units: "GeV"}
+      file: kinematics.yaml
+    data_central: 
+      file: data.yaml
+    data_uncertainties:
+      file:
+        - uncertainties.yaml
+
+  - observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\sigma/\sigma_{NC}$', units: ""}
+    ndata: 24
+    tables: [17]
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+        q^2: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
+        pT: {description: "transverse momentum", label: '$\langle p_T \rangle$', units: "GeV"}
+      file: kinematics_norm.yaml
+    data_central: 
+      file: data_norm.yaml
+    data_uncertainties:
+      file:
+        - uncertainties_norm.yaml
