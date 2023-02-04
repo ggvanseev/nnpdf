@@ -1,4 +1,7 @@
+# implemented by Tanishq Sharma
+
 import yaml
+from utils import covMat_to_artSys as cta
 
 def processData():
     with open('metadata.yaml', 'r') as file:
@@ -10,6 +13,13 @@ def processData():
     tables_dSig_dyttBar_norm = metadata['implemented_observables'][3]['tables']
     tables_d2Sig_dyttbar_dmttbar = metadata['implemented_observables'][4]['tables']
     tables_d2Sig_dyttBar_dmttBar_norm = metadata['implemented_observables'][5]['tables']
+
+    ndata_dSig_dmttBar = metadata['implemented_observables'][0]['ndata']
+    ndata_dSig_dmttBar_norm = metadata['implemented_observables'][1]['ndata']
+    ndata_dSig_dyttBar = metadata['implemented_observables'][2]['ndata']
+    ndata_dSig_dyttBar_norm = metadata['implemented_observables'][3]['ndata']
+    ndata_d2Sig_dyttbar_dmttbar = metadata['implemented_observables'][4]['ndata']
+    ndata_d2Sig_dyttbar_dmttbar_norm = metadata['implemented_observables'][5]['ndata']
 
     data_central_dSig_dmttBar = []
     kin_dSig_dmttBar = []
@@ -30,15 +40,30 @@ def processData():
     kin_d2Sig_dyttbar_dmttbar_norm = []
     error_d2Sig_dyttbar_dmttbar_norm = []
 
+    covMatArray_dSig_dmttBar = []
+    covMatArray_dSig_dmttBar_norm = []
+    covMatArray_dSig_dyttBar = []
+    covMatArray_dSig_dyttBar_norm = []
+    covMatArray_d2Sig_dyttbar_dmttbar = []
+    covMatArray_d2Sig_dyttbar_dmttbar_norm = []
+
 # dSig_dmttBar data
 
     hepdata_tables="rawdata/"+tables_dSig_dmttBar[0]+".yaml"
     with open(hepdata_tables, 'r') as file:
         input = yaml.safe_load(file)
     
+    covariance_matrix="rawdata/parton_abs_ttm_covariance.yaml"
+    with open(covariance_matrix, 'r') as file2:
+        input2 = yaml.safe_load(file2)
+    for i in range(ndata_dSig_dmttBar*ndata_dSig_dmttBar):
+        covMatEl = input2['dependent_variables'][0]['values'][i]['value']
+        covMatArray_dSig_dmttBar.append(covMatEl)
+    artSysMat_dSig_dmttBar = cta(ndata_dSig_dmttBar, covMatArray_dSig_dmttBar)
+    
     sqrt_s = 13000
     values = input['dependent_variables'][0]['values']
-
+    
     for i in range(len(values)):
         data_central_value = values[i]['value']
         data_central_dSig_dmttBar.append(data_central_value)
@@ -49,12 +74,15 @@ def processData():
         error_value = {}
         error_value['stat'] = values[i]['errors'][0]['symerror']
         error_value['sys'] = values[i]['errors'][1]['symerror']
+        for j in range(ndata_dSig_dmttBar):
+            error_value['ArtSys_'+str(j+1)] = 0 #artSysMat_dSig_dmttBar[][]
         error_dSig_dmttBar.append(error_value)
-    
+            
     error_definition_dSig_dmttBar = {}
     error_definition_dSig_dmttBar['stat'] = {'definition': 'total statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     error_definition_dSig_dmttBar['sys'] = {'definition': 'total systematic uncertainty', 'treatment': 'MULT', 'type': 'CORR'}
-
+    for i in range(ndata_dSig_dmttBar):
+        error_definition_dSig_dmttBar['ArtSys_'+str(i+1)] = {'definition': 'artificial systematic uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
     data_central_dSig_dmttBar_yaml = {'data_central': data_central_dSig_dmttBar}
     kinematics_dSig_dmttBar_yaml = {'bins': kin_dSig_dmttBar}
     uncertainties_dSig_dmttBar_yaml = {'definitions': error_definition_dSig_dmttBar, 'bins': error_dSig_dmttBar}
@@ -74,7 +102,15 @@ def processData():
     hepdata_tables="rawdata/"+tables_dSig_dmttBar_norm[0]+".yaml"
     with open(hepdata_tables, 'r') as file:
         input = yaml.safe_load(file)
-    
+
+    covariance_matrix="rawdata/parton_norm_ttm_covariance.yaml"
+    with open(covariance_matrix, 'r') as file2:
+        input2 = yaml.safe_load(file2)
+    for i in range(ndata_dSig_dmttBar_norm*ndata_dSig_dmttBar_norm):
+        covMatEl = input2['dependent_variables'][0]['values'][i]['value']
+        covMatArray_dSig_dmttBar_norm.append(covMatEl)
+    artSysMat_dSig_dmttBar_norm = cta(ndata_dSig_dmttBar_norm, covMatArray_dSig_dmttBar_norm)
+
     sqrt_s = 13000
     values = input['dependent_variables'][0]['values']
 
@@ -88,11 +124,15 @@ def processData():
         error_value = {}
         error_value['stat'] = values[i]['errors'][0]['symerror']
         error_value['sys'] = values[i]['errors'][1]['symerror']
+        for j in range(ndata_dSig_dmttBar_norm):
+            error_value['ArtSys_'+str(j+1)] = 0 #artSysMat_dSig_dmttBar_norm[][]
         error_dSig_dmttBar_norm.append(error_value)
     
     error_definition_dSig_dmttBar_norm = {}
     error_definition_dSig_dmttBar_norm['stat'] = {'definition': 'total statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     error_definition_dSig_dmttBar_norm['sys'] = {'definition': 'total systematic uncertainty', 'treatment': 'MULT', 'type': 'CORR'}
+    for i in range(ndata_dSig_dmttBar_norm):
+        error_definition_dSig_dmttBar_norm['ArtSys_'+str(i+1)] = {'definition': 'artificial systematic uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
 
     data_central_dSig_dmttBar_norm_yaml = {'data_central': data_central_dSig_dmttBar_norm}
     kinematics_dSig_dmttBar_norm_yaml = {'bins': kin_dSig_dmttBar_norm}
@@ -113,6 +153,14 @@ def processData():
     with open(hepdata_tables, 'r') as file:
         input = yaml.safe_load(file)
     
+    covariance_matrix="rawdata/parton_abs_tty_covariance.yaml"
+    with open(covariance_matrix, 'r') as file2:
+        input2 = yaml.safe_load(file2)
+    for i in range(ndata_dSig_dyttBar*ndata_dSig_dyttBar):
+        covMatEl = input2['dependent_variables'][0]['values'][i]['value']
+        covMatArray_dSig_dyttBar.append(covMatEl)
+    artSysMat_dSig_dyttBar = cta(ndata_dSig_dyttBar, covMatArray_dSig_dyttBar)
+
     sqrt_s = 13000
     values = input['dependent_variables'][0]['values']
 
@@ -126,11 +174,15 @@ def processData():
         error_value = {}
         error_value['stat'] = values[i]['errors'][0]['symerror']
         error_value['sys'] = values[i]['errors'][1]['symerror']
+        for j in range(ndata_dSig_dyttBar):
+            error_value['ArtSys_'+str(j+1)] = 0 #artSysMat_dSig_dyttBar[][]
         error_dSig_dyttBar.append(error_value)
     
     error_definition_dSig_dyttBar = {}
     error_definition_dSig_dyttBar['stat'] = {'definition': 'total statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     error_definition_dSig_dyttBar['sys'] = {'definition': 'total systematic uncertainty', 'treatment': 'MULT', 'type': 'CORR'}
+    for i in range(ndata_dSig_dyttBar):
+        error_definition_dSig_dyttBar['ArtSys_'+str(i+1)] = {'definition': 'artificial systematic uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
 
     data_central_dSig_dyttBar_yaml = {'data_central': data_central_dSig_dyttBar}
     kinematics_dSig_dyttBar_yaml = {'bins': kin_dSig_dyttBar}
@@ -151,6 +203,14 @@ def processData():
     with open(hepdata_tables, 'r') as file:
         input = yaml.safe_load(file)
     
+    covariance_matrix="rawdata/parton_norm_tty_covariance.yaml"
+    with open(covariance_matrix, 'r') as file2:
+        input2 = yaml.safe_load(file2)
+    for i in range(ndata_dSig_dyttBar_norm*ndata_dSig_dyttBar_norm):
+        covMatEl = input2['dependent_variables'][0]['values'][i]['value']
+        covMatArray_dSig_dyttBar_norm.append(covMatEl)
+    artSysMat_dSig_dyttBar_norm = cta(ndata_dSig_dyttBar_norm, covMatArray_dSig_dyttBar_norm)
+
     sqrt_s = 13000
     values = input['dependent_variables'][0]['values']
 
@@ -164,11 +224,15 @@ def processData():
         error_value = {}
         error_value['stat'] = values[i]['errors'][0]['symerror']
         error_value['sys'] = values[i]['errors'][1]['symerror']
+        for j in range(ndata_dSig_dyttBar_norm):
+            error_value['ArtSys_'+str(j+1)] = 0 #artSysMat_dSig_dyttBar_norm[][]
         error_dSig_dyttBar_norm.append(error_value)
     
     error_definition_dSig_dyttBar_norm = {}
     error_definition_dSig_dyttBar_norm['stat'] = {'definition': 'total statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     error_definition_dSig_dyttBar_norm['sys'] = {'definition': 'total systematic uncertainty', 'treatment': 'MULT', 'type': 'CORR'}
+    for i in range(ndata_dSig_dyttBar_norm):
+        error_definition_dSig_dyttBar_norm['ArtSys_'+str(i+1)] = {'definition': 'artificial systematic uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
 
     data_central_dSig_dyttBar_norm_yaml = {'data_central': data_central_dSig_dyttBar_norm}
     kinematics_dSig_dyttBar_norm_yaml = {'bins': kin_dSig_dyttBar_norm}
@@ -184,6 +248,14 @@ def processData():
         yaml.dump(uncertainties_dSig_dyttBar_norm_yaml, file, sort_keys=False)
 
 # d2Sig_dyttBar_dmttBar data
+
+    covariance_matrix="rawdata/parton_abs_ttm+tty_covariance.yaml"
+    with open(covariance_matrix, 'r') as file2:
+        input2 = yaml.safe_load(file2)
+    for i in range(ndata_d2Sig_dyttbar_dmttbar*ndata_d2Sig_dyttbar_dmttbar):
+        covMatEl = input2['dependent_variables'][0]['values'][i]['value']
+        covMatArray_d2Sig_dyttbar_dmttbar.append(covMatEl)
+    artSysMat_d2Sig_dyttbar_dmttbar = cta(ndata_d2Sig_dyttbar_dmttbar, covMatArray_d2Sig_dyttbar_dmttbar)
 
     for i in tables_d2Sig_dyttbar_dmttbar:
         hepdata_tables="rawdata/parton_abs_ttm+tty_"+str(i)+".yaml"
@@ -205,11 +277,15 @@ def processData():
             error_value = {}
             error_value['stat'] = values[j]['errors'][0]['symerror']
             error_value['sys'] = values[j]['errors'][1]['symerror']
+            for k in range(ndata_d2Sig_dyttbar_dmttbar):
+                error_value['ArtSys_'+str(k+1)] = 0 #artSysMat_d2Sig_dyttbar_dmttbar[][]
             error_d2Sig_dyttbar_dmttbar.append(error_value)
 
     error_definition_d2Sig_dyttbar_dmttbar = {}
     error_definition_d2Sig_dyttbar_dmttbar['stat'] = {'definition': 'total statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     error_definition_d2Sig_dyttbar_dmttbar['sys'] = {'definition': 'total systematic uncertainty', 'treatment': 'MULT', 'type': 'CORR'}
+    for i in range(ndata_d2Sig_dyttbar_dmttbar):
+        error_definition_d2Sig_dyttbar_dmttbar['ArtSys_'+str(i+1)] = {'definition': 'artificial systematic uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
 
     data_central_d2Sig_dyttbar_dmttbar_yaml = {'data_central': data_central_d2Sig_dyttbar_dmttbar}
     kinematics_d2Sig_dyttbar_dmttbar_yaml = {'bins': kin_d2Sig_dyttbar_dmttbar}
@@ -225,6 +301,14 @@ def processData():
         yaml.dump(uncertainties_d2Sig_dyttbar_dmttbar_yaml, file, sort_keys=False)
 
 # d2Sig_dyttBar_dmttBar_norm data
+
+    covariance_matrix="rawdata/parton_norm_ttm+tty_covariance.yaml"
+    with open(covariance_matrix, 'r') as file2:
+        input2 = yaml.safe_load(file2)
+    for i in range(ndata_d2Sig_dyttbar_dmttbar_norm*ndata_d2Sig_dyttbar_dmttbar_norm):
+        covMatEl = input2['dependent_variables'][0]['values'][i]['value']
+        covMatArray_d2Sig_dyttbar_dmttbar_norm.append(covMatEl)
+    artSysMat_d2Sig_dyttbar_dmttbar_norm = cta(ndata_d2Sig_dyttbar_dmttbar_norm, covMatArray_d2Sig_dyttbar_dmttbar_norm)
 
     for i in tables_d2Sig_dyttBar_dmttBar_norm:
         hepdata_tables="rawdata/parton_norm_ttm+tty_"+str(i)+".yaml"
@@ -246,11 +330,15 @@ def processData():
             error_value = {}
             error_value['stat'] = values[j]['errors'][0]['symerror']
             error_value['sys'] = values[j]['errors'][1]['symerror']
+            for k in range(ndata_d2Sig_dyttbar_dmttbar_norm):
+                error_value['ArtSys_'+str(k+1)] = 0 #artSysMat_d2Sig_dyttbar_dmttbar_norm[][]
             error_d2Sig_dyttbar_dmttbar_norm.append(error_value)
 
     error_definition_d2Sig_dyttbar_dmttbar_norm = {}
     error_definition_d2Sig_dyttbar_dmttbar_norm['stat'] = {'definition': 'total statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     error_definition_d2Sig_dyttbar_dmttbar_norm['sys'] = {'definition': 'total systematic uncertainty', 'treatment': 'MULT', 'type': 'CORR'}
+    for i in range(ndata_d2Sig_dyttbar_dmttbar_norm):
+        error_definition_d2Sig_dyttbar_dmttbar_norm['ArtSys_'+str(i+1)] = {'definition': 'artificial systematic uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
 
     data_central_d2Sig_dyttbar_dmttbar_norm_yaml = {'data_central': data_central_d2Sig_dyttbar_dmttbar_norm}
     kinematics_d2Sig_dyttbar_dmttbar_norm_yaml = {'bins': kin_d2Sig_dyttbar_dmttbar_norm}

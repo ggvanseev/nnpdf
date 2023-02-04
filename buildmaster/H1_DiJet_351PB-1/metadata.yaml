@@ -1,4 +1,6 @@
-setname: 'H1_JetDi_351PB-1'
+# implemented by Tanishq Sharma
+
+setname: 'H1_DiJet_351PB-1'
 
 arXiv:
   url: "https://arxiv.org/abs/1406.4709"

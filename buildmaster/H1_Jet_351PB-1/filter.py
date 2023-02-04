@@ -1,5 +1,9 @@
+# implemented by Tanishq Sharma
+
 import yaml
 from utils import percentage_to_absolute as pta
+from utils import covMat_to_artSys as cta
+from covMat import covMatArray, covMatArray_norm
 
 def processData():
     with open('metadata.yaml', 'r') as file:
@@ -7,6 +11,9 @@ def processData():
 
     tables = metadata['implemented_observables'][0]['tables']
     tables_norm = metadata['implemented_observables'][1]['tables']
+
+    ndata = metadata['implemented_observables'][0]['ndata']
+    ndata_norm = metadata['implemented_observables'][1]['ndata']
 
     data_central = []
     kin = []
@@ -20,6 +27,8 @@ def processData():
     hepdata_tables="rawdata/Table"+str(tables[0])+".yaml"
     with open(hepdata_tables, 'r') as file:
         input = yaml.safe_load(file)
+
+    artSysMat = cta(ndata, covMatArray)
 
     sqrt_s = float(input['dependent_variables'][0]['qualifiers'][3]['value'])
     values = input['dependent_variables'][0]['values']
@@ -36,9 +45,13 @@ def processData():
         error_value = {}
         error_value['stat'] = pta(values[i]['errors'][0]['symerror'], data_central_value)
         error_value['sys'] = pta(values[i]['errors'][1]['symerror'], data_central_value)
+        for j in range(ndata):
+            error_value['ArtSys_'+str(j+1)] = 0 #artSysMat[][]
         error.append(error_value)
 
     error_definition = {'stat':{'description': 'total statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}, 'sys':{'description': 'total systematic uncertainty', 'treatment':'MULT' , 'type': 'CORR'}}
+    for i in range(ndata):
+        error_definition['ArtSys_'+str(i+1)] = {'definition': 'artificial systematic uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
 
     data_central_yaml = {'data_central': data_central}
     kinematics_yaml = {'bins': kin}
@@ -59,6 +72,8 @@ def processData():
     with open(hepdata_tables, 'r') as file:
         input = yaml.safe_load(file)
 
+    artSysMat_norm = cta(ndata_norm, covMatArray_norm)
+
     sqrt_s = float(input['dependent_variables'][0]['qualifiers'][3]['value'])
     values = input['dependent_variables'][0]['values']
 
@@ -74,9 +89,13 @@ def processData():
         error_value = {}
         error_value['stat'] = pta(values[i]['errors'][0]['symerror'], data_central_value)
         error_value['sys'] = pta(values[i]['errors'][1]['symerror'], data_central_value)
+        for j in range(ndata_norm):
+            error_value['ArtSys_'+str(j+1)] = 0 #artSysMat_norm[][]
         error_norm.append(error_value)
 
     error_definition_norm = {'stat':{'description': 'total statistical uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}, 'sys':{'description': 'total systematic uncertainty', 'treatment':'MULT' , 'type': 'CORR'}}
+    for i in range(ndata_norm):
+        error_definition_norm['ArtSys_'+str(i+1)] = {'definition': 'artificial systematic uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
 
     data_central_norm_yaml = {'data_central': data_central_norm}
     kinematics_norm_yaml = {'bins': kin_norm}

@@ -7,24 +7,164 @@ definitions:
     definition: total systematic uncertainty
     treatment: MULT
     type: CORR
+  ArtSys_1:
+    definition: artificial systematic uncertainty 1
+    treatment: ADD
+    type: CORR
+  ArtSys_2:
+    definition: artificial systematic uncertainty 2
+    treatment: ADD
+    type: CORR
+  ArtSys_3:
+    definition: artificial systematic uncertainty 3
+    treatment: ADD
+    type: CORR
+  ArtSys_4:
+    definition: artificial systematic uncertainty 4
+    treatment: ADD
+    type: CORR
+  ArtSys_5:
+    definition: artificial systematic uncertainty 5
+    treatment: ADD
+    type: CORR
+  ArtSys_6:
+    definition: artificial systematic uncertainty 6
+    treatment: ADD
+    type: CORR
+  ArtSys_7:
+    definition: artificial systematic uncertainty 7
+    treatment: ADD
+    type: CORR
+  ArtSys_8:
+    definition: artificial systematic uncertainty 8
+    treatment: ADD
+    type: CORR
+  ArtSys_9:
+    definition: artificial systematic uncertainty 9
+    treatment: ADD
+    type: CORR
+  ArtSys_10:
+    definition: artificial systematic uncertainty 10
+    treatment: ADD
+    type: CORR
 bins:
 - stat: 0.5148
   sys: 9.213
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0
 - stat: 0.8134
   sys: 8.817
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0
 - stat: 0.8347
   sys: 8.606
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0
 - stat: 0.8298
   sys: 7.542
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0
 - stat: 0.8262
   sys: 6.922
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0
 - stat: 0.83
   sys: 5.764
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0
 - stat: 0.858
   sys: 4.787
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0
 - stat: 0.9259
   sys: 3.734
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0
 - stat: 1.029
   sys: 2.852
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0
 - stat: 0.5054
   sys: 1.235
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
+  ArtSys_6: 0
+  ArtSys_7: 0
+  ArtSys_8: 0
+  ArtSys_9: 0
+  ArtSys_10: 0

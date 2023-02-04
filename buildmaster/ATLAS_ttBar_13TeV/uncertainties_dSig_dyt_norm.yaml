@@ -419,6 +419,26 @@ definitions:
     description: ''
     treatment: MULT
     type: CORR
+  ArtSys_1:
+    definition: artificial systematic uncertainty 1
+    treatment: ADD
+    type: CORR
+  ArtSys_2:
+    definition: artificial systematic uncertainty 2
+    treatment: ADD
+    type: CORR
+  ArtSys_3:
+    definition: artificial systematic uncertainty 3
+    treatment: ADD
+    type: CORR
+  ArtSys_4:
+    definition: artificial systematic uncertainty 4
+    treatment: ADD
+    type: CORR
+  ArtSys_5:
+    definition: artificial systematic uncertainty 5
+    treatment: ADD
+    type: CORR
 bins:
 - stat: 0.0015580208800000002
   sys,light-jet tag eff (eig 15): 0.0
@@ -525,6 +545,11 @@ bins:
   sys,Diboson xsec: 0.0
   sys,eff MU SF TTVA STAT: 0.0
   sys,b extrapolation: 1.1984775999999998e-05
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
 - stat: 0.0015173437270000001
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 5.640683e-06
@@ -630,6 +655,11 @@ bins:
   sys,Diboson xsec: 0.0
   sys,eff MU SF TTVA STAT: 0.0
   sys,b extrapolation: 0.0
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
 - stat: 0.0014925737279999998
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 0.0
@@ -735,6 +765,11 @@ bins:
   sys,Diboson xsec: 0.0
   sys,eff MU SF TTVA STAT: 0.0
   sys,b extrapolation: 4.909782e-06
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
 - stat: 0.0012496265980000002
   sys,light-jet tag eff (eig 15): 3.7413970000000004e-06
   sys,light-jet tag eff (eig 14): 0.0
@@ -840,6 +875,11 @@ bins:
   sys,Diboson xsec: 3.7413970000000004e-06
   sys,eff MU SF TTVA STAT: 0.0
   sys,b extrapolation: 1.1224191000000002e-05
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
 - stat: 0.0009072959999999999
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 0.0
@@ -945,3 +985,8 @@ bins:
   sys,Diboson xsec: 0.0
   sys,eff MU SF TTVA STAT: 0.0
   sys,b extrapolation: 5.6705999999999995e-06
+  ArtSys_1: 0
+  ArtSys_2: 0
+  ArtSys_3: 0
+  ArtSys_4: 0
+  ArtSys_5: 0
