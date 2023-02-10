@@ -17,6 +17,8 @@ from reportengine.figure import figure
 from reportengine.table import table
 
 from validphys.checks import check_at_least_two_replicas
+from reportengine.table import table
+from validphys.api import API
 
 log = logging.getLogger(__name__)
 
@@ -43,8 +45,6 @@ def _create_new_val_pseudodata(pdf_data_index, fit_data_indices_list):
 @check_at_least_two_replicas
 def calculate_chi2s_per_replica(
     pdf, # for the check
-    fit_code_version,
-    recreate_pdf_pseudodata_no_table,
     preds,
     dataset_inputs,
     groups_covmat_no_table,
@@ -72,44 +72,43 @@ def calculate_chi2s_per_replica(
         to the cases where the PDF replica has been fitted to the coresponding
         pseudodata replica
     """
-    fit_name = fit_code_version.columns[0]
-    nnpdf_version = fit_code_version[fit_name]['nnpdf']
-    if nnpdf_version>='4.0.5':
-        pp = []
-        for i, dss in enumerate(dataset_inputs):
-            preds_witout_cv = preds[i].drop(0, axis=1)
-            df = pd.concat({dss.name: preds_witout_cv}, names=["dataset"])
-            pp.append(df)
 
-        PDF_predictions = pd.concat(pp)
+    try:
+        pdf_pseudodata = API.read_pdf_pseudodata(fit=pdf.name)
+    except FileNotFoundError:
+        return np.array(np.nan)
 
-        chi2s_per_replica = []
-        for enum, pdf_data_index in enumerate(recreate_pdf_pseudodata_no_table):
+    pp = []
+    for i, dss in enumerate(dataset_inputs):
+        preds_witout_cv = preds[i].drop(0, axis=1)
+        df = pd.concat({dss.name: preds_witout_cv}, names=["dataset"])
+        pp.append(df)
 
-            prediction_filter = pdf_data_index.val_idx.droplevel(level=0)
-            prediction_filter.rename(["dataset", "data"], inplace=True)
-            PDF_predictions_val = PDF_predictions.loc[prediction_filter]
-            PDF_predictions_val = PDF_predictions_val.values[:, enum]
+    PDF_predictions = pd.concat(pp)
 
-            new_val_pseudodata_list = _create_new_val_pseudodata(
-                pdf_data_index, recreate_pdf_pseudodata_no_table
-            )
+    chi2s_per_replica = []
+    for enum, pdf_data_index in enumerate(pdf_pseudodata):
 
-            invcovmat_vl = np.linalg.inv(
-                groups_covmat_no_table[pdf_data_index.val_idx].T[
-                    pdf_data_index.val_idx
-                ]
-            )
+        prediction_filter = pdf_data_index.val_idx.droplevel(level=0)
+        prediction_filter.rename(["dataset", "data"], inplace=True)
+        PDF_predictions_val = PDF_predictions.loc[prediction_filter]
+        PDF_predictions_val = PDF_predictions_val.values[:, enum]
 
-            tmp = PDF_predictions_val - new_val_pseudodata_list
+        new_val_pseudodata_list = _create_new_val_pseudodata(
+            pdf_data_index, pdf_pseudodata
+        )
 
-            chi2 = np.einsum("ij,jk,ik->i", tmp, invcovmat_vl, tmp) / tmp.shape[1]
-            chi2s_per_replica.append(chi2)
-            ret = np.array(chi2s_per_replica)
-    else:
-        log.warning(f"""Since {fit_name} pseudodata generation has changed,
-            hence the overfit metric cannot be determined.""")
-        ret = np.array(np.nan)
+        invcovmat_vl = np.linalg.inv(
+            groups_covmat_no_table[pdf_data_index.val_idx].T[
+                pdf_data_index.val_idx
+            ]
+        )
+
+        tmp = PDF_predictions_val - new_val_pseudodata_list
+
+        chi2 = np.einsum("ij,jk,ik->i", tmp, invcovmat_vl, tmp) / tmp.shape[1]
+        chi2s_per_replica.append(chi2)
+    ret = np.array(chi2s_per_replica)
 
     return ret
 
