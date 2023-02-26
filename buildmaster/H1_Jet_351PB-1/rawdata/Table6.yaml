@@ -10,98 +10,362 @@ dependent_variables:
   - errors:
     - {label: stat, symerror: 2.3%}
     - {label: sys, symerror: 2.9%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 69.9
   - errors:
     - {label: stat, symerror: 3.4%}
     - {label: sys, symerror: 4.6%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 31.1
   - errors:
     - {label: stat, symerror: 6.3%}
     - {label: sys, symerror: 6.2%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 7.28
   - errors:
     - {label: stat, symerror: 16.2%}
     - {label: sys, symerror: 6.9%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 0.868
   - errors:
     - {label: stat, symerror: 2.5%}
     - {label: sys, symerror: 2.8%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 55.7
   - errors:
     - {label: stat, symerror: 3.6%}
     - {label: sys, symerror: 4.4%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 26.2
   - errors:
     - {label: stat, symerror: 6.4%}
     - {label: sys, symerror: 6.9%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 6.67
   - errors:
     - {label: stat, symerror: 14.2%}
     - {label: sys, symerror: 8.2%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 0.885
   - errors:
     - {label: stat, symerror: 2.6%}
     - {label: sys, symerror: 2.8%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 53.1
   - errors:
     - {label: stat, symerror: 3.5%}
     - {label: sys, symerror: 4.4%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 27.3
   - errors:
     - {label: stat, symerror: 5.7%}
     - {label: sys, symerror: 5.1%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 7.53
   - errors:
     - {label: stat, symerror: 14.7%}
     - {label: sys, symerror: 8.4%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 0.913
   - errors:
     - {label: stat, symerror: 2.9%}
     - {label: sys, symerror: 3.4%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 46.3
   - errors:
     - {label: stat, symerror: 3.5%}
     - {label: sys, symerror: 3.2%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 27.1
   - errors:
     - {label: stat, symerror: 5.5%}
     - {label: sys, symerror: 5.8%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 7.85
   - errors:
     - {label: stat, symerror: 16.3%}
     - {label: sys, symerror: 9.5%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 0.83
   - errors:
     - {label: stat, symerror: 3.0%}
     - {label: sys, symerror: 3.4%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 42.5
   - errors:
     - {label: stat, symerror: 3.4%}
     - {label: sys, symerror: 3.3%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 28.4
   - errors:
     - {label: stat, symerror: 4.3%}
     - {label: sys, symerror: 4.4%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 10.7
   - errors:
     - {label: stat, symerror: 9.0%}
     - {label: sys, symerror: 6.4%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 1.83
   - errors:
     - {label: stat, symerror: 12.8%}
     - {label: sys, symerror: 3.4%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 2.54
   - errors:
     - {label: stat, symerror: 13.6%}
     - {label: sys, symerror: 3.8%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 1.83
   - errors:
     - {label: stat, symerror: 20.9%}
     - {label: sys, symerror: 7.5%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 0.612
   - errors:
     - {label: stat, symerror: 20.5%}
     - {label: sys, symerror: 18.1%}
+    - {label: Model, symerror: %}
+    - asymerror: {minus: %, plus: %}
+      label : JES
+    - asymerror: {minus: %, plus: %}
+      label : RCES
+    - asymerror: {minus: %, plus: %}
+      label : E_e
+    - asymerror: {minus: %, plus: %}
+      label : Theta_e
+    - asymerror: {minus: %, plus: %}
+      label : ID_e
     value: 0.272
 - header: {name: C(HAD)}
   qualifiers:

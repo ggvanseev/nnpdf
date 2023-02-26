@@ -419,42 +419,6 @@ definitions:
     description: ''
     treatment: MULT
     type: CORR
-  ArtSys_1:
-    definition: artificial systematic uncertainty 1
-    treatment: ADD
-    type: CORR
-  ArtSys_2:
-    definition: artificial systematic uncertainty 2
-    treatment: ADD
-    type: CORR
-  ArtSys_3:
-    definition: artificial systematic uncertainty 3
-    treatment: ADD
-    type: CORR
-  ArtSys_4:
-    definition: artificial systematic uncertainty 4
-    treatment: ADD
-    type: CORR
-  ArtSys_5:
-    definition: artificial systematic uncertainty 5
-    treatment: ADD
-    type: CORR
-  ArtSys_6:
-    definition: artificial systematic uncertainty 6
-    treatment: ADD
-    type: CORR
-  ArtSys_7:
-    definition: artificial systematic uncertainty 7
-    treatment: ADD
-    type: CORR
-  ArtSys_8:
-    definition: artificial systematic uncertainty 8
-    treatment: ADD
-    type: CORR
-  ArtSys_9:
-    definition: artificial systematic uncertainty 9
-    treatment: ADD
-    type: CORR
 bins:
 - stat: 7.75504863e-06
   sys,light-jet tag eff (eig 15): 2.971283e-08
@@ -561,15 +525,6 @@ bins:
   sys,Diboson xsec: 5.942566e-08
   sys,eff MU SF TTVA STAT: 5.942566e-08
   sys,b extrapolation: 5.942566e-07
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
-  ArtSys_6: 0
-  ArtSys_7: 0
-  ArtSys_8: 0
-  ArtSys_9: 0
 - stat: 6.41514802e-06
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 0.0
@@ -675,15 +630,6 @@ bins:
   sys,Diboson xsec: 0.0
   sys,eff MU SF TTVA STAT: 3.8645470000000004e-08
   sys,b extrapolation: 5.7968205e-07
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
-  ArtSys_6: 0
-  ArtSys_7: 0
-  ArtSys_8: 0
-  ArtSys_9: 0
 - stat: 5.2592189e-06
   sys,light-jet tag eff (eig 15): 2.2005100000000003e-08
   sys,light-jet tag eff (eig 14): 0.0
@@ -789,15 +735,6 @@ bins:
   sys,Diboson xsec: 0.0
   sys,eff MU SF TTVA STAT: 2.2005100000000003e-08
   sys,b extrapolation: 1.1002550000000001e-07
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
-  ArtSys_6: 0
-  ArtSys_7: 0
-  ArtSys_8: 0
-  ArtSys_9: 0
 - stat: 3.6639890000000003e-06
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 0.0
@@ -903,15 +840,6 @@ bins:
   sys,Diboson xsec: 1.0468540000000002e-08
   sys,eff MU SF TTVA STAT: 2.0937080000000003e-08
   sys,b extrapolation: 8.374832000000001e-08
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
-  ArtSys_6: 0
-  ArtSys_7: 0
-  ArtSys_8: 0
-  ArtSys_9: 0
 - stat: 2.205163332e-06
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 0.0
@@ -1017,15 +945,6 @@ bins:
   sys,Diboson xsec: 8.597128e-09
   sys,eff MU SF TTVA STAT: 8.597128e-09
   sys,b extrapolation: 1.7194256e-07
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
-  ArtSys_6: 0
-  ArtSys_7: 0
-  ArtSys_8: 0
-  ArtSys_9: 0
 - stat: 1.545783224e-06
   sys,light-jet tag eff (eig 15): 3.5865040000000004e-09
   sys,light-jet tag eff (eig 14): 0.0
@@ -1131,15 +1050,6 @@ bins:
   sys,Diboson xsec: 1.7932520000000002e-09
   sys,eff MU SF TTVA STAT: 3.5865040000000004e-09
   sys,b extrapolation: 1.793252e-07
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
-  ArtSys_6: 0
-  ArtSys_7: 0
-  ArtSys_8: 0
-  ArtSys_9: 0
 - stat: 9.383640346000002e-07
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 6.971501000000002e-10
@@ -1245,15 +1155,6 @@ bins:
   sys,Diboson xsec: 0.0
   sys,eff MU SF TTVA STAT: 1.3943002000000003e-09
   sys,b extrapolation: 1.059668152e-07
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
-  ArtSys_6: 0
-  ArtSys_7: 0
-  ArtSys_8: 0
-  ArtSys_9: 0
 - stat: 5.863137956e-07
   sys,light-jet tag eff (eig 15): 4.660682e-10
   sys,light-jet tag eff (eig 14): 6.991023e-10
@@ -1359,15 +1260,6 @@ bins:
   sys,Diboson xsec: 6.991023e-10
   sys,eff MU SF TTVA STAT: 4.660682e-10
   sys,b extrapolation: 4.357862285384003e-08
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
-  ArtSys_6: 0
-  ArtSys_7: 0
-  ArtSys_8: 0
-  ArtSys_9: 0
 - stat: 2.9166791346e-07
   sys,light-jet tag eff (eig 15): 2.9871765e-10
   sys,light-jet tag eff (eig 14): 0.0
@@ -1473,12 +1365,3 @@ bins:
   sys,Diboson xsec: 2.9871765e-10
   sys,eff MU SF TTVA STAT: 1.1948706e-10
   sys,b extrapolation: 1.4816636339372255e-08
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
-  ArtSys_6: 0
-  ArtSys_7: 0
-  ArtSys_8: 0
-  ArtSys_9: 0

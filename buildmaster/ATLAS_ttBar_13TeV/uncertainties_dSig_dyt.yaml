@@ -419,26 +419,6 @@ definitions:
     description: ''
     treatment: MULT
     type: CORR
-  ArtSys_1:
-    definition: artificial systematic uncertainty 1
-    treatment: ADD
-    type: CORR
-  ArtSys_2:
-    definition: artificial systematic uncertainty 2
-    treatment: ADD
-    type: CORR
-  ArtSys_3:
-    definition: artificial systematic uncertainty 3
-    treatment: ADD
-    type: CORR
-  ArtSys_4:
-    definition: artificial systematic uncertainty 4
-    treatment: ADD
-    type: CORR
-  ArtSys_5:
-    definition: artificial systematic uncertainty 5
-    treatment: ADD
-    type: CORR
 bins:
 - stat: 1.2937838100000003
   sys,light-jet tag eff (eig 15): 0.0
@@ -545,11 +525,6 @@ bins:
   sys,Diboson xsec: 0.028644660000000002
   sys,eff MU SF TTVA STAT: 0.1909644
   sys,b extrapolation: 0.10025631000000002
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
 - stat: 1.271775964
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 0.0
@@ -655,11 +630,6 @@ bins:
   sys,Diboson xsec: 0.026963448000000004
   sys,eff MU SF TTVA STAT: 0.17975632000000002
   sys,b extrapolation: 0.08538425200000001
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
 - stat: 1.236066232
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 0.0
@@ -765,11 +735,6 @@ bins:
   sys,Diboson xsec: 0.027381213999999997
   sys,eff MU SF TTVA STAT: 0.15646408
   sys,b extrapolation: 0.074320438
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
 - stat: 1.052206515
   sys,light-jet tag eff (eig 15): 0.002980755
   sys,light-jet tag eff (eig 14): 0.0
@@ -875,11 +840,6 @@ bins:
   sys,Diboson xsec: 0.020865285
   sys,eff MU SF TTVA STAT: 0.1192302
   sys,b extrapolation: 0.050672835000000006
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
 - stat: 0.80114678
   sys,light-jet tag eff (eig 15): 0.0
   sys,light-jet tag eff (eig 14): 0.0
@@ -985,8 +945,3 @@ bins:
   sys,Diboson xsec: 0.00903549
   sys,eff MU SF TTVA STAT: 0.060236599999999994
   sys,b extrapolation: 0.03313013
-  ArtSys_1: 0
-  ArtSys_2: 0
-  ArtSys_3: 0
-  ArtSys_4: 0
-  ArtSys_5: 0
