@@ -1,0 +1,43 @@
+# implemented by Tanishq Sharma
+
+setname: "ATLAS_ttBar_7TeV_tot"
+
+nnpdf_metadata:
+  nnpdf31_process: "TTB"
+  experiment: "ATLAS"
+
+arXiv:
+  url: "https://arxiv.org/abs/1406.5375"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1301856"
+hepdata:
+  url: ""
+  version: 
+
+version: 
+version_comment:
+
+implemented_observables:
+
+  - observable: {description: "total cross section of ttBar", label: '$\sigma_{t\bar{t}}$', units: "pb"}
+    observable_name: x_sec
+    ndata: 1
+    tables: []
+    kinematics:
+      variables:
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+      file: kinematics.yaml
+    data_central: 
+      file: data.yaml
+    data_uncertainties:
+      file:
+        - uncertainties.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x: sqrt_s
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
