@@ -2,6 +2,10 @@
 
 setname: 'ATLAS_ttBar_13TeV'
 
+nnpdf_metadata:
+  nnpdf31_process: "TTB"
+  experiment: "ATLAS"
+
 arXiv:
   url: "https://arxiv.org/abs/1908.07305"
 iNSPIRE:
@@ -28,6 +32,15 @@ implemented_observables:
     data_uncertainties:
       file: 
         - uncertainties_dSig_dmttBar.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "normalized differential cross section w.r.t. ttBar invariant mass", label: '$1/\sigma * d\sigma/dm_{t\bar{t}}$', units: "1/GeV"}
     ndata: 9
@@ -42,6 +55,15 @@ implemented_observables:
     data_uncertainties:
       file: 
         - uncertainties_dSig_dmttBar_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "differential cross section w.r.t. transverse momentum of t", label: '$d\sigma/dpT_t$', units: 'pb/GeV'}
     ndata: 8
@@ -56,6 +78,15 @@ implemented_observables:
     data_uncertainties:
       file: 
         - uncertainties_dSig_dpTt.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "normalized differential cross section w.r.t. transverse momentum of t", label: '$1/\sigma * d\sigma/dpT_t$', units: '1/GeV'}
     ndata: 8
@@ -70,6 +101,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_dSig_dpTt_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "differential cross section w.r.t. absolute rapidity of t", label: '$d\sigma/d|y_{t}|$', units: "pb"}
     ndata: 5
@@ -84,6 +124,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_dSig_dyt.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "normalized differential cross section w.r.t. absolute rapidity of t", label: '$1/\sigma * d\sigma/d|y_{t}|$', units: ""}
     ndata: 5
@@ -98,6 +147,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_dSig_dyt_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "differential cross section w.r.t. absolute rapidity of ttBar", label: '$d\sigma/d|y_{t\bar{t}}|$', units: "pb"}
     ndata: 7
@@ -112,6 +170,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_dSig_dyttBar.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "normalized differential cross section w.r.t. absolute rapidity of ttBar", label: '$1/\sigma * d\sigma/d|y_{t\bar{t}}|$', units: ""}
     ndata: 7
@@ -126,3 +193,12 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_dSig_dyttBar_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 

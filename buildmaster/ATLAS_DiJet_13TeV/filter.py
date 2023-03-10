@@ -1,7 +1,7 @@
 # implemented by Tanishq Sharma
 
 import yaml
-from utils import symmetrize_errors as se
+from validphys.commondata_utils import symmetrize_errors as se
 
 def processData():
     with open('metadata.yaml', 'r') as file:

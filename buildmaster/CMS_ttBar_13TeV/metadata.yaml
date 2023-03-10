@@ -2,6 +2,10 @@
 
 setname: 'CMS_ttBar_13TeV'
 
+nnpdf_metadata:
+  nnpdf31_process: "TTB"
+  experiment: "CMS"
+
 arXiv:
   url: "https://arxiv.org/abs/2108.02803"
 iNSPIRE:
@@ -28,6 +32,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_dSig_dmttBar.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "normalized differential cross section w.r.t. invariant mass of ttBar", label: '$1/\sigma * d\sigma/dm_{t\bar{t}}$', units: "1/GeV"}
     ndata: 15
@@ -42,6 +55,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_dSig_dmttBar_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "differential cross section w.r.t. absolute rapidity of ttBar", label: '$d\sigma/d|y_{t\bar{t}}|$', units: "pb"}
     ndata: 10
@@ -56,6 +78,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_dSig_dyttBar.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "normalized differential cross section w.r.t. absolute rapidity of ttBar", label: '$1/\sigma * d\sigma/d|y_{t\bar{t}}|$', units: ""}
     ndata: 10
@@ -70,6 +101,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_dSig_dyttBar_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "double differential cross section w.r.t. invariant mass and absolute rapidity of ttBar", label: '$d^2\sigma/dm_{t\bar{t}}d|y_{t\bar{t}}|$', units: "pb/GeV"}
     ndata: 35
@@ -85,6 +125,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_d2Sig_dyttBar_dmttBar.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "normalized double differential cross section w.r.t. invariant mass and absolute rapidity of ttBar", label: '$1/\sigma * d^2\sigma/dm_{t\bar{t}}d|y_{t\bar{t}}|$', units: "1/GeV"}
     ndata: 35
@@ -100,3 +149,12 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_d2Sig_dyttBar_dmttBar_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 

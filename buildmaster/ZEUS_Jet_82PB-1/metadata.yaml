@@ -2,6 +2,10 @@
 
 setname: 'ZEUS_Jet_82PB-1'
 
+nnpdf_metadata:
+  nnpdf31_process: ""
+  experiment: "ZEUS"
+
 arXiv:
   url: "https://arxiv.org/abs/hep-ex/0608048"
 iNSPIRE:
@@ -29,3 +33,12 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_q2_et.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 

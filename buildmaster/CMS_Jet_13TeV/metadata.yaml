@@ -2,6 +2,10 @@
 
 setname: 'CMS_Jet_13TeV'
 
+nnpdf_metadata:
+  nnpdf31_process: ""
+  experiment: "CMS"
+
 arXiv:
   url: "https://arxiv.org/abs/2111.10431"
 iNSPIRE:
@@ -29,6 +33,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_r04.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "double differential cross section w.r.t. pT and y", label: '$d^2\sigma/dp_T dy$', units: "pb/GeV"}
     ndata: 78 # 22+21+19+16
@@ -44,3 +57,12 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_r07.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 

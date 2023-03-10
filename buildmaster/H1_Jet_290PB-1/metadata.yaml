@@ -2,6 +2,10 @@
 
 setname: 'H1_Jet_290PB-1'
 
+nnpdf_metadata:
+  nnpdf31_process: ""
+  experiment: "H1"
+
 arXiv:
   url: "https://arxiv.org/abs/1611.03421"
 iNSPIRE:
@@ -29,6 +33,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\sigma/\sigma_{NC}$', units: ""}
     ndata: 48
@@ -44,6 +57,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "double differential cross section w.r.t. q^2 and pT", label: '$\sigma', units: "pb"}
     ndata: 6
@@ -59,6 +81,15 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_highQ2.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 
 
   - observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\sigma/\sigma_{NC}$', units: ""}
     ndata: 6
@@ -74,3 +105,12 @@ implemented_observables:
     data_uncertainties:
       file:
         - uncertainties_highQ2_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+    dataset_label: ''
+    plot_x:
+    figure_by: 
+      -
+    theory:
+      FK_tables:
+        - - 

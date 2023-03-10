@@ -1,7 +1,7 @@
 # implemented by Tanishq Sharma
 
 import yaml
-from utils import covMat_to_artUnc as cta
+from validphys.commondata_utils import covMat_to_artUnc as cta
 
 def processData():
     with open('metadata.yaml', 'r') as file:
@@ -59,7 +59,7 @@ def processData():
     for i in range(ndata_dSig_dmttBar*ndata_dSig_dmttBar):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_dSig_dmttBar.append(covMatEl)
-    artUncMat_dSig_dmttBar = cta(ndata_dSig_dmttBar, covMatArray_dSig_dmttBar)
+    artUncMat_dSig_dmttBar = cta(ndata_dSig_dmttBar, covMatArray_dSig_dmttBar, False)
     sqrt_s = 13000
     values = input['dependent_variables'][0]['values']
     
@@ -108,7 +108,7 @@ def processData():
     for i in range(ndata_dSig_dmttBar_norm*ndata_dSig_dmttBar_norm):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_dSig_dmttBar_norm.append(covMatEl)
-    artUncMat_dSig_dmttBar_norm = cta(ndata_dSig_dmttBar_norm, covMatArray_dSig_dmttBar_norm)
+    artUncMat_dSig_dmttBar_norm = cta(ndata_dSig_dmttBar_norm, covMatArray_dSig_dmttBar_norm, True)
 
     sqrt_s = 13000
     values = input['dependent_variables'][0]['values']
@@ -158,7 +158,7 @@ def processData():
     for i in range(ndata_dSig_dyttBar*ndata_dSig_dyttBar):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_dSig_dyttBar.append(covMatEl)
-    artUncMat_dSig_dyttBar = cta(ndata_dSig_dyttBar, covMatArray_dSig_dyttBar)
+    artUncMat_dSig_dyttBar = cta(ndata_dSig_dyttBar, covMatArray_dSig_dyttBar, False)
 
     sqrt_s = 13000
     values = input['dependent_variables'][0]['values']
@@ -208,7 +208,7 @@ def processData():
     for i in range(ndata_dSig_dyttBar_norm*ndata_dSig_dyttBar_norm):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_dSig_dyttBar_norm.append(covMatEl)
-    artUncMat_dSig_dyttBar_norm = cta(ndata_dSig_dyttBar_norm, covMatArray_dSig_dyttBar_norm)
+    artUncMat_dSig_dyttBar_norm = cta(ndata_dSig_dyttBar_norm, covMatArray_dSig_dyttBar_norm, True)
 
     sqrt_s = 13000
     values = input['dependent_variables'][0]['values']
@@ -254,7 +254,7 @@ def processData():
     for i in range(ndata_d2Sig_dyttbar_dmttbar*ndata_d2Sig_dyttbar_dmttbar):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_d2Sig_dyttbar_dmttbar.append(covMatEl)
-    artUncMat_d2Sig_dyttbar_dmttbar = cta(ndata_d2Sig_dyttbar_dmttbar, covMatArray_d2Sig_dyttbar_dmttbar)
+    artUncMat_d2Sig_dyttbar_dmttbar = cta(ndata_d2Sig_dyttbar_dmttbar, covMatArray_d2Sig_dyttbar_dmttbar, False)
 
     for i in tables_d2Sig_dyttbar_dmttbar:
         hepdata_tables="rawdata/parton_abs_ttm+tty_"+str(i)+".yaml"
@@ -307,7 +307,7 @@ def processData():
     for i in range(ndata_d2Sig_dyttbar_dmttbar_norm*ndata_d2Sig_dyttbar_dmttbar_norm):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_d2Sig_dyttbar_dmttbar_norm.append(covMatEl)
-    artUncMat_d2Sig_dyttbar_dmttbar_norm = cta(ndata_d2Sig_dyttbar_dmttbar_norm, covMatArray_d2Sig_dyttbar_dmttbar_norm)
+    artUncMat_d2Sig_dyttbar_dmttbar_norm = cta(ndata_d2Sig_dyttbar_dmttbar_norm, covMatArray_d2Sig_dyttbar_dmttbar_norm, True)
 
     for i in tables_d2Sig_dyttBar_dmttBar_norm:
         hepdata_tables="rawdata/parton_norm_ttm+tty_"+str(i)+".yaml"
