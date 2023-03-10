@@ -10,13 +10,8 @@ definitions:
   lumi:
     description: luminosity related uncertainty
     treatment: 
-    type: ATLASLUMI7
-  beam_energy:
-    description: LHC beam energy
-    treatment: 
-    type:
+    type: CMSLUMI5
 bins:
-- stat: 3.1
-  sys: 4.2
-  lumi: 3.6
-  beam_energy: 3.3
+- stat: 6.1
+  sys: 5.6
+  lumi: 1.6

@@ -1,5 +1,5 @@
 bins:
 - sqrt_s:
     min: null
-    mid: 8000
+    mid: 5020
     max: null
