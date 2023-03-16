@@ -156,3 +156,7 @@ def covMat_to_artUnc(ndata, covMatList, is_normalized):
                     else:
                         artUnc[i][j] = eigVec[i][j] * sqrt(eigVal[j]) 
     return artUnc
+
+def triMat_to_fullMat(dimension, mode, entries):
+    if mode == 0:
+        

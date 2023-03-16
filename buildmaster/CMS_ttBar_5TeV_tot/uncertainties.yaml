@@ -8,8 +8,8 @@ definitions:
     treatment: MULT
     type: CORR
   lumi:
-    description: luminosity related uncertainty
-    treatment: 
+    description: luminosity uncertainty
+    treatment: MULT
     type: CMSLUMI5
 bins:
 - stat: 6.1

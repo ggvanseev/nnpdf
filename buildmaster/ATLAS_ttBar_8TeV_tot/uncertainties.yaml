@@ -8,13 +8,13 @@ definitions:
     treatment: MULT
     type: CORR
   lumi:
-    description: luminosity related uncertainty
-    treatment: 
+    description: luminosity uncertainty
+    treatment: MULT
     type: ATLASLUMI8
   beam_energy:
     description: LHC beam energy
-    treatment: 
-    type:
+    treatment: ADD
+    type: CORR
 bins:
 - stat: 1.7
   sys: 5.5
