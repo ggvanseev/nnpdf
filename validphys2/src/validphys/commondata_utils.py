@@ -60,14 +60,12 @@ def percentage_to_absolute(percentage, value):
     absolute = percentage * value * 0.01
     return absolute 
 
-def corMat_to_covMat(ndata, errList, corMatList):
+def corMat_to_covMat(errList, corMatList):
     r"""Converts correlation matrix elements to covariance
     matrix elements.
 
     Parameters
     ----------
-    ndata : integer
-        Number of data points
     errList : list
         A one dimensional list which contains the uncertainty
         associated to each data point in order.
@@ -86,8 +84,8 @@ def corMat_to_covMat(ndata, errList, corMatList):
     """
     covMatList = []
     for i in range(len(corMatList)):
-        a = i // ndata
-        b = i % ndata
+        a = i // len(errList)
+        b = i % len(errList)
         covMatList.append(corMatList[i] * errList[a] * errList[b])
     return covMatList
 
@@ -155,4 +153,68 @@ def covMat_to_artUnc(ndata, covMatList, is_normalized):
                         continue
                     else:
                         artUnc[i][j] = eigVec[i][j] * sqrt(eigVal[j]) 
-    return artUnc
+    return artUnc.tolist()
+
+def cross_corMat_to_covMat(rowErrList, colErrList, corMatList):
+    covMatList = []
+    for i in range(len(corMatList)):
+        a = i // len(colErrList)
+        b = i % len(colErrList)
+        covMatList.append(corMatList[i] * rowErrList[a] * colErrList[b])
+    return covMatList
+
+def matList_to_matrix(rows, columns, matList):
+    if rows * columns == len(matList):
+        matrix = np.zeros((rows, columns))
+        for i in range(rows):
+            for j in range(columns):
+                matrix[i][j] = matList[j + i * columns]
+        matrix = np.array(matrix)
+        return matrix.tolist()
+    else:
+        raise Exception('rows * columns != len(matList)')
+    
+def concatMatrices(matInRows, matInColumns, listOfMatrices):
+    for i in range(len(listOfMatrices)):
+        listOfMatrices[i] = np.array(listOfMatrices[i])
+    colList = []
+    for i in range(matInRows):
+        rowList = []
+        for j in range(matInColumns):
+            rowList.append(listOfMatrices[j + i * matInColumns])
+        colList.append(np.concatenate(tuple(rowList), axis=1))
+    finalMat = np.concatenate(tuple(colList), axis=0)
+    finalMatList = []
+    for i in range(len(finalMat)):
+        for j in range(len(finalMat[i])):
+            finalMatList.append(finalMat[i][j])
+    return finalMatList
+
+def triMat_to_fullMat(mode, triMatList):
+    dim = int((np.sqrt(1 + 8*len(triMatList)) - 1)/2)
+    matrix = np.zeros((dim, dim))
+    if mode == 0:
+        for i in range(dim):
+            for j in range(i + 1):
+                listEl = len(triMatList) - 1 - ((i*(i + 1))//2 + j)
+                if i == j:
+                    matrix[dim - 1 - i][dim - 1 - j] = triMatList[listEl]
+                else:
+                    matrix[dim - 1 - i][dim - 1 - j] = triMatList[listEl]
+                    matrix[dim - 1 - j][dim - 1 - i] = triMatList[listEl]
+    elif mode == 1:
+        for i in range(dim):
+            for j in range(i + 1):
+                listEl = (i*(i + 1))//2 + j
+                if i == j:
+                    matrix[i][j] = triMatList[listEl]
+                else:
+                    matrix[i][j] = triMatList[listEl]
+                    matrix[j][i] = triMatList[listEl]
+    else:
+        raise Exception('Mode should be 0 or 1, refer to the function for usage')
+    matList = []
+    for i in range(dim):
+        for j in range(dim):
+            matList.append(matrix[i][j])
+    return matList
