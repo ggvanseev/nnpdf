@@ -21,6 +21,7 @@ from n3fit.backends import operations as op
 from n3fit.backends import MetaLayer, Lambda
 from n3fit.backends import base_layer_selector, regularizer_selector
 
+from n3fit.f3fit.models import f3fit_model, f3Preproc
 
 @dataclass
 class ObservableWrapper:
@@ -386,6 +387,12 @@ def generate_dense_per_flavour_network(
         nodes_in = int(nodes_out)
     return list_of_pdf_layers
 
+def generate_f3(model_name,seed):
+    model = f3fit_model(model_name,seed=seed)
+    list_of_pdf_layers = []
+    list_of_pdf_layers.append(model)
+    return list_of_pdf_layers
+
 
 def pdfNN_layer_generator(
     inp=2,
@@ -596,6 +603,7 @@ def pdfNN_layer_generator(
                 seed=layer_seed,
                 basis_size=last_layer_nodes,
             )
+        elif layer_type[:5] == "f3fit": list_of_pdf_layers = generate_f3(layer_type[6:],seed=layer_seed)
 
         def dense_me(x):
             """Takes an input tensor `x` and applies all layers
@@ -608,13 +616,23 @@ def pdfNN_layer_generator(
             return curr_fun
 
         preproseed = layer_seed + number_of_layers
-        layer_preproc = Preprocessing(
-            flav_info=flav_info,
-            input_shape=(1,),
-            name=f"pdf_prepro_{i}",
-            seed=preproseed,
-            large_x=not subtract_one,
-        )
+
+        if layer_type[:5] == "f3fit":
+            layer_preproc = f3Preproc(
+                  flav_info=flav_info,
+                  input_shape=(1,),
+                  name=f"pdf_prepro_{i}",
+                  seed=preproseed
+                  )
+        else: 
+            layer_preproc = Preprocessing(
+                  flav_info=flav_info,
+                  input_shape=(1,),
+                  name=f"pdf_prepro_{i}",
+                  seed=preproseed,
+                  large_x=not subtract_one,
+                  )
+
 
         # Apply preprocessing and basis
         def layer_fitbasis(x):
@@ -623,6 +641,12 @@ def pdfNN_layer_generator(
             """
             x_scaled = op.op_gather_keep_dims(x, 0, axis=-1)
             x_original = op.op_gather_keep_dims(x, -1, axis=-1)
+
+            if layer_type[:5] == "f3fit": 
+#                nn_output = list_of_pdf_layers[0](x_scaled)
+                nn_output = dense_me(x_scaled)
+                ret = op.op_multiply([nn_output,layer_preproc(x_original)])
+                return basis_rotation(ret)
 
             nn_output = dense_me(x_scaled)
             if subtract_one:
