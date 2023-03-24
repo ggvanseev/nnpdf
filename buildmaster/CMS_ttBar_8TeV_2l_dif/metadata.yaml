@@ -1,6 +1,6 @@
 # implemented by Tanishq Sharma
 
-setname: "CMS_ttBar_8TeV_2l_2dif"
+setname: "CMS_ttBar_8TeV_2l_dif"
 
 nnpdf_metadata:
   nnpdf31_process: "TTB"
