@@ -93,10 +93,8 @@ def processData():
                     error_value[values[j]['errors'][k]['label']+'_2'] = se_sigma
             data_central_value = data_central_value + value_delta
             data_central.append(data_central_value)
-            for k in range(0, 48):
-                error_value['ArtUnc_'+str(k+1)] = float(artUncMatr[j][k])
-            for k in range(48, 96):
-                error_value['ArtUnc_Jet12_'+str(k-47)] = float(artUncMatr[j][k])
+            for k in range(96):
+                error_value['ArtUnc_'+str(k+1)] = float(artUncMatr[len(data_central) - 1][k])
             error_value['stat'] = 0
             error.append(error_value)
 
@@ -118,10 +116,8 @@ def processData():
         'RadErr':{'description': 'radiative uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     }
 
-    for i in range(0, 48):
-        error_definition['ArtUnc_'+str(i+1)] = {'description': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
-    for i in range(48, 96):
-        error_definition['ArtUnc_Jet12_'+str(i-47)] = {'description': 'artificial uncertainty jet12 '+str(i-47), 'treatment': 'ADD', 'type': 'JET12'}
+    for i in range(96):
+        error_definition['ArtUnc_'+str(i+1)] = {'description': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'JET12'}
 
     data_central_yaml = {'data_central': data_central}
     kinematics_yaml = {'bins': kin}
@@ -197,10 +193,8 @@ def processData():
                     error_value[values[j]['errors'][k]['label']+'_2'] = se_sigma
             data_central_value = data_central_value + value_delta
             data_central_norm.append(data_central_value)
-            for k in range(0, 48):
-                error_value['ArtUnc_'+str(k+1)] = float(artUncMatr_norm[j][k])
-            for k in range(48, 96):
-                error_value['ArtUnc_Jet12_'+str(k-47)] = float(artUncMatr_norm[j][k])
+            for k in range(96):
+                error_value['ArtUnc_'+str(k+1)] = float(artUncMatr_norm[len(data_central_norm) - 1][k])
             error_value['stat'] = 0
             error_norm.append(error_value)
 
@@ -222,10 +216,8 @@ def processData():
         'RadErr':{'description': 'radiative uncertainty', 'treatment': 'ADD', 'type': 'UNCORR'}
     }
 
-    for i in range(0, 48):
-        error_definition_norm['ArtUnc_'+str(i+1)] = {'description': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
-    for i in range(48, 96):
-        error_definition_norm['ArtUnc_Jet12_'+str(i-47)] = {'description': 'artificial uncertainty jet12 '+str(i-47), 'treatment': 'ADD', 'type': 'JET12'}
+    for i in range(96):
+        error_definition_norm['ArtUnc_'+str(i+1)] = {'description': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'JET12'}
 
     data_central_norm_yaml = {'data_central': data_central_norm}
     kinematics_norm_yaml = {'bins': kin_norm}
