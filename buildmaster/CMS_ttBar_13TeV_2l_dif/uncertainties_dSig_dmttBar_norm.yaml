@@ -1,0 +1,62 @@
+definitions:
+  ArtUnc_1:
+    definition: artificial uncertainty 1
+    treatment: ADD
+    type: CORR
+  ArtUnc_2:
+    definition: artificial uncertainty 2
+    treatment: ADD
+    type: CORR
+  ArtUnc_3:
+    definition: artificial uncertainty 3
+    treatment: ADD
+    type: CORR
+  ArtUnc_4:
+    definition: artificial uncertainty 4
+    treatment: ADD
+    type: CORR
+  ArtUnc_5:
+    definition: artificial uncertainty 5
+    treatment: ADD
+    type: CORR
+  ArtUnc_6:
+    definition: artificial uncertainty 6
+    treatment: ADD
+    type: CORR
+bins:
+- ArtUnc_1: 0.00016842496607187134
+  ArtUnc_2: -7.351436800867411e-05
+  ArtUnc_3: 8.454605773311263e-06
+  ArtUnc_4: -2.657709554463559e-06
+  ArtUnc_5: 4.6480540065540607e-07
+  ArtUnc_6: 9.315071526957077e-08
+- ArtUnc_1: -0.00017722058464508198
+  ArtUnc_2: -6.651440336351316e-05
+  ArtUnc_3: 9.03007784540431e-06
+  ArtUnc_4: -3.1250475085984225e-06
+  ArtUnc_5: 5.282854523866432e-07
+  ArtUnc_6: 1.0587684799066741e-07
+- ArtUnc_1: 1.0561342330795622e-05
+  ArtUnc_2: 5.131633720677156e-05
+  ArtUnc_3: 3.1446331399519064e-05
+  ArtUnc_4: -6.8867458023520705e-06
+  ArtUnc_5: 9.636654408784727e-07
+  ArtUnc_6: 1.8413727521349465e-07
+- ArtUnc_1: 4.499335532111703e-06
+  ArtUnc_2: 1.1741964511343582e-05
+  ArtUnc_3: -3.4267596259460245e-05
+  ArtUnc_4: -6.6157588416732755e-06
+  ArtUnc_5: 1.3864754316934075e-06
+  ArtUnc_6: 2.5202501579001083e-07
+- ArtUnc_1: -3.675155391069648e-07
+  ArtUnc_2: 2.7793067339889876e-06
+  ArtUnc_3: 4.038211806950873e-06
+  ArtUnc_4: 1.0033692601483142e-05
+  ArtUnc_5: 1.8523390310600121e-06
+  ArtUnc_6: 3.536731571311559e-07
+- ArtUnc_1: 1.9750980661640635e-07
+  ArtUnc_2: 7.821491235584205e-07
+  ArtUnc_3: -5.112013830297451e-07
+  ArtUnc_4: -5.452002885520062e-08
+  ArtUnc_5: -2.009178788835044e-06
+  ArtUnc_6: 6.376863898066222e-07
