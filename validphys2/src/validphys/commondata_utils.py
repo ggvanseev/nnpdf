@@ -72,7 +72,7 @@ def percentage_to_absolute(percentage, value):
         absolute = percentage * value * 0.01
         return absolute
 
-def corMat_to_covMat(errList, corMatList):
+def cormat_to_covmat(errList, corMatList):
     r"""Convert correlation matrix elements to covariance
     matrix elements.
 
@@ -101,7 +101,7 @@ def corMat_to_covMat(errList, corMatList):
         covMatList.append(corMatList[i] * errList[a] * errList[b])
     return covMatList
 
-def covMat_to_artUnc(ndata, covMatList, is_normalized):
+def covmat_to_artunc(ndata, covMatList, is_normalized):
     r"""Convert the covariance matrix to a matrix of 
     artificial uncertainties.
 
@@ -167,7 +167,7 @@ def covMat_to_artUnc(ndata, covMatList, is_normalized):
                         artUnc[i][j] = eigVec[i][j] * sqrt(eigVal[j]) 
     return artUnc.tolist()
 
-def cross_corMat_to_covMat(rowErrList, colErrList, corMatList):
+def cross_cormat_to_covmat(rowErrList, colErrList, corMatList):
     r"""Convert cross correlation matrix elements 
     (i.e. those between different different variables or 
     observables) to covariance matrix elements.
@@ -202,7 +202,7 @@ def cross_corMat_to_covMat(rowErrList, colErrList, corMatList):
         covMatList.append(corMatList[i] * rowErrList[a] * colErrList[b])
     return covMatList
 
-def matList_to_matrix(rows, columns, matList):
+def matlist_to_matrix(rows, columns, matList):
     r"""Convert a 1d list to a 2d matrix.
 
     Note: This utils function is not strictly needed for
@@ -239,7 +239,7 @@ def matList_to_matrix(rows, columns, matList):
     else:
         raise Exception('rows * columns != len(matList)')
     
-def concatMatrices(rows, columns, listOfMatrices):
+def concat_matrices(rows, columns, listOfMatrices):
     r"""Join smaller matrices into a large matrix.
 
     This function aims to simplify the process of joining multiple
@@ -291,7 +291,7 @@ def concatMatrices(rows, columns, listOfMatrices):
             finalMatList.append(finalMat[i][j])
     return finalMatList
 
-def triMat_to_fullMat(mode, triMatList):
+def trimat_to_fullmat(mode, triMatList):
     r"""Convert a list of values of a triangular matrix
     to a symmetric matrix.
 
