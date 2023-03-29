@@ -9,9 +9,9 @@ nnpdf_metadata:
 arXiv:
   url: "https://arxiv.org/abs/1511.04716"
 iNSPIRE:
-  url: "https://www.hepdata.net/record/ins1404878"
-hepdata:
   url: "https://inspirehep.net/literature/1404878"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1404878"
   version: 2
 
 version: 

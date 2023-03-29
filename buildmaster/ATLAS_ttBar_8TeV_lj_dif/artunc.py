@@ -96,7 +96,7 @@ def artunc():
                            mat170, mat168, mat167, mat169, mat177, mat173t, mat169t, mat176])
 
     covmatlist = ctc(statArr, cormatlist)
-    artunc = cta(25, covmatlist, False)
+    artunc = cta(25, covmatlist)
     return artunc
 
 
@@ -188,13 +188,5 @@ def artunc_norm():
                            mat225, mat223, mat222, mat224, mat232, mat228t, mat224t, mat231])
 
     covmatlist = ctc(statArr, cormatlist)
- #   artunc = cta(25, covmatlist, True)
-    covMat = np.zeros((25, 25))
-    for i in range(len(covmatlist)):
-        a = i // 25
-        b = i % 25
-        covMat[a][b] = covmatlist[i]
-    eigVal, eigVec = eig(covMat)
-    return eigVal
-
-print(artunc_norm())
+    artunc = cta(25, covmatlist, 4)
+    return artunc
