@@ -18,7 +18,6 @@ from reportengine.table import table
 
 from validphys.checks import check_at_least_two_replicas
 from reportengine.table import table
-from validphys.api import API
 
 log = logging.getLogger(__name__)
 
@@ -48,6 +47,7 @@ def calculate_chi2s_per_replica(
     preds,
     dataset_inputs,
     groups_covmat_no_table,
+    read_pdf_pseudodata,
 ):
     """Calculates, for each PDF replica, the chi2 of the validation with the
     pseudodata generated for all other replicas in the fit
@@ -73,21 +73,15 @@ def calculate_chi2s_per_replica(
         pseudodata replica
     """
 
-    try:
-        pdf_pseudodata = API.read_pdf_pseudodata(fit=pdf.name)
-    except FileNotFoundError:
-        return np.array(np.nan)
-
     pp = []
     for i, dss in enumerate(dataset_inputs):
         preds_witout_cv = preds[i].drop(0, axis=1)
         df = pd.concat({dss.name: preds_witout_cv}, names=["dataset"])
         pp.append(df)
-
     PDF_predictions = pd.concat(pp)
 
     chi2s_per_replica = []
-    for enum, pdf_data_index in enumerate(pdf_pseudodata):
+    for enum, pdf_data_index in enumerate(read_pdf_pseudodata):
 
         prediction_filter = pdf_data_index.val_idx.droplevel(level=0)
         prediction_filter.rename(["dataset", "data"], inplace=True)
@@ -95,7 +89,7 @@ def calculate_chi2s_per_replica(
         PDF_predictions_val = PDF_predictions_val.values[:, enum]
 
         new_val_pseudodata_list = _create_new_val_pseudodata(
-            pdf_data_index, pdf_pseudodata
+            pdf_data_index, read_pdf_pseudodata
         )
 
         invcovmat_vl = np.linalg.inv(

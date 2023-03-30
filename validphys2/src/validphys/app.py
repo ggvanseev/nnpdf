@@ -54,8 +54,8 @@ providers = [
     "validphys.deltachi2",
     "validphys.n3fit_data",
     "validphys.mc2hessian",
+    "validphys.overfit_metric",
     "reportengine.report",
-    "validphys.overfit_metric"
 ]
 
 log = logging.getLogger(__name__)
