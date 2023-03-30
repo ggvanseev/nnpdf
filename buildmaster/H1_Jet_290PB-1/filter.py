@@ -74,7 +74,6 @@ def processData():
             kin.append(kin_value)
             value_delta = 0
             error_value = {}
-            error_value
             for k in 0, 1, 5, 6, 7, 8, 9, 10, 11:
                 if 'symerror' in values[j]['errors'][k]:
                     error_value[values[j]['errors'][k]['label']] = pta(values[j]['errors'][k]['symerror'], data_central_value)
