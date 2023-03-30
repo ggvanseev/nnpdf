@@ -153,7 +153,9 @@ def array_expected_overfitting(
         list_expected_overfitting = calculate_chi2s_per_replica
     else:
         fitted_val_erf = np.array([info.validation for info in replica_data])
-
+        if not np.allclose(fitted_val_erf, calculate_chi2s_per_replica.diagonal()):
+            raise ValueError("Calculated validation losses differ from ones observed during fitting!")
+        fitted_val_erf = calculate_chi2s_per_replica.diagonal()
         number_pdfs = calculate_chi2s_per_replica.shape[0]
         list_expected_overfitting = []
         for _ in range(number_pdfs * number_of_resamples):
