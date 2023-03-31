@@ -621,6 +621,21 @@ def _plot_chis_df(df):
     ax.legend()
     return fig, ax
 
+
+@figure
+def plot_fits_nsigma(fits_nsigma_table):
+    fig, ax = plotutils.barplot(
+        fits_nsigma_table.T,
+        fits_nsigma_table.index,
+        fits_nsigma_table.columns,
+        orientation="vertical",
+    )
+    ax.axhline(2, color="black", linestyle="--", zorder=99)
+    ax.axhline(3, color="red", linestyle="-", zorder=99)
+    ax.grid(False)
+    ax.legend()
+    return fig
+
 def _plot_chi2s_spider_df(df, size=6):
     """Like _plot_chis_df but for spider plot."""
     chilabel = df.columns.get_level_values(1)[1]

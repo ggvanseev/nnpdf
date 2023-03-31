@@ -553,6 +553,20 @@ def phi_data(abs_chi2_data):
     return (np.sqrt((alldata.error_members().mean() - central) / npoints), npoints)
 
 
+def chi2_nsigma_deviation(abs_chi2_data):
+    diff = abs_chi2_data.central_result - abs_chi2_data.ndata
+    return diff / np.sqrt(2 * abs_chi2_data.ndata)
+
+
+dataset_inputs_chi2_nsigma_deviation = collect(
+    'chi2_nsigma_deviation', ('data_input',)
+)
+
+fits_chi2_nsigma_deviation = collect(
+    "dataset_inputs_chi2_nsigma_deviation", ("fits", "fitcontext")
+)
+
+
 def dataset_inputs_phi_data(dataset_inputs_abs_chi2_data):
     """Like `phi_data` but for group of datasets"""
     return phi_data(dataset_inputs_abs_chi2_data)
@@ -670,6 +684,21 @@ def procs_chi2_table(
         groups_chi2_by_process,
         groups_each_dataset_chi2_by_process,
     )
+
+
+fits_dataset_inputs = collect("data_input", ("fits", "fitinputcontext"))
+
+@table
+def fits_nsigma_table(fits, fits_dataset_inputs, fits_chi2_nsigma_deviation):
+    res_dict = {}
+    for fit, input_data, nsigma_data in zip(
+        fits, fits_dataset_inputs, fits_chi2_nsigma_deviation
+    ):
+        res_dict[fit.label] = d = {}
+        for ds, nsigma in zip(input_data, nsigma_data):
+            d[ds.name] = nsigma
+    return pd.DataFrame(res_dict)
+
 
 
 def positivity_predictions_data_result(pdf, posdataset):
