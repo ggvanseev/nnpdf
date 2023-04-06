@@ -612,6 +612,19 @@ FLAVOUR = LinearBasis.from_mapping(
     },
     default_elements=('u', 'ubar', 'd', 'dbar', 's', 'sbar', 'c', 'g', ))
 
+# PK Adding Hera basis
+HERA = LinearBasis.from_mapping(
+   {
+      'uv': {'u': 1, 'ubar': -1 },
+      'ubar': {'ubar': 1},
+      'dv': {'d': 1, 'dbar': -1},
+      'dbar': {'dbar': 1},
+      's': {'s': 1},
+      'sbar': {'sbar': 1},
+      'g': {'g': 1},
+   },
+   default_elements=('uv','ubar','dv','dbar','s','sbar','g'))
+
 CCBAR_ASYMM_FLAVOUR = copy.deepcopy(FLAVOUR)
 CCBAR_ASYMM_FLAVOUR.default_elements=('u', 'ubar', 'd', 'dbar', 's', 'sbar', 'c', 'cbar', 'g')
 
@@ -783,6 +796,17 @@ def fitbasis_to_NN31IC(flav_info, fitbasis):
         cp = {'u': 0, 'ubar': 0, 'd': 0, 'dbar': 0, 's': 0, 'sbar': 0, 'c': 1, 'cbar': 1, 'g': 0 }
         g = {'u': 0, 'ubar': 0, 'd': 0, 'dbar': 0, 's': 0, 'sbar': 0, 'c': 0, 'cbar': 0, 'g': 1 }
         v15 = {'u': 1, 'ubar': -1, 'd': 1, 'dbar': -1, 's': 1, 'sbar': -1, 'c': -3, 'cbar': 3, 'g': 0 }
+# PK added rotation for Hera
+    elif fitbasis == 'HERA':
+        sng = {'uv': 1, 'ubar': 2, 'dv':  1, 'dbar':  2, 's':  1, 'sbar':  1, 'g': 0 }
+        v   = {'uv': 1, 'ubar': 0, 'dv':  1, 'dbar':  0, 's':  1, 'sbar': -1, 'g': 0 }
+        v3  = {'uv': 1, 'ubar': 0, 'dv': -1, 'dbar':  0, 's':  0, 'sbar':  0, 'g': 0 }
+        v8  = {'uv': 1, 'ubar': 0, 'dv':  1, 'dbar':  0, 's': -2, 'sbar':  2, 'g': 0 }
+        t3  = {'uv': 1, 'ubar': 2, 'dv': -1, 'dbar': -2, 's':  0, 'sbar':  0, 'g': 0 }
+        t8  = {'uv': 1, 'ubar': 2, 'dv':  1, 'dbar':  2, 's': -2, 'sbar': -2, 'g': 0 }
+        cp  = {'uv': 0, 'ubar': 0, 'dv':  0, 'dbar':  0, 's':  0, 'sbar':  0, 'g': 0 }
+        g   = {'uv': 0, 'ubar': 0, 'dv':  0, 'dbar':  0, 's':  0, 'sbar':  0, 'g': 1 }
+        v15 = {'uv': 1, 'ubar': 0, 'dv':  1, 'dbar':  0, 's':  1, 'sbar': -1, 'g': 0 }
 
     flist = [sng, g, v, v3, v8, t3, t8, cp, v15]
 

@@ -643,8 +643,8 @@ def pdfNN_layer_generator(
             x_original = op.op_gather_keep_dims(x, -1, axis=-1)
 
             if layer_type[:5] == "f3fit": 
-#                nn_output = list_of_pdf_layers[0](x_scaled)
-                nn_output = dense_me(x_scaled)
+                nn_output = list_of_pdf_layers[0](x_original)
+                #nn_output = dense_me(x_original)
                 ret = op.op_multiply([nn_output,layer_preproc(x_original)])
                 return basis_rotation(ret)
 
