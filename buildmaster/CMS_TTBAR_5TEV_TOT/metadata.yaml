@@ -1,6 +1,6 @@
 # implemented by Tanishq Sharma
 
-setname: "CMS_ttBar_5TeV_tot"
+setname: "CMS_TTBAR_5TEV_TOT"
 
 nnpdf_metadata:
   nnpdf31_process: "TTB"
@@ -11,33 +11,32 @@ arXiv:
 iNSPIRE:
   url: "https://inspirehep.net/literature/1635271"
 hepdata:
-  url: ""
+  url: "NA"
   version: 
 
-version: 
-version_comment:
+version: 1
+version_comment: "NA"
 
 implemented_observables:
 
   - observable: {description: "total cross section of ttBar", label: '$\sigma_{t\bar{t}}$', units: "pb"}
-    observable_name: x_sec
+    observable_name: X-SEC
     ndata: 1
     tables: []
     kinematics:
       variables:
+        zero: {description: "", label: '$$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
         sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics.yaml
-    data_central: 
-      file: data.yaml
+    data_central: data.yaml
     data_uncertainties:
-      file:
-        - uncertainties.yaml
+      - uncertainties.yaml
     kinematic_coverage:
+      zero: zero
+      mt_sqr: mt_sqr
       sqrt_s: sqrt_s
-    dataset_label: ''
+    dataset_label: $Total cross section of t\bar{t} at 5 TeV$''
     plot_x: sqrt_s
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - mt_sqr
