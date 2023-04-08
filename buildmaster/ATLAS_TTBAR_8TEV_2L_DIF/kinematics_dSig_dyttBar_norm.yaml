@@ -3,6 +3,10 @@ bins:
     min: null
     mid: 8000.0
     max: null
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
   y_ttBar:
     min: 0.0
     mid: null
@@ -10,6 +14,10 @@ bins:
 - sqrt_s:
     min: null
     mid: 8000.0
+    max: null
+  mt_sqr:
+    min: null
+    mid: 29846.0176
     max: null
   y_ttBar:
     min: 0.4
@@ -19,6 +27,10 @@ bins:
     min: null
     mid: 8000.0
     max: null
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
   y_ttBar:
     min: 0.8
     mid: null
@@ -27,6 +39,10 @@ bins:
     min: null
     mid: 8000.0
     max: null
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
   y_ttBar:
     min: 1.2
     mid: null
@@ -34,6 +50,10 @@ bins:
 - sqrt_s:
     min: null
     mid: 8000.0
+    max: null
+  mt_sqr:
+    min: null
+    mid: 29846.0176
     max: null
   y_ttBar:
     min: 2.0
