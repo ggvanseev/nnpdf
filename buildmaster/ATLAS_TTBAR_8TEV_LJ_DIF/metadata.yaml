@@ -25,9 +25,9 @@ implemented_observables:
     tables: [23]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
         m_ttBar: {description: "invariant mass of ttBar", label: 'm_{t\bar{t}}', units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dmttBar.yaml
     data_central: data_dSig_dmttBar.yaml
     data_uncertainties:
@@ -47,9 +47,9 @@ implemented_observables:
     tables: [24]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
         m_ttBar: {description: "invariant mass of ttBar", label: 'm_{t\bar{t}}', units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dmttBar_norm.yaml
     data_central: data_dSig_dmttBar_norm.yaml
     data_uncertainties:
@@ -69,9 +69,9 @@ implemented_observables:
     tables: [29] 
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
         pT_t: {description: "transverse momentum of t", label: "$pT_t$", units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dpTt.yaml
     data_central: data_dSig_dpTt.yaml
     data_uncertainties:
@@ -91,9 +91,9 @@ implemented_observables:
     tables: [30]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
         pT_t: {description: "transverse momentum of t", label: "$pT_t$", units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dpTt_norm.yaml
     data_central: data_dSig_dpTt_norm.yaml
     data_uncertainties:
@@ -113,9 +113,9 @@ implemented_observables:
     tables: [31]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '\sqrt{s}', units: "GeV"}
-        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
         y_t: {description: "absolute rapidity of t", label: '|y_{t}|', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '\sqrt{s}', units: "GeV"}
       file: kinematics_dSig_dyt.yaml
     data_central: data_dSig_dyt.yaml
     data_uncertainties:
@@ -135,9 +135,9 @@ implemented_observables:
     tables: [32]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '\sqrt{s}', units: "GeV"}
-        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
         y_t: {description: "absolute rapidity of t", label: '|y_{t}|', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '\sqrt{s}', units: "GeV"}
       file: kinematics_dSig_dyt_norm.yaml
     data_central: data_dSig_dyt_norm.yaml
     data_uncertainties:
@@ -157,9 +157,9 @@ implemented_observables:
     tables: [27]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
         y_ttBar: {description: "absolute rapidity of ttBar", label: '$|y_{t\bar{t}}|$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dyttBar.yaml
     data_central: data_dSig_dyttBar.yaml
     data_uncertainties:
@@ -179,9 +179,9 @@ implemented_observables:
     tables: [28]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
         y_ttBar: {description: "absolute rapidity of ttBar", label: '$|y_{t\bar{t}}|$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dyttBar_norm.yaml
     data_central: data_dSig_dyttBar_norm.yaml
     data_uncertainties:
