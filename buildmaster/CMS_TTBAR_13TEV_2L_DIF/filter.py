@@ -2,7 +2,7 @@
 
 import yaml
 
-from validphys.commondata_utils import covMat_to_artUnc as cta
+from validphys.commondata_utils import covmat_to_artunc as cta
 
 def processData():
     with open('metadata.yaml', 'r') as file:
@@ -52,10 +52,11 @@ def processData():
         input2 = yaml.safe_load(file)
     for i in range(36):
         covmat_dSig_dpTt.append(input2['dependent_variables'][0]['values'][i]['value'])
-    artunc_dSig_dpTt = cta(6, covmat_dSig_dpTt, False)
+    artunc_dSig_dpTt = cta(6, covmat_dSig_dpTt, 0)
 
 
     sqrt_s = 13000.0
+    mt_sqr = 29846.0176
     values = input['dependent_variables'][0]['values']
 
     for i in range(6):
@@ -65,7 +66,7 @@ def processData():
         error_value = {}
         for j in range(6):
             error_value['ArtUnc_'+str(j+1)] = artunc_dSig_dpTt[i][j]
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT_t': {'min': pT_t_min, 'mid': None, 'max': pT_t_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'pT_t': {'min': pT_t_min, 'mid': None, 'max': pT_t_max}}
         data_central_dSig_dpTt.append(data_central_value)
         kin_dSig_dpTt.append(kin_value)
         error_dSig_dpTt.append(error_value)
@@ -97,10 +98,11 @@ def processData():
         input2 = yaml.safe_load(file)
     for i in range(25):
         covmat_dSig_dpTt_norm.append(input2['dependent_variables'][0]['values'][i]['value'])
-    artunc_dSig_dpTt_norm = cta(5, covmat_dSig_dpTt_norm, True)
+    artunc_dSig_dpTt_norm = cta(5, covmat_dSig_dpTt_norm, 1)
 
 
     sqrt_s = 13000.0
+    mt_sqr = 29846.0176
     values = input['dependent_variables'][0]['values']
 
     for i in range(5):
@@ -110,7 +112,7 @@ def processData():
         error_value = {}
         for j in range(5):
             error_value['ArtUnc_'+str(j+1)] = artunc_dSig_dpTt_norm[i][j]
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT_t': {'min': pT_t_min, 'mid': None, 'max': pT_t_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'pT_t': {'min': pT_t_min, 'mid': None, 'max': pT_t_max}}
         data_central_dSig_dpTt_norm.append(data_central_value)
         kin_dSig_dpTt_norm.append(kin_value)
         error_dSig_dpTt_norm.append(error_value)
@@ -142,10 +144,11 @@ def processData():
         input2 = yaml.safe_load(file)
     for i in range(49):
         covmat_dSig_dmttBar.append(input2['dependent_variables'][0]['values'][i]['value'])
-    artunc_dSig_dmttBar = cta(7, covmat_dSig_dmttBar, False)
+    artunc_dSig_dmttBar = cta(7, covmat_dSig_dmttBar, 0)
 
 
     sqrt_s = 13000.0
+    mt_sqr = 29846.0176
     values = input['dependent_variables'][0]['values']
 
     for i in range(7):
@@ -155,7 +158,7 @@ def processData():
         error_value = {}
         for j in range(7):
             error_value['ArtUnc_'+str(j+1)] = artunc_dSig_dmttBar[i][j]
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'm_ttBar': {'min': m_ttBar_min, 'mid': None, 'max': m_ttBar_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'm_ttBar': {'min': m_ttBar_min, 'mid': None, 'max': m_ttBar_max}}
         data_central_dSig_dmttBar.append(data_central_value)
         kin_dSig_dmttBar.append(kin_value)
         error_dSig_dmttBar.append(error_value)
@@ -187,10 +190,11 @@ def processData():
         input2 = yaml.safe_load(file)
     for i in range(36):
         covmat_dSig_dmttBar_norm.append(input2['dependent_variables'][0]['values'][i]['value'])
-    artunc_dSig_dmttBar_norm = cta(6, covmat_dSig_dmttBar_norm, True)
+    artunc_dSig_dmttBar_norm = cta(6, covmat_dSig_dmttBar_norm, 1)
 
 
     sqrt_s = 13000.0
+    mt_sqr = 29846.0176
     values = input['dependent_variables'][0]['values']
 
     for i in range(6):
@@ -200,7 +204,7 @@ def processData():
         error_value = {}
         for j in range(6):
             error_value['ArtUnc_'+str(j+1)] = artunc_dSig_dmttBar_norm[i][j]
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'm_ttBar': {'min': m_ttBar_min, 'mid': None, 'max': m_ttBar_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'm_ttBar': {'min': m_ttBar_min, 'mid': None, 'max': m_ttBar_max}}
         data_central_dSig_dmttBar_norm.append(data_central_value)
         kin_dSig_dmttBar_norm.append(kin_value)
         error_dSig_dmttBar_norm.append(error_value)
@@ -232,10 +236,11 @@ def processData():
         input2 = yaml.safe_load(file)
     for i in range(100):
         covmat_dSig_dyt.append(input2['dependent_variables'][0]['values'][i]['value'])
-    artunc_dSig_dyt = cta(10, covmat_dSig_dyt, False)
+    artunc_dSig_dyt = cta(10, covmat_dSig_dyt, 0)
 
 
     sqrt_s = 13000.0
+    mt_sqr = 29846.0176
     values = input['dependent_variables'][0]['values']
 
     for i in range(10):
@@ -245,7 +250,7 @@ def processData():
         error_value = {}
         for j in range(10):
             error_value['ArtUnc_'+str(j+1)] = artunc_dSig_dyt[i][j]
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'y_t': {'min': y_t_min, 'mid': None, 'max': y_t_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'y_t': {'min': y_t_min, 'mid': None, 'max': y_t_max}}
         data_central_dSig_dyt.append(data_central_value)
         kin_dSig_dyt.append(kin_value)
         error_dSig_dyt.append(error_value)
@@ -277,10 +282,11 @@ def processData():
         input2 = yaml.safe_load(file)
     for i in range(81):
         covmat_dSig_dyt_norm.append(input2['dependent_variables'][0]['values'][i]['value'])
-    artunc_dSig_dyt_norm = cta(9, covmat_dSig_dyt_norm, True)
+    artunc_dSig_dyt_norm = cta(9, covmat_dSig_dyt_norm, 1)
 
 
     sqrt_s = 13000.0
+    mt_sqr = 29846.0176
     values = input['dependent_variables'][0]['values']
 
     for i in range(9):
@@ -290,7 +296,7 @@ def processData():
         error_value = {}
         for j in range(9):
             error_value['ArtUnc_'+str(j+1)] = artunc_dSig_dyt_norm[i][j]
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'y_t': {'min': y_t_min, 'mid': None, 'max': y_t_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'y_t': {'min': y_t_min, 'mid': None, 'max': y_t_max}}
         data_central_dSig_dyt_norm.append(data_central_value)
         kin_dSig_dyt_norm.append(kin_value)
         error_dSig_dyt_norm.append(error_value)
@@ -322,10 +328,11 @@ def processData():
         input2 = yaml.safe_load(file)
     for i in range(100):
         covmat_dSig_dyttBar.append(input2['dependent_variables'][0]['values'][i]['value'])
-    artunc_dSig_dyttBar = cta(10, covmat_dSig_dyttBar, False)
+    artunc_dSig_dyttBar = cta(10, covmat_dSig_dyttBar, 0)
 
 
     sqrt_s = 13000.0
+    mt_sqr = 29846.0176
     values = input['dependent_variables'][0]['values']
 
     for i in range(10):
@@ -335,7 +342,7 @@ def processData():
         error_value = {}
         for j in range(10):
             error_value['ArtUnc_'+str(j+1)] = artunc_dSig_dyttBar[i][j]
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'y_ttBar': {'min': y_ttBar_min, 'mid': None, 'max': y_ttBar_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'y_ttBar': {'min': y_ttBar_min, 'mid': None, 'max': y_ttBar_max}}
         data_central_dSig_dyttBar.append(data_central_value)
         kin_dSig_dyttBar.append(kin_value)
         error_dSig_dyttBar.append(error_value)
@@ -367,10 +374,11 @@ def processData():
         input2 = yaml.safe_load(file)
     for i in range(81):
         covmat_dSig_dyttBar_norm.append(input2['dependent_variables'][0]['values'][i]['value'])
-    artunc_dSig_dyttBar_norm = cta(9, covmat_dSig_dyttBar_norm, True)
+    artunc_dSig_dyttBar_norm = cta(9, covmat_dSig_dyttBar_norm, 1)
 
 
     sqrt_s = 13000.0
+    mt_sqr = 29846.0176
     values = input['dependent_variables'][0]['values']
 
     for i in range(9):
@@ -380,7 +388,7 @@ def processData():
         error_value = {}
         for j in range(9):
             error_value['ArtUnc_'+str(j+1)] = artunc_dSig_dyttBar_norm[i][j]
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'y_ttBar': {'min': y_ttBar_min, 'mid': None, 'max': y_ttBar_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'y_ttBar': {'min': y_ttBar_min, 'mid': None, 'max': y_ttBar_max}}
         data_central_dSig_dyttBar_norm.append(data_central_value)
         kin_dSig_dyttBar_norm.append(kin_value)
         error_dSig_dyttBar_norm.append(error_value)

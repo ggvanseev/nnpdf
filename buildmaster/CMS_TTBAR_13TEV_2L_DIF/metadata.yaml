@@ -1,6 +1,6 @@
 # implemented by Tanishq Sharma
 
-setname: "CMS_ttBar_13TeV_2l_dif"
+setname: "CMS_TTBAR_13TEV_2L_DIF"
 
 nnpdf_metadata:
   nnpdf31_process: "TTB"
@@ -14,207 +14,183 @@ hepdata:
   url: "https://www.hepdata.net/record/ins1703993"
   version: 1
 
-version: 
-version_comment:
+version: 1
+version_comment: "NA"
 
 implemented_observables:
 
   - observable: {description: "differential cross section w.r.t. transverse momentum of t", label: '$\frac{d\sigma}{dpT_{t}}$', units: "pb/GeV"}
-    observable_name: 
+    observable_name: PTT
     ndata: 6
     tables: [1]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         pT_t: {description: "transverse momentum of t", label: '$pT_{t}$', units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dpTt.yaml
-    data_central: 
-      file: data_dSig_dpTt.yaml
+    data_central: data_dSig_dpTt.yaml
     data_uncertainties:
-      file:
-        - uncertainties_dSig_dpTt.yaml
+      - uncertainties_dSig_dpTt.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       pT_t: pT_t
+      mt_sqr: mt_sqr
     dataset_label: 'CMS 13 TeV TTB dilepton channel distribution: $\frac{d\sigma}{dpT_{t}}$'
     plot_x: pT_t
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - mt_sqr
 
   - observable: {description: "normalized differential cross section w.r.t. transverse momentum of t", label: '$\frac{1}{\sigma}\frac{d\sigma}{dpT_{t}}$', units: "1/GeV"}
-    observable_name: 
+    observable_name: PTT-NORM
     ndata: 5
     tables: [2]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         pT_t: {description: "transverse momentum of t", label: '$pT_{t}$', units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dpTt_norm.yaml
-    data_central: 
-      file: data_dSig_dpTt_norm.yaml
+    data_central: data_dSig_dpTt_norm.yaml
     data_uncertainties:
-      file:
-        - uncertainties_dSig_dpTt_norm.yaml
+      - uncertainties_dSig_dpTt_norm.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       pT_t: pT_t
+      mt_sqr: mt_sqr
     dataset_label: 'CMS 13 TeV TTB dilepton channel distribution:$\frac{1}{\sigma}\frac{d\sigma}{dpT_{t}}$ '
     plot_x: pT_t
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - mt_sqr
 
   - observable: {description: "differential cross section w.r.t. invariant mass of ttBar pair", label: '$\frac{d\sigma}{dm_{t\bar{t}}}$', units: "pb/GeV"}
-    observable_name: 
+    observable_name: MTTBAR
     ndata: 7
     tables: [45]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         m_ttBar: {description: "invariant mass of ttBar pair", label: '$m_{t\bar{t}}$', units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dmttBar.yaml
-    data_central: 
-      file: data_dSig_dmttBar.yaml
+    data_central: data_dSig_dmttBar.yaml
     data_uncertainties:
-      file:
-        - uncertainties_dSig_dmttBar.yaml
+      - uncertainties_dSig_dmttBar.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       m_ttBar: m_ttBar
+      mt_sqr: mt_sqr
     dataset_label: 'CMS 13 TeV TTB dilepton channel distribution: $\frac{d\sigma}{dm_{t\bar{t}}}$'
     plot_x: m_ttBar
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - mt_sqr
 
   - observable: {description: "normalized differential cross section w.r.t. invariant mass of ttBar pair", label: '$\frac{1}{\sigma}\frac{d\sigma}{dm_{t\bar{t}}}$', units: "1/GeV"}
-    observable_name: 
+    observable_name: MTTBAR-NORM
     ndata: 6
     tables: [46]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         m_ttBar: {description: "invariant mass of ttBar pair", label: '$m_{t\bar{t}}$', units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dmttBar_norm.yaml
-    data_central: 
-      file: data_dSig_dmttBar_norm.yaml
+    data_central: data_dSig_dmttBar_norm.yaml
     data_uncertainties:
-      file:
-        - uncertainties_dSig_dmttBar_norm.yaml
+      - uncertainties_dSig_dmttBar_norm.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       m_ttBar: m_ttBar
+      mt_sqr: mt_sqr
     dataset_label: 'CMS 13 TeV TTB dilepton channel distribution: $\frac{1}{\sigma}\frac{d\sigma}{dm_{t\bar{t}}}$'
     plot_x: m_ttBar
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - mt_sqr
 
   - observable: {description: "differential cross section w.r.t. rapidity of t", label: '$\frac{d\sigma}{dy_{t}}$', units: "pb"}
-    observable_name: 
+    observable_name: YT
     ndata: 10
     tables: [21]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         y_t: {description: "rapidity of t", label: '$y_{t}$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dyt.yaml
-    data_central: 
-      file: data_dSig_dyt.yaml
+    data_central: data_dSig_dyt.yaml
     data_uncertainties:
-      file:
-        - uncertainties_dSig_dyt.yaml
+      - uncertainties_dSig_dyt.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       y_t: y_t
+      mt_sqr: mt_sqr
     dataset_label: 'CMS 13 TeV TTB dilepton channel distribution: $\frac{d\sigma}{dy_{t}}$'
     plot_x: y_t
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - mt_sqr
 
   - observable: {description: "normalized differential cross section w.r.t. rapidity of t", label: '$\frac{1}{\sigma}\frac{d\sigma}{dy_{t}}$', units: ""}
-    observable_name: 
+    observable_name: YT-NORM
     ndata: 9
     tables: [22]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         y_t: {description: "rapidity of t", label: '$y_{t}$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dyt_norm.yaml
-    data_central: 
-      file: data_dSig_dyt_norm.yaml
+    data_central: data_dSig_dyt_norm.yaml
     data_uncertainties:
-      file:
-        - uncertainties_dSig_dyt_norm.yaml
+      - uncertainties_dSig_dyt_norm.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       y_t: y_t
+      mt_sqr: mt_sqr
     dataset_label: 'CMS 13 TeV TTB dilepton channel distribution: $\frac{1}{\sigma}\frac{d\sigma}{dy_{t}}$'
     plot_x: y_t
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - mt_sqr
 
   - observable: {description: "differential cross section w.r.t. rapidity of ttBar pair", label: '$\frac{d\sigma}{dy_{t\bar{t}}}$', units: "pb"}
-    observable_name: 
+    observable_name: YTTBAR
     ndata: 10
     tables: [41]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         y_ttBar: {description: "rapidity of ttBar pair", label: '$y_{t\bar{t}}$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dyttBar.yaml
-    data_central: 
-      file: data_dSig_dyttBar.yaml
+    data_central: data_dSig_dyttBar.yaml
     data_uncertainties:
-      file:
-        - uncertainties_dSig_dyttBar.yaml
+      - uncertainties_dSig_dyttBar.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       y_ttBar: y_ttBar
+      mt_sqr: mt_sqr
     dataset_label: 'CMS 13 TeV TTB dilepton channel distribution: $\frac{d\sigma}{dy_{t\bar{t}}}$'
     plot_x: y_ttBar
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - mt_sqr
 
   - observable: {description: "normalized differential cross section w.r.t. rapidity of ttBar pair", label: '$\frac{1}{\sigma}\frac{d\sigma}{dy_{t\bar{t}}}$', units: ""}
-    observable_name: 
+    observable_name: YTTBAR-NORM
     ndata: 9
     tables: [42]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         y_ttBar: {description: "rapidity of ttBar pair", label: '$y_{t\bar{t}}$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_dSig_dyttBar_norm.yaml
-    data_central: 
-      file: data_dSig_dyttBar_norm.yaml
+    data_central: data_dSig_dyttBar_norm.yaml
     data_uncertainties:
-      file:
-        - uncertainties_dSig_dyttBar_norm.yaml
+      - uncertainties_dSig_dyttBar_norm.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       y_ttBar: y_ttBar
+      mt_sqr: mt_sqr
     dataset_label: 'CMS 13 TeV TTB dilepton channel distribution: $\frac{1}{\sigma}\frac{d\sigma}{dy_{t\bar{t}}}$'
     plot_x: y_ttBar
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - mt_sqr
