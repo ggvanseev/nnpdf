@@ -1,8 +1,8 @@
 # implemented by Tanishq Sharma
 
 import yaml
-from utils import covMat_to_artUnc as cta
-from utils import percentage_to_absolute as pta
+from validphys.commondata_utils import covmat_to_artunc as cta
+from validphys.commondata_utils import percentage_to_absolute as pta
 
 def processData():
     with open('metadata.yaml', 'r') as file:
@@ -48,7 +48,7 @@ def processData():
     for i in range(ndata_dSig_dpTt*ndata_dSig_dpTt):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_dSig_dpTt.append(covMatEl)
-    artUncMat_dSig_dpTt = cta(ndata_dSig_dpTt, covMatArray_dSig_dpTt, True)
+    artUncMat_dSig_dpTt = cta(ndata_dSig_dpTt, covMatArray_dSig_dpTt, 1)
 
     sqrt_s = float(input['dependent_variables'][0]['qualifiers'][2]['value'])
     mt_sqr = 29846.0176
@@ -109,7 +109,7 @@ def processData():
     for i in range(ndata_dSig_dyt*ndata_dSig_dyt):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_dSig_dyt.append(covMatEl)
-    artUncMat_dSig_dyt = cta(ndata_dSig_dyt, covMatArray_dSig_dyt, True)
+    artUncMat_dSig_dyt = cta(ndata_dSig_dyt, covMatArray_dSig_dyt, 1)
 
     sqrt_s = float(input['dependent_variables'][0]['qualifiers'][2]['value'])
     mt_sqr = 29846.0176
@@ -170,7 +170,7 @@ def processData():
     for i in range(ndata_dSig_dyttBar*ndata_dSig_dyttBar):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_dSig_dyttBar.append(covMatEl)
-    artUncMat_dSig_dyttBar = cta(ndata_dSig_dyttBar, covMatArray_dSig_dyttBar, True)
+    artUncMat_dSig_dyttBar = cta(ndata_dSig_dyttBar, covMatArray_dSig_dyttBar, 1)
 
     sqrt_s = float(input['dependent_variables'][0]['qualifiers'][2]['value'])
     mt_sqr = 29846.0176
@@ -231,7 +231,7 @@ def processData():
     for i in range(ndata_dSig_dmttBar*ndata_dSig_dmttBar):
         covMatEl = input2['dependent_variables'][0]['values'][i]['value']
         covMatArray_dSig_dmttBar.append(covMatEl)
-    artUncMat_dSig_dmttBar = cta(ndata_dSig_dmttBar, covMatArray_dSig_dmttBar, True)
+    artUncMat_dSig_dmttBar = cta(ndata_dSig_dmttBar, covMatArray_dSig_dmttBar, 1)
 
     sqrt_s = float(input['dependent_variables'][0]['qualifiers'][2]['value'])
     mt_sqr = 29846.0176
