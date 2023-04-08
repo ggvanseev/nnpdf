@@ -3,7 +3,11 @@ bins:
     min: null
     mid: 13000.0
     max: null
-  pT:
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
+  pT_t:
     min: 0.0
     mid: null
     max: 50.0
@@ -11,7 +15,11 @@ bins:
     min: null
     mid: 13000.0
     max: null
-  pT:
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
+  pT_t:
     min: 50.0
     mid: null
     max: 100.0
@@ -19,7 +27,11 @@ bins:
     min: null
     mid: 13000.0
     max: null
-  pT:
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
+  pT_t:
     min: 100.0
     mid: null
     max: 160.0
@@ -27,7 +39,11 @@ bins:
     min: null
     mid: 13000.0
     max: null
-  pT:
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
+  pT_t:
     min: 160.0
     mid: null
     max: 225.0
@@ -35,7 +51,11 @@ bins:
     min: null
     mid: 13000.0
     max: null
-  pT:
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
+  pT_t:
     min: 225.0
     mid: null
     max: 300.0
@@ -43,7 +63,11 @@ bins:
     min: null
     mid: 13000.0
     max: null
-  pT:
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
+  pT_t:
     min: 300.0
     mid: null
     max: 360.0
@@ -51,7 +75,11 @@ bins:
     min: null
     mid: 13000.0
     max: null
-  pT:
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
+  pT_t:
     min: 360.0
     mid: null
     max: 475.0
@@ -59,7 +87,11 @@ bins:
     min: null
     mid: 13000.0
     max: null
-  pT:
+  mt_sqr:
+    min: null
+    mid: 29846.0176
+    max: null
+  pT_t:
     min: 475.0
     mid: null
     max: 1000.0
