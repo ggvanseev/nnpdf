@@ -1,6 +1,6 @@
 # implemented by Tanishq Sharma
 
-setname: "CMS_ttBar_8TeV_2l_dif"
+setname: "CMS_TTBAR_8TEV_2L_DIF"
 
 nnpdf_metadata:
   nnpdf31_process: "TTB"
@@ -14,13 +14,13 @@ hepdata:
   url: "https://www.hepdata.net/record/ins1516191"
   version: 1
 
-version: 
-version_comment:
+version: 1
+version_comment: "NA"
 
 implemented_observables:
 
   - observable: {description: "normalized double differential cross section w.r.t. rapidity and transverse momentum of t", label: '$\frac{1}{\sigma}\frac{d^2\sigma}{dy_{t}dpT_{t}}$', units: "1/GeV"}
-    observable_name: 
+    observable_name: PTT-YT-NORM
     ndata: 16
     tables: [CMS_8TeV_ttbar_DoubleDiff_yt_ptt]
     kinematics:
@@ -29,11 +29,9 @@ implemented_observables:
         y_t: {description: "rapidity of t", label: '$y_{t}$', units: ""}
         pT_t: {description: "transverse moemntum of t", label: '$pT_{t}$', units: "GeV"}
       file: kinematics_d2Sig_dyt_dpTt_norm.yaml
-    data_central: 
-      file: data_d2Sig_dyt_dpTt_norm.yaml
+    data_central: data_d2Sig_dyt_dpTt_norm.yaml
     data_uncertainties:
-      file:
-        - uncertainties_d2Sig_dyt_dpTt_norm.yaml
+      - uncertainties_d2Sig_dyt_dpTt_norm.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       y_t: y_t
@@ -42,12 +40,9 @@ implemented_observables:
     plot_x: y_t
     figure_by: 
       - pT_t
-    theory:
-      FK_tables:
-        - - 
 
   - observable: {description: "normalized double differential cross section w.r.t. rapidity of t and invariant mass of ttBar pair", label: '$\frac{1}{\sigma}\frac{d^2\sigma}{dy_{t}dm_{t\bar{t}}}$', units: "1/GeV"}
-    observable_name: 
+    observable_name: MTTBAR-YT-NORM
     ndata: 16
     tables: [CMS_8TeV_ttbar_DoubleDiff_mtt_yt]
     kinematics:
@@ -56,11 +51,9 @@ implemented_observables:
         y_t: {description: "rapidity of t", label: '$y_{t}$', units: ""}
         m_ttBar: {description: "invariant mass of ttBar", label: '$m_{t\bar{t}}$', units: "GeV"}
       file: kinematics_d2Sig_dyt_dmttBar_norm.yaml
-    data_central: 
-      file: data_d2Sig_dyt_dmttBar_norm.yaml
+    data_central: data_d2Sig_dyt_dmttBar_norm.yaml
     data_uncertainties:
-      file:
-        - uncertainties_d2Sig_dyt_dmttBar_norm.yaml
+      - uncertainties_d2Sig_dyt_dmttBar_norm.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       y_t: y_t
@@ -69,12 +62,9 @@ implemented_observables:
     plot_x: y_t
     figure_by: 
       - m_ttBar
-    theory:
-      FK_tables:
-        - - 
 
   - observable: {description: "normalized differential cross section w.r.t. invariant mass and rapidity of ttBar pair", label: '$\frac{1}{\sigma}\frac{d^2\sigma}{dm_{t\bar{t}}dy_{t\bar{t}}}$', units: "1/GeV"}
-    observable_name: 
+    observable_name:  MTTBAR-YTTBAR-NORM
     ndata: 16
     tables: [CMS_8TeV_ttbar_DoubleDiff_mtt_ytt]
     kinematics:
@@ -83,11 +73,9 @@ implemented_observables:
         m_ttBar: {description: "invariant mass of ttBar", label: '$m_{t\bar{t}}$', units: "GeV"}
         y_ttBar: {description: "rapidity of ttBar", label: '$y_{t\bar{t}}$', units: ""}
       file: kinematics_d2Sig_dmttBar_dyttBar_norm.yaml
-    data_central: 
-      file: data_d2Sig_dmttBar_dyttBar_norm.yaml
+    data_central: data_d2Sig_dmttBar_dyttBar_norm.yaml
     data_uncertainties:
-      file:
-        - uncertainties_d2Sig_dmttBar_dyttBar_norm.yaml
+      - uncertainties_d2Sig_dmttBar_dyttBar_norm.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
       m_ttBar: m_ttBar
@@ -96,6 +84,3 @@ implemented_observables:
     plot_x: m_ttBar
     figure_by: 
       - y_ttBar
-    theory:
-      FK_tables:
-        - - 

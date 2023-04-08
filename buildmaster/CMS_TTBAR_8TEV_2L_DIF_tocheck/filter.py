@@ -3,9 +3,9 @@
 import yaml
 from validphys.commondata_utils import percentage_to_absolute as pta
 from validphys.commondata_utils import symmetrize_errors as se
-from validphys.commondata_utils import corMat_to_covMat as ctc
-from validphys.commondata_utils import covMat_to_artUnc as cta
-from validphys.commondata_utils import triMat_to_fullMat as ttf
+from validphys.commondata_utils import cormat_to_covmat as ctc
+from validphys.commondata_utils import covmat_to_artunc as cta
+from validphys.commondata_utils import trimat_to_fullmat as ttf
 
 def processData():
     with open('metadata.yaml', 'r') as file:
@@ -43,7 +43,7 @@ def processData():
         trimatlist1.append(input2['dependent_variables'][0]['values'][i]['value'])
     cormatlist1 = ttf(0, trimatlist1)
     covmatlist1 = ctc(statlist1, cormatlist1)
-    artunc1 = cta(len(values), covmatlist1, True)
+    artunc1 = cta(len(values), covmatlist1, 1)
     
 
     for i in range(len(values)):
@@ -105,7 +105,7 @@ def processData():
         trimatlist2.append(input2['dependent_variables'][0]['values'][i]['value'])
     cormatlist2 = ttf(0, trimatlist2)
     covmatlist2 = ctc(statlist2, cormatlist2)
-    artunc2 = cta(len(values), covmatlist2, True)
+    artunc2 = cta(len(values), covmatlist2, 1)
     
 
     for i in range(len(values)):
@@ -167,7 +167,7 @@ def processData():
         trimatlist3.append(input2['dependent_variables'][0]['values'][i]['value'])
     cormatlist3 = ttf(0, trimatlist3)
     covmatlist3 = ctc(statlist3, cormatlist3)
-    artunc3 = cta(len(values), covmatlist3, True)
+    artunc3 = cta(len(values), covmatlist3, 1)
     
 
     for i in range(len(values)):
