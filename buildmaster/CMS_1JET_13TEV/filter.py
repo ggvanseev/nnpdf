@@ -43,7 +43,7 @@ def processData():
             data_central_r04.append(data_central_value)
             pT_min = input['independent_variables'][0]['values'][j]['low']
             pT_max = input['independent_variables'][0]['values'][j]['high']
-            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT': {'min': pT_min, 'mid': None, 'max': pT_max}, 'y': {'min': y_min, 'mid': None, 'max': y_max}}
+            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT_sqr': {'min': pT_min**2, 'mid': None, 'max': pT_max**2}, 'y': {'min': y_min, 'mid': None, 'max': y_max}}
             kin_r04.append(kin_value)
             error_value = {}
             error_value['all uncorr. unc.'] = values[j]['errors'][0]['symerror']
@@ -101,7 +101,7 @@ def processData():
             data_central_r07.append(data_central_value)
             pT_min = input['independent_variables'][0]['values'][j]['low']
             pT_max = input['independent_variables'][0]['values'][j]['high']
-            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT': {'min': pT_min, 'mid': None, 'max': pT_max}, 'y': {'min': y_min, 'mid': None, 'max': y_max}}
+            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT_sqr': {'min': pT_min**2, 'mid': None, 'max': pT_max**2}, 'y': {'min': y_min, 'mid': None, 'max': y_max}}
             kin_r07.append(kin_value)
             error_value = {}
             error_value['all uncorr. unc.'] = values[j]['errors'][0]['symerror']
