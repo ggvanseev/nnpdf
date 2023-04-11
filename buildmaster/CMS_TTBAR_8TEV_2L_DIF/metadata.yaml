@@ -25,9 +25,10 @@ implemented_observables:
     tables: [CMS_8TeV_ttbar_DoubleDiff_yt_ptt]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-        y_t: {description: "rapidity of t", label: '$y_{t}$', units: ""}
         pT_t: {description: "transverse moemntum of t", label: '$pT_{t}$', units: "GeV"}
+        y_t: {description: "rapidity of t", label: '$y_{t}$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_d2Sig_dyt_dpTt_norm.yaml
     data_central: data_d2Sig_dyt_dpTt_norm.yaml
     data_uncertainties:
@@ -36,10 +37,11 @@ implemented_observables:
       sqrt_s: sqrt_s
       y_t: y_t
       pT_t: pT_t
+      mt_sqr: mt_sqr
     dataset_label: 'CMS TTB 8 TeV double differential distributions: $\frac{1}{\sigma}\frac{d^2\sigma}{dy_{t}dpT_{t}}$'
-    plot_x: y_t
+    plot_x: pT_t
     figure_by: 
-      - pT_t
+      - y_t
 
   - observable: {description: "normalized double differential cross section w.r.t. rapidity of t and invariant mass of ttBar pair", label: '$\frac{1}{\sigma}\frac{d^2\sigma}{dy_{t}dm_{t\bar{t}}}$', units: "1/GeV"}
     observable_name: MTTBAR-YT-NORM
@@ -47,9 +49,10 @@ implemented_observables:
     tables: [CMS_8TeV_ttbar_DoubleDiff_mtt_yt]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-        y_t: {description: "rapidity of t", label: '$y_{t}$', units: ""}
         m_ttBar: {description: "invariant mass of ttBar", label: '$m_{t\bar{t}}$', units: "GeV"}
+        y_t: {description: "rapidity of t", label: '$y_{t}$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_d2Sig_dyt_dmttBar_norm.yaml
     data_central: data_d2Sig_dyt_dmttBar_norm.yaml
     data_uncertainties:
@@ -58,6 +61,7 @@ implemented_observables:
       sqrt_s: sqrt_s
       y_t: y_t
       m_ttBar: m_ttBar
+      mt_sqr: mt_sqr
     dataset_label: 'CMS TTB 8 TeV double differential distributions: $\frac{1}{\sigma}\frac{d^2\sigma}{dy_{t}dm_{t\bar{t}}}$'
     plot_x: y_t
     figure_by: 
@@ -69,9 +73,10 @@ implemented_observables:
     tables: [CMS_8TeV_ttbar_DoubleDiff_mtt_ytt]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         m_ttBar: {description: "invariant mass of ttBar", label: '$m_{t\bar{t}}$', units: "GeV"}
         y_ttBar: {description: "rapidity of ttBar", label: '$y_{t\bar{t}}$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_d2Sig_dmttBar_dyttBar_norm.yaml
     data_central: data_d2Sig_dmttBar_dyttBar_norm.yaml
     data_uncertainties:
@@ -80,7 +85,8 @@ implemented_observables:
       sqrt_s: sqrt_s
       m_ttBar: m_ttBar
       y_ttBar: y_ttBar
+      mt_sqr: mt_sqr
     dataset_label: 'CMS TTB 8 TeV double differential distributions: $\frac{1}{\sigma}\frac{d^2\sigma}{dm_{t\bar{t}}dy_{t\bar{t}}}$'
-    plot_x: m_ttBar
+    plot_x: y_ttBar
     figure_by: 
-      - y_ttBar
+      - m_ttBar
