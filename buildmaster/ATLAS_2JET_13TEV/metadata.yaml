@@ -1,9 +1,9 @@
 # implemented by Tanishq Sharma
 
-setname: "ATLAS_DiJet_13TeV"
+setname: "ATLAS_2JET_13TEV"
 
 nnpdf_metadata:
-  nnpdf31_process: ""
+  nnpdf31_process: "2JET"
   experiment: "ATLAS"
 
 arXiv:
@@ -14,31 +14,29 @@ hepdata:
   url: "https://www.hepdata.net/record/ins1634970"
   version: 1
 
-version: 
-version_comment:
+version: 1
+version_comment: "NA"
 
 implemented_observables:
 
   - observable: {description: "double differential cross section w.r.t. m_jj and y", label: '$d^2\sigma/dm_{jj} dy$', units: "pb/GeV"}
+    observable_name: MJJ-Y
     ndata: 136 # 28+28+27+24+21+8
     tables: [1, 2, 3, 4, 5, 6]
     kinematics:
       variables:
+        y: {description: "half the absolute rapidity between the dijet", label: "$y^*$", units: ""}
+        m_jj_sqr: {description: "dijet invariant mass squared", label: "$m_{jj}^2$", units: "GeV^2"}
         sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-        m_jj: {description: "dijet invariant mass", label: "$m_{jj}$", units: "GeV"}
-        y*: {description: "half the absolute rapidity between the dijet", label: "$y^*$", units: ""}
       file: kinematics.yaml
-    data_central: 
-      file: data.yaml
+    data_central: data.yaml
     data_uncertainties:
-      file:
-        - uncertainties.yaml
+      - uncertainties.yaml
     kinematic_coverage:
       sqrt_s: sqrt_s
-    dataset_label: ''
-    plot_x:
+      y: y
+      m_jj_sqr: m_jj_sqr
+    dataset_label: 'ATLAS DiJet 13 TeV: $d^2\sigma/dm_{jj}dy$'
+    plot_x: m_jj_sqr
     figure_by: 
-      -
-    theory:
-      FK_tables:
-        - - 
+      - y

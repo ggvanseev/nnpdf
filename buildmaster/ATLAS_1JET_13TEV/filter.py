@@ -1,7 +1,7 @@
 # implemented by Tanishq Sharma
 
 import yaml
-from utils import symmetrize_errors as se
+from validphys.commondata_utils import symmetrize_errors as se
 
 def processData():
     with open('metadata.yaml', 'r') as file:
@@ -59,7 +59,7 @@ def processData():
             data_central_value = values[j]['value'] + value_delta
             data_central.append(data_central_value)
             error.append(error_value)
-            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT': {'min': pT_min, 'mid': None, 'max': pT_max}, 'y': {'min': y_min, 'mid': y_central, 'max': y_max}}
+            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT_sqr': {'min': pT_min**2, 'mid': None, 'max': pT_max**2}, 'y': {'min': y_min, 'mid': y_central, 'max': y_max}}
             kin.append(kin_value)
 
     hepdata_tables="rawdata/atlas_inclusive_jet2015_r04_eta1.yaml"
@@ -126,7 +126,7 @@ def processData():
             data_central_value = values[j]['value'] + value_delta
             data_central_altcorr1.append(data_central_value)
             error_altcorr1.append(error_value)
-            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT': {'min': pT_min, 'mid': None, 'max': pT_max}, 'y': {'min': y_min, 'mid': y_central, 'max': y_max}}
+            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT_sqr': {'min': pT_min**2, 'mid': None, 'max': pT_max**2}, 'y': {'min': y_min, 'mid': y_central, 'max': y_max}}
             kin_altcorr1.append(kin_value)
 
     hepdata_tables="rawdata/atlas_inclusive_jet2015_r04_altcorr1_eta1.yaml"

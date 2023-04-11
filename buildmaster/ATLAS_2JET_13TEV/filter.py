@@ -41,8 +41,8 @@ def processData():
         sqrt_s = input['dependent_variables'][0]['qualifiers'][1]['value']
 
         for j in range(len(values)):
-            pT_min = input['independent_variables'][0]['values'][j]['low']
-            pT_max = input['independent_variables'][0]['values'][j]['high']
+            m_jj_min = input['independent_variables'][0]['values'][j]['low']
+            m_jj_max = input['independent_variables'][0]['values'][j]['high']
             value_delta = 0
             error_value = {}
             for k in range(len(values[j]['errors'])):
@@ -53,7 +53,7 @@ def processData():
             data_central_value = values[j]['value'] + value_delta
             data_central.append(data_central_value)
             error.append(error_value)
-            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'pT': {'min': pT_min, 'mid': None, 'max': pT_max}, 'y': {'min': y_min, 'mid': y_central, 'max': y_max}}
+            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'm_jj_sqr': {'min': m_jj_min**2, 'mid': None, 'max': m_jj_max**2}, 'y': {'min': y_min, 'mid': y_central, 'max': y_max}}
             kin.append(kin_value)
 
     hepdata_tables="rawdata/atlas_mjj_jet2015_r04_ystar1.yaml"
