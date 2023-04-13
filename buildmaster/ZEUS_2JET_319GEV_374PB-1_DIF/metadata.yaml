@@ -1,6 +1,6 @@
 # implemented by Tanishq Sharma
 
-setname: 'ZEUS_2JET_319GEV_374PB-1'
+setname: 'ZEUS_2JET_319GEV_374PB-1_DIF'
 
 nnpdf_metadata:
   nnpdf31_process: "2JET"

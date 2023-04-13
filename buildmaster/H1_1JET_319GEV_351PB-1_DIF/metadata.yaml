@@ -1,6 +1,6 @@
 # implemented by Tanishq Sharma
 
-setname: 'H1_1JET_319GEV_351PB-1'
+setname: 'H1_1JET_319GEV_351PB-1_DIF'
 
 nnpdf_metadata:
   nnpdf31_process: "1JET"
