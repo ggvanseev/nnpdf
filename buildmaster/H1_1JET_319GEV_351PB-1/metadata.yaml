@@ -25,9 +25,9 @@ implemented_observables:
     tables: [6]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         q_sqr: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
-        pT: {description: "transverse momentum", label: "$p_T$", units: "GeV"}
+        pT_sqr: {description: "transverse momentum squared", label: "$pT^2$", units: "GeV^2"}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics.yaml
     data_central: data.yaml
     data_uncertainties:
@@ -35,9 +35,9 @@ implemented_observables:
     kinematic_coverage:
       sqrt_s: sqrt_s
       q_sqr: q_sqr
-      pT: pT
+      pT_sqr: pT_sqr
     dataset_label: '$H1 Jet 351 pb^{-1} distribution: \frac{d^2\sigma}{dq^{2}dpT}$'
-    plot_x: pT
+    plot_x: pT_sqr
     figure_by: 
       - q_sqr
 
@@ -47,9 +47,9 @@ implemented_observables:
     tables: [16]
     kinematics:
       variables:
-        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
         q_sqr: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
-        pT: {description: "transverse momentum", label: "$p_T$", units: "GeV"}
+        pT_sqr: {description: "transverse momentum squared", label: "$pT^2$", units: "GeV^2"}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_norm.yaml
     data_central: data_norm.yaml
     data_uncertainties:
@@ -57,8 +57,8 @@ implemented_observables:
     kinematic_coverage:
       sqrt_s: sqrt_s
       q_sqr: q_sqr
-      pT: pT
+      pT_sqr: pT_sqr
     dataset_label: '$H1 Jet 351 pb^{-1} distribution: \frac{1}{\sigma}\frac{d^2\sigma}{dq^{2}dpT}$'
-    plot_x: pT
+    plot_x: pT_sqr
     figure_by: 
       - q_sqr

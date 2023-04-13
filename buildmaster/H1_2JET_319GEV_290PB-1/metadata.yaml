@@ -1,34 +1,34 @@
 # implemented by Tanishq Sharma
 
-setname: 'H1_2JET_319GEV_351PB-1'
+setname: 'H1_2JET_319GEV_290PB-1'
 
 nnpdf_metadata:
   nnpdf31_process: "2JET"
   experiment: "H1"
 
 arXiv:
-  url: "https://arxiv.org/abs/1406.4709"
+  url: "https://arxiv.org/abs/1611.03421"
 iNSPIRE:
-  url: "https://inspirehep.net/literature/1301218"
+  url: "https://inspirehep.net/literature/1496981"
 hepdata:
-  url: "https://www.hepdata.net/record/ins1301218"
+  url: "https://www.hepdata.net/record/ins1496981"
   version: 1
 
 version: 1
-version_comment: 'NA'
+version_comment: "NA"
 
 implemented_observables:
 
-  - observable: {description: "double differential cross section w.r.t. q^2 and pT", label: '$\frac{d^2\sigma}{dq^{2}dpT}$', units: "pb/GeV^3"}
+  - observable: {description: "double differential cross section w.r.t. q^2 and pT", label: '$\frac{d^2\sigma}{dq^{2}d\langle pT \rangle}$', units: "pb/GeV^3"}
     observable_name: Q2PT
-    ndata: 24
-    tables: [7]
+    ndata: 48
+    tables: [9, 10, 11, 12, 13, 14, 15, 16]
     kinematics:
       variables:
-        q_sqr: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
+        q_sqr: {description: "momentum transferred squared", label: '$q^2$', units: "GeV^2"}
         pT_sqr: {description: "mean transverse momentum squared", label: '$\langle pT \rangle^2$', units: "GeV^2"}
         sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
-      file: kinematics.yaml
+      file: kinematics_dijet.yaml
     data_central: data.yaml
     data_uncertainties:
       - uncertainties.yaml
@@ -36,18 +36,18 @@ implemented_observables:
       sqrt_s: sqrt_s
       q_sqr: q_sqr
       pT_sqr: pT_sqr
-    dataset_label: '$H1 DiJet 351 pb^{-1} distribution: \frac{d^2\sigma}{dq^{2}dpT}$'
+    dataset_label: '$H1 DiJet 290 pb^{-1} distribution: \frac{d^2\sigma}{dq^{2}d\langle pT \rangle}$'
     plot_x: pT_sqr
     figure_by: 
       - q_sqr
 
-  - observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\frac{1}{\sigma}\frac{d^2\sigma}{dq^{2}dpT}$', units: "1/GeV^3"}
+  - observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\frac{1}{\sigma}\frac{d^2\sigma}{dq^{2}d\langle pT \rangle}$', units: "1/GeV^3"}
     observable_name: Q2PT-NORM
-    ndata: 24
-    tables: [17]
+    ndata: 48
+    tables: [33, 34, 35, 36, 37, 38, 39, 40]
     kinematics:
       variables:
-        q_sqr: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
+        q_sqr: {description: "momentum transferred squared", label: 'q^2$', units: "GeV^2"}
         pT_sqr: {description: "mean transverse momentum squared", label: '$\langle pT \rangle^2$', units: "GeV^2"}
         sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_norm.yaml
@@ -58,7 +58,7 @@ implemented_observables:
       sqrt_s: sqrt_s
       q_sqr: q_sqr
       pT_sqr: pT_sqr
-    dataset_label: '$H1 Jet 351 pb^{-1} distribution: \frac{1}{\sigma}\frac{d^2\sigma}{dq^{2}dpT}$'
+    dataset_label: '$H1 DiJet 290 pb^{-1} distribution: \frac{1}{\sigma}\frac{d^2\sigma}{dq^{2}d\langle pT \rangle}$'
     plot_x: pT_sqr
     figure_by: 
       - q_sqr

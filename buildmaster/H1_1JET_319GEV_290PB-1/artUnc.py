@@ -1,6 +1,6 @@
 import yaml
 import numpy
-from validphys.commondata_utils import covMat_to_artUnc as cta
+from validphys.commondata_utils import covmat_to_artunc as cta
 from validphys.commondata_utils import percentage_to_absolute as pta
 
 def artunc():
@@ -45,7 +45,7 @@ def artunc():
     for i in range(96):
         for j in range(96):
             covMatList.append(covMat[i][j])
-    artUnc = cta(96, covMatList, False)
+    artUnc = cta(96, covMatList, 0)
 
     return artUnc
 
@@ -90,6 +90,6 @@ def artunc_norm():
     for i in range(96):
         for j in range(96):
             covMatList.append(covMat[i][j])
-    artUnc = cta(96, covMatList, True)
+    artUnc = cta(96, covMatList, 1)
 
     return artUnc
