@@ -1,6 +1,6 @@
 # implemented by Tanishq Sharma
 
-setname: 'CMS_1JET_13TEV'
+setname: 'CMS_1JET_13TEV_DIF'
 
 nnpdf_metadata:
   nnpdf31_process: "1JET"

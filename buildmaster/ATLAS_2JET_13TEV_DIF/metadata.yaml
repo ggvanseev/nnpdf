@@ -1,6 +1,6 @@
 # implemented by Tanishq Sharma
 
-setname: "ATLAS_2JET_13TEV"
+setname: "ATLAS_2JET_13TEV_DIF"
 
 nnpdf_metadata:
   nnpdf31_process: "2JET"
