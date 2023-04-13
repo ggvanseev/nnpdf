@@ -2,8 +2,8 @@
 
 import artUnc
 import yaml
-from utils import percentage_to_absolute as pta
-from utils import symmetrize_errors as se
+from validphys.commondata_utils import percentage_to_absolute as pta
+from validphys.commondata_utils import symmetrize_errors as se
 from math import sqrt
 
 def processData():
