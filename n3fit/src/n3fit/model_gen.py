@@ -619,10 +619,12 @@ def pdfNN_layer_generator(
 
         if layer_type[:5] == "f3fit":
             layer_preproc = f3Preproc(
+                  model_name = layer_type[6:],
                   flav_info=flav_info,
                   input_shape=(1,),
                   name=f"pdf_prepro_{i}",
-                  seed=preproseed
+                  seed=preproseed,
+                  large_x=not subtract_one,
                   )
         else: 
             layer_preproc = Preprocessing(
