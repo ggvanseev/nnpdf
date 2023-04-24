@@ -16,24 +16,24 @@ def processData():
 # q2_et data
 
     for i in tables_q2_et:
-        if i == 12:
+        if i == 13:
             q_sqr_min = 125
             q_sqr_max = 250
-        elif i == 13:
+        elif i == 14:
             q_sqr_min = 250
             q_sqr_max = 500
-        elif i == 14:
+        elif i == 15:
             q_sqr_min = 500
             q_sqr_max = 1000
-        elif i == 15:
+        elif i == 16:
             q_sqr_min = 1000
             q_sqr_max = 2000
-        elif i == 16:
+        elif i == 17:
             q_sqr_min = 2000
             q_sqr_max = 5000
-        elif i == 17:
+        elif i == 18:
             q_sqr_min = 5000
-            q_sqr_max = 1000
+            q_sqr_max = 20000
 
         hepdata_tables="rawdata/Table"+str(i)+".yaml"
         with open(hepdata_tables, 'r') as file:

@@ -33,7 +33,7 @@ def processData():
             q_sqr_max = 5000
         elif i == 17:
             q_sqr_min = 5000
-            q_sqr_max = 1000
+            q_sqr_max = 10000
 
         hepdata_tables="rawdata/Table"+str(i)+".yaml"
         with open(hepdata_tables, 'r') as file:

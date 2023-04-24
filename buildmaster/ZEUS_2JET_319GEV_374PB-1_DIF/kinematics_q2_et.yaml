@@ -4,6 +4,54 @@ bins:
     mid: 319.0
     max: null
   q_sqr:
+    min: 125
+    mid: null
+    max: 250
+  ET_sqr:
+    min: 64.0
+    mid: null
+    max: 225.0
+- sqrt_s:
+    min: null
+    mid: 319.0
+    max: null
+  q_sqr:
+    min: 125
+    mid: null
+    max: 250
+  ET_sqr:
+    min: 225.0
+    mid: null
+    max: 484.0
+- sqrt_s:
+    min: null
+    mid: 319.0
+    max: null
+  q_sqr:
+    min: 125
+    mid: null
+    max: 250
+  ET_sqr:
+    min: 484.0
+    mid: null
+    max: 900.0
+- sqrt_s:
+    min: null
+    mid: 319.0
+    max: null
+  q_sqr:
+    min: 125
+    mid: null
+    max: 250
+  ET_sqr:
+    min: 900.0
+    mid: null
+    max: 3600.0
+- sqrt_s:
+    min: null
+    mid: 319.0
+    max: null
+  q_sqr:
     min: 250
     mid: null
     max: 500
@@ -151,54 +199,6 @@ bins:
     min: 2000
     mid: null
     max: 5000
-  ET_sqr:
-    min: 64.0
-    mid: null
-    max: 225.0
-- sqrt_s:
-    min: null
-    mid: 319.0
-    max: null
-  q_sqr:
-    min: 2000
-    mid: null
-    max: 5000
-  ET_sqr:
-    min: 225.0
-    mid: null
-    max: 484.0
-- sqrt_s:
-    min: null
-    mid: 319.0
-    max: null
-  q_sqr:
-    min: 2000
-    mid: null
-    max: 5000
-  ET_sqr:
-    min: 484.0
-    mid: null
-    max: 900.0
-- sqrt_s:
-    min: null
-    mid: 319.0
-    max: null
-  q_sqr:
-    min: 2000
-    mid: null
-    max: 5000
-  ET_sqr:
-    min: 900.0
-    mid: null
-    max: 3600.0
-- sqrt_s:
-    min: null
-    mid: 319.0
-    max: null
-  q_sqr:
-    min: 5000
-    mid: null
-    max: 1000
   ET_sqr:
     min: 64.0
     mid: null
@@ -208,9 +208,9 @@ bins:
     mid: 319.0
     max: null
   q_sqr:
-    min: 5000
+    min: 2000
     mid: null
-    max: 1000
+    max: 5000
   ET_sqr:
     min: 256.0
     mid: null
@@ -220,9 +220,9 @@ bins:
     mid: 319.0
     max: null
   q_sqr:
-    min: 5000
+    min: 2000
     mid: null
-    max: 1000
+    max: 5000
   ET_sqr:
     min: 784.0
     mid: null
@@ -234,7 +234,7 @@ bins:
   q_sqr:
     min: 5000
     mid: null
-    max: 1000
+    max: 20000
   ET_sqr:
     min: 64.0
     mid: null
@@ -246,7 +246,7 @@ bins:
   q_sqr:
     min: 5000
     mid: null
-    max: 1000
+    max: 20000
   ET_sqr:
     min: 256.0
     mid: null
@@ -258,7 +258,7 @@ bins:
   q_sqr:
     min: 5000
     mid: null
-    max: 1000
+    max: 20000
   ET_sqr:
     min: 784.0
     mid: null
