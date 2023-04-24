@@ -68,7 +68,7 @@ implemented_observables:
       - m_ttBar
 
   - observable: {description: "normalized differential cross section w.r.t. invariant mass and rapidity of ttBar pair", label: '$\frac{1}{\sigma}\frac{d^2\sigma}{dm_{t\bar{t}}dy_{t\bar{t}}}$', units: "1/GeV"}
-    observable_name:  MTTBAR-YTTBAR-NORM
+    observable_name: MTTBAR-YTTBAR-NORM
     ndata: 16
     tables: [CMS_8TeV_ttbar_DoubleDiff_mtt_ytt]
     kinematics:
