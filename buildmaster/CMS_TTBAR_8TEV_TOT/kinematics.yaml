@@ -3,11 +3,11 @@ bins:
     min: null
     mid: 0
     max: null
-- mt_sqr:
+  mt_sqr:
     min: null
     mid: 29846.0176
     max: null
-- sqrt_s:
+  sqrt_s:
     min: null
     mid: 8000
     max: null

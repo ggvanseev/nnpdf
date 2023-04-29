@@ -57,14 +57,14 @@ def processData():
         value_delta = 0
         for j in range(1, len(input['dependent_variables'][1]['values'][i]['errors'])-1):
             if 'symerror' in input['dependent_variables'][1]['values'][i]['errors'][j]:
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
             else:
                 se_delta, se_sigma = se(pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['plus'], data_central_value), pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['minus'], data_central_value))
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = se_sigma
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = se_sigma
                 value_delta = value_delta + se_delta
         error_value['lumi'] = pta(values[i]['errors'][2]['symerror'], data_central_value)
         data_central_value = data_central_value + value_delta
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'm_ttbar': {'min': m_ttbar_min, 'mid': None, 'max': m_ttbar_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'm_ttBar': {'min': m_ttbar_min, 'mid': None, 'max': m_ttbar_max}}
         data_central_dSig_dmttBar.append(data_central_value)
         kin_dSig_dmttBar.append(kin_value)
         error_dSig_dmttBar.append(error_value)
@@ -73,7 +73,7 @@ def processData():
     for i in range(25):
         error_definition_dSig_dmttBar['ArtUnc_'+str(i+1)] = {'definition': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
     for i in range(1, len(input['dependent_variables'][1]['values'][0]['errors'])-1):
-        error_definition_dSig_dmttBar[input['dependent_variables'][1]['values'][0]['errors'][i]['label']] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
+        error_definition_dSig_dmttBar[input['dependent_variables'][1]['values'][0]['errors'][i]['label'].replace(" ", "")] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
     error_definition_dSig_dmttBar['lumi'] =  {'definition': 'luminosity uncertainty', 'treatment': 'MULT', 'type': 'ATLASLUMI8'}
 
     data_central_dSig_dmttBar_yaml = {'data_central': data_central_dSig_dmttBar}
@@ -109,13 +109,13 @@ def processData():
         value_delta = 0
         for j in range(1, len(input['dependent_variables'][1]['values'][i]['errors'])):
             if 'symerror' in input['dependent_variables'][1]['values'][i]['errors'][j]:
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
             else:
                 se_delta, se_sigma = se(pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['plus'], data_central_value), pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['minus'], data_central_value))
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = se_sigma
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = se_sigma
                 value_delta = value_delta + se_delta
         data_central_value = data_central_value + value_delta
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'm_ttbar': {'min': m_ttbar_min, 'mid': None, 'max': m_ttbar_max}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'm_ttBar': {'min': m_ttbar_min, 'mid': None, 'max': m_ttbar_max}}
         data_central_dSig_dmttBar_norm.append(data_central_value)
         kin_dSig_dmttBar_norm.append(kin_value)
         error_dSig_dmttBar_norm.append(error_value)
@@ -124,7 +124,7 @@ def processData():
     for i in range(25):
         error_definition_dSig_dmttBar_norm['ArtUnc_'+str(i+1)] = {'definition': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
     for i in range(1, len(input['dependent_variables'][1]['values'][0]['errors'])):
-        error_definition_dSig_dmttBar_norm[input['dependent_variables'][1]['values'][0]['errors'][i]['label']] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
+        error_definition_dSig_dmttBar_norm[input['dependent_variables'][1]['values'][0]['errors'][i]['label'].replace(" ", "")] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
 
     data_central_dSig_dmttBar_norm_yaml = {'data_central': data_central_dSig_dmttBar_norm}
     kinematics_dSig_dmttBar_norm_yaml = {'bins': kin_dSig_dmttBar_norm}
@@ -159,10 +159,10 @@ def processData():
         value_delta = 0
         for j in range(1, len(input['dependent_variables'][1]['values'][i]['errors'])-1):
             if 'symerror' in input['dependent_variables'][1]['values'][i]['errors'][j]:
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
             else:
                 se_delta, se_sigma = se(pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['plus'], data_central_value), pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['minus'], data_central_value))
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = se_sigma
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = se_sigma
                 value_delta = value_delta + se_delta
         error_value['lumi'] = pta(values[i]['errors'][2]['symerror'], data_central_value)
         data_central_value = data_central_value + value_delta
@@ -175,7 +175,7 @@ def processData():
     for i in range(25):
         error_definition_dSig_dpTt['ArtUnc_'+str(i+1)] = {'definition': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
     for i in range(1, len(input['dependent_variables'][1]['values'][0]['errors'])-1):
-        error_definition_dSig_dpTt[input['dependent_variables'][1]['values'][0]['errors'][i]['label']] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
+        error_definition_dSig_dpTt[input['dependent_variables'][1]['values'][0]['errors'][i]['label'].replace(" ", "")] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
     error_definition_dSig_dpTt['lumi'] =  {'definition': 'luminosity uncertainty', 'treatment': 'MULT', 'type': 'ATLASLUMI8'}
 
     data_central_dSig_dpTt_yaml = {'data_central': data_central_dSig_dpTt}
@@ -211,10 +211,10 @@ def processData():
         value_delta = 0
         for j in range(1, len(input['dependent_variables'][1]['values'][i]['errors'])):
             if 'symerror' in input['dependent_variables'][1]['values'][i]['errors'][j]:
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
             else:
                 se_delta, se_sigma = se(pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['plus'], data_central_value), pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['minus'], data_central_value))
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = se_sigma
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = se_sigma
                 value_delta = value_delta + se_delta
         data_central_value = data_central_value + value_delta
         kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'pT_t': {'min': pT_t_min, 'mid': None, 'max': pT_t_max}}
@@ -226,7 +226,7 @@ def processData():
     for i in range(25):
         error_definition_dSig_dpTt_norm['ArtUnc_'+str(i+1)] = {'definition': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
     for i in range(1, len(input['dependent_variables'][1]['values'][0]['errors'])):
-        error_definition_dSig_dpTt_norm[input['dependent_variables'][1]['values'][0]['errors'][i]['label']] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
+        error_definition_dSig_dpTt_norm[input['dependent_variables'][1]['values'][0]['errors'][i]['label'].replace(" ", "")] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
 
     data_central_dSig_dpTt_norm_yaml = {'data_central': data_central_dSig_dpTt_norm}
     kinematics_dSig_dpTt_norm_yaml = {'bins': kin_dSig_dpTt_norm}
@@ -261,10 +261,10 @@ def processData():
         value_delta = 0
         for j in range(1, len(input['dependent_variables'][1]['values'][i]['errors'])-1):
             if 'symerror' in input['dependent_variables'][1]['values'][i]['errors'][j]:
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
             else:
                 se_delta, se_sigma = se(pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['plus'], data_central_value), pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['minus'], data_central_value))
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = se_sigma
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = se_sigma
                 value_delta = value_delta + se_delta
         error_value['lumi'] = pta(values[i]['errors'][2]['symerror'], data_central_value)
         data_central_value = data_central_value + value_delta
@@ -277,7 +277,7 @@ def processData():
     for i in range(25):
         error_definition_dSig_dyt['ArtUnc_'+str(i+1)] = {'definition': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
     for i in range(1, len(input['dependent_variables'][1]['values'][0]['errors'])-1):
-        error_definition_dSig_dyt[input['dependent_variables'][1]['values'][0]['errors'][i]['label']] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
+        error_definition_dSig_dyt[input['dependent_variables'][1]['values'][0]['errors'][i]['label'].replace(" ", "")] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
     error_definition_dSig_dyt['lumi'] =  {'definition': 'luminosity uncertainty', 'treatment': 'MULT', 'type': 'ATLASLUMI8'}
 
     data_central_dSig_dyt_yaml = {'data_central': data_central_dSig_dyt}
@@ -313,10 +313,10 @@ def processData():
         value_delta = 0
         for j in range(1, len(input['dependent_variables'][1]['values'][i]['errors'])):
             if 'symerror' in input['dependent_variables'][1]['values'][i]['errors'][j]:
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
             else:
                 se_delta, se_sigma = se(pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['plus'], data_central_value), pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['minus'], data_central_value))
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = se_sigma
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = se_sigma
                 value_delta = value_delta + se_delta
         data_central_value = data_central_value + value_delta
         kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'y_t': {'min': y_t_min, 'mid': None, 'max': y_t_max}}
@@ -328,7 +328,7 @@ def processData():
     for i in range(25):
         error_definition_dSig_dyt_norm['ArtUnc_'+str(i+1)] = {'definition': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
     for i in range(1, len(input['dependent_variables'][1]['values'][0]['errors'])):
-        error_definition_dSig_dyt_norm[input['dependent_variables'][1]['values'][0]['errors'][i]['label']] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
+        error_definition_dSig_dyt_norm[input['dependent_variables'][1]['values'][0]['errors'][i]['label'].replace(" ", "")] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
 
     data_central_dSig_dyt_norm_yaml = {'data_central': data_central_dSig_dyt_norm}
     kinematics_dSig_dyt_norm_yaml = {'bins': kin_dSig_dyt_norm}
@@ -363,10 +363,10 @@ def processData():
         value_delta = 0
         for j in range(1, len(input['dependent_variables'][1]['values'][i]['errors'])-1):
             if 'symerror' in input['dependent_variables'][1]['values'][i]['errors'][j]:
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
             else:
                 se_delta, se_sigma = se(pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['plus'], data_central_value), pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['minus'], data_central_value))
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = se_sigma
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = se_sigma
                 value_delta = value_delta + se_delta
         error_value['lumi'] = pta(values[i]['errors'][2]['symerror'], data_central_value)
         data_central_value = data_central_value + value_delta
@@ -379,7 +379,7 @@ def processData():
     for i in range(25):
         error_definition_dSig_dyttBar['ArtUnc_'+str(i+1)] = {'definition': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
     for i in range(1, len(input['dependent_variables'][1]['values'][0]['errors'])-1):
-        error_definition_dSig_dyttBar[input['dependent_variables'][1]['values'][0]['errors'][i]['label']] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
+        error_definition_dSig_dyttBar[input['dependent_variables'][1]['values'][0]['errors'][i]['label'].replace(" ", "")] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
     error_definition_dSig_dyttBar['lumi'] =  {'definition': 'luminosity uncertainty', 'treatment': 'MULT', 'type': 'ATLASLUMI8'}
 
     data_central_dSig_dyttBar_yaml = {'data_central': data_central_dSig_dyttBar}
@@ -415,10 +415,10 @@ def processData():
         value_delta = 0
         for j in range(1, len(input['dependent_variables'][1]['values'][i]['errors'])):
             if 'symerror' in input['dependent_variables'][1]['values'][i]['errors'][j]:
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = pta(input['dependent_variables'][1]['values'][i]['errors'][j]['symerror'], data_central_value)
             else:
                 se_delta, se_sigma = se(pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['plus'], data_central_value), pta(input['dependent_variables'][1]['values'][i]['errors'][j]['asymerror']['minus'], data_central_value))
-                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label']] = se_sigma
+                error_value[input['dependent_variables'][1]['values'][i]['errors'][j]['label'].replace(" ", "")] = se_sigma
                 value_delta = value_delta + se_delta
         data_central_value = data_central_value + value_delta
         kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'mt_sqr': {'min': None, 'mid': mt_sqr, 'max': None}, 'y_ttBar': {'min': y_ttBar_min, 'mid': None, 'max': y_ttBar_max}}
@@ -430,7 +430,7 @@ def processData():
     for i in range(25):
         error_definition_dSig_dyttBar_norm['ArtUnc_'+str(i+1)] = {'definition': 'artificial uncertainty '+str(i+1), 'treatment': 'ADD', 'type': 'CORR'}
     for i in range(1, len(input['dependent_variables'][1]['values'][0]['errors'])):
-        error_definition_dSig_dyttBar_norm[input['dependent_variables'][1]['values'][0]['errors'][i]['label']] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
+        error_definition_dSig_dyttBar_norm[input['dependent_variables'][1]['values'][0]['errors'][i]['label'].replace(" ", "")] = {'definition': '', 'treatment': 'MULT', 'type': 'CORR'}
 
     data_central_dSig_dyttBar_norm_yaml = {'data_central': data_central_dSig_dyttBar_norm}
     kinematics_dSig_dyttBar_norm_yaml = {'bins': kin_dSig_dyttBar_norm}
