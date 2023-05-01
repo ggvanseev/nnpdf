@@ -154,3 +154,91 @@ implemented_observables:
     plot_x: y_ttBar
     figure_by: 
       - m_ttBar
+      
+  - observable: {description: "differential cross section w.r.t. transverse momentum of t", label: '$d\sigma/dpT_t$', units: "pb/GeV"}
+    observable_name: PTT
+    ndata: 16
+    tables: ['parton_abs_tleppt']
+    kinematics:
+      variables:
+        pT_t: {description: "transverse momentum of t", label: '$pT_t$', units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+      file: kinematics_dSig_dpTt.yaml
+    data_central: data_dSig_dpTt.yaml
+    data_uncertainties:
+      - uncertainties_dSig_dpTt.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+      mt_sqr: mt_sqr
+      pT_t: pT_t
+    dataset_label: 'CMS 13 TeV top quark pair l+j channel: $d\sigma/dpT_t$'
+    plot_x: pT_t
+    figure_by: 
+      - mt_sqr
+
+  - observable: {description: "normalized differential cross section w.r.t. transverse momentum of t", label: '$1/\sigma * d\sigma/dpT_t$', units: "1/GeV"}
+    observable_name: PTT-NORM
+    ndata: 16
+    tables: ['parton_norm_tleppt']
+    kinematics:
+      variables:
+        pT_t: {description: "transverse momentum of t", label: '$pT_t$', units: "GeV"}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+      file: kinematics_dSig_dpTt_norm.yaml
+    data_central: data_dSig_dpTt_norm.yaml
+    data_uncertainties:
+      - uncertainties_dSig_dpTt_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+      mt_sqr: mt_sqr
+      pT_t: pT_t
+    dataset_label: 'CMS 13 TeV top quark pair l+j channel: $1/\sigma * d\sigma/dpT_t$'
+    plot_x: pT_t
+    figure_by: 
+      - mt_sqr
+
+  - observable: {description: "differential cross section w.r.t. rapidity of t", label: '$d\sigma/dy_t$', units: "pb"}
+    observable_name: YT
+    ndata: 11
+    tables: ['parton_abs_tlepy']
+    kinematics:
+      variables:
+        y_t: {description: "rapidity of t", label: '$y_t$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+      file: kinematics_dSig_dyt.yaml
+    data_central: data_dSig_dyt.yaml
+    data_uncertainties:
+      - uncertainties_dSig_dyt.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+      mt_sqr: mt_sqr
+      y_t: y_t
+    dataset_label: 'CMS 13 TeV top quark pair l+j channel: $d\sigma/dy_t$'
+    plot_x: y_t
+    figure_by: 
+      - mt_sqr
+
+  - observable: {description: "normalized differential cross section w.r.t. rapidity of t", label: '$1/\sigma * d\sigma/dy_t$', units: ""}
+    observable_name: YT-NORM
+    ndata: 11
+    tables: ['parton_norm_tlepy']
+    kinematics:
+      variables:
+        y_t: {description: "rapidity of t", label: '$y_t$', units: ""}
+        mt_sqr: {description: "mass of top quark squared", label: '$m_{t}^2$', units: '$GeV^2$'}
+        sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
+      file: kinematics_dSig_dyt_norm.yaml
+    data_central: data_dSig_dyt_norm_norm.yaml
+    data_uncertainties:
+      - uncertainties_dSig_dyt_norm.yaml
+    kinematic_coverage:
+      sqrt_s: sqrt_s
+      mt_sqr: mt_sqr
+      y_t: y_t
+    dataset_label: 'CMS 13 TeV top quark pair l+j channel: $1/\sigma * d\sigma/dy_t$'
+    plot_x: y_t
+    figure_by: 
+      - mt_sqr
