@@ -306,7 +306,7 @@ bins:
   q_sqr:
     min: 5000
     mid: null
-    max: null
+    max: 100000
   ET_sqr:
     min: 64.0
     mid: null
@@ -318,7 +318,7 @@ bins:
   q_sqr:
     min: 5000
     mid: null
-    max: null
+    max: 100000
   ET_sqr:
     min: 100.0
     mid: null
@@ -330,7 +330,7 @@ bins:
   q_sqr:
     min: 5000
     mid: null
-    max: null
+    max: 100000
   ET_sqr:
     min: 196.0
     mid: null
@@ -342,7 +342,7 @@ bins:
   q_sqr:
     min: 5000
     mid: null
-    max: null
+    max: 100000
   ET_sqr:
     min: 324.0
     mid: null
@@ -354,7 +354,7 @@ bins:
   q_sqr:
     min: 5000
     mid: null
-    max: null
+    max: 100000
   ET_sqr:
     min: 625.0
     mid: null

@@ -42,7 +42,7 @@ def processData():
                     q_sqr_max = 5000
                 if j == 1:
                     q_sqr_min = 5000
-                    q_sqr_max = None
+                    q_sqr_max = 100000
 
             sqrt_s = float(input['dependent_variables'][j]['qualifiers'][5]['value'])
             values = input['dependent_variables'][j]['values']
