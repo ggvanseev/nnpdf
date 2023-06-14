@@ -1,0 +1,93 @@
+# Generalia
+setname: "HERA_CC_318GEV_EP_SIGMARED"
+
+version: 1
+version_comment: "Initial implementation"
+
+# References
+arXiv:
+   url: "https://arxiv.org/pdf/1506.06042"
+iNSPIRE:
+   url: "https://inspirehep.net/literature/1377206"
+hepdata:
+   url: "https://www.hepdata.net/record/ins1377206"
+   version: 1
+
+nnpdf_metadata:
+   nnpdf31_process: "DIS"
+   experiment: "HERACOMB"
+
+implemented_observables:
+  - observable_name: "CC_EP_SIGMARED"
+    observable: {description: "HERA combined reduced cross section for e+p CC scattering at a c.m.e. of 318 GeV", label: $\sigma^{e^+}_{r,{\rm NC}}$, units: " " }
+    ndata: 39
+    tables: [6]
+    npoints: [39] # number of datapoints in each table
+
+    dataset_label: "HERACOMBCCEP920"
+
+    y_label: '$10^{qbin} F_2(x,Q^2)$' 
+    result_transform: qbinEMC
+    x_scale: log
+    y_scale: log
+    line_by:
+      - Q2
+    figure_by: 
+      - k2bins6
+
+    normalize:
+	y_scale: linear
+    	line_by: []
+   	figure_by:
+            - k2bins6
+            - Q2
+
+    extra_labels:
+      qplot: [
+      0,0,0,0,0,0,0,0,0,0,
+      0,0,0,0,0,0,0,0,0,0,
+      0,0,0,0,0,0,0,0,0,0,
+      0,0,0,0,0,0,0,0,0,0,
+      0,0,0,0,0,0,0,0,0,0,
+      0,0,0,0,0,0,0,0,0,0,
+      0,0,0,0,0,0,0,0,0,
+      1,1,1,1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,1,1,1,
+      1,1,1,1,1,1,1,1,1,1,
+      1,1,1,
+      2,2,2,2,2,2,2,2,2,2,
+      2,2,2,2,2,2,2,2,2,2,
+      2,2,2,2,2,2,2,2,2,2,
+      2,2,2,2,2,2,2,2,2,2,
+      2,2,2,2,2,2,2,2,2,2,
+      2,2,2,2,2,2,2,2,2,2,
+      2,2,2,2,2,2,2
+      ]
+
+#    ALL the following must be checked carefully
+#    plot_x: sqrttau
+#    figure_by: 
+#      - y
+#    kinematic_coverage:
+#      y: y
+#      sqrttau: sqrttau
+
+    kinematics:
+      variables:
+          x:  {description: "momentum fraction", label: "$x$",  units: ""}
+          Q2:  {description: "virtuality", label: $Q^2$, units: "GeV²"}
+          y: {description: "inelasticity", label: "$y$", units: ""}
+      file: kinematics.yaml
+
+    data_central: data.yaml
+    data_uncertainties:
+      - uncertainties.yaml
+
+    theory:
+      FK_tables:
+        - - HERA_CC_318GEV_EP_SIGMARED
+      operation: 'null'

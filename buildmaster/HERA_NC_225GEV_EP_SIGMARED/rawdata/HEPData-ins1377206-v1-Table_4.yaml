@@ -1,0 +1,3588 @@
+dependent_variables:
+- header: {name: '$\sigma_{r,\rm NC}^{+}$'}
+  qualifiers:
+  - {name: RE, value: E+ P --> E+ X}
+  - {name: SQRT(S), units: GeV, value: '225.0'}
+  values:
+  - errors:
+    - {label: stat, symerror: 7.92%}
+    - {label: 'sys,uncor', symerror: 4.96%}
+    - {label: 'sys,cor', symerror: 3.65%}
+    - {label: 'sys,rel', symerror: 1.81%}
+    - asymerror: {minus: 0.24%, plus: -0.24%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.58%, plus: -0.58%}
+      label: sys,had
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,1
+    - asymerror: {minus: 8.62%, plus: -8.62%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.58%}
+    value: 0.542
+  - errors:
+    - {label: stat, symerror: 4.48%}
+    - {label: 'sys,uncor', symerror: 4.31%}
+    - {label: 'sys,cor', symerror: 2.83%}
+    - {label: 'sys,rel', symerror: 1.48%}
+    - asymerror: {minus: 0.26%, plus: -0.26%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.66%, plus: -0.66%}
+      label: sys,had
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,1
+    - asymerror: {minus: 6.25%, plus: -6.25%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.58%}
+    value: 0.733
+  - errors:
+    - {label: stat, symerror: 4.53%}
+    - {label: 'sys,uncor', symerror: 3.93%}
+    - {label: 'sys,cor', symerror: 1.9%}
+    - {label: 'sys,rel', symerror: 1.32%}
+    - asymerror: {minus: 0.25%, plus: -0.25%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.4%, plus: -0.4%}
+      label: sys,had
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,1
+    - asymerror: {minus: 2.96%, plus: -2.96%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.57%}
+    value: 0.737
+  - errors:
+    - {label: stat, symerror: 4.08%}
+    - {label: 'sys,uncor', symerror: 4.15%}
+    - {label: 'sys,cor', symerror: 2.93%}
+    - {label: 'sys,rel', symerror: 2.07%}
+    - asymerror: {minus: 0.33%, plus: -0.33%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.82%, plus: -0.82%}
+      label: sys,had
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,1
+    - asymerror: {minus: 7.28%, plus: -7.28%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.69%}
+    value: 0.815
+  - errors:
+    - {label: stat, symerror: 2.62%}
+    - {label: 'sys,uncor', symerror: 3.03%}
+    - {label: 'sys,cor', symerror: 1.54%}
+    - {label: 'sys,rel', symerror: 1.27%}
+    - asymerror: {minus: 0.2%, plus: -0.2%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.57%, plus: -0.57%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - asymerror: {minus: 2.19%, plus: -2.19%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.47%}
+    value: 0.78
+  - errors:
+    - {label: stat, symerror: 4.28%}
+    - {label: 'sys,uncor', symerror: 3.45%}
+    - {label: 'sys,cor', symerror: 1.84%}
+    - {label: 'sys,rel', symerror: 0.89%}
+    - asymerror: {minus: 0.21%, plus: -0.21%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.28%, plus: -0.28%}
+      label: sys,had
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,1
+    - asymerror: {minus: 1.48%, plus: -1.48%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.51%}
+    value: 0.725
+  - errors:
+    - {label: stat, symerror: 4.14%}
+    - {label: 'sys,uncor', symerror: 4.05%}
+    - {label: 'sys,cor', symerror: 2.65%}
+    - {label: 'sys,rel', symerror: 1.7%}
+    - asymerror: {minus: 0.23%, plus: -0.23%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.47%, plus: -0.47%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - asymerror: {minus: 5.9%, plus: -5.9%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.54%}
+    value: 0.819
+  - errors:
+    - {label: stat, symerror: 2.19%}
+    - {label: 'sys,uncor', symerror: 2.86%}
+    - {label: 'sys,cor', symerror: 1.69%}
+    - {label: 'sys,rel', symerror: 1.53%}
+    - asymerror: {minus: 0.25%, plus: -0.25%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.38%, plus: -0.38%}
+      label: sys,had
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,1
+    - asymerror: {minus: 2.47%, plus: -2.47%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.56%}
+    value: 0.838
+  - errors:
+    - {label: stat, symerror: 2.01%}
+    - {label: 'sys,uncor', symerror: 2.47%}
+    - {label: 'sys,cor', symerror: 1.69%}
+    - {label: 'sys,rel', symerror: 1.24%}
+    - asymerror: {minus: 0.24%, plus: -0.24%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.41%, plus: -0.41%}
+      label: sys,had
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,1
+    - asymerror: {minus: 1.58%, plus: -1.58%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.55%}
+    value: 0.875
+  - errors:
+    - {label: stat, symerror: 2.53%}
+    - {label: 'sys,uncor', symerror: 2.45%}
+    - {label: 'sys,cor', symerror: 2.27%}
+    - {label: 'sys,rel', symerror: 0.62%}
+    - asymerror: {minus: 0.22%, plus: -0.22%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.27%, plus: -0.27%}
+      label: sys,had
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,1
+    - asymerror: {minus: 0.38%, plus: -0.38%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.52%}
+    value: 0.81
+  - errors:
+    - {label: stat, symerror: 4.1%}
+    - {label: 'sys,uncor', symerror: 4.01%}
+    - {label: 'sys,cor', symerror: 2.85%}
+    - {label: 'sys,rel', symerror: 2.15%}
+    - asymerror: {minus: 0.3%, plus: -0.3%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.57%, plus: -0.57%}
+      label: sys,had
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,1
+    - asymerror: {minus: 6.92%, plus: -6.92%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.67%}
+    value: 0.98
+  - errors:
+    - {label: stat, symerror: 2.05%}
+    - {label: 'sys,uncor', symerror: 2.8%}
+    - {label: 'sys,cor', symerror: 1.53%}
+    - {label: 'sys,rel', symerror: 1.41%}
+    - asymerror: {minus: 0.22%, plus: -0.22%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.44%, plus: -0.44%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - asymerror: {minus: 1.98%, plus: -1.98%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.5%}
+    value: 0.94
+  - errors:
+    - {label: stat, symerror: 10.24%}
+    - {label: 'sys,uncor', symerror: 9.23%}
+    - {label: 'sys,cor', symerror: 1.66%}
+    - {label: 'sys,rel', symerror: 1.38%}
+    - asymerror: {minus: 0.22%, plus: -0.22%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.98%}
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.55%}
+    value: 1.048
+  - errors:
+    - {label: stat, symerror: 1.65%}
+    - {label: 'sys,uncor', symerror: 2.2%}
+    - {label: 'sys,cor', symerror: 1.41%}
+    - {label: 'sys,rel', symerror: 0.98%}
+    - asymerror: {minus: 0.19%, plus: -0.19%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.3%, plus: -0.3%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - asymerror: {minus: 0.78%, plus: -0.78%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.46%}
+    value: 0.984
+  - errors:
+    - {label: stat, symerror: 1.16%}
+    - {label: 'sys,uncor', symerror: 1.87%}
+    - {label: 'sys,cor', symerror: 1.58%}
+    - {label: 'sys,rel', symerror: 0.63%}
+    - asymerror: {minus: 0.16%, plus: -0.16%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.22%, plus: -0.22%}
+      label: sys,had
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.05%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.42%}
+    value: 0.92
+  - errors:
+    - {label: stat, symerror: 4.19%}
+    - {label: 'sys,uncor', symerror: 4.02%}
+    - {label: 'sys,cor', symerror: 2.88%}
+    - {label: 'sys,rel', symerror: 1.87%}
+    - asymerror: {minus: 0.23%, plus: -0.23%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.52%, plus: -0.52%}
+      label: sys,had
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,1
+    - asymerror: {minus: 6.52%, plus: -6.52%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.56%}
+    value: 1.07
+  - errors:
+    - {label: stat, symerror: 1.96%}
+    - {label: 'sys,uncor', symerror: 2.54%}
+    - {label: 'sys,cor', symerror: 1.46%}
+    - {label: 'sys,rel', symerror: 1.98%}
+    - asymerror: {minus: 0.23%, plus: -0.23%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.49%, plus: -0.49%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - asymerror: {minus: 1.43%, plus: -1.43%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.56%}
+    value: 1.012
+  - errors:
+    - {label: stat, symerror: 6.82%}
+    - {label: 'sys,uncor', symerror: 7.36%}
+    - {label: 'sys,cor', symerror: 2.23%}
+    - {label: 'sys,rel', symerror: 2.44%}
+    - asymerror: {minus: 0.29%, plus: -0.29%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.34%, plus: -0.34%}
+      label: sys,had
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,1
+    - asymerror: {minus: 0.63%, plus: -0.63%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.08%}
+    - {label: 'sys,4', symerror: 1.26%}
+    value: 1.043
+  - errors:
+    - {label: stat, symerror: 1.57%}
+    - {label: 'sys,uncor', symerror: 2.19%}
+    - {label: 'sys,cor', symerror: 1.3%}
+    - {label: 'sys,rel', symerror: 1.06%}
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.28%, plus: -0.28%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - asymerror: {minus: 0.45%, plus: -0.45%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.43%}
+    value: 1.026
+  - errors:
+    - {label: stat, symerror: 6.81%}
+    - {label: 'sys,uncor', symerror: 7.39%}
+    - {label: 'sys,cor', symerror: 1.62%}
+    - {label: 'sys,rel', symerror: 1.03%}
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,had
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,1
+    - asymerror: {minus: 0.33%, plus: -0.33%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.62%}
+    value: 1.067
+  - errors:
+    - {label: stat, symerror: 0.91%}
+    - {label: 'sys,uncor', symerror: 1.76%}
+    - {label: 'sys,cor', symerror: 1.35%}
+    - {label: 'sys,rel', symerror: 0.91%}
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.22%, plus: -0.22%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.44%}
+    value: 1.009
+  - errors:
+    - {label: stat, symerror: 9.32%}
+    - {label: 'sys,uncor', symerror: 6.57%}
+    - {label: 'sys,cor', symerror: 1.5%}
+    - {label: 'sys,rel', symerror: 0.8%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.04%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.23%}
+    value: 0.99
+  - errors:
+    - {label: stat, symerror: 1.14%}
+    - {label: 'sys,uncor', symerror: 1.85%}
+    - {label: 'sys,cor', symerror: 1.44%}
+    - {label: 'sys,rel', symerror: 0.74%}
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.06%}
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.13%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.44%}
+    value: 0.969
+  - errors:
+    - {label: stat, symerror: 4.58%}
+    - {label: 'sys,uncor', symerror: 4.01%}
+    - {label: 'sys,cor', symerror: 3.3%}
+    - {label: 'sys,rel', symerror: 2.08%}
+    - asymerror: {minus: 0.27%, plus: -0.27%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.49%, plus: -0.49%}
+      label: sys,had
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,1
+    - asymerror: {minus: 7.94%, plus: -7.94%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.63%}
+    value: 1.011
+  - errors:
+    - {label: stat, symerror: 1.92%}
+    - {label: 'sys,uncor', symerror: 2.4%}
+    - {label: 'sys,cor', symerror: 1.47%}
+    - {label: 'sys,rel', symerror: 2.14%}
+    - asymerror: {minus: 0.22%, plus: -0.22%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.26%, plus: -0.26%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - asymerror: {minus: 0.96%, plus: -0.96%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.64%}
+    value: 1.064
+  - errors:
+    - {label: stat, symerror: 3.52%}
+    - {label: 'sys,uncor', symerror: 3.88%}
+    - {label: 'sys,cor', symerror: 1.65%}
+    - {label: 'sys,rel', symerror: 2.39%}
+    - asymerror: {minus: 0.28%, plus: -0.28%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.25%, plus: -0.25%}
+      label: sys,had
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.47%}
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.91%}
+    value: 1.195
+  - errors:
+    - {label: stat, symerror: 1.58%}
+    - {label: 'sys,uncor', symerror: 1.9%}
+    - {label: 'sys,cor', symerror: 1.42%}
+    - {label: 'sys,rel', symerror: 1.54%}
+    - asymerror: {minus: 0.21%, plus: -0.21%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.23%, plus: -0.23%}
+      label: sys,had
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,1
+    - asymerror: {minus: 0.55%, plus: -0.55%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.56%}
+    value: 1.119
+  - errors:
+    - {label: stat, symerror: 4.2%}
+    - {label: 'sys,uncor', symerror: 3.72%}
+    - {label: 'sys,cor', symerror: 1.39%}
+    - {label: 'sys,rel', symerror: 1.1%}
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.55%}
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.53%}
+    value: 1.188
+  - errors:
+    - {label: stat, symerror: 0.88%}
+    - {label: 'sys,uncor', symerror: 1.7%}
+    - {label: 'sys,cor', symerror: 1.33%}
+    - {label: 'sys,rel', symerror: 0.97%}
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.2%, plus: -0.2%}
+      label: sys,had
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,1
+    - asymerror: {minus: 0.2%, plus: -0.2%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.44%}
+    value: 1.057
+  - errors:
+    - {label: stat, symerror: 4.88%}
+    - {label: 'sys,uncor', symerror: 5.71%}
+    - {label: 'sys,cor', symerror: 1.51%}
+    - {label: 'sys,rel', symerror: 0.9%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.1%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.42%}
+    value: 1.151
+  - errors:
+    - {label: stat, symerror: 0.92%}
+    - {label: 'sys,uncor', symerror: 1.73%}
+    - {label: 'sys,cor', symerror: 1.27%}
+    - {label: 'sys,rel', symerror: 0.73%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.03%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.4%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.37%}
+    value: 1.02
+  - errors:
+    - {label: stat, symerror: 1.01%}
+    - {label: 'sys,uncor', symerror: 1.76%}
+    - {label: 'sys,cor', symerror: 1.31%}
+    - {label: 'sys,rel', symerror: 0.85%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.05%}
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.12%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.43%}
+    value: 0.943
+  - errors:
+    - {label: stat, symerror: 1.2%}
+    - {label: 'sys,uncor', symerror: 1.83%}
+    - {label: 'sys,cor', symerror: 1.47%}
+    - {label: 'sys,rel', symerror: 0.75%}
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.06%}
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.45%}
+    value: 0.864
+  - errors:
+    - {label: stat, symerror: 3.84%}
+    - {label: 'sys,uncor', symerror: 3.98%}
+    - {label: 'sys,cor', symerror: 2.47%}
+    - {label: 'sys,rel', symerror: 1.55%}
+    - asymerror: {minus: 0.22%, plus: -0.22%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.42%, plus: -0.42%}
+      label: sys,had
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,1
+    - asymerror: {minus: 5.29%, plus: -5.29%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.54%}
+    value: 1.162
+  - errors:
+    - {label: stat, symerror: 1.8%}
+    - {label: 'sys,uncor', symerror: 2.2%}
+    - {label: 'sys,cor', symerror: 1.48%}
+    - {label: 'sys,rel', symerror: 1.88%}
+    - asymerror: {minus: 0.23%, plus: -0.23%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.39%, plus: -0.39%}
+      label: sys,had
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,1
+    - asymerror: {minus: 1.04%, plus: -1.04%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.66%}
+    value: 1.178
+  - errors:
+    - {label: stat, symerror: 2.7%}
+    - {label: 'sys,uncor', symerror: 3.32%}
+    - {label: 'sys,cor', symerror: 1.54%}
+    - {label: 'sys,rel', symerror: 1.94%}
+    - asymerror: {minus: 0.26%, plus: -0.26%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.23%, plus: -0.23%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.59%}
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.75%}
+    value: 1.166
+  - errors:
+    - {label: stat, symerror: 1.52%}
+    - {label: 'sys,uncor', symerror: 1.86%}
+    - {label: 'sys,cor', symerror: 1.3%}
+    - {label: 'sys,rel', symerror: 1.41%}
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.23%, plus: -0.23%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.52%}
+    value: 1.127
+  - errors:
+    - {label: stat, symerror: 2.44%}
+    - {label: 'sys,uncor', symerror: 2.23%}
+    - {label: 'sys,cor', symerror: 1.36%}
+    - {label: 'sys,rel', symerror: 1.56%}
+    - asymerror: {minus: 0.19%, plus: -0.19%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.85%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.66%}
+    value: 1.235
+  - errors:
+    - {label: stat, symerror: 0.95%}
+    - {label: 'sys,uncor', symerror: 1.52%}
+    - {label: 'sys,cor', symerror: 1.29%}
+    - {label: 'sys,rel', symerror: 1.1%}
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.14%}
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.45%}
+    value: 1.12
+  - errors:
+    - {label: stat, symerror: 3.46%}
+    - {label: 'sys,uncor', symerror: 2.55%}
+    - {label: 'sys,cor', symerror: 1.35%}
+    - {label: 'sys,rel', symerror: 1.16%}
+    - asymerror: {minus: 0.16%, plus: -0.16%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.16%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.55%}
+    value: 1.142
+  - errors:
+    - {label: stat, symerror: 0.92%}
+    - {label: 'sys,uncor', symerror: 1.61%}
+    - {label: 'sys,cor', symerror: 1.28%}
+    - {label: 'sys,rel', symerror: 0.95%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.04%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.14%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.44%}
+    value: 1.033
+  - errors:
+    - {label: stat, symerror: 0.93%}
+    - {label: 'sys,uncor', symerror: 1.69%}
+    - {label: 'sys,cor', symerror: 1.3%}
+    - {label: 'sys,rel', symerror: 0.83%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.05%}
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.13%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.42%}
+    value: 0.979
+  - errors:
+    - {label: stat, symerror: 1.04%}
+    - {label: 'sys,uncor', symerror: 1.71%}
+    - {label: 'sys,cor', symerror: 1.39%}
+    - {label: 'sys,rel', symerror: 1.04%}
+    - asymerror: {minus: 0.16%, plus: -0.16%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.06%}
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - asymerror: {minus: 0.27%, plus: -0.27%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.48%}
+    value: 0.88
+  - errors:
+    - {label: stat, symerror: 3.86%}
+    - {label: 'sys,uncor', symerror: 4.06%}
+    - {label: 'sys,cor', symerror: 2.02%}
+    - {label: 'sys,rel', symerror: 1.26%}
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.36%, plus: -0.36%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - asymerror: {minus: 3.58%, plus: -3.58%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.47%}
+    value: 1.243
+  - errors:
+    - {label: stat, symerror: 1.83%}
+    - {label: 'sys,uncor', symerror: 2.09%}
+    - {label: 'sys,cor', symerror: 1.38%}
+    - {label: 'sys,rel', symerror: 1.32%}
+    - asymerror: {minus: 0.19%, plus: -0.19%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.35%, plus: -0.35%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - asymerror: {minus: 0.61%, plus: -0.61%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.47%}
+    value: 1.138
+  - errors:
+    - {label: stat, symerror: 2.51%}
+    - {label: 'sys,uncor', symerror: 2.3%}
+    - {label: 'sys,cor', symerror: 1.43%}
+    - {label: 'sys,rel', symerror: 1.41%}
+    - asymerror: {minus: 0.21%, plus: -0.21%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.19%, plus: -0.19%}
+      label: sys,had
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.4%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.61%}
+    value: 1.191
+  - errors:
+    - {label: stat, symerror: 1.54%}
+    - {label: 'sys,uncor', symerror: 1.62%}
+    - {label: 'sys,cor', symerror: 1.32%}
+    - {label: 'sys,rel', symerror: 1.37%}
+    - asymerror: {minus: 0.2%, plus: -0.2%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.23%, plus: -0.23%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - asymerror: {minus: 0.23%, plus: -0.23%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.52%}
+    value: 1.174
+  - errors:
+    - {label: stat, symerror: 1.89%}
+    - {label: 'sys,uncor', symerror: 1.35%}
+    - {label: 'sys,cor', symerror: 1.32%}
+    - {label: 'sys,rel', symerror: 1.32%}
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.64%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.59%}
+    value: 1.254
+  - errors:
+    - {label: stat, symerror: 1.03%}
+    - {label: 'sys,uncor', symerror: 1.18%}
+    - {label: 'sys,cor', symerror: 1.28%}
+    - {label: 'sys,rel', symerror: 1.15%}
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.14%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.51%}
+    value: 1.17
+  - errors:
+    - {label: stat, symerror: 2.14%}
+    - {label: 'sys,uncor', symerror: 1.52%}
+    - {label: 'sys,cor', symerror: 1.33%}
+    - {label: 'sys,rel', symerror: 1.29%}
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.45%}
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.62%}
+    value: 1.168
+  - errors:
+    - {label: stat, symerror: 0.97%}
+    - {label: 'sys,uncor', symerror: 1.38%}
+    - {label: 'sys,cor', symerror: 1.26%}
+    - {label: 'sys,rel', symerror: 1.08%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.3%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.46%}
+    value: 1.083
+  - errors:
+    - {label: stat, symerror: 0.97%}
+    - {label: 'sys,uncor', symerror: 1.52%}
+    - {label: 'sys,cor', symerror: 1.28%}
+    - {label: 'sys,rel', symerror: 0.99%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.04%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.12%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.45%}
+    value: 0.943
+  - errors:
+    - {label: stat, symerror: 5.27%}
+    - {label: 'sys,uncor', symerror: 4.21%}
+    - {label: 'sys,cor', symerror: 2.03%}
+    - {label: 'sys,rel', symerror: 1.64%}
+    - asymerror: {minus: 0.24%, plus: -0.24%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.62%, plus: -0.62%}
+      label: sys,had
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,1
+    - asymerror: {minus: 4.18%, plus: -4.18%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.54%}
+    value: 1.03
+  - errors:
+    - {label: stat, symerror: 2.26%}
+    - {label: 'sys,uncor', symerror: 2.87%}
+    - {label: 'sys,cor', symerror: 1.39%}
+    - {label: 'sys,rel', symerror: 1.01%}
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.36%, plus: -0.36%}
+      label: sys,had
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,1
+    - asymerror: {minus: 1.1%, plus: -1.1%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.44%}
+    value: 1.214
+  - errors:
+    - {label: stat, symerror: 1.97%}
+    - {label: 'sys,uncor', symerror: 2.39%}
+    - {label: 'sys,cor', symerror: 1.31%}
+    - {label: 'sys,rel', symerror: 0.77%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.31%, plus: -0.31%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.36%}
+    value: 1.18
+  - errors:
+    - {label: stat, symerror: 1.06%}
+    - {label: 'sys,uncor', symerror: 1.85%}
+    - {label: 'sys,cor', symerror: 1.35%}
+    - {label: 'sys,rel', symerror: 1.08%}
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.44%}
+    value: 1.171
+  - errors:
+    - {label: stat, symerror: 1.0%}
+    - {label: 'sys,uncor', symerror: 1.84%}
+    - {label: 'sys,cor', symerror: 1.3%}
+    - {label: 'sys,rel', symerror: 0.93%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.06%}
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.27%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.4%}
+    value: 1.089
+  - errors:
+    - {label: stat, symerror: 1.02%}
+    - {label: 'sys,uncor', symerror: 1.85%}
+    - {label: 'sys,cor', symerror: 1.28%}
+    - {label: 'sys,rel', symerror: 0.84%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.05%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.38%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.39%}
+    value: 0.986
+  - errors:
+    - {label: stat, symerror: 1.14%}
+    - {label: 'sys,uncor', symerror: 1.87%}
+    - {label: 'sys,cor', symerror: 1.34%}
+    - {label: 'sys,rel', symerror: 1.03%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.06%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.15%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.43%}
+    value: 0.877
+  - errors:
+    - {label: stat, symerror: 2.42%}
+    - {label: 'sys,uncor', symerror: 2.94%}
+    - {label: 'sys,cor', symerror: 1.41%}
+    - {label: 'sys,rel', symerror: 1.0%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.46%, plus: -0.46%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - asymerror: {minus: 0.69%, plus: -0.69%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.37%}
+    value: 1.211
+  - errors:
+    - {label: stat, symerror: 2.81%}
+    - {label: 'sys,uncor', symerror: 2.8%}
+    - {label: 'sys,cor', symerror: 1.61%}
+    - {label: 'sys,rel', symerror: 1.03%}
+    - asymerror: {minus: 0.19%, plus: -0.19%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.27%, plus: -0.27%}
+      label: sys,had
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,1
+    - asymerror: {minus: 0.42%, plus: -0.42%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.48%}
+    value: 1.21
+  - errors:
+    - {label: stat, symerror: 2.42%}
+    - {label: 'sys,uncor', symerror: 2.14%}
+    - {label: 'sys,cor', symerror: 1.34%}
+    - {label: 'sys,rel', symerror: 0.96%}
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,had
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.35%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.35%}
+    value: 1.251
+  - errors:
+    - {label: stat, symerror: 1.5%}
+    - {label: 'sys,uncor', symerror: 1.44%}
+    - {label: 'sys,cor', symerror: 1.26%}
+    - {label: 'sys,rel', symerror: 0.83%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.19%, plus: -0.19%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.33%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.39%}
+    value: 1.223
+  - errors:
+    - {label: stat, symerror: 1.68%}
+    - {label: 'sys,uncor', symerror: 1.52%}
+    - {label: 'sys,cor', symerror: 1.27%}
+    - {label: 'sys,rel', symerror: 1.0%}
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.48%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.44%}
+    value: 1.237
+  - errors:
+    - {label: stat, symerror: 1.0%}
+    - {label: 'sys,uncor', symerror: 1.09%}
+    - {label: 'sys,cor', symerror: 1.26%}
+    - {label: 'sys,rel', symerror: 1.04%}
+    - asymerror: {minus: 0.16%, plus: -0.16%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.2%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.47%}
+    value: 1.188
+  - errors:
+    - {label: stat, symerror: 1.52%}
+    - {label: 'sys,uncor', symerror: 1.02%}
+    - {label: 'sys,cor', symerror: 1.3%}
+    - {label: 'sys,rel', symerror: 1.13%}
+    - asymerror: {minus: 0.16%, plus: -0.16%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.48%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.53%}
+    value: 1.146
+  - errors:
+    - {label: stat, symerror: 0.97%}
+    - {label: 'sys,uncor', symerror: 1.04%}
+    - {label: 'sys,cor', symerror: 1.26%}
+    - {label: 'sys,rel', symerror: 1.06%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.0%}
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.18%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.5%}
+    value: 1.078
+  - errors:
+    - {label: stat, symerror: 0.94%}
+    - {label: 'sys,uncor', symerror: 1.24%}
+    - {label: 'sys,cor', symerror: 1.28%}
+    - {label: 'sys,rel', symerror: 1.08%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.16%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.5%}
+    value: 0.989
+  - errors:
+    - {label: stat, symerror: 1.03%}
+    - {label: 'sys,uncor', symerror: 1.28%}
+    - {label: 'sys,cor', symerror: 1.29%}
+    - {label: 'sys,rel', symerror: 1.07%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 0.28%, plus: -0.28%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.55%}
+    value: 0.852
+  - errors:
+    - {label: stat, symerror: 4.48%}
+    - {label: 'sys,uncor', symerror: 3.79%}
+    - {label: 'sys,cor', symerror: 2.9%}
+    - {label: 'sys,rel', symerror: 0.52%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 2.01%, plus: -2.01%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.28%}
+    - {label: 'sys,4', symerror: 0.25%}
+    value: 1.336
+  - errors:
+    - {label: stat, symerror: 2.44%}
+    - {label: 'sys,uncor', symerror: 2.07%}
+    - {label: 'sys,cor', symerror: 1.41%}
+    - {label: 'sys,rel', symerror: 0.98%}
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.41%, plus: -0.41%}
+      label: sys,had
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,1
+    - asymerror: {minus: 0.92%, plus: -0.92%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.38%}
+    value: 1.21
+  - errors:
+    - {label: stat, symerror: 2.63%}
+    - {label: 'sys,uncor', symerror: 1.87%}
+    - {label: 'sys,cor', symerror: 1.27%}
+    - {label: 'sys,rel', symerror: 0.41%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.16%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.21%}
+    value: 1.363
+  - errors:
+    - {label: stat, symerror: 1.7%}
+    - {label: 'sys,uncor', symerror: 1.46%}
+    - {label: 'sys,cor', symerror: 1.24%}
+    - {label: 'sys,rel', symerror: 0.83%}
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 1.237
+  - errors:
+    - {label: stat, symerror: 1.93%}
+    - {label: 'sys,uncor', symerror: 1.4%}
+    - {label: 'sys,cor', symerror: 1.23%}
+    - {label: 'sys,rel', symerror: 0.65%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.24%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 1.222
+  - errors:
+    - {label: stat, symerror: 1.06%}
+    - {label: 'sys,uncor', symerror: 1.05%}
+    - {label: 'sys,cor', symerror: 1.23%}
+    - {label: 'sys,rel', symerror: 0.88%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.23%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.36%}
+    value: 1.219
+  - errors:
+    - {label: stat, symerror: 1.53%}
+    - {label: 'sys,uncor', symerror: 1.18%}
+    - {label: 'sys,cor', symerror: 1.25%}
+    - {label: 'sys,rel', symerror: 0.85%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.35%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.39%}
+    value: 1.143
+  - errors:
+    - {label: stat, symerror: 0.99%}
+    - {label: 'sys,uncor', symerror: 0.83%}
+    - {label: 'sys,cor', symerror: 1.24%}
+    - {label: 'sys,rel', symerror: 0.84%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - {label: 'sys,2', symerror: 0.38%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.41%}
+    value: 1.066
+  - errors:
+    - {label: stat, symerror: 1.27%}
+    - {label: 'sys,uncor', symerror: 1.59%}
+    - {label: 'sys,cor', symerror: 1.28%}
+    - {label: 'sys,rel', symerror: 0.97%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.5%}
+    value: 0.984
+  - errors:
+    - {label: stat, symerror: 1.27%}
+    - {label: 'sys,uncor', symerror: 1.91%}
+    - {label: 'sys,cor', symerror: 1.36%}
+    - {label: 'sys,rel', symerror: 0.69%}
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.04%}
+    - {label: 'sys,1', symerror: 0.01%}
+    - {label: 'sys,2', symerror: 0.77%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 0.977
+  - errors:
+    - {label: stat, symerror: 0.94%}
+    - {label: 'sys,uncor', symerror: 1.19%}
+    - {label: 'sys,cor', symerror: 1.31%}
+    - {label: 'sys,rel', symerror: 1.07%}
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.0%}
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - asymerror: {minus: 0.46%, plus: -0.46%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.55%}
+    value: 0.833
+  - errors:
+    - {label: stat, symerror: 4.71%}
+    - {label: 'sys,uncor', symerror: 3.41%}
+    - {label: 'sys,cor', symerror: 2.64%}
+    - {label: 'sys,rel', symerror: 0.6%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 1.65%, plus: -1.65%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.19%}
+    - {label: 'sys,4', symerror: 0.26%}
+    value: 1.169
+  - errors:
+    - {label: stat, symerror: 2.98%}
+    - {label: 'sys,uncor', symerror: 2.17%}
+    - {label: 'sys,cor', symerror: 1.37%}
+    - {label: 'sys,rel', symerror: 0.43%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - asymerror: {minus: 0.37%, plus: -0.37%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.16%}
+    value: 1.205
+  - errors:
+    - {label: stat, symerror: 3.08%}
+    - {label: 'sys,uncor', symerror: 2.27%}
+    - {label: 'sys,cor', symerror: 1.3%}
+    - {label: 'sys,rel', symerror: 0.08%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,4
+    value: 1.281
+  - errors:
+    - {label: stat, symerror: 2.09%}
+    - {label: 'sys,uncor', symerror: 1.47%}
+    - {label: 'sys,cor', symerror: 1.21%}
+    - {label: 'sys,rel', symerror: 0.37%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.16%, plus: -0.16%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.2%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.16%}
+    value: 1.243
+  - errors:
+    - {label: stat, symerror: 2.12%}
+    - {label: 'sys,uncor', symerror: 1.34%}
+    - {label: 'sys,cor', symerror: 1.22%}
+    - {label: 'sys,rel', symerror: 0.32%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.29%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.14%}
+    value: 1.257
+  - errors:
+    - {label: stat, symerror: 1.17%}
+    - {label: 'sys,uncor', symerror: 1.14%}
+    - {label: 'sys,cor', symerror: 1.21%}
+    - {label: 'sys,rel', symerror: 0.67%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.08%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.29%}
+    value: 1.158
+  - errors:
+    - {label: stat, symerror: 1.69%}
+    - {label: 'sys,uncor', symerror: 1.0%}
+    - {label: 'sys,cor', symerror: 1.21%}
+    - {label: 'sys,rel', symerror: 0.56%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.22%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.23%}
+    value: 1.094
+  - errors:
+    - {label: stat, symerror: 1.01%}
+    - {label: 'sys,uncor', symerror: 0.89%}
+    - {label: 'sys,cor', symerror: 1.21%}
+    - {label: 'sys,rel', symerror: 0.66%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.3%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 1.085
+  - errors:
+    - {label: stat, symerror: 0.92%}
+    - {label: 'sys,uncor', symerror: 1.23%}
+    - {label: 'sys,cor', symerror: 1.22%}
+    - {label: 'sys,rel', symerror: 0.77%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.0%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.05%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.38%}
+    value: 0.929
+  - errors:
+    - {label: stat, symerror: 0.92%}
+    - {label: 'sys,uncor', symerror: 1.07%}
+    - {label: 'sys,cor', symerror: 1.26%}
+    - {label: 'sys,rel', symerror: 0.86%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - asymerror: {minus: 0.57%, plus: -0.57%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.49%}
+    value: 0.802
+  - errors:
+    - {label: stat, symerror: 4.98%}
+    - {label: 'sys,uncor', symerror: 3.05%}
+    - {label: 'sys,cor', symerror: 2.26%}
+    - {label: 'sys,rel', symerror: 0.55%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 1.14%, plus: -1.14%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.14%}
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 1.185
+  - errors:
+    - {label: stat, symerror: 2.97%}
+    - {label: 'sys,uncor', symerror: 1.78%}
+    - {label: 'sys,cor', symerror: 1.47%}
+    - {label: 'sys,rel', symerror: 0.53%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - asymerror: {minus: 0.44%, plus: -0.44%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.13%}
+    value: 1.142
+  - errors:
+    - {label: stat, symerror: 3.64%}
+    - {label: 'sys,uncor', symerror: 2.63%}
+    - {label: 'sys,cor', symerror: 1.28%}
+    - {label: 'sys,rel', symerror: 0.14%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.19%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,4
+    value: 1.255
+  - errors:
+    - {label: stat, symerror: 3.42%}
+    - {label: 'sys,uncor', symerror: 3.1%}
+    - {label: 'sys,cor', symerror: 1.26%}
+    - {label: 'sys,rel', symerror: 0.02%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.02%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,4
+    value: 1.19
+  - errors:
+    - {label: stat, symerror: 2.57%}
+    - {label: 'sys,uncor', symerror: 1.64%}
+    - {label: 'sys,cor', symerror: 1.2%}
+    - {label: 'sys,rel', symerror: 0.12%}
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.22%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,4
+    value: 1.209
+  - errors:
+    - {label: stat, symerror: 1.38%}
+    - {label: 'sys,uncor', symerror: 1.28%}
+    - {label: 'sys,cor', symerror: 1.21%}
+    - {label: 'sys,rel', symerror: 0.57%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.16%, plus: -0.16%}
+      label: sys,had
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.01%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.23%}
+    value: 1.184
+  - errors:
+    - {label: stat, symerror: 1.98%}
+    - {label: 'sys,uncor', symerror: 1.28%}
+    - {label: 'sys,cor', symerror: 1.2%}
+    - {label: 'sys,rel', symerror: 0.29%}
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.21%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.07%}
+    value: 1.097
+  - errors:
+    - {label: stat, symerror: 1.16%}
+    - {label: 'sys,uncor', symerror: 1.0%}
+    - {label: 'sys,cor', symerror: 1.2%}
+    - {label: 'sys,rel', symerror: 0.48%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - {label: 'sys,2', symerror: 0.35%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.22%}
+    value: 1.021
+  - errors:
+    - {label: stat, symerror: 1.05%}
+    - {label: 'sys,uncor', symerror: 1.23%}
+    - {label: 'sys,cor', symerror: 1.2%}
+    - {label: 'sys,rel', symerror: 0.53%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - {label: 'sys,2', symerror: 0.17%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 0.894
+  - errors:
+    - {label: stat, symerror: 1.04%}
+    - {label: 'sys,uncor', symerror: 1.02%}
+    - {label: 'sys,cor', symerror: 1.23%}
+    - {label: 'sys,rel', symerror: 0.61%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 0.68%, plus: -0.68%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.37%}
+    value: 0.758
+  - errors:
+    - {label: stat, symerror: 5.29%}
+    - {label: 'sys,uncor', symerror: 2.88%}
+    - {label: 'sys,cor', symerror: 2.09%}
+    - {label: 'sys,rel', symerror: 0.58%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 1.01%, plus: -1.01%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.16%}
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 1.262
+  - errors:
+    - {label: stat, symerror: 3.13%}
+    - {label: 'sys,uncor', symerror: 1.75%}
+    - {label: 'sys,cor', symerror: 1.41%}
+    - {label: 'sys,rel', symerror: 0.48%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.17%}
+    value: 1.206
+  - errors:
+    - {label: stat, symerror: 4.52%}
+    - {label: 'sys,uncor', symerror: 3.22%}
+    - {label: 'sys,cor', symerror: 1.28%}
+    - {label: 'sys,rel', symerror: 0.09%}
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.58%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - asymerror: {minus: 0.16%, plus: -0.16%}
+      label: sys,4
+    value: 1.078
+  - errors:
+    - {label: stat, symerror: 2.72%}
+    - {label: 'sys,uncor', symerror: 1.53%}
+    - {label: 'sys,cor', symerror: 1.28%}
+    - {label: 'sys,rel', symerror: 0.43%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.38%}
+    - {label: 'sys,3', symerror: 0.09%}
+    - {label: 'sys,4', symerror: 0.07%}
+    value: 1.149
+  - errors:
+    - {label: stat, symerror: 3.02%}
+    - {label: 'sys,uncor', symerror: 2.07%}
+    - {label: 'sys,cor', symerror: 1.22%}
+    - {label: 'sys,rel', symerror: 0.02%}
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - {label: 'sys,2', symerror: 0.26%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,4
+    value: 1.094
+  - errors:
+    - {label: stat, symerror: 2.1%}
+    - {label: 'sys,uncor', symerror: 1.26%}
+    - {label: 'sys,cor', symerror: 1.19%}
+    - {label: 'sys,rel', symerror: 0.3%}
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.01%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.05%}
+    value: 1.106
+  - errors:
+    - {label: stat, symerror: 2.31%}
+    - {label: 'sys,uncor', symerror: 1.26%}
+    - {label: 'sys,cor', symerror: 1.2%}
+    - {label: 'sys,rel', symerror: 0.08%}
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,4
+    value: 1.021
+  - errors:
+    - {label: stat, symerror: 1.37%}
+    - {label: 'sys,uncor', symerror: 1.05%}
+    - {label: 'sys,cor', symerror: 1.18%}
+    - {label: 'sys,rel', symerror: 0.34%}
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - {label: 'sys,2', symerror: 0.17%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.15%}
+    value: 0.957
+  - errors:
+    - {label: stat, symerror: 1.64%}
+    - {label: 'sys,uncor', symerror: 1.48%}
+    - {label: 'sys,cor', symerror: 1.19%}
+    - {label: 'sys,rel', symerror: 0.21%}
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - asymerror: {minus: 0.41%, plus: -0.41%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.07%}
+    value: 0.906
+  - errors:
+    - {label: stat, symerror: 1.71%}
+    - {label: 'sys,uncor', symerror: 2.03%}
+    - {label: 'sys,cor', symerror: 1.29%}
+    - {label: 'sys,rel', symerror: 0.87%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.06%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.27%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.41%}
+    value: 0.836
+  - errors:
+    - {label: stat, symerror: 1.51%}
+    - {label: 'sys,uncor', symerror: 1.26%}
+    - {label: 'sys,cor', symerror: 1.22%}
+    - {label: 'sys,rel', symerror: 0.23%}
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 0.89%, plus: -0.89%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.18%}
+    value: 0.712
+  - errors:
+    - {label: stat, symerror: 1.9%}
+    - {label: 'sys,uncor', symerror: 2.1%}
+    - {label: 'sys,cor', symerror: 1.29%}
+    - {label: 'sys,rel', symerror: 0.88%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.06%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.3%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.41%}
+    value: 0.717
+  - errors:
+    - {label: stat, symerror: 6.08%}
+    - {label: 'sys,uncor', symerror: 2.66%}
+    - {label: 'sys,cor', symerror: 2.01%}
+    - {label: 'sys,rel', symerror: 0.59%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 1.08%, plus: -1.08%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 1.246
+  - errors:
+    - {label: stat, symerror: 4.29%}
+    - {label: 'sys,uncor', symerror: 1.94%}
+    - {label: 'sys,cor', symerror: 1.44%}
+    - {label: 'sys,rel', symerror: 0.47%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.08%}
+    - {label: 'sys,3', symerror: 0.11%}
+    - {label: 'sys,4', symerror: 0.2%}
+    value: 1.054
+  - errors:
+    - {label: stat, symerror: 5.29%}
+    - {label: 'sys,uncor', symerror: 3.23%}
+    - {label: 'sys,cor', symerror: 1.26%}
+    - {label: 'sys,rel', symerror: 0.01%}
+    - asymerror: {minus: 0.08%, plus: -0.08%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.4%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,4
+    value: 1.185
+  - errors:
+    - {label: stat, symerror: 3.22%}
+    - {label: 'sys,uncor', symerror: 1.82%}
+    - {label: 'sys,cor', symerror: 1.27%}
+    - {label: 'sys,rel', symerror: 0.41%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.36%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.15%}
+    value: 1.096
+  - errors:
+    - {label: stat, symerror: 3.68%}
+    - {label: 'sys,uncor', symerror: 1.84%}
+    - {label: 'sys,cor', symerror: 1.22%}
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,rel
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.27%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.15%, plus: -0.15%}
+      label: sys,4
+    value: 1.044
+  - errors:
+    - {label: stat, symerror: 2.67%}
+    - {label: 'sys,uncor', symerror: 1.8%}
+    - {label: 'sys,cor', symerror: 1.47%}
+    - {label: 'sys,rel', symerror: 0.72%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.7%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 1.029
+  - errors:
+    - {label: stat, symerror: 3.11%}
+    - {label: 'sys,uncor', symerror: 1.67%}
+    - {label: 'sys,cor', symerror: 1.21%}
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,rel
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - {label: 'sys,2', symerror: 0.19%}
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,4
+    value: 1.098
+  - errors:
+    - {label: stat, symerror: 2.7%}
+    - {label: 'sys,uncor', symerror: 1.47%}
+    - {label: 'sys,cor', symerror: 1.2%}
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,rel
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,4
+    value: 0.993
+  - errors:
+    - {label: stat, symerror: 2.33%}
+    - {label: 'sys,uncor', symerror: 1.15%}
+    - {label: 'sys,cor', symerror: 1.2%}
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,rel
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - asymerror: {minus: 0.3%, plus: -0.3%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,4
+    value: 0.894
+  - errors:
+    - {label: stat, symerror: 1.97%}
+    - {label: 'sys,uncor', symerror: 1.44%}
+    - {label: 'sys,cor', symerror: 1.21%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,rel
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,had
+    - {label: 'sys,1', symerror: 0.0%}
+    - asymerror: {minus: 0.66%, plus: -0.66%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - asymerror: {minus: 0.17%, plus: -0.17%}
+      label: sys,4
+    value: 0.818
+  - errors:
+    - {label: stat, symerror: 1.76%}
+    - {label: 'sys,uncor', symerror: 1.54%}
+    - {label: 'sys,cor', symerror: 1.23%}
+    - {label: 'sys,rel', symerror: 0.0%}
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 1.12%, plus: -1.12%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.07%}
+    - {label: 'sys,4', symerror: 0.06%}
+    value: 0.671
+  - errors:
+    - {label: stat, symerror: 7.11%}
+    - {label: 'sys,uncor', symerror: 2.64%}
+    - {label: 'sys,cor', symerror: 2.19%}
+    - {label: 'sys,rel', symerror: 0.52%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 1.38%, plus: -1.38%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.14%}
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 1.227
+  - errors:
+    - {label: stat, symerror: 5.78%}
+    - {label: 'sys,uncor', symerror: 1.88%}
+    - {label: 'sys,cor', symerror: 1.51%}
+    - {label: 'sys,rel', symerror: 0.62%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.0%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.11%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.29%}
+    value: 1.017
+  - errors:
+    - {label: stat, symerror: 4.99%}
+    - {label: 'sys,uncor', symerror: 2.0%}
+    - {label: 'sys,cor', symerror: 1.42%}
+    - {label: 'sys,rel', symerror: 0.62%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.62%}
+    - {label: 'sys,3', symerror: 0.11%}
+    - {label: 'sys,4', symerror: 0.3%}
+    value: 1.001
+  - errors:
+    - {label: stat, symerror: 2.57%}
+    - {label: 'sys,uncor', symerror: 1.77%}
+    - {label: 'sys,cor', symerror: 1.45%}
+    - {label: 'sys,rel', symerror: 0.67%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.73%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.29%}
+    value: 1.048
+  - errors:
+    - {label: stat, symerror: 2.58%}
+    - {label: 'sys,uncor', symerror: 1.36%}
+    - {label: 'sys,cor', symerror: 1.5%}
+    - {label: 'sys,rel', symerror: 0.76%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.77%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 0.964
+  - errors:
+    - {label: stat, symerror: 3.33%}
+    - {label: 'sys,uncor', symerror: 1.48%}
+    - {label: 'sys,cor', symerror: 1.49%}
+    - {label: 'sys,rel', symerror: 0.7%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.03%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.14%}
+    - {label: 'sys,4', symerror: 0.26%}
+    value: 0.823
+  - errors:
+    - {label: stat, symerror: 4.51%}
+    - {label: 'sys,uncor', symerror: 2.16%}
+    - {label: 'sys,cor', symerror: 1.61%}
+    - {label: 'sys,rel', symerror: 0.82%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.07%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.19%, plus: -0.19%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.24%}
+    value: 0.69
+  - errors:
+    - {label: stat, symerror: 9.08%}
+    - {label: 'sys,uncor', symerror: 2.52%}
+    - {label: 'sys,cor', symerror: 2.37%}
+    - {label: 'sys,rel', symerror: 0.61%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 1.58%, plus: -1.58%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.26%}
+    value: 1.117
+  - errors:
+    - {label: stat, symerror: 7.74%}
+    - {label: 'sys,uncor', symerror: 1.92%}
+    - {label: 'sys,cor', symerror: 1.68%}
+    - {label: 'sys,rel', symerror: 0.63%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 0.28%, plus: -0.28%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.09%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 1.011
+  - errors:
+    - {label: stat, symerror: 6.49%}
+    - {label: 'sys,uncor', symerror: 2.03%}
+    - {label: 'sys,cor', symerror: 1.43%}
+    - {label: 'sys,rel', symerror: 0.66%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.0%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.67%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.3%}
+    value: 0.989
+  - errors:
+    - {label: stat, symerror: 3.4%}
+    - {label: 'sys,uncor', symerror: 1.73%}
+    - {label: 'sys,cor', symerror: 1.44%}
+    - {label: 'sys,rel', symerror: 0.68%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.73%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.29%}
+    value: 0.947
+  - errors:
+    - {label: stat, symerror: 3.13%}
+    - {label: 'sys,uncor', symerror: 1.05%}
+    - {label: 'sys,cor', symerror: 1.48%}
+    - {label: 'sys,rel', symerror: 0.72%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.11%}
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 0.831
+  - errors:
+    - {label: stat, symerror: 3.52%}
+    - {label: 'sys,uncor', symerror: 1.76%}
+    - {label: 'sys,cor', symerror: 1.5%}
+    - {label: 'sys,rel', symerror: 0.67%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.04%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.16%}
+    - {label: 'sys,4', symerror: 0.26%}
+    value: 0.638
+  - errors:
+    - {label: stat, symerror: 4.04%}
+    - {label: 'sys,uncor', symerror: 0.85%}
+    - {label: 'sys,cor', symerror: 1.44%}
+    - {label: 'sys,rel', symerror: 0.68%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 0.523
+  - errors:
+    - {label: stat, symerror: 4.13%}
+    - {label: 'sys,uncor', symerror: 1.23%}
+    - {label: 'sys,cor', symerror: 1.42%}
+    - {label: 'sys,rel', symerror: 0.55%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.04%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.29%}
+    value: 0.523
+  - errors:
+    - {label: stat, symerror: 4.76%}
+    - {label: 'sys,uncor', symerror: 1.34%}
+    - {label: 'sys,cor', symerror: 1.5%}
+    - {label: 'sys,rel', symerror: 0.71%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 0.452
+  - errors:
+    - {label: stat, symerror: 5.13%}
+    - {label: 'sys,uncor', symerror: 1.89%}
+    - {label: 'sys,cor', symerror: 1.54%}
+    - {label: 'sys,rel', symerror: 0.63%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.77%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 0.352
+  - errors:
+    - {label: stat, symerror: 5.82%}
+    - {label: 'sys,uncor', symerror: 2.28%}
+    - {label: 'sys,cor', symerror: 1.65%}
+    - {label: 'sys,rel', symerror: 0.91%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.11%}
+    - {label: 'sys,1', symerror: 0.0%}
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.23%}
+    value: 0.319
+  - errors:
+    - {label: stat, symerror: 7.99%}
+    - {label: 'sys,uncor', symerror: 4.5%}
+    - {label: 'sys,cor', symerror: 2.84%}
+    - {label: 'sys,rel', symerror: 1.82%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.26%}
+    - {label: 'sys,1', symerror: 0.01%}
+    - {label: 'sys,2', symerror: 0.84%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.15%}
+    value: 0.178
+  - errors:
+    - {label: stat, symerror: 10.44%}
+    - {label: 'sys,uncor', symerror: 2.45%}
+    - {label: 'sys,cor', symerror: 2.42%}
+    - {label: 'sys,rel', symerror: 0.5%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,1
+    - asymerror: {minus: 1.69%, plus: -1.69%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.08%}
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 1.05
+  - errors:
+    - {label: stat, symerror: 8.85%}
+    - {label: 'sys,uncor', symerror: 1.93%}
+    - {label: 'sys,cor', symerror: 1.78%}
+    - {label: 'sys,rel', symerror: 0.58%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 0.52%, plus: -0.52%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.13%}
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 1.029
+  - errors:
+    - {label: stat, symerror: 7.74%}
+    - {label: 'sys,uncor', symerror: 2.03%}
+    - {label: 'sys,cor', symerror: 1.42%}
+    - {label: 'sys,rel', symerror: 0.59%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.65%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.3%}
+    value: 0.938
+  - errors:
+    - {label: stat, symerror: 3.95%}
+    - {label: 'sys,uncor', symerror: 1.73%}
+    - {label: 'sys,cor', symerror: 1.43%}
+    - {label: 'sys,rel', symerror: 0.65%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.74%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.29%}
+    value: 0.874
+  - errors:
+    - {label: stat, symerror: 3.72%}
+    - {label: 'sys,uncor', symerror: 1.29%}
+    - {label: 'sys,cor', symerror: 1.43%}
+    - {label: 'sys,rel', symerror: 0.64%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.76%}
+    - {label: 'sys,3', symerror: 0.11%}
+    - {label: 'sys,4', symerror: 0.29%}
+    value: 0.818
+  - errors:
+    - {label: stat, symerror: 3.84%}
+    - {label: 'sys,uncor', symerror: 1.04%}
+    - {label: 'sys,cor', symerror: 1.47%}
+    - {label: 'sys,rel', symerror: 0.7%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 0.67
+  - errors:
+    - {label: stat, symerror: 4.07%}
+    - {label: 'sys,uncor', symerror: 1.3%}
+    - {label: 'sys,cor', symerror: 1.48%}
+    - {label: 'sys,rel', symerror: 0.76%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 0.579
+  - errors:
+    - {label: stat, symerror: 4.15%}
+    - {label: 'sys,uncor', symerror: 1.26%}
+    - {label: 'sys,cor', symerror: 1.47%}
+    - {label: 'sys,rel', symerror: 0.72%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.01%}
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.499
+  - errors:
+    - {label: stat, symerror: 4.41%}
+    - {label: 'sys,uncor', symerror: 1.33%}
+    - {label: 'sys,cor', symerror: 1.48%}
+    - {label: 'sys,rel', symerror: 0.75%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.441
+  - errors:
+    - {label: stat, symerror: 4.4%}
+    - {label: 'sys,uncor', symerror: 1.39%}
+    - {label: 'sys,cor', symerror: 1.49%}
+    - {label: 'sys,rel', symerror: 0.62%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.34%}
+    value: 0.371
+  - errors:
+    - {label: stat, symerror: 4.47%}
+    - {label: 'sys,uncor', symerror: 2.06%}
+    - {label: 'sys,cor', symerror: 1.53%}
+    - {label: 'sys,rel', symerror: 0.93%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.8%}
+    - asymerror: {minus: 0.2%, plus: -0.2%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 0.361
+  - errors:
+    - {label: stat, symerror: 6.37%}
+    - {label: 'sys,uncor', symerror: 4.91%}
+    - {label: 'sys,cor', symerror: 2.95%}
+    - {label: 'sys,rel', symerror: 2.18%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.23%}
+    - {label: 'sys,1', symerror: 0.01%}
+    - {label: 'sys,2', symerror: 0.85%}
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.22%}
+    value: 0.18
+  - errors:
+    - {label: stat, symerror: 13.29%}
+    - {label: 'sys,uncor', symerror: 2.39%}
+    - {label: 'sys,cor', symerror: 2.69%}
+    - {label: 'sys,rel', symerror: 0.48%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 2.12%, plus: -2.12%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.08%}
+    - {label: 'sys,4', symerror: 0.26%}
+    value: 0.872
+  - errors:
+    - {label: stat, symerror: 10.93%}
+    - {label: 'sys,uncor', symerror: 1.96%}
+    - {label: 'sys,cor', symerror: 1.65%}
+    - {label: 'sys,rel', symerror: 0.53%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 0.32%, plus: -0.32%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.11%}
+    - {label: 'sys,4', symerror: 0.29%}
+    value: 0.823
+  - errors:
+    - {label: stat, symerror: 9.58%}
+    - {label: 'sys,uncor', symerror: 1.89%}
+    - {label: 'sys,cor', symerror: 1.42%}
+    - {label: 'sys,rel', symerror: 0.65%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.0%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.67%}
+    - {label: 'sys,3', symerror: 0.09%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 0.835
+  - errors:
+    - {label: stat, symerror: 4.5%}
+    - {label: 'sys,uncor', symerror: 1.73%}
+    - {label: 'sys,cor', symerror: 1.41%}
+    - {label: 'sys,rel', symerror: 0.6%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.76%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.3%}
+    value: 0.895
+  - errors:
+    - {label: stat, symerror: 4.23%}
+    - {label: 'sys,uncor', symerror: 1.04%}
+    - {label: 'sys,cor', symerror: 1.44%}
+    - {label: 'sys,rel', symerror: 0.63%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.03%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 0.719
+  - errors:
+    - {label: stat, symerror: 4.53%}
+    - {label: 'sys,uncor', symerror: 0.94%}
+    - {label: 'sys,cor', symerror: 1.42%}
+    - {label: 'sys,rel', symerror: 0.62%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.62
+  - errors:
+    - {label: stat, symerror: 4.74%}
+    - {label: 'sys,uncor', symerror: 1.08%}
+    - {label: 'sys,cor', symerror: 1.46%}
+    - {label: 'sys,rel', symerror: 0.72%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.519
+  - errors:
+    - {label: stat, symerror: 4.93%}
+    - {label: 'sys,uncor', symerror: 1.38%}
+    - {label: 'sys,cor', symerror: 1.5%}
+    - {label: 'sys,rel', symerror: 0.81%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.458
+  - errors:
+    - {label: stat, symerror: 5.09%}
+    - {label: 'sys,uncor', symerror: 1.54%}
+    - {label: 'sys,cor', symerror: 1.54%}
+    - {label: 'sys,rel', symerror: 0.74%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.06%, plus: -0.06%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.34%}
+    value: 0.367
+  - errors:
+    - {label: stat, symerror: 5.22%}
+    - {label: 'sys,uncor', symerror: 2.22%}
+    - {label: 'sys,cor', symerror: 1.57%}
+    - {label: 'sys,rel', symerror: 0.97%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.8%}
+    - asymerror: {minus: 0.28%, plus: -0.28%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 0.335
+  - errors:
+    - {label: stat, symerror: 7.39%}
+    - {label: 'sys,uncor', symerror: 5.16%}
+    - {label: 'sys,cor', symerror: 2.96%}
+    - {label: 'sys,rel', symerror: 2.37%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.16%}
+    - {label: 'sys,1', symerror: 0.01%}
+    - {label: 'sys,2', symerror: 0.86%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.23%}
+    value: 0.168
+  - errors:
+    - {label: stat, symerror: 13.3%}
+    - {label: 'sys,uncor', symerror: 2.43%}
+    - {label: 'sys,cor', symerror: 2.68%}
+    - {label: 'sys,rel', symerror: 0.56%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 1.99%, plus: -1.99%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.25%}
+    value: 1.026
+  - errors:
+    - {label: stat, symerror: 10.14%}
+    - {label: 'sys,uncor', symerror: 2.19%}
+    - {label: 'sys,cor', symerror: 1.49%}
+    - {label: 'sys,rel', symerror: 0.61%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.18%}
+    - {label: 'sys,3', symerror: 0.11%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 1.071
+  - errors:
+    - {label: stat, symerror: 9.82%}
+    - {label: 'sys,uncor', symerror: 1.88%}
+    - {label: 'sys,cor', symerror: 1.4%}
+    - {label: 'sys,rel', symerror: 0.55%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.69%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 0.918
+  - errors:
+    - {label: stat, symerror: 5.45%}
+    - {label: 'sys,uncor', symerror: 1.72%}
+    - {label: 'sys,cor', symerror: 1.42%}
+    - {label: 'sys,rel', symerror: 0.64%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.09%}
+    - {label: 'sys,4', symerror: 0.3%}
+    value: 0.806
+  - errors:
+    - {label: stat, symerror: 5.08%}
+    - {label: 'sys,uncor', symerror: 1.02%}
+    - {label: 'sys,cor', symerror: 1.45%}
+    - {label: 'sys,rel', symerror: 0.64%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.03%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 0.621
+  - errors:
+    - {label: stat, symerror: 5.21%}
+    - {label: 'sys,uncor', symerror: 1.03%}
+    - {label: 'sys,cor', symerror: 1.46%}
+    - {label: 'sys,rel', symerror: 0.74%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.568
+  - errors:
+    - {label: stat, symerror: 5.66%}
+    - {label: 'sys,uncor', symerror: 0.99%}
+    - {label: 'sys,cor', symerror: 1.43%}
+    - {label: 'sys,rel', symerror: 0.66%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.09%}
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.448
+  - errors:
+    - {label: stat, symerror: 5.36%}
+    - {label: 'sys,uncor', symerror: 1.24%}
+    - {label: 'sys,cor', symerror: 1.45%}
+    - {label: 'sys,rel', symerror: 0.61%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.34%}
+    value: 0.427
+  - errors:
+    - {label: stat, symerror: 5.84%}
+    - {label: 'sys,uncor', symerror: 1.69%}
+    - {label: 'sys,cor', symerror: 1.49%}
+    - {label: 'sys,rel', symerror: 0.83%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.8%}
+    - asymerror: {minus: 0.21%, plus: -0.21%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.339
+  - errors:
+    - {label: stat, symerror: 8.44%}
+    - {label: 'sys,uncor', symerror: 4.64%}
+    - {label: 'sys,cor', symerror: 2.75%}
+    - {label: 'sys,rel', symerror: 2.1%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.19%}
+    - {label: 'sys,1', symerror: 0.01%}
+    - {label: 'sys,2', symerror: 0.85%}
+    - asymerror: {minus: 0.26%, plus: -0.26%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.25%}
+    value: 0.16
+  - errors:
+    - {label: stat, symerror: 14.56%}
+    - {label: 'sys,uncor', symerror: 2.44%}
+    - {label: 'sys,cor', symerror: 2.5%}
+    - {label: 'sys,rel', symerror: 0.55%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 1.44%, plus: -1.44%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.05%}
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 1.006
+  - errors:
+    - {label: stat, symerror: 13.71%}
+    - {label: 'sys,uncor', symerror: 2.06%}
+    - {label: 'sys,cor', symerror: 1.4%}
+    - {label: 'sys,rel', symerror: 0.55%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.66%}
+    - {label: 'sys,3', symerror: 0.11%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 0.75
+  - errors:
+    - {label: stat, symerror: 12.27%}
+    - {label: 'sys,uncor', symerror: 1.93%}
+    - {label: 'sys,cor', symerror: 1.4%}
+    - {label: 'sys,rel', symerror: 0.59%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.13%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 0.686
+  - errors:
+    - {label: stat, symerror: 6.52%}
+    - {label: 'sys,uncor', symerror: 1.71%}
+    - {label: 'sys,cor', symerror: 1.41%}
+    - {label: 'sys,rel', symerror: 0.61%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.08%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 0.733
+  - errors:
+    - {label: stat, symerror: 6.05%}
+    - {label: 'sys,uncor', symerror: 0.97%}
+    - {label: 'sys,cor', symerror: 1.43%}
+    - {label: 'sys,rel', symerror: 0.64%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.29%}
+    value: 0.649
+  - errors:
+    - {label: stat, symerror: 5.92%}
+    - {label: 'sys,uncor', symerror: 1.29%}
+    - {label: 'sys,cor', symerror: 1.46%}
+    - {label: 'sys,rel', symerror: 0.6%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.05%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.15%}
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 0.599
+  - errors:
+    - {label: stat, symerror: 6.34%}
+    - {label: 'sys,uncor', symerror: 1.03%}
+    - {label: 'sys,cor', symerror: 1.44%}
+    - {label: 'sys,rel', symerror: 0.7%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.34%}
+    value: 0.471
+  - errors:
+    - {label: stat, symerror: 7.51%}
+    - {label: 'sys,uncor', symerror: 1.35%}
+    - {label: 'sys,cor', symerror: 1.49%}
+    - {label: 'sys,rel', symerror: 0.72%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.34%}
+    value: 0.41
+  - errors:
+    - {label: stat, symerror: 8.44%}
+    - {label: 'sys,uncor', symerror: 1.49%}
+    - {label: 'sys,cor', symerror: 1.48%}
+    - {label: 'sys,rel', symerror: 0.68%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.05%, plus: -0.05%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.35%}
+    value: 0.304
+  - errors:
+    - {label: stat, symerror: 8.21%}
+    - {label: 'sys,uncor', symerror: 1.88%}
+    - {label: 'sys,cor', symerror: 1.52%}
+    - {label: 'sys,rel', symerror: 0.9%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.8%}
+    - asymerror: {minus: 0.21%, plus: -0.21%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.278
+  - errors:
+    - {label: stat, symerror: 11.44%}
+    - {label: 'sys,uncor', symerror: 4.14%}
+    - {label: 'sys,cor', symerror: 2.18%}
+    - {label: 'sys,rel', symerror: 1.66%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.12%}
+    - {label: 'sys,1', symerror: 0.0%}
+    - {label: 'sys,2', symerror: 0.84%}
+    - asymerror: {minus: 0.52%, plus: -0.52%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.3%}
+    value: 0.138
+  - errors:
+    - {label: stat, symerror: 21.66%}
+    - {label: 'sys,uncor', symerror: 6.96%}
+    - {label: 'sys,cor', symerror: 4.15%}
+    - {label: 'sys,rel', symerror: 3.47%}
+    - asymerror: {minus: 0.14%, plus: -0.14%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.32%}
+    - {label: 'sys,1', symerror: 0.02%}
+    - {label: 'sys,2', symerror: 0.9%}
+    - asymerror: {minus: 0.28%, plus: -0.28%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.18%}
+    value: 0.019
+  - errors:
+    - {label: stat, symerror: 19.43%}
+    - {label: 'sys,uncor', symerror: 2.67%}
+    - {label: 'sys,cor', symerror: 1.66%}
+    - {label: 'sys,rel', symerror: 0.32%}
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - asymerror: {minus: 0.38%, plus: -0.38%}
+      label: sys,2
+    - {label: 'sys,3', symerror: 0.13%}
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 0.804
+  - errors:
+    - {label: stat, symerror: 13.91%}
+    - {label: 'sys,uncor', symerror: 2.02%}
+    - {label: 'sys,cor', symerror: 1.4%}
+    - {label: 'sys,rel', symerror: 0.58%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.68%}
+    - {label: 'sys,3', symerror: 0.09%}
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 0.914
+  - errors:
+    - {label: stat, symerror: 12.02%}
+    - {label: 'sys,uncor', symerror: 1.92%}
+    - {label: 'sys,cor', symerror: 1.41%}
+    - {label: 'sys,rel', symerror: 0.6%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.01%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.7%}
+    - {label: 'sys,3', symerror: 0.09%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 0.905
+  - errors:
+    - {label: stat, symerror: 7.81%}
+    - {label: 'sys,uncor', symerror: 1.78%}
+    - {label: 'sys,cor', symerror: 1.41%}
+    - {label: 'sys,rel', symerror: 0.6%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.3%}
+    value: 0.602
+  - errors:
+    - {label: stat, symerror: 7.87%}
+    - {label: 'sys,uncor', symerror: 1.12%}
+    - {label: 'sys,cor', symerror: 1.45%}
+    - {label: 'sys,rel', symerror: 0.66%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.03%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 0.488
+  - errors:
+    - {label: stat, symerror: 7.78%}
+    - {label: 'sys,uncor', symerror: 1.04%}
+    - {label: 'sys,cor', symerror: 1.44%}
+    - {label: 'sys,rel', symerror: 0.69%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.34%}
+    value: 0.451
+  - errors:
+    - {label: stat, symerror: 9.33%}
+    - {label: 'sys,uncor', symerror: 1.41%}
+    - {label: 'sys,cor', symerror: 1.45%}
+    - {label: 'sys,rel', symerror: 0.72%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.16%, plus: -0.16%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.34%}
+    value: 0.374
+  - errors:
+    - {label: stat, symerror: 9.52%}
+    - {label: 'sys,uncor', symerror: 1.48%}
+    - {label: 'sys,cor', symerror: 1.47%}
+    - {label: 'sys,rel', symerror: 0.69%}
+    - asymerror: {minus: 0.12%, plus: -0.12%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.07%, plus: -0.07%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.34%}
+    value: 0.339
+  - errors:
+    - {label: stat, symerror: 10.12%}
+    - {label: 'sys,uncor', symerror: 1.7%}
+    - {label: 'sys,cor', symerror: 1.44%}
+    - {label: 'sys,rel', symerror: 0.69%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.04%, plus: -0.04%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.06%}
+    - {label: 'sys,4', symerror: 0.35%}
+    value: 0.252
+  - errors:
+    - {label: stat, symerror: 10.92%}
+    - {label: 'sys,uncor', symerror: 3.94%}
+    - {label: 'sys,cor', symerror: 2.05%}
+    - {label: 'sys,rel', symerror: 1.58%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.07%}
+    - {label: 'sys,1', symerror: 0.0%}
+    - {label: 'sys,2', symerror: 0.83%}
+    - asymerror: {minus: 0.61%, plus: -0.61%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 0.201
+  - errors:
+    - {label: stat, symerror: 21.0%}
+    - {label: 'sys,uncor', symerror: 7.78%}
+    - {label: 'sys,cor', symerror: 4.11%}
+    - {label: 'sys,rel', symerror: 3.66%}
+    - asymerror: {minus: 0.13%, plus: -0.13%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.3%}
+    - {label: 'sys,1', symerror: 0.02%}
+    - {label: 'sys,2', symerror: 0.9%}
+    - asymerror: {minus: 0.62%, plus: -0.62%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.24%}
+    value: 0.027
+  - errors:
+    - {label: stat, symerror: 36.97%}
+    - {label: 'sys,uncor', symerror: 3.94%}
+    - {label: 'sys,cor', symerror: 1.43%}
+    - {label: 'sys,rel', symerror: 0.62%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.0%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.51%}
+    - {label: 'sys,3', symerror: 0.08%}
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 0.286
+  - errors:
+    - {label: stat, symerror: 19.13%}
+    - {label: 'sys,uncor', symerror: 2.27%}
+    - {label: 'sys,cor', symerror: 1.38%}
+    - {label: 'sys,rel', symerror: 0.51%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.02%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.12%}
+    - {label: 'sys,4', symerror: 0.32%}
+    value: 0.658
+  - errors:
+    - {label: stat, symerror: 15.94%}
+    - {label: 'sys,uncor', symerror: 2.08%}
+    - {label: 'sys,cor', symerror: 1.38%}
+    - {label: 'sys,rel', symerror: 0.49%}
+    - asymerror: {minus: 0.09%, plus: -0.09%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.03%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 0.656
+  - errors:
+    - {label: stat, symerror: 8.63%}
+    - {label: 'sys,uncor', symerror: 1.82%}
+    - {label: 'sys,cor', symerror: 1.39%}
+    - {label: 'sys,rel', symerror: 0.54%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.03%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.1%}
+    - {label: 'sys,4', symerror: 0.31%}
+    value: 0.61
+  - errors:
+    - {label: stat, symerror: 9.02%}
+    - {label: 'sys,uncor', symerror: 1.23%}
+    - {label: 'sys,cor', symerror: 1.4%}
+    - {label: 'sys,rel', symerror: 0.55%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.04%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.11%}
+    - {label: 'sys,4', symerror: 0.3%}
+    value: 0.479
+  - errors:
+    - {label: stat, symerror: 9.22%}
+    - {label: 'sys,uncor', symerror: 1.31%}
+    - {label: 'sys,cor', symerror: 1.44%}
+    - {label: 'sys,rel', symerror: 0.65%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.03%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.78%}
+    - {label: 'sys,3', symerror: 0.11%}
+    - {label: 'sys,4', symerror: 0.28%}
+    value: 0.447
+  - errors:
+    - {label: stat, symerror: 10.6%}
+    - {label: 'sys,uncor', symerror: 1.43%}
+    - {label: 'sys,cor', symerror: 1.46%}
+    - {label: 'sys,rel', symerror: 0.74%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.18%, plus: -0.18%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.35%}
+    value: 0.388
+  - errors:
+    - {label: stat, symerror: 10.93%}
+    - {label: 'sys,uncor', symerror: 1.46%}
+    - {label: 'sys,cor', symerror: 1.42%}
+    - {label: 'sys,rel', symerror: 0.62%}
+    - asymerror: {minus: 0.1%, plus: -0.1%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.02%, plus: -0.02%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - {label: 'sys,3', symerror: 0.04%}
+    - {label: 'sys,4', symerror: 0.34%}
+    value: 0.363
+  - errors:
+    - {label: stat, symerror: 11.53%}
+    - {label: 'sys,uncor', symerror: 1.74%}
+    - {label: 'sys,cor', symerror: 1.46%}
+    - {label: 'sys,rel', symerror: 0.72%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - asymerror: {minus: 0.03%, plus: -0.03%}
+      label: sys,had
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.79%}
+    - asymerror: {minus: 0.22%, plus: -0.22%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.35%}
+    value: 0.276
+  - errors:
+    - {label: stat, symerror: 15.53%}
+    - {label: 'sys,uncor', symerror: 3.53%}
+    - {label: 'sys,cor', symerror: 1.81%}
+    - {label: 'sys,rel', symerror: 1.23%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.09%}
+    - asymerror: {minus: 0.01%, plus: -0.01%}
+      label: sys,1
+    - {label: 'sys,2', symerror: 0.82%}
+    - asymerror: {minus: 0.53%, plus: -0.53%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.33%}
+    value: 0.131
+  - errors:
+    - {label: stat, symerror: 27.39%}
+    - {label: 'sys,uncor', symerror: 7.13%}
+    - {label: 'sys,cor', symerror: 3.4%}
+    - {label: 'sys,rel', symerror: 2.79%}
+    - asymerror: {minus: 0.11%, plus: -0.11%}
+      label: sys,$\gamma p$
+    - {label: 'sys,had', symerror: 0.26%}
+    - {label: 'sys,1', symerror: 0.02%}
+    - {label: 'sys,2', symerror: 0.88%}
+    - asymerror: {minus: 0.5%, plus: -0.5%}
+      label: sys,3
+    - {label: 'sys,4', symerror: 0.27%}
+    value: 0.022
+independent_variables:
+- header: {name: Q**2, units: GEV**2}
+  values:
+  - {value: 1.5}
+  - {value: 2.0}
+  - {value: 2.0}
+  - {value: 2.5}
+  - {value: 2.5}
+  - {value: 2.5}
+  - {value: 3.5}
+  - {value: 3.5}
+  - {value: 3.5}
+  - {value: 3.5}
+  - {value: 5.0}
+  - {value: 5.0}
+  - {value: 5.0}
+  - {value: 5.0}
+  - {value: 5.0}
+  - {value: 6.5}
+  - {value: 6.5}
+  - {value: 6.5}
+  - {value: 6.5}
+  - {value: 6.5}
+  - {value: 6.5}
+  - {value: 6.5}
+  - {value: 6.5}
+  - {value: 8.5}
+  - {value: 8.5}
+  - {value: 8.5}
+  - {value: 8.5}
+  - {value: 8.5}
+  - {value: 8.5}
+  - {value: 8.5}
+  - {value: 8.5}
+  - {value: 8.5}
+  - {value: 8.5}
+  - {value: 12.0}
+  - {value: 12.0}
+  - {value: 12.0}
+  - {value: 12.0}
+  - {value: 12.0}
+  - {value: 12.0}
+  - {value: 12.0}
+  - {value: 12.0}
+  - {value: 12.0}
+  - {value: 12.0}
+  - {value: 15.0}
+  - {value: 15.0}
+  - {value: 15.0}
+  - {value: 15.0}
+  - {value: 15.0}
+  - {value: 15.0}
+  - {value: 15.0}
+  - {value: 15.0}
+  - {value: 15.0}
+  - {value: 20.0}
+  - {value: 20.0}
+  - {value: 20.0}
+  - {value: 20.0}
+  - {value: 20.0}
+  - {value: 20.0}
+  - {value: 20.0}
+  - {value: 25.0}
+  - {value: 25.0}
+  - {value: 25.0}
+  - {value: 25.0}
+  - {value: 25.0}
+  - {value: 25.0}
+  - {value: 25.0}
+  - {value: 25.0}
+  - {value: 25.0}
+  - {value: 25.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 35.0}
+  - {value: 45.0}
+  - {value: 45.0}
+  - {value: 45.0}
+  - {value: 45.0}
+  - {value: 45.0}
+  - {value: 45.0}
+  - {value: 45.0}
+  - {value: 45.0}
+  - {value: 45.0}
+  - {value: 45.0}
+  - {value: 60.0}
+  - {value: 60.0}
+  - {value: 60.0}
+  - {value: 60.0}
+  - {value: 60.0}
+  - {value: 60.0}
+  - {value: 60.0}
+  - {value: 60.0}
+  - {value: 60.0}
+  - {value: 60.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 90.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 120.0}
+  - {value: 150.0}
+  - {value: 150.0}
+  - {value: 150.0}
+  - {value: 150.0}
+  - {value: 150.0}
+  - {value: 150.0}
+  - {value: 150.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 200.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 250.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 300.0}
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 400.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 500.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 650.0}
+  - {value: 800.0}
+  - {value: 800.0}
+  - {value: 800.0}
+  - {value: 800.0}
+  - {value: 800.0}
+  - {value: 800.0}
+  - {value: 800.0}
+  - {value: 800.0}
+  - {value: 800.0}
+  - {value: 800.0}
+  - {value: 800.0}
+- header: {name: XB}
+  values:
+  - {value: 3.48e-05}
+  - {value: 4.64e-05}
+  - {value: 5.26e-05}
+  - {value: 5.8e-05}
+  - {value: 6.58e-05}
+  - {value: 7.59e-05}
+  - {value: 8.12e-05}
+  - {value: 9.21e-05}
+  - {value: 0.000106}
+  - {value: 0.000141}
+  - {value: 0.000116}
+  - {value: 0.000132}
+  - {value: 0.000143}
+  - {value: 0.000152}
+  - {value: 0.000201}
+  - {value: 0.000151}
+  - {value: 0.000171}
+  - {value: 0.000183}
+  - {value: 0.000197}
+  - {value: 0.000228}
+  - {value: 0.000262}
+  - {value: 0.00033}
+  - {value: 0.000414}
+  - {value: 0.000197}
+  - {value: 0.000224}
+  - {value: 0.00024}
+  - {value: 0.000258}
+  - {value: 0.000299}
+  - {value: 0.000342}
+  - {value: 0.000433}
+  - {value: 0.000541}
+  - {value: 0.000838}
+  - {value: 0.0014}
+  - {value: 0.000278}
+  - {value: 0.000316}
+  - {value: 0.000343}
+  - {value: 0.000364}
+  - {value: 0.000423}
+  - {value: 0.000483}
+  - {value: 0.000592}
+  - {value: 0.000764}
+  - {value: 0.00118}
+  - {value: 0.00197}
+  - {value: 0.000348}
+  - {value: 0.000394}
+  - {value: 0.000422}
+  - {value: 0.000455}
+  - {value: 0.000529}
+  - {value: 0.000604}
+  - {value: 0.000763}
+  - {value: 0.000955}
+  - {value: 0.00148}
+  - {value: 0.000464}
+  - {value: 0.000526}
+  - {value: 0.000607}
+  - {value: 0.000805}
+  - {value: 0.00127}
+  - {value: 0.00197}
+  - {value: 0.00329}
+  - {value: 0.000616}
+  - {value: 0.000657}
+  - {value: 0.0007}
+  - {value: 0.000759}
+  - {value: 0.00088}
+  - {value: 0.00101}
+  - {value: 0.00127}
+  - {value: 0.00159}
+  - {value: 0.00247}
+  - {value: 0.00411}
+  - {value: 0.000812}
+  - {value: 0.000921}
+  - {value: 0.001}
+  - {value: 0.00106}
+  - {value: 0.00123}
+  - {value: 0.00141}
+  - {value: 0.0018}
+  - {value: 0.00223}
+  - {value: 0.0031}
+  - {value: 0.00345}
+  - {value: 0.00575}
+  - {value: 0.00104}
+  - {value: 0.00118}
+  - {value: 0.00127}
+  - {value: 0.00137}
+  - {value: 0.00159}
+  - {value: 0.00181}
+  - {value: 0.00229}
+  - {value: 0.00286}
+  - {value: 0.00444}
+  - {value: 0.0074}
+  - {value: 0.00139}
+  - {value: 0.00158}
+  - {value: 0.00171}
+  - {value: 0.00182}
+  - {value: 0.00211}
+  - {value: 0.00242}
+  - {value: 0.00305}
+  - {value: 0.00382}
+  - {value: 0.00592}
+  - {value: 0.00986}
+  - {value: 0.00209}
+  - {value: 0.00237}
+  - {value: 0.0025}
+  - {value: 0.00273}
+  - {value: 0.00317}
+  - {value: 0.00362}
+  - {value: 0.0046}
+  - {value: 0.00573}
+  - {value: 0.008}
+  - {value: 0.00888}
+  - {value: 0.0136}
+  - {value: 0.0148}
+  - {value: 0.0028}
+  - {value: 0.0032}
+  - {value: 0.0034}
+  - {value: 0.0036}
+  - {value: 0.0042}
+  - {value: 0.0048}
+  - {value: 0.005}
+  - {value: 0.0059}
+  - {value: 0.0076}
+  - {value: 0.011}
+  - {value: 0.018}
+  - {value: 0.0035}
+  - {value: 0.0039}
+  - {value: 0.0045}
+  - {value: 0.006}
+  - {value: 0.008}
+  - {value: 0.013}
+  - {value: 0.02}
+  - {value: 0.0046}
+  - {value: 0.0052}
+  - {value: 0.0061}
+  - {value: 0.008}
+  - {value: 0.013}
+  - {value: 0.02}
+  - {value: 0.032}
+  - {value: 0.05}
+  - {value: 0.08}
+  - {value: 0.13}
+  - {value: 0.18}
+  - {value: 0.4}
+  - {value: 0.0058}
+  - {value: 0.0066}
+  - {value: 0.0076}
+  - {value: 0.01}
+  - {value: 0.013}
+  - {value: 0.02}
+  - {value: 0.032}
+  - {value: 0.05}
+  - {value: 0.08}
+  - {value: 0.13}
+  - {value: 0.18}
+  - {value: 0.4}
+  - {value: 0.0069}
+  - {value: 0.0079}
+  - {value: 0.0091}
+  - {value: 0.0121}
+  - {value: 0.02}
+  - {value: 0.032}
+  - {value: 0.05}
+  - {value: 0.08}
+  - {value: 0.13}
+  - {value: 0.18}
+  - {value: 0.4}
+  - {value: 0.0093}
+  - {value: 0.0105}
+  - {value: 0.0121}
+  - {value: 0.0161}
+  - {value: 0.032}
+  - {value: 0.05}
+  - {value: 0.08}
+  - {value: 0.13}
+  - {value: 0.18}
+  - {value: 0.4}
+  - {value: 0.0116}
+  - {value: 0.0131}
+  - {value: 0.0152}
+  - {value: 0.0201}
+  - {value: 0.032}
+  - {value: 0.05}
+  - {value: 0.08}
+  - {value: 0.13}
+  - {value: 0.18}
+  - {value: 0.25}
+  - {value: 0.4}
+  - {value: 0.65}
+  - {value: 0.0151}
+  - {value: 0.0171}
+  - {value: 0.0197}
+  - {value: 0.0261}
+  - {value: 0.05}
+  - {value: 0.08}
+  - {value: 0.13}
+  - {value: 0.18}
+  - {value: 0.25}
+  - {value: 0.4}
+  - {value: 0.65}
+  - {value: 0.0185}
+  - {value: 0.021}
+  - {value: 0.0242}
+  - {value: 0.0322}
+  - {value: 0.05}
+  - {value: 0.08}
+  - {value: 0.13}
+  - {value: 0.18}
+  - {value: 0.25}
+  - {value: 0.4}
+  - {value: 0.65}
