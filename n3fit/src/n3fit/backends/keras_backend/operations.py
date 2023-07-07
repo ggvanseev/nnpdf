@@ -112,6 +112,8 @@ def batchit(x, batch_dimension=0, **kwarg):
     """Add a batch dimension to tensor x"""
     return tf.expand_dims(x, batch_dimension, **kwarg)
 
+def expand_dims(x, axis, **kwargs):
+    return tf.expand_dims(x, axis, **kwargs)
 
 # layer generation
 def numpy_to_input(numpy_array: npt.NDArray, name: Optional[str] = None):

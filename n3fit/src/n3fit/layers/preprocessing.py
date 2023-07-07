@@ -31,6 +31,8 @@ class Preprocessing(MetaLayer):
             Whether large x preprocessing factor should be active
         seed: int
             seed for the initializer of the random alpha and beta values
+        replicas: int (default None)
+            the number of replicas
     """
 
     def __init__(
@@ -38,6 +40,7 @@ class Preprocessing(MetaLayer):
         flav_info: list = None,
         seed: int = 0,
         large_x: bool = True,
+        replicas: int = None,
         **kwargs,
     ):
         if flav_info is None:
@@ -48,6 +51,8 @@ class Preprocessing(MetaLayer):
         self.seed = seed
         self.initializer = "random_uniform"
         self.large_x = large_x
+        self.replicas = replicas
+
         self.alphas = []
         self.betas = []
         super().__init__(**kwargs)
@@ -89,9 +94,10 @@ class Preprocessing(MetaLayer):
                 constraint = constraints.MinMaxWeight(minval, maxval)
 
         # Generate the new trainable (or not) parameter
+        kernel_shape = (1,) if not self.replicas else (1, self.replicas)
         newpar = self.builder_helper(
             name=name,
-            kernel_shape=(1,),
+            kernel_shape=kernel_shape,
             initializer=initializer,
             trainable=trainable,
             constraint=constraint,
@@ -119,9 +125,15 @@ class Preprocessing(MetaLayer):
 
         Returns
         -------
-            prefactor: tensor(shape=[1,N,F])
+            prefactor: tensor(shape=[1,N,F,R])
+                prefactors for the single batch dimension, all gridpoints, all flavors,
+                and if applicable all replicas (this axis is absent if replicas=None, as by default)
         """
         alphas = op.stack(self.alphas, axis=1)
         betas = op.stack(self.betas, axis=1)
+
+        # this is necessary for the expression below to broadcast correctly
+        if self.replicas:
+            x = op.expand_dims(x, -1)
 
         return x ** (1 - alphas) * (1 - x) ** betas
