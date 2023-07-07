@@ -355,6 +355,17 @@ def op_subtract(inputs, **kwargs):
     """
     return keras_subtract(inputs, **kwargs)
 
+def clamp(inputs, minvals, maxvals, **kwargs):
+    """
+    Clip a tensor of inputs into a range defined by a tensor of minima and a tensor of maxima
+    see full `docs <https://www.tensorflow.org/api_docs/python/tf/clip_by_value>`_
+    """
+    return tf.clip_by_value(
+            inputs,
+            clip_value_min=minvals,
+            clip_value_max=maxvals
+            )
+
 
 @tf.function
 def backend_function(fun_name, *args, **kwargs):
