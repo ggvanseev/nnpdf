@@ -101,9 +101,10 @@ class AddPhoton(MetaLayer):
     In order to change the shape it is necessary to rebuild the photon.
     """
 
-    def __init__(self, photons, **kwargs):
+    def __init__(self, photons, parton_axis=2, **kwargs):
         self._photons_generator = photons
         self._pdf_ph = None
+        self.parton_axis = parton_axis
         super().__init__(**kwargs)
 
     def register_photon(self, xgrid):
@@ -115,7 +116,7 @@ class AddPhoton(MetaLayer):
     def call(self, pdfs, ph_replica):
         if self._pdf_ph is None:
             return pdfs
-        return op.concatenate([self._pdf_ph[ph_replica], pdfs[:, :, 1:]], axis=-1)
+        return op.concatenate([self._pdf_ph, pdfs[:, :, 1:]], axis=self.parton_axis)
 
 
 class ObsRotation(MetaLayer):
