@@ -308,6 +308,7 @@ def generate_dense_network(
     seed: int = 0,
     dropout_rate: float = 0.0,
     regularizer: str = None,
+    replicas: int = 1,
 ):
     """
     Generates a dense network
@@ -331,15 +332,21 @@ def generate_dense_network(
         init = MetaLayer.select_initializer(initializer_name, seed=seed + i)
 
         # set the arguments that will define the layer
+        # TODO: temporary, integrate into select_initializer
+        from tensorflow.keras.initializers import GlorotUniform
         arguments = {
             "kernel_initializer": init,
             "units": int(nodes_out),
             "activation": activation,
             "input_shape": (nodes_in,),
             "kernel_regularizer": regularizer,
+            "replicas": replicas,
+            "seed": seed + i,
+            "replica_input": i != 0,
+            "initializer_class": GlorotUniform
         }
 
-        layer = base_layer_selector("dense", **arguments)
+        layer = base_layer_selector("multidense", **arguments)
 
         list_of_pdf_layers.append(layer)
         nodes_in = int(nodes_out)
@@ -400,7 +407,7 @@ def pdfNN_layer_generator(
     nodes: List[int] = None,
     activations: List[str] = None,
     initializer_name: str = "glorot_normal",
-    layer_type: str = "dense",
+    layer_type: str = "multidense",
     flav_info: dict = None,
     fitbasis: str = "NN31IC",
     out: int = 14,
@@ -514,11 +521,6 @@ def pdfNN_layer_generator(
             a model f(x) = y where x is a tensor (1, xgrid, 1) and y a tensor (1, xgrid, out)
     """
     # Parse the input configuration
-    if seed is None:
-        seed = parallel_models * [None]
-    elif isinstance(seed, int):
-        seed = parallel_models * [seed]
-
     if nodes is None:
         nodes = [15, 8]
     ln = len(nodes)
@@ -593,51 +595,47 @@ def pdfNN_layer_generator(
     # Evolution layer
     layer_evln = FkRotation(input_shape=(last_layer_nodes,), output_dim=out, name="pdf_FK_basis")
 
+    replicas = parallel_models
     # Normalization and sum rules
     if impose_sumrule:
         sumrule_layer, integrator_input = generate_msr_model_and_grid(
-            mode=impose_sumrule, scaler=scaler, photons=photons
+            mode=impose_sumrule, scaler=scaler, photons=photons, replicas=replicas
         )
         model_input["integrator_input"] = integrator_input
     else:
         sumrule_layer = lambda x: x
 
-    # Now we need a trainable network per replica to be trained in parallel
-    pdf_models = []
+    if type(seed) == tuple:
+        seed = seed[0]
 
-    # Only these layers change from replica to replica:
-    nn_replicas = []
-    preprocessing_factor_replicas = []
-    for i_replica, replica_seed in enumerate(seed):
-        preprocessing_factor_replicas.append(
-            Preprocessing(
-                flav_info=flav_info,
-                input_shape=(1,),
-                name=f"preprocessing_factor_{i_replica}",
-                seed=replica_seed + number_of_layers,
-                large_x=not subtract_one,
-            )
+    compute_preprocessing_factor = Preprocessing(
+            flav_info=flav_info,
+            input_shape=(1,),
+            name=f"preprocessing_factor",
+            seed=seed + number_of_layers,
+            large_x=not subtract_one,
+            replicas=replicas,
         )
-        nn_replicas.append(
-            generate_nn(
-                layer_type=layer_type,
-                input_dimensions=nn_input_dimensions,
-                nodes=nodes,
-                activations=activations,
-                initializer_name=initializer_name,
-                replica_seed=replica_seed,
-                dropout=dropout,
-                regularizer=regularizer,
-                regularizer_args=regularizer_args,
-                last_layer_nodes=last_layer_nodes,
-                name=f"NN_{i_replica}",
-            )
+
+    neural_network = generate_nn(
+            layer_type=layer_type,
+            input_dimensions=nn_input_dimensions,
+            nodes=nodes,
+            activations=activations,
+            initializer_name=initializer_name,
+            seed=seed,
+            dropout=dropout,
+            regularizer=regularizer,
+            regularizer_args=regularizer_args,
+            last_layer_nodes=last_layer_nodes,
+            name=f"NN",
+            replicas=replicas,
         )
 
     # All layers have been made, now we need to connect them,
-    # do this in a function so we can call it for both grids and each replica
+    # do this in a function so we can call it for both grids
     # Since all layers are already made, they will be reused
-    def compute_unnormalized_pdf(x, neural_network, compute_preprocessing_factor):
+    def compute_unnormalized_pdf(x):
         # Preprocess the input grid
         x_nn_input = extract_nn_input(x)
         x_original = extract_original(x)
@@ -663,42 +661,40 @@ def pdfNN_layer_generator(
 
         return pdf_unnormalized
 
-    # Finally compute the normalized PDFs for each replica
-    pdf_models = []
-    for i_replica, (preprocessing_factor, nn) in enumerate(
-        zip(preprocessing_factor_replicas, nn_replicas)
-    ):
-        pdf_unnormalized = compute_unnormalized_pdf(pdf_input, nn, preprocessing_factor)
+    # Finally compute the normalized PDFs
+    pdf_unnormalized = compute_unnormalized_pdf(pdf_input)
 
-        if impose_sumrule:
-            pdf_integration_grid = compute_unnormalized_pdf(
-                integrator_input, nn, preprocessing_factor
-            )
-            pdf_normalized = sumrule_layer(
-                {
-                    "pdf_x": pdf_unnormalized,
-                    "pdf_xgrid_integration": pdf_integration_grid,
-                    "xgrid_integration": integrator_input,
-                    # The photon is treated separately, need to get its integrals to normalize the pdf
-                    "photon_integral": op.numpy_to_tensor([[
-                        0.0 if not photons else photons.integral[i_replica]
-                        ]]
-                    ),
-                }
-            )
-            pdf = pdf_normalized
-        else:
-            pdf = pdf_unnormalized
-
+    if impose_sumrule:
+        pdf_integration_grid = compute_unnormalized_pdf(integrator_input)
+        # The photon is treated separately, need to get its integrals to normalize the pdf
         if photons:
-            # Add in the photon component
-            pdf = layer_photon(pdf, i_replica)
+            photon_integral = op.numpy_to_tensor([[photons.integral]])
+        else:
+            photon_integral = op.numpy_to_tensor(np.zeros((1, 1, parallel_models)))
 
-        # Create the model
-        pdf_model = MetaModel(model_input, pdf, name=f"PDF_{i_replica}", scaler=scaler)
-        pdf_models.append(pdf_model)
+        pdf_normalized = sumrule_layer(
+            {
+                "pdf_x": pdf_unnormalized,
+                "pdf_xgrid_integration": pdf_integration_grid,
+                "xgrid_integration": integrator_input,
+                "photon_integral": photon_integral,
+            }
+        )
+        pdf = pdf_normalized
+    else:
+        pdf = pdf_unnormalized
 
-    return pdf_models
+    if photons:
+        # Add in the photon component
+        pdf = layer_photon(pdf, i_replica)  #TODO: all replicas at once
+
+    # Create the model
+    pdf_model = MetaModel(model_input, pdf, name=f"PDF", scaler=scaler)
+    # extract the NN from the pdf_model and print a summary
+    pdf_model.get_layer("NN").summary()
+    pdf_model.summary()
+
+    return pdf_model
 
 
 def generate_nn(
@@ -707,12 +703,13 @@ def generate_nn(
     nodes: List[int],
     activations: List[str],
     initializer_name: str,
-    replica_seed: int,
+    seed: int,
     dropout: float,
     regularizer: str,
     regularizer_args: dict,
     last_layer_nodes: int,
     name: str,
+    replicas: int,
 ) -> MetaModel:
     """
     Create the part of the model that contains all of the actual neural network
@@ -723,7 +720,8 @@ def generate_nn(
         'nodes': nodes,
         'activations': activations,
         'initializer_name': initializer_name,
-        'seed': replica_seed,
+        'seed': seed,
+        'replicas': replicas,
     }
     if layer_type == "dense":
         reg = regularizer_selector(regularizer, **regularizer_args)
