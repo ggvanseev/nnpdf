@@ -271,6 +271,7 @@ def observable_generator(
         data=spec_dict["expdata"],
         rotation=obsrot_tr,
     )
+    print("Adding validation observable ", spec_name)
     out_vl = ObservableWrapper(
         f"{spec_name}_val",
         model_obs_vl,
