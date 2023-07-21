@@ -31,6 +31,8 @@ from n3fit.layers.observable import is_unique
 from n3fit.msr import generate_msr_model_and_grid
 from validphys.photon.compute import Photon  # only used for type hint here
 
+print("test")
+
 
 @dataclass
 class ObservableWrapper:
