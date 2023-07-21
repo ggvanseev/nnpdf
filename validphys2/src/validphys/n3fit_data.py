@@ -74,7 +74,7 @@ class _TrMasks(TupleComp):
             yield m
 
 
-def tr_masks(data, replica_trvlseed):
+def tr_masks(data, replica_trvlseed, parallel_models=False):
     """Generate the boolean masks used to split data into training and
     validation points. Returns a list of 1-D boolean arrays, one for each
     dataset. Each array has length equal to N_data, the datapoints which
@@ -82,6 +82,9 @@ def tr_masks(data, replica_trvlseed):
 
         tr_data = data[tr_mask]
 
+    The single_datapoints_toss flag signals whether single-point datasets
+    should be always included in the training set only (True), or randomly
+    selected. The former is required for parallel replica fits.
     """
     nameseed = int(hashlib.sha256(str(data).encode()).hexdigest(), 16) % 10**8
     nameseed += replica_trvlseed
@@ -98,7 +101,7 @@ def tr_masks(data, replica_trvlseed):
         trmax = int(ndata * frac)
         if trmax == 0:
             # If that number is 0, then get 1 point with probability frac
-            trmax = int(rng.random() < frac)
+            trmax = int(rng.random() < frac) if not parallel_models else 1
         mask = np.concatenate([np.ones(trmax, dtype=bool), np.zeros(ndata - trmax, dtype=bool)])
         rng.shuffle(mask)
         trmask_partial.append(mask)
@@ -238,7 +241,7 @@ def fitting_data_dict(
 
     expdata = make_replica
     tr_masks = tr_masks.masks
-    covmat = dataset_inputs_fitting_covmat  # t0 covmat, or theory covmat or whatever was decided by the runcard
+    covmat = dataset_inputs_fitting_covmat # t0 covmat, or theory covmat or whatever was decided by the runcard
     inv_true = np.linalg.inv(covmat)
     fittable_datasets = fittable_datasets_masked
 
@@ -347,7 +350,7 @@ def pseudodata_table(groups_replicas_indexed_make_replica, replicas):
     Notes
     -----
     Whilst running ``n3fit``, this action will only be called if
-    `fitting::savepseudodata` is `true` (as per the default setting) and
+    `fitting::savepseudodata` is `true` (as per the default setting) and 
     replicas are fitted one at a time. The table can be found in the replica
     folder i.e. <fit dir>/nnfit/replica_*/
 

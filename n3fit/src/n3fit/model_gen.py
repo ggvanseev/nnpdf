@@ -25,12 +25,12 @@ from n3fit.layers import (
     FlavourToEvolution,
     ObsRotation,
     Preprocessing,
+    Mask,
     losses,
 )
 from n3fit.layers.observable import is_unique
 from n3fit.msr import generate_msr_model_and_grid
 from validphys.photon.compute import Photon  # only used for type hint here
-
 
 @dataclass
 class ObservableWrapper:
@@ -47,6 +47,7 @@ class ObservableWrapper:
 
     name: str
     observables: list
+    trvl_mask_layers: list
     dataset_xsizes: list
     invcovmat: np.array = None
     covmat: np.array = None
@@ -61,8 +62,7 @@ class ObservableWrapper:
         was initialized with"""
         if self.invcovmat is not None:
             loss = losses.LossInvcovmat(
-                self.invcovmat, self.data, mask, covmat=self.covmat, name=self.name
-            )
+                self.invcovmat, self.data, mask, covmat=self.covmat, name=self.name)
         elif self.positivity:
             loss = losses.LossPositivity(name=self.name, c=self.multiplier)
         elif self.integrability:
@@ -86,8 +86,15 @@ class ObservableWrapper:
         else:
             output_layers = [obs(pdf) for obs in self.observables]
 
-        # Finally concatenate all observables (so that experiments are one single entitiy)
-        ret = op.concatenate(output_layers, axis=2)
+        masked_output_layers = []
+        if self.trvl_mask_layers is not None:
+            for output_layer, mask_layer in zip(output_layers, self.trvl_mask_layers):
+                masked_output_layers.append(mask_layer(output_layer))
+        else:
+            masked_output_layers = output_layers
+
+        # Finally concatenate all observables (so that experiments are one single entity)
+        ret = op.concatenate(masked_output_layers)
         if self.rotation is not None:
             ret = self.rotation(ret)
         return ret
@@ -98,8 +105,14 @@ class ObservableWrapper:
         return loss_f(experiment_prediction)
 
 
-def observable_generator(
-    spec_dict, positivity_initial=1.0, integrability=False
+def observable_generator(spec_dict,
+                         mask_array=None,
+                         training_data=None,
+                         validation_data=None,
+                         invcovmat_tr=None,
+                         invcovmat_vl=None,
+                         positivity_initial=1.0,
+                         integrability=False
 ):  # pylint: disable=too-many-locals
     """
     This function generates the observable models for each experiment.
@@ -148,10 +161,13 @@ def observable_generator(
     spec_name = spec_dict["name"]
     dataset_xsizes = []
     model_inputs = []
-    model_obs_tr = []
-    model_obs_vl = []
-    model_obs_ex = []
+    model_observables = []
+    tr_mask_layers = []
+    vl_mask_layers = []
+    offset = 0
+    apply_masks = spec_dict.get("data_transformation_tr") is None and mask_array is not None
     # The first step is to compute the observable for each of the datasets
+    masks = []
     for dataset in spec_dict["datasets"]:
         # Get the generic information of the dataset
         dataset_name = dataset.name
@@ -165,56 +181,29 @@ def observable_generator(
         # Set the operation (if any) to be applied to the fktables of this dataset
         operation_name = dataset.operation
 
+        # Extract the masks that will end up in the observable wrappers...
+        if apply_masks:
+            trmask = mask_array[:, offset:offset + dataset.ndata]
+            masks.append(trmask)
+            tr_mask_layers.append(Mask(trmask, axis=1, name=f"trmask_{dataset_name}"))
+            vl_mask_layers.append(Mask(~trmask, axis=1, name=f"vlmask_{dataset_name}"))
+
         # Now generate the observable layer, which takes the following information:
         # operation name
         # dataset name
         # list of validphys.coredata.FKTableData objects
         #   these will then be used to check how many different pdf inputs are needed
         #   (and convolutions if given the case)
-
-        if spec_dict["positivity"]:
-            # Positivity (and integrability, which is a special kind of positivity...)
-            # enters only at the "training" part of the models
-            obs_layer_tr = Obs_Layer(
-                dataset.fktables_data,
-                dataset.training_fktables(),
-                operation_name,
-                name=f"dat_{dataset_name}",
-            )
-            obs_layer_ex = obs_layer_vl = None
-        elif spec_dict.get("data_transformation_tr") is not None:
-            # Data transformation needs access to the full array of output data
-            obs_layer_ex = Obs_Layer(
-                dataset.fktables_data,
-                dataset.fktables(),
-                operation_name,
-                name=f"exp_{dataset_name}",
-            )
-            obs_layer_tr = obs_layer_vl = obs_layer_ex
-        else:
-            obs_layer_tr = Obs_Layer(
-                dataset.fktables_data,
-                dataset.training_fktables(),
-                operation_name,
-                name=f"dat_{dataset_name}",
-            )
-            obs_layer_ex = Obs_Layer(
-                dataset.fktables_data,
-                dataset.fktables(),
-                operation_name,
-                name=f"exp_{dataset_name}",
-            )
-            obs_layer_vl = Obs_Layer(
-                dataset.fktables_data,
-                dataset.validation_fktables(),
-                operation_name,
-                name=f"val_{dataset_name}",
-            )
+        obs_layer = Obs_Layer(
+            dataset.fktables_data,
+            dataset.fktables(),
+            operation_name,
+            name=f"dat_{dataset_name}")
 
         # If the observable layer found that all input grids are equal, the splitting will be None
         # otherwise the different xgrids need to be stored separately
         # Note: for pineappl grids, obs_layer_tr.splitting should always be None
-        if obs_layer_tr.splitting is None:
+        if obs_layer.splitting is None:
             xgrid = dataset.fktables_data[0].xgrid
             model_inputs.append(xgrid)
             dataset_xsizes.append(len(xgrid))
@@ -223,9 +212,10 @@ def observable_generator(
             model_inputs += xgrids
             dataset_xsizes.append(sum([len(i) for i in xgrids]))
 
-        model_obs_tr.append(obs_layer_tr)
-        model_obs_vl.append(obs_layer_vl)
-        model_obs_ex.append(obs_layer_ex)
+        model_observables.append(obs_layer)
+
+        # shift offset for new mask array
+        offset = offset + dataset.ndata
 
     # Check whether all xgrids of all observables in this experiment are equal
     # if so, simplify the model input
@@ -240,7 +230,8 @@ def observable_generator(
     if spec_dict["positivity"]:
         out_positivity = ObservableWrapper(
             spec_name,
-            model_obs_tr,
+            model_observables,
+            tr_mask_layers if apply_masks else None,
             dataset_xsizes,
             multiplier=positivity_initial,
             positivity=not integrability,
@@ -265,23 +256,26 @@ def observable_generator(
 
     out_tr = ObservableWrapper(
         spec_name,
-        model_obs_tr,
+        model_observables,
+        tr_mask_layers if apply_masks else None,
         dataset_xsizes,
-        invcovmat=spec_dict["invcovmat"],
-        data=spec_dict["expdata"],
+        invcovmat=invcovmat_tr,
+        data=training_data,
         rotation=obsrot_tr,
     )
     out_vl = ObservableWrapper(
         f"{spec_name}_val",
-        model_obs_vl,
+        model_observables,
+        vl_mask_layers if apply_masks else None,
         dataset_xsizes,
-        invcovmat=spec_dict["invcovmat_vl"],
-        data=spec_dict["expdata_vl"],
+        invcovmat=invcovmat_vl,
+        data=validation_data,
         rotation=obsrot_vl,
     )
     out_exp = ObservableWrapper(
         f"{spec_name}_exp",
-        model_obs_ex,
+        model_observables,
+        None,
         dataset_xsizes,
         invcovmat=spec_dict["invcovmat_true"],
         covmat=spec_dict["covmat"],
