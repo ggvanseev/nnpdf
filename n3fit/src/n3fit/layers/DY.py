@@ -1,6 +1,10 @@
+from itertools import zip_longest
+
 import numpy as np
-from .observable import Observable
+
 from n3fit.backends import operations as op
+
+from .observable import Observable
 
 
 class DY(Observable):
@@ -8,16 +12,34 @@ class DY(Observable):
     Computes the convolution of two PDFs (the same one twice) and one fktable
     """
 
-    def gen_mask(self, basis):
+    def mask_fktable(self, basis, fktable):
+        """
+        Mask the fktable according to the mask
+
+        Parameters
+        ----------
+            basis: list(int)
+                list of active flavours
+            fktable: backend tensor
+                rank 4 tensor (ndata, masked_flavors?, xgrid, xgrid)
+
+        Returns
+        -------
+            masked_fktable: backend tensor
+                rank 5 tensor (ndata, flavours, flavours, xgrid, xgrid)
+        """
         if basis is None:
             basis_mask = np.ones((self.nfl, self.nfl), dtype=bool)
         else:
             basis_mask = np.zeros((self.nfl, self.nfl), dtype=bool)
             for i, j in basis.reshape(-1, 2):
                 basis_mask[i, j] = True
-        return op.numpy_to_tensor(basis_mask, dtype=bool)
+        basis_mask = op.numpy_to_tensor(basis_mask, dtype=bool)
+        mask_tensor = self.tensor_from_mask(basis_mask)
+        masked_fk = op.einsum('fgF, nFxy -> nfgxy', mask_tensor, fktable)
+        return masked_fk
 
-    def call(self, pdf_raw):
+    def call(self, pdf):
         """
         This function perform the fktable \otimes pdf \otimes pdf convolution.
 
@@ -30,7 +52,7 @@ class DY(Observable):
         Parameters
         ----------
             pdf_in: tensor
-                rank 4 tensor (batchsize, xgrid, flavours, replicas)
+                rank 4 tensor (batchsize, replicas, xgrid, flavours)
 
         Returns
         -------
@@ -39,26 +61,21 @@ class DY(Observable):
         """
         # Hadronic observables might need splitting of the input pdf in the x dimension
         # so we have 3 different paths for this layer
+        pdfs = op.split(pdf, self.splitting, axis=2) if self.splitting else [pdf]
 
-        results = []
-        if self.many_masks:
-            if self.splitting:
-                splitted_pdf = op.split(pdf_raw, self.splitting, axis=1)
-                for mask, pdf, fk in zip(self.all_masks, splitted_pdf, self.fktables):
-                    pdf_x_pdf = op.pdf_masked_convolution(pdf, mask)
-                    res = op.tensor_product(fk, pdf_x_pdf, axes=3)
-                    results.append(res)
-            else:
-                for mask, fk in zip(self.all_masks, self.fktables):
-                    pdf_x_pdf = op.pdf_masked_convolution(pdf_raw, mask)
-                    res = op.tensor_product(fk, pdf_x_pdf, axes=3)
-                    results.append(res)
-        else:
-            pdf_x_pdf = op.pdf_masked_convolution(pdf_raw, self.all_masks[0])
-            for fk in self.fktables:
-                res = op.tensor_product(fk, pdf_x_pdf, axes=3)
-                results.append(res)
+        results = [
+            op.einsum('brxf, nfgxy, bryg -> brn', pdf, masked_fk, pdf)
+            for pdf, masked_fk in zip_copies(pdfs, self.masked_fk_tables)
+        ]
 
-        # the masked convolution removes the batch dimension
-        ret = op.transpose(self.operation(results))
-        return op.batchit(ret)
+        return self.operation(results)
+
+
+def zip_copies(list_a, list_b):
+    """
+    Zip two lists of different lengths by repeating the elements of the shorter one
+    """
+    if len(list_a) > len(list_b):
+        return zip(list_a, list_b * len(list_a))
+    else:
+        return zip(list_a * len(list_b), list_b)

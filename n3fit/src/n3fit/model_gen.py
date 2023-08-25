@@ -23,14 +23,15 @@ from n3fit.layers import (
     AddPhoton,
     FkRotation,
     FlavourToEvolution,
+    Mask,
     ObsRotation,
     Preprocessing,
-    Mask,
     losses,
 )
 from n3fit.layers.observable import is_unique
 from n3fit.msr import generate_msr_model_and_grid
 from validphys.photon.compute import Photon  # only used for type hint here
+
 
 @dataclass
 class ObservableWrapper:
@@ -62,7 +63,8 @@ class ObservableWrapper:
         was initialized with"""
         if self.invcovmat is not None:
             loss = losses.LossInvcovmat(
-                self.invcovmat, self.data, mask, covmat=self.covmat, name=self.name)
+                self.invcovmat, self.data, mask, covmat=self.covmat, name=self.name
+            )
         elif self.positivity:
             loss = losses.LossPositivity(name=self.name, c=self.multiplier)
         elif self.integrability:
@@ -78,7 +80,7 @@ class ObservableWrapper:
             splitting_layer = op.as_layer(
                 op.split,
                 op_args=[self.dataset_xsizes],
-                op_kwargs={"axis": 1},
+                op_kwargs={"axis": 2},
                 name=f"{self.name}_split",
             )
             sp_pdf = splitting_layer(pdf)
@@ -105,14 +107,15 @@ class ObservableWrapper:
         return loss_f(experiment_prediction)
 
 
-def observable_generator(spec_dict,
-                         mask_array=None,
-                         training_data=None,
-                         validation_data=None,
-                         invcovmat_tr=None,
-                         invcovmat_vl=None,
-                         positivity_initial=1.0,
-                         integrability=False
+def observable_generator(
+    spec_dict,
+    mask_array=None,
+    training_data=None,
+    validation_data=None,
+    invcovmat_tr=None,
+    invcovmat_vl=None,
+    positivity_initial=1.0,
+    integrability=False,
 ):  # pylint: disable=too-many-locals
     """
     This function generates the observable models for each experiment.
@@ -183,7 +186,7 @@ def observable_generator(spec_dict,
 
         # Extract the masks that will end up in the observable wrappers...
         if apply_masks:
-            trmask = mask_array[:, offset:offset + dataset.ndata]
+            trmask = mask_array[:, offset : offset + dataset.ndata]
             masks.append(trmask)
             tr_mask_layers.append(Mask(trmask, axis=1, name=f"trmask_{dataset_name}"))
             vl_mask_layers.append(Mask(~trmask, axis=1, name=f"vlmask_{dataset_name}"))
@@ -195,10 +198,8 @@ def observable_generator(spec_dict,
         #   these will then be used to check how many different pdf inputs are needed
         #   (and convolutions if given the case)
         obs_layer = Obs_Layer(
-            dataset.fktables_data,
-            dataset.fktables(),
-            operation_name,
-            name=f"dat_{dataset_name}")
+            dataset.fktables_data, dataset.fktables(), operation_name, name=f"dat_{dataset_name}"
+        )
 
         # If the observable layer found that all input grids are equal, the splitting will be None
         # otherwise the different xgrids need to be stored separately

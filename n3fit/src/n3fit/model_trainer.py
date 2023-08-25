@@ -366,7 +366,7 @@ class ModelTrainer:
         # The PDF model will be called with a concatenation of all inputs
         # now the output needs to be splitted so that each experiment takes its corresponding input
         sp_ar = [[i.shape[1] for i in inputs_unique]]
-        sp_kw = {"axis": 1}
+        sp_kw = {"axis": 2}
         sp_layer = op.as_layer(op.split, op_args=sp_ar, op_kwargs=sp_kw, name="pdf_split")
 
         return InputInfo(input_layer, sp_layer, inputs_idx)
@@ -429,7 +429,7 @@ class ModelTrainer:
             # Note that all models share the same symbolic input so we take as input the last
             # full_model_input_dict in the loop
 
-        full_pdf_per_replica = op.stack(all_replicas_pdf, axis=-1)
+        full_pdf_per_replica = op.stack(all_replicas_pdf, axis=1)
         split_pdf_unique = xinput.split(full_pdf_per_replica)
 
         # Now reorganize the uniques PDF so that each experiment receives its corresponding PDF
@@ -553,12 +553,14 @@ class ModelTrainer:
             invcovmat = np.stack([e[index]["invcovmat"] for e in self.exp_info])
             invcovmat_vl = np.stack([e[index]["invcovmat_vl"] for e in self.exp_info])
 
-            exp_layer = model_gen.observable_generator(exp_dict,
-                                                       mask_array=replica_masks,
-                                                       training_data=training_data,
-                                                       validation_data=validation_data,
-                                                       invcovmat_tr=invcovmat,
-                                                       invcovmat_vl=invcovmat_vl)
+            exp_layer = model_gen.observable_generator(
+                exp_dict,
+                mask_array=replica_masks,
+                training_data=training_data,
+                validation_data=validation_data,
+                invcovmat_tr=invcovmat,
+                invcovmat_vl=invcovmat_vl,
+            )
 
             # Save the input(s) corresponding to this experiment
             self.input_list.append(exp_layer["inputs"])
@@ -580,13 +582,17 @@ class ModelTrainer:
                 all_pos_initial, all_pos_multiplier, max_lambda, positivity_steps
             )
             replica_masks = np.stack([pos_dict["trmask"] for i in range(len(self.exp_info))])
-            training_data = np.stack([pos_dict["expdata"].flatten() for i in range(len(self.exp_info))])
+            training_data = np.stack(
+                [pos_dict["expdata"].flatten() for i in range(len(self.exp_info))]
+            )
 
-            pos_layer = model_gen.observable_generator(pos_dict,
-                                                       positivity_initial=pos_initial,
-                                                       mask_array=replica_masks,
-                                                       training_data=training_data,
-                                                       validation_data=training_data)
+            pos_layer = model_gen.observable_generator(
+                pos_dict,
+                positivity_initial=pos_initial,
+                mask_array=replica_masks,
+                training_data=training_data,
+                validation_data=training_data,
+            )
             # The input list is still common
             self.input_list.append(pos_layer["inputs"])
 
@@ -863,7 +869,9 @@ class ModelTrainer:
         # Initialize all photon classes for the different replicas:
         if self.lux_params:
             photons = Photon(
-                theoryid=self.theoryid, lux_params=self.lux_params, replicas=self.replicas,
+                theoryid=self.theoryid,
+                lux_params=self.lux_params,
+                replicas=self.replicas,
             )
         else:
             photons = None
@@ -935,7 +943,11 @@ class ModelTrainer:
             for model in models.values():
                 model.compile(**params["optimizer"])
 
-            passed = self._train_and_fit(models["training"], stopping_object, epochs=epochs,)
+            passed = self._train_and_fit(
+                models["training"],
+                stopping_object,
+                epochs=epochs,
+            )
 
             if self.mode_hyperopt:
                 # If doing a hyperparameter scan we need to keep track of the loss function
