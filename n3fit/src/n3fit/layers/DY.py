@@ -64,7 +64,7 @@ class DY(Observable):
         pdfs = op.split(pdf, self.splitting, axis=2) if self.splitting else [pdf]
 
         results = []
-        for pdf in pdfs:
+        for pdf, masked_fk in self.zip_copies(pdfs, self.masked_fk_tables):
             intermediate = op.einsum('nxfyg, bryg -> brnxf', masked_fk, pdf)
             results.append(op.einsum('brnxf, brxf -> brn', intermediate, pdf))
 
