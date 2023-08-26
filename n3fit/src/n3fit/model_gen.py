@@ -188,8 +188,8 @@ def observable_generator(
         if apply_masks:
             trmask = mask_array[:, offset : offset + dataset.ndata]
             masks.append(trmask)
-            tr_mask_layers.append(Mask(trmask, axis=1, name=f"trmask_{dataset_name}"))
-            vl_mask_layers.append(Mask(~trmask, axis=1, name=f"vlmask_{dataset_name}"))
+            tr_mask_layers.append(Mask(trmask, name=f"trmask_{dataset_name}"))
+            vl_mask_layers.append(Mask(~trmask, name=f"vlmask_{dataset_name}"))
 
         # Now generate the observable layer, which takes the following information:
         # operation name
