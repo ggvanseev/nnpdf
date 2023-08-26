@@ -33,7 +33,7 @@ class DIS(Observable):
             basis: list(int)
                 list of active flavours
             fktable: backend tensor
-                rank 3 tensor (ndata, masked_flavors?, xgrid)
+                rank 3 tensor (ndata, masked_flavors, xgrid)
 
         Returns
         -------

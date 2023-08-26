@@ -21,7 +21,7 @@ class DY(Observable):
             basis: list(int)
                 list of active flavours
             fktable: backend tensor
-                rank 4 tensor (ndata, masked_flavors?, xgrid, xgrid)
+                rank 4 tensor (ndata, masked_flavors, xgrid, xgrid)
 
         Returns
         -------
@@ -65,17 +65,7 @@ class DY(Observable):
 
         results = [
             op.einsum('brxf, nfgxy, bryg -> brn', pdf, masked_fk, pdf)
-            for pdf, masked_fk in zip_copies(pdfs, self.masked_fk_tables)
+            for pdf, masked_fk in self.zip_copies(pdfs, self.masked_fk_tables)
         ]
 
         return self.operation(results)
-
-
-def zip_copies(list_a, list_b):
-    """
-    Zip two lists of different lengths by repeating the elements of the shorter one
-    """
-    if len(list_a) > len(list_b):
-        return zip(list_a, list_b * len(list_a))
-    else:
-        return zip(list_a * len(list_b), list_b)

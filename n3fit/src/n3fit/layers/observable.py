@@ -63,7 +63,7 @@ class Observable(MetaLayer, ABC):
         self.output_dim = fktables[0].shape[0]
 
         self.masked_fk_tables = [
-            self.mask_fktable(basis, fk) for basis, fk in zip_copies(all_bases, fktables)
+            self.mask_fktable(basis, fk) for basis, fk in self.zip_copies(all_bases, fktables)
         ]
 
     def compute_output_shape(self, input_shape):
@@ -78,38 +78,29 @@ class Observable(MetaLayer, ABC):
     def tensor_from_mask(mask):
         """
         Create a rank 3 tensor that replicates the functionality of tf.boolean_mask
+        with a rank 2 boolean mask
 
         Args:
             mask: a rank 2 boolean tensor
 
         Returns:
             rank 3 tensor with shape (mask.shape[0], mask.shape[1], tf.reduce_sum(mask))
-            of zeros and ones such that
-            tf.boolean_mask(tensor, mask, axis=1) == tf.einsum('fg..., fgF -> F...', tensor, tensor_from_mask(mask))
+            of zeros and ones
         """
         mask_array = []
-        for i in range(mask.shape[0]):
-            if len(mask.shape) == 1:
-                if mask[i] == True:
-                    temp_matrix = np.zeros(mask.shape)
-                    temp_matrix[i] = 1
-                    mask_array.append(temp_matrix)
-            else:  # rank 2
-                for j in range(mask.shape[1]):
-                    if mask[i, j] == True:
-                        temp_matrix = np.zeros(mask.shape)
-                        temp_matrix[i, j] = 1
-                        mask_array.append(temp_matrix)
+        for idx in np.argwhere(mask):
+            temp_matrix = np.zeros(mask.shape)
+            temp_matrix[tuple(idx)] = 1
+            mask_array.append(temp_matrix)
         mask = np.stack(mask_array, axis=-1)
         mask_tensor = op.numpy_to_tensor(mask)
         return mask_tensor
 
-
-def zip_copies(list_a, list_b):
-    """
-    Zip two lists of different lengths by repeating the elements of the shorter one
-    """
-    if len(list_a) > len(list_b):
-        return zip(list_a, list_b * len(list_a))
-    else:
-        return zip(list_a * len(list_b), list_b)
+    @staticmethod
+    def zip_copies(list_a, list_b):
+        """Like zip_longest but repeating the shortest list"""
+        if len(list_a) > len(list_b):
+            list_b = list_b * len(list_a)
+        elif len(list_a) < len(list_b):
+            list_a = list_a * len(list_b)
+        return zip(list_a, list_b)
