@@ -26,7 +26,7 @@ class DY(Observable):
         Returns
         -------
             masked_fktable: backend tensor
-                rank 5 tensor (ndata, flavours, flavours, xgrid, xgrid)
+                rank 5 tensor (ndata, xgrid, flavours, xgrid, flavours)
         """
         if basis is None:
             basis_mask = np.ones((self.nfl, self.nfl), dtype=bool)
@@ -36,7 +36,7 @@ class DY(Observable):
                 basis_mask[i, j] = True
         basis_mask = op.numpy_to_tensor(basis_mask, dtype=bool)
         mask_tensor = self.tensor_from_mask(basis_mask)
-        masked_fk = op.einsum('fgF, nFxy -> nfgxy', mask_tensor, fktable)
+        masked_fk = op.einsum('fgF, nFxy -> nxfyg', mask_tensor, fktable)
         return masked_fk
 
     def call(self, pdf):
@@ -63,9 +63,9 @@ class DY(Observable):
         # so we have 3 different paths for this layer
         pdfs = op.split(pdf, self.splitting, axis=2) if self.splitting else [pdf]
 
-        results = [
-            op.einsum('brxf, nfgxy, bryg -> brn', pdf, masked_fk, pdf)
-            for pdf, masked_fk in self.zip_copies(pdfs, self.masked_fk_tables)
-        ]
+        results = []
+        for pdf in pdfs:
+            intermediate = op.einsum('nxfyg, bryg -> brnxf', masked_fk, pdf)
+            results.append(op.einsum('brnxf, brxf -> brn', intermediate, pdf))
 
         return self.operation(results)

@@ -38,7 +38,7 @@ class DIS(Observable):
         Returns
         -------
             masked_fktable: backend tensor
-                rank 3 tensor (ndata, flavours, xgrid)
+                rank 3 tensor (ndata, xgrid, flavours)
         """
         if basis is None:
             basis_mask = np.ones(self.nfl, dtype=bool)
@@ -48,7 +48,7 @@ class DIS(Observable):
                 basis_mask[i] = True
         basis_mask = op.numpy_to_tensor(basis_mask, dtype=bool)
         mask_tensor = self.tensor_from_mask(basis_mask)
-        masked_fk = op.einsum('fF, nFx -> nfx', mask_tensor, fktable)
+        masked_fk = op.einsum('fF, nFx -> nxf', mask_tensor, fktable)
         return masked_fk
 
     def call(self, pdf):
@@ -74,7 +74,7 @@ class DIS(Observable):
             raise ValueError("DIS layer call with a dataset that needs more than one xgrid?")
 
         results = [
-            op.einsum('brxf, nfx -> brn', pdf, masked_fk) for masked_fk in self.masked_fk_tables
+            op.einsum('brxf, nxf -> brn', pdf, masked_fk) for masked_fk in self.masked_fk_tables
         ]
 
         return self.operation(results)
