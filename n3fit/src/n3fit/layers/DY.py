@@ -10,6 +10,15 @@ class DY(Observable):
     Computes the convolution of two PDFs (the same one twice) and one fktable
     """
 
+    def gen_mask(self, basis):
+        if basis is None:
+            basis_mask = np.ones((self.nfl, self.nfl), dtype=bool)
+        else:
+            basis_mask = np.zeros((self.nfl, self.nfl), dtype=bool)
+            for i, j in basis.reshape(-1, 2):
+                basis_mask[i, j] = True
+        return op.numpy_to_tensor(basis_mask, dtype=bool)
+
     def mask_fktable(self, basis, fktable):
         """
         Mask the fktable according to the mask

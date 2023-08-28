@@ -3,15 +3,17 @@
     This module checks that the layers do what they would do with numpy
 """
 import dataclasses
+
 import numpy as np
-from validphys.pdfbases import fitbasis_to_NN31IC
+
 from n3fit.backends import operations as op
 import n3fit.layers as layers
-
+from validphys.pdfbases import fitbasis_to_NN31IC
 
 FLAVS = 3
 XSIZE = 4
 NDATA = 3
+REPLICAS = 1
 THRESHOLD = 1e-6
 
 
@@ -145,7 +147,8 @@ def test_DIS():
         fks = [i.fktable for i in fktables]
         obs_layer = layers.DIS(fktables, fks, ope, nfl=FLAVS)
         pdf = np.random.rand(XSIZE, FLAVS)
-        kp = op.numpy_to_tensor(np.expand_dims(pdf, 0))
+        # add batch and replica axes
+        kp = op.numpy_to_tensor(np.expand_dims(pdf, (0, 1)))
         # generate the n3fit results
         result_tensor = obs_layer(kp)
         result = op.evaluate(result_tensor)
@@ -169,8 +172,8 @@ def test_DY():
         fks = [i.fktable for i in fktables]
         obs_layer = layers.DY(fktables, fks, ope, nfl=FLAVS)
         pdf = np.random.rand(XSIZE, FLAVS)
-        # Add batch dimension (0) and replica dimension (-1)
-        kp = op.numpy_to_tensor(np.expand_dims(pdf, [0, -1]))
+        # Add batch dimension (0) and replica dimension (1)
+        kp = op.numpy_to_tensor(np.expand_dims(pdf, [0, 1]))
         # generate the n3fit results
         result_tensor = obs_layer(kp)
         result = op.evaluate(result_tensor)
@@ -240,8 +243,9 @@ def test_rotation_evol():
 
 def test_mask():
     """Test the mask layer"""
-    SIZE = 100
-    fi = np.random.rand(SIZE)
+    SIZE = (REPLICAS, 100)
+    SIZE_INPUT = (1, REPLICAS, 100)
+    fi = np.random.normal(size=SIZE_INPUT)
     # Check that the multiplier works
     vals = [0.0, 2.0, np.random.rand()]
     for val in vals:
@@ -252,13 +256,15 @@ def test_mask():
     np_mask = np.random.randint(0, 2, size=SIZE, dtype=bool)
     masker = layers.Mask(bool_mask=np_mask)
     ret = masker(fi)
-    masked_fi = fi[np_mask]
+    masked_fi = fi[:, np_mask]
+    masked_fi = masked_fi[np.newaxis, :, :]
     np.testing.assert_allclose(ret, masked_fi, rtol=1e-5)
     # Check that the combination works!
     rn_val = vals[-1]
     masker = layers.Mask(bool_mask=np_mask, c=rn_val)
     ret = masker(fi)
     np.testing.assert_allclose(ret, masked_fi * rn_val, rtol=1e-5)
+
 
 def test_addphoton_init():
     """Test AddPhoton class."""
@@ -268,13 +274,15 @@ def test_addphoton_init():
     np.testing.assert_equal(addphoton._photons_generator, 1234)
     np.testing.assert_equal(addphoton._pdf_ph, None)
 
-class FakePhoton():
+
+class FakePhoton:
     def __call__(self, xgrid):
         return [np.exp(-xgrid)]
+
 
 def test_compute_photon():
     photon = FakePhoton()
     addphoton = layers.AddPhoton(photons=photon)
-    xgrid = np.geomspace(1e-4, 1., 10)
+    xgrid = np.geomspace(1e-4, 1.0, 10)
     addphoton.register_photon(xgrid)
     np.testing.assert_allclose(addphoton._pdf_ph, [np.exp(-xgrid)])

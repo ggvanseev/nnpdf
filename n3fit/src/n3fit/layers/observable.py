@@ -66,12 +66,23 @@ class Observable(MetaLayer, ABC):
             self.mask_fktable(basis, fk) for basis, fk in self.zip_copies(all_bases, fktables)
         ]
 
+        # keep this just so the tests can compute the numpy version
+        if is_unique(all_bases) and is_unique(xgrids):
+            self.all_masks = [self.gen_mask(all_bases[0])]
+        else:
+            self.all_masks = [self.gen_mask(basis) for basis in all_bases]
+
     def compute_output_shape(self, input_shape):
         return (self.output_dim, None)
 
     # Overridables
     @abstractmethod
     def mask_fktable(self, basis, fktable):
+        pass
+
+    @abstractmethod
+    def gen_mask(self, basis):
+        # just for the tests
         pass
 
     @staticmethod

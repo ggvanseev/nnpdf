@@ -44,12 +44,12 @@ class Mask(MetaLayer):
         Parameters
         ----------
             y: tf.Tensor
-                input tensor of shape (1, replicas, ndata)
+                input tensor of shape (batchsize, replicas, ndata)
 
         Returns
         -------
             tf.Tensor
-                output tensor of shape (1, replicas, ndata_filtered)
+                output tensor of shape (batchsize, replicas, ndata_filtered)
         """
         if self.has_mask:
             y = op.einsum('brn, rnm -> brm', y, self.mask_tensor)
@@ -69,7 +69,7 @@ class Mask(MetaLayer):
             mask: list of list of booleans of shape (replicas, ndata)
 
         Returns:
-            rank 3 tensor with shape (replicas, ndata, ndata_masked))
+            rank 3 tensor with shape (replicas, ndata, ndata_masked)
             for each (r, n, m=i) matrix, there are exactly r ones, one for each n
         """
         mask = np.array(bool_mask, dtype=bool)

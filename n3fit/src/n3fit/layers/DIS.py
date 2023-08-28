@@ -23,6 +23,23 @@ class DIS(Observable):
     while the input pdf is rank 4 of shape (batch_size, replicas, xgrid, flavours)
     """
 
+    def gen_mask(self, basis):
+        """
+        Receives a list of active flavours and generates a boolean mask tensor
+
+        Parameters
+        ----------
+            basis: list(int)
+                list of active flavours
+        """
+        if basis is None:
+            self.basis = np.ones(self.nfl, dtype=bool)
+        else:
+            basis_mask = np.zeros(self.nfl, dtype=bool)
+            for i in basis:
+                basis_mask[i] = True
+        return op.numpy_to_tensor(basis_mask, dtype=bool)
+
     def mask_fktable(self, basis, fktable):
         """
         Mask the fktable to the active flavours
