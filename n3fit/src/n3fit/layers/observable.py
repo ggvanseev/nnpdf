@@ -99,6 +99,10 @@ class Observable(MetaLayer, ABC):
     @staticmethod
     def zip_copies(list_a, list_b):
         """Like zip_longest but repeating the shortest list"""
+        assert (len(list_a) == len(list_b)) or (
+            len(list_a) == 1 or len(list_b) == 1
+        ), "Lists must have same length or one of them must have length 1"
+
         if len(list_a) > len(list_b):
             list_b = list_b * len(list_a)
         elif len(list_a) < len(list_b):

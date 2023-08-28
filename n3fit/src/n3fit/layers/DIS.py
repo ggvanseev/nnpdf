@@ -20,8 +20,7 @@ class DIS(Observable):
     the incoming pdf.
 
     The fktable is expected to be rank 3 (ndata, xgrid, flavours)
-    while the input pdf is rank 4 where the first dimension is the batch dimension
-    and the last dimension the number of replicas being fitted (1, xgrid, flavours, replicas)
+    while the input pdf is rank 4 of shape (batch_size, replicas, xgrid, flavours)
     """
 
     def mask_fktable(self, basis, fktable):
@@ -62,7 +61,7 @@ class DIS(Observable):
         Parameters
         ----------
             pdf:  backend tensor
-                rank 4 tensor (batch_size, xgrid, flavours, replicas)
+                rank 4 tensor (batch_size, replicas, xgrid, flavours)
 
         Returns
         -------

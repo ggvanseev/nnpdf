@@ -1,5 +1,3 @@
-from itertools import zip_longest
-
 import numpy as np
 
 from n3fit.backends import operations as op

@@ -25,12 +25,9 @@ class Mask(MetaLayer):
     """
 
     def __init__(self, bool_mask=None, c=None, **kwargs):
-        if bool_mask is None:
-            self.mask = None
-        else:
-            self.mask = op.numpy_to_tensor(bool_mask, dtype=bool)
-            self.nonzero_per_replica = count_nonzero(bool_mask[0, ...])
-            self.mask_tensor = Mask.tensor_from_mask(self.mask)
+        self.has_mask = bool_mask is not None
+        if self.has_mask:
+            self.mask_tensor = Mask.tensor_from_mask(bool_mask)
         self.c = c
         super().__init__(**kwargs)
 
@@ -54,7 +51,7 @@ class Mask(MetaLayer):
             tf.Tensor
                 output tensor of shape (1, replicas, ndata_filtered)
         """
-        if self.mask is not None:
+        if self.has_mask:
             y = op.einsum('brn, rnm -> brm', y, self.mask_tensor)
 
         if self.c is not None:
@@ -63,31 +60,35 @@ class Mask(MetaLayer):
         return y
 
     @staticmethod
-    def tensor_from_mask(mask):
+    def tensor_from_mask(bool_mask):
         """
         Create a rank 3 tensor that replicates the functionality of tf.boolean_mask
         with multiplication
 
         Args:
-            mask: a rank 2 boolean tensor of shape (replicas, ndata)
+            mask: list of list of booleans of shape (replicas, ndata)
 
         Returns:
             rank 3 tensor with shape (replicas, ndata, ndata_masked))
             for each (r, n, m=i) matrix, there are exactly r ones, one for each n
         """
+        mask = np.array(bool_mask, dtype=bool)
         r, n = mask.shape
-        M = np.sum(mask)
 
+        # This creates an array of shape (replicas, ndata, num_trues) that has a single
+        # 1 in each (r, n) matrix at the position of the corresponding true in the mask
         mask_array = []
         for idx in np.argwhere(mask):
             temp_matrix = np.zeros((r, n))
             temp_matrix[tuple(idx)] = 1
             mask_array.append(temp_matrix)
 
+        # It happens that there are no true values in the mask, in which case
+        # the mask_array is empty and the stack operation fails
         if len(mask_array) > 0:
             mask_array = np.stack(mask_array, axis=-1)
-
         mask_tensor = op.numpy_to_tensor(mask_array)
+
         # split the last axis into a replica axis and a masked indices axis
         mask_tensor = op.reshape(mask_tensor, shape=(r, n, r, -1))
         # sum over the replica axis
