@@ -20,7 +20,7 @@ version_comment: 'NA'
 implemented_observables:
 
   - observable: {description: "double differential cross section w.r.t. q^2 and pT", label: '$\frac{d^2\sigma}{dq^{2}dpT}$', units: "pb/GeV^3"}
-    observable_name: Q2PT
+    observable_name: PTQ2
     ndata: 24
     tables: [7]
     kinematics:
@@ -40,9 +40,18 @@ implemented_observables:
     plot_x: pT_sqr
     figure_by: 
       - q_sqr
+    theory:
+      FK_tables:
+        - - H1_2JET_319GEV_351PB-1_DIF_PTQ2_BIN1
+          - H1_2JET_319GEV_351PB-1_DIF_PTQ2_BIN2
+          - H1_2JET_319GEV_351PB-1_DIF_PTQ2_BIN3
+          - H1_2JET_319GEV_351PB-1_DIF_PTQ2_BIN4
+          - H1_2JET_319GEV_351PB-1_DIF_PTQ2_BIN5
+          - H1_2JET_319GEV_351PB-1_DIF_PTQ2_BIN6
+      operation: 'null'
 
   - observable: {description: "normalized double differential cross section w.r.t. q^2 and pT", label: '$\frac{1}{\sigma}\frac{d^2\sigma}{dq^{2}dpT}$', units: "1/GeV^3"}
-    observable_name: Q2PT-NORM
+    observable_name: PTQ2-NORM
     ndata: 24
     tables: [17]
     kinematics:

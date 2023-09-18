@@ -41,6 +41,15 @@ implemented_observables:
     plot_x: pT_sqr
     figure_by: 
       - y
+    theory:
+      FK_tables:
+        - - ATLAS_1JET_13TEV_DIF_PT-Y_BIN1
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN2
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN3
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN4
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN5
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN6
+      operation: 'null'
 
   - observable: {description: "double differential cross section w.r.t. pT and y - altcorr1", label: '$d^2\sigma/dpT dy$', units: "pb/GeV"}
     observable_name: PT-Y-ALTCORR1
@@ -63,3 +72,12 @@ implemented_observables:
     plot_x: pT_sqr
     figure_by: 
       - y
+    theory:
+      FK_tables:
+        - - ATLAS_1JET_13TEV_DIF_PT-Y_BIN1
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN2
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN3
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN4
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN5
+          - ATLAS_1JET_13TEV_DIF_PT-Y_BIN6
+      operation: 'null'

@@ -40,6 +40,13 @@ implemented_observables:
     plot_x: pT_sqr
     figure_by: 
       - y
+    theory:
+      FK_tables:
+        - - CMS_1JET_13TEV_DIF_R04_BIN1
+          - CMS_1JET_13TEV_DIF_R04_BIN2
+          - CMS_1JET_13TEV_DIF_R04_BIN3
+          - CMS_1JET_13TEV_DIF_R04_BIN4
+      operation: 'null'
 
   - observable: {description: "double differential cross section w.r.t. pT and y", label: '$d^2\sigma/dpT dy$', units: "pb/GeV"}
     observable_name: R07
@@ -62,3 +69,10 @@ implemented_observables:
     plot_x: pT_sqr
     figure_by: 
       - y
+    theory:
+      FK_tables:
+        - - CMS_1JET_13TEV_DIF_R07_BIN1
+          - CMS_1JET_13TEV_DIF_R07_BIN2
+          - CMS_1JET_13TEV_DIF_R07_BIN3
+          - CMS_1JET_13TEV_DIF_R07_BIN4
+      operation: 'null'

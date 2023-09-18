@@ -20,7 +20,7 @@ version_comment: "NA"
 implemented_observables:
 
   - observable: {description: "double differential cross section w.r.t. E_T and q^2", label: '$d^2\sigma/dE_Tdq^2$', units: "pb/GeV^3"}
-    observable_name: Q2ET
+    observable_name: ETQ2
     ndata: 22
     tables: [13, 14, 15, 16, 17, 18]
     kinematics:
@@ -40,3 +40,12 @@ implemented_observables:
     plot_x: ET_sqr
     figure_by: 
       - q_sqr
+    theory:
+      FK_tables:
+        - - ZEUS_2JET_319GEV_374PB-1_DIF_ETQ2_BIN1
+          - ZEUS_2JET_319GEV_374PB-1_DIF_ETQ2_BIN2
+          - ZEUS_2JET_319GEV_374PB-1_DIF_ETQ2_BIN3
+          - ZEUS_2JET_319GEV_374PB-1_DIF_ETQ2_BIN4
+          - ZEUS_2JET_319GEV_374PB-1_DIF_ETQ2_BIN5
+          - ZEUS_2JET_319GEV_374PB-1_DIF_ETQ2_BIN6
+      operation: 'null'

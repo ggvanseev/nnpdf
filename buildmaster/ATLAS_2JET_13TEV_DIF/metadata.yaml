@@ -40,3 +40,12 @@ implemented_observables:
     plot_x: m_jj_sqr
     figure_by: 
       - y
+    theory:
+      FK_tables:
+        - - ATLAS_2JET_13TEV_DIF_MJJ-Y_BIN1
+          - ATLAS_2JET_13TEV_DIF_MJJ-Y_BIN2
+          - ATLAS_2JET_13TEV_DIF_MJJ-Y_BIN3
+          - ATLAS_2JET_13TEV_DIF_MJJ-Y_BIN4
+          - ATLAS_2JET_13TEV_DIF_MJJ-Y_BIN5
+          - ATLAS_2JET_13TEV_DIF_MJJ-Y_BIN6
+      operation: 'null'
