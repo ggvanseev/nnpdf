@@ -445,6 +445,7 @@ def dataset_inputs_t0_exp_covmat(
         dataset_inputs_t0_predictions,
         False,
     )
+    covmat = np.diag(np.diag(covmat))
     return covmat
 
 

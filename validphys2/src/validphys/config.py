@@ -694,9 +694,6 @@ class CoreConfig(configparser.Config):
         experimental covmat using the t0 prescription.
         """
         from validphys import covmats
-
-        if theory_covmat_flag and use_thcovmat_in_fitting:
-            return covmats.dataset_inputs_t0_total_covmat
         return covmats.dataset_inputs_t0_exp_covmat
 
     @configparser.explicit_node
@@ -713,17 +710,7 @@ class CoreConfig(configparser.Config):
         experimental covmat using the t0 prescription.
         """
         from validphys import covmats
-
-        if theory_covmat_flag and use_thcovmat_in_sampling:
-            if sep_mult:
-                return covmats.dataset_inputs_total_covmat_separate
-            else:
-                return covmats.dataset_inputs_total_covmat
-        else:
-            if sep_mult:
-                return covmats.dataset_inputs_exp_covmat_separate
-            else:
-                return covmats.dataset_inputs_exp_covmat
+        return covmats.dataset_inputs_t0_exp_covmat
 
     def produce_loaded_theory_covmat(
         self,
