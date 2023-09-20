@@ -25,8 +25,8 @@ implemented_observables:
     tables: [13, 14, 15, 16, 17, 18]
     kinematics:
       variables:
+        ET: {description: "mean jet transverse energy of the dijet system in the Breit frame", label: '$\langle E_{T, B} \rangle$', units: "GeV"}
         q_sqr: {description: "momentum transferred squared", label: "$q^2$", units: "GeV^2"}
-        ET_sqr: {description: "mean jet transverse energy of the dijet system in the Breit frame, squared", label: '$\langle E_{T, B} \rangle^2$', units: "GeV^2"}
         sqrt_s: {description: "center of mass energy", label: '$\sqrt{s}$', units: "GeV"}
       file: kinematics_q2_et.yaml
     data_central: data_q2_et.yaml
@@ -35,9 +35,9 @@ implemented_observables:
     kinematic_coverage:
       sqrt_s: sqrt_s
       q_sqr: q_sqr
-      ET_sqr: ET_sqr
-    dataset_label: '$zEUS DiJet 374 pb^{-1} distribution: d^2\sigma/dE_Tdq^2$'
-    plot_x: ET_sqr
+      ET: ET
+    dataset_label: '$ZEUS DiJet 374 pb^{-1} distribution: d^2\sigma/dE_Tdq^2$'
+    plot_x: ET
     figure_by: 
       - q_sqr
     theory:

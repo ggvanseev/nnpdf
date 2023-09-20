@@ -70,7 +70,7 @@ def processData():
             data_central_value = float(values[j]['value'])
             pT_max = input['independent_variables'][0]['values'][j]['high']
             pT_min = input['independent_variables'][0]['values'][j]['low']
-            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max},'pT_sqr': {'min': pT_min**2, 'mid': None, 'max': pT_max**2}}
+            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max},'pT': {'min': pT_min, 'mid': None, 'max': pT_max}}
             kin.append(kin_value)
             value_delta = 0
             error_value = {}
@@ -170,7 +170,7 @@ def processData():
             data_central_value = float(values[j]['value'])
             pT_max = input['independent_variables'][0]['values'][j]['high']
             pT_min = input['independent_variables'][0]['values'][j]['low']
-            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max},'pT_sqr': {'min': pT_min**2, 'mid': None, 'max': pT_max**2}}
+            kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max},'pT': {'min': pT_min, 'mid': None, 'max': pT_max}}
             kin_norm.append(kin_value)
             value_delta = 0
             error_value = {}
@@ -246,7 +246,7 @@ def processData():
         data_central_value = float(values[i]['value'])
         q_sqr_max = input['independent_variables'][0]['values'][i]['high']
         q_sqr_min = input['independent_variables'][0]['values'][i]['low']
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max},'pT_sqr': {'min': pT_min**2, 'mid': None, 'max': pT_max**2}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max},'pT': {'min': pT_min, 'mid': None, 'max': pT_max}}
         kin_highQ2.append(kin_value)
         value_delta = 0
         error_value = {}
@@ -313,7 +313,7 @@ def processData():
         data_central_value = float(values[i]['value'])
         q_sqr_max = input['independent_variables'][0]['values'][i]['high']
         q_sqr_min = input['independent_variables'][0]['values'][i]['low']
-        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max},'pT_sqr': {'min': pT_min**2, 'mid': None, 'max': pT_max**2}}
+        kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max},'pT': {'min': pT_min, 'mid': None, 'max': pT_max}}
         kin_highQ2_norm.append(kin_value)
         value_delta = 0
         error_value = {}

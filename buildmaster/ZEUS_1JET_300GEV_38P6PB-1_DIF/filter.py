@@ -51,7 +51,7 @@ def processData():
                 data_central_value = values[k]['value']
                 ET_max = input['independent_variables'][0]['values'][k]['high']
                 ET_min = input['independent_variables'][0]['values'][k]['low']
-                kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max}, 'ET_sqr': {'min': ET_min**2, 'mid': None, 'max': ET_max**2}}
+                kin_value = {'sqrt_s': {'min': None, 'mid': sqrt_s, 'max': None}, 'q_sqr': {'min': q_sqr_min, 'mid': None, 'max': q_sqr_max}, 'ET': {'min': ET_min, 'mid': None, 'max': ET_max}}
                 kin_q2_et.append(kin_value)
                 value_delta = 0
                 error_value = {}
