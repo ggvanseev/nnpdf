@@ -19,7 +19,7 @@ version_comment: "NA"
 
 implemented_observables:
 
-  - observable: {description: "double differential cross section w.r.t. E_T and q^2", label: '$d^2\sigma/dE_Tdq^2$', units: "pb/GeV^3"}
+  - observable: {description: "double differential cross section w.r.t. E_T and q^2", label: '$d^2\sigma/dE_{T}dq^2$', units: "pb/GeV^3"}
     observable_name: ETQ2
     ndata: 30
     tables: [4, 5, 6]
@@ -36,7 +36,7 @@ implemented_observables:
       sqrt_s: sqrt_s
       q_sqr: q_sqr
       ET: ET
-    dataset_label: '$ZEUS Jet 38.6 pb^{-1} distribution: d^2\sigma/dE_Tdq^2$'
+    dataset_label: '$ZEUS Jet 38.6 pb^{-1} distribution: d^2\sigma/dE_{T}dq^2$'
     plot_x: ET
     figure_by: 
       - q_sqr
