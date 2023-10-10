@@ -14,6 +14,15 @@ from n3fit import vpinterface
 
 XGRID = np.array(
     [
+        1.00000000000000e-10,
+        1.29708482343957e-10,
+        1.68242903474257e-10,
+        2.18225315420583e-10,
+        2.83056741739819e-10,
+        3.67148597892941e-10,
+        4.76222862935315e-10,
+        6.17701427376180e-10,
+        8.01211109898438e-10,
         1.00000000000000e-09,
         1.29708482343957e-09,
         1.68242903474257e-09,
@@ -452,7 +461,7 @@ def storefit(
     xgrid = XGRID.reshape(-1, 1)
         
     result = pdf_object(xgrid, flavours="n3fit").squeeze()
-    lha = evln2lha(result.T).T
+    lha = np.maximum(evln2lha(result.T).T, 0.0)
 
     data = {
         "replica": replica,

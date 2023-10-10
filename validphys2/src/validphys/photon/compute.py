@@ -331,7 +331,8 @@ class Alpha:
         lmu = 2 * np.log(q / qref)
         den = 1.0 + self.betas_qed[nf][0] * alpha_ref * lmu
         alpha_LO = alpha_ref / den
-        alpha_NLO = alpha_LO * (1 - self.betas_qed[nf][1] * alpha_LO * np.log(den))
+        return alpha_LO
+        #alpha_NLO = alpha_LO * (1 - self.betas_qed[nf][1] * alpha_LO * np.log(den))
         return alpha_NLO
 
     def alphaem_fixed_flavor_exa(self, q, alphaem_ref, qref, nf):
@@ -394,7 +395,6 @@ class Alpha:
         thresh = {nf: thresh_list[nf - 3] for nf in range(3, self.theory["MaxNfAs"] + 1)}
 
         alphaem_thresh = {nfref: self.alpha_em_ref}
-        # import ipdb; ipdb.set_trace()
 
         # determine the values of alphaem in the threshold points, depending on the value of qref
         for nf in range(nfref + 1, self.theory["MaxNfAs"] + 1):
