@@ -26,7 +26,7 @@ from validphys import plotutils
 from validphys.checks import check_not_using_pdferr
 from validphys.core import CutsPolicy, MCStats, cut_mask
 from validphys.coredata import KIN_NAMES
-from validphys.plotoptions import get_info, kitable, transform_result
+from validphys.plotoptions.core import get_info, kitable, transform_result
 from validphys.results import chi2_stat_labels
 from validphys.utils import sane_groupby_iter, scale_from_grid, split_ranges
 
