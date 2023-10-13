@@ -461,14 +461,21 @@ def storefit(
     xgrid = XGRID.reshape(-1, 1)
         
     result = pdf_object(xgrid, flavours="n3fit").squeeze()
-    lha = np.maximum(evln2lha(result.T).T, 0.0)
+    lha = np.maximum(evln2lha(result.T), 0.0)
+
+    # Enforce the 0 of t/b/c
+    if any(lha[2] > 1e-3):
+        raise ValueError("There's a big value of charm somewhere, this is code hacked for pert charm only!!")
+
+    lha[0:3] = 0.0
+    lha[10:13] = 0.0
 
     data = {
         "replica": replica,
         "q20": q20,
         "xgrid": xgrid.T.tolist()[0],
         "labels": ["TBAR", "BBAR", "CBAR", "SBAR", "UBAR", "DBAR", "GLUON", "D", "U", "S", "C", "B", "T", "PHT"],
-        "pdfgrid": lha.tolist(),
+        "pdfgrid": lha.T.tolist(),
     }
 
     with open(f"{replica_path}/{fitname}.exportgrid", "w") as fs:

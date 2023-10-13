@@ -623,6 +623,7 @@ FLAVOUR_IC = LinearBasis.from_mapping(
         's': {'s': 1},
         'sbar': {'sbar': 1},
         'g': {'g': 1},
+        'photon': {'photon': 1},
     },
     default_elements=('u', 'ubar', 'd', 'dbar', 's', 'sbar',  'g', ))
 
@@ -768,15 +769,14 @@ def fitbasis_to_NN31IC(flav_info, fitbasis):
         v15 = {'u': 1, 'ubar': -1, 'd': 1, 'dbar': -1, 's': 1, 'sbar': -1,  'g': 0 }
 
     elif fitbasis == 'FLAVOUR_IC':
+        g   = {'u': 0, 'ubar': 0, 'd': 0, 'dbar': 0, 's': 0, 'sbar': 0,  'g': 1 }
         sng = {'u': 1, 'ubar': 1, 'd': 1, 'dbar': 1, 's': 1, 'sbar': 1,  'g': 0 }
-        v = {'u': 1, 'ubar': -1, 'd': 1, 'dbar': -1, 's': 1, 'sbar': -1,  'g': 0 }
-        v3 = {'u': 1, 'ubar': -1, 'd': -1, 'dbar': 1, 's': 0, 'sbar': 0,  'g': 0 }
-        v8 = {'u': 1, 'ubar': -1, 'd': 1, 'dbar': -1, 's': -2, 'sbar': 2,  'g': 0 }
-        t3 = {'u': 1, 'ubar': 1, 'd': -1, 'dbar': -1, 's': 0, 'sbar': 0,  'g': 0 }
-        t8 = {'u': 1, 'ubar': 1, 'd': 1, 'dbar': 1, 's': -2, 'sbar': -2,  'g': 0 }
-        cp = {'u': 0, 'ubar': 0, 'd': 0, 'dbar': 0, 's': 0, 'sbar': 0,  'g': 0 }
-        g = {'u': 0, 'ubar': 0, 'd': 0, 'dbar': 0, 's': 0, 'sbar': 0,  'g': 1 }
-        v15 = {'u': 1, 'ubar': -1, 'd': 1, 'dbar': -1, 's': 1, 'sbar': -1,  'g': 0 }
+        cp  = {'u': 0, 'ubar': 0, 'd': 0, 'dbar': 0, 's': 0, 'sbar': 0,  'g': 0 }
+        v = v15 = {'u': 1, 'ubar': -1, 'd': 1, 'dbar': -1, 's': 1, 'sbar': -1,  'g': 0 }
+        v3  = {'u': 1, 'ubar': -1, 'd': -1, 'dbar': 1, 's': 0, 'sbar': 0,  'g': 0 }
+        v8  = {'u': 1, 'ubar': -1, 'd': 1, 'dbar': -1, 's': -2, 'sbar': 2,  'g': 0 }
+        t3  = {'u': 1, 'ubar': 1, 'd': -1, 'dbar': -1, 's': 0, 'sbar': 0,  'g': 0 }
+        t8  = {'u': 1, 'ubar': 1, 'd': 1, 'dbar': 1, 's': -2, 'sbar': -2,  'g': 0 }
 
     elif fitbasis == 'EVOL' or fitbasis == 'evolution':
         sng = {'sng': 1, 'v': 0, 'v3': 0, 'v8': 0, 't3': 0, 't8': 0, 't15': 0, 'g': 0 }
