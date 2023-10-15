@@ -614,7 +614,7 @@ FLAVOUR = LinearBasis.from_mapping(
     },
     default_elements=('u', 'ubar', 'd', 'dbar', 's', 'sbar', 'c', 'g', ))
 
-FLAVOUR_IC = LinearBasis.from_mapping(
+FLAVOUR_PC = LinearBasis.from_mapping(
     {
         'u': {'u': 1},
         'ubar': {'ubar': 1},
@@ -768,7 +768,7 @@ def fitbasis_to_NN31IC(flav_info, fitbasis):
         g = {'u': 0, 'ubar': 0, 'd': 0, 'dbar': 0, 's': 0, 'sbar': 0,  'g': 1 }
         v15 = {'u': 1, 'ubar': -1, 'd': 1, 'dbar': -1, 's': 1, 'sbar': -1,  'g': 0 }
 
-    elif fitbasis == 'FLAVOUR_IC':
+    elif fitbasis == 'FLAVOUR_PC':
         g   = {'u': 0, 'ubar': 0, 'd': 0, 'dbar': 0, 's': 0, 'sbar': 0,  'g': 1 }
         sng = {'u': 1, 'ubar': 1, 'd': 1, 'dbar': 1, 's': 1, 'sbar': 1,  'g': 0 }
         cp  = {'u': 0, 'ubar': 0, 'd': 0, 'dbar': 0, 's': 0, 'sbar': 0,  'g': 0 }
