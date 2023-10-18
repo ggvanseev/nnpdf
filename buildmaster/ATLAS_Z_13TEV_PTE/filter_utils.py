@@ -1,7 +1,5 @@
 import yaml
 
-UNCORRELATED_SYS = ["Stat (Data)", "Stat (MC)", "Efficiencies (Uncorellated)"]
-
 
 def get_kinematics(tables, version):
     """
@@ -82,26 +80,25 @@ def get_data_values(tables, version):
 def get_systematics(tables, version):
     """
     """
-
+    uncertainties = {}
     
     for table in tables:
         hepdata_table = f"rawdata/HEPData-ins1768911-v{version}-Table_{table}.yaml"
+        uncertainties[table] = []
 
         with open(hepdata_table, 'r') as file:
             input = yaml.safe_load(file)
 
-        dependent_vars = input['depedendent_variables']
+        dependent_vars = input['dependent_variables']
 
         # skip 1st entry as these are central data values
         for dep_var in dependent_vars[1:]:
+        
+            name = dep_var['header']['name'] 
+            values = [d['value'] for d in dep_var['values']]
+            uncertainties[table].append([{"name":name, "values":values}])
             
-            if dep_var['header']['name'] in UNCORRELATED_SYS:
-                pass
-            else:
-                pass
-
-        import IPython
-        IPython.embed()
+        return uncertainties
 
 if __name__ == "__main__":
     get_kinematics(tables=[7], version=3)
