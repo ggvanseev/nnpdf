@@ -6,7 +6,8 @@ UNCORRELATED_SYS = ["Stat (Data)", "Stat (MC)", "Efficiencies (Uncorellated)"]
 
 def filter_ATLAS_Z_13TEV_PTE_data_kinetic():
     """
-    TODO
+    writes data central values and kinematics
+    to respective .yaml file
     """
     with open("metadata.yaml", "r") as file:
         metadata = yaml.safe_load(file)
@@ -30,7 +31,7 @@ def filter_ATLAS_Z_13TEV_PTE_data_kinetic():
 
 def filter_ATLAS_Z_13TEV_PTE_uncertainties():
     """
-    TODO
+    writes uncertainties to respective .yaml file
     """
 
     with open("metadata.yaml", "r") as file:
@@ -43,33 +44,42 @@ def filter_ATLAS_Z_13TEV_PTE_uncertainties():
 
     # error definition
     error_definition = {}
-    for table in tables: 
-        uncertainties = systematics[table]
 
-        for unc in uncertainties:
+    for sys in systematics:
 
-            if unc[0]['name'] in UNCORRELATED_SYS:
-                error_definition[unc[0]['name']] = {
-                    "description": f"{unc[0]['name']} from HEPDATA",
-                    "treatment": "ADD",
-                    "type": "UNCORR",
-                }
+        if sys[0]['name'] in UNCORRELATED_SYS:
+            error_definition[sys[0]['name']] = {
+                "description": f"{sys[0]['name']} from HEPDATA",
+                "treatment": "ADD",
+                "type": "UNCORR",
+            }
 
-            else:
-                error_definition[unc[0]['name']] = {
-                    "description": f"{unc[0]['name']} from HEPDATA",
-                    "treatment": "ADD",
-                    "type": "CORR",
-                }
+        else:
+            error_definition[sys[0]['name']] = {
+                "description": f"{sys[0]['name']} from HEPDATA",
+                "treatment": "ADD",
+                "type": "CORR",
+            }
 
     # TODO:
     # store error in dict
-    # error = []
+    error = []
+    central_values = get_data_values(tables, version)
 
+    for i in range(len(central_values)):
+        error_value = {}
+        
+        for sys in systematics:
+            error_value[sys[0]['name']] = float(sys[0]['values'][i])
+
+        error.append(error_value)
     
+    uncertainties_yaml = {"definitions": error_definition, "bins": error}
+
+    # write uncertainties
+    with open(f"uncertainties.yaml", 'w') as file:
+        yaml.dump(uncertainties_yaml, file, sort_keys=False)
     
-    import IPython
-    IPython.embed()
 
 
 

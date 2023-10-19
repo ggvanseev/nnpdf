@@ -1,14 +1,13 @@
 import yaml
 
 
-def get_kinematics(tables, version):
+def get_kinematics(table, version):
     """
     returns the relevant kinematics values.
 
     Parameters
     ----------
-    tables : list
-            list that enumerates the table number
+    table : list
 
     version : int
             integer read from metadata.yaml that
@@ -23,19 +22,18 @@ def get_kinematics(tables, version):
     """
     kin = []
 
-    for table in tables:
-        hepdata_table = f"rawdata/HEPData-ins1768911-v{version}-Table_{table}.yaml"
+    hepdata_table = f"rawdata/HEPData-ins1768911-v{version}-Table_{table[0]}.yaml"
 
-        with open(hepdata_table, 'r') as file:
-            input = yaml.safe_load(file)
+    with open(hepdata_table, 'r') as file:
+        input = yaml.safe_load(file)
 
-        for pt in input["independent_variables"][0]['values']:
-            kin_value = {
-                'pt': {'min': pt['low'], 'mid': 0.5 * (pt['low'] + pt['high']), 'max': pt['high']},
-                'sqrt_s': {'min': None, 'mid': 13000.0, 'max': None},
-            }
+    for pt in input["independent_variables"][0]['values']:
+        kin_value = {
+            'pt': {'min': pt['low'], 'mid': 0.5 * (pt['low'] + pt['high']), 'max': pt['high']},
+            'sqrt_s': {'min': None, 'mid': 13000.0, 'max': None},
+        }
 
-            kin.append(kin_value)
+        kin.append(kin_value)
 
     return kin
 
@@ -63,16 +61,16 @@ def get_data_values(tables, version):
     """
 
     data_central = []
-    for table in tables:
-        hepdata_table = f"rawdata/HEPData-ins1768911-v{version}-Table_{table}.yaml"
 
-        with open(hepdata_table, 'r') as file:
-            input = yaml.safe_load(file)
+    hepdata_table = f"rawdata/HEPData-ins1768911-v{version}-Table_{tables[0]}.yaml"
 
-        values = input['dependent_variables'][0]['values']
+    with open(hepdata_table, 'r') as file:
+        input = yaml.safe_load(file)
 
-        for value in values:
-            data_central.append(value['value'])
+    values = input['dependent_variables'][0]['values']
+
+    for value in values:
+        data_central.append(value['value'])
 
     return data_central
 
@@ -80,25 +78,23 @@ def get_data_values(tables, version):
 def get_systematics(tables, version):
     """
     """
-    uncertainties = {}
+    uncertainties = []
+
+    hepdata_table = f"rawdata/HEPData-ins1768911-v{version}-Table_{tables[0]}.yaml"
+
+    with open(hepdata_table, 'r') as file:
+        input = yaml.safe_load(file)
+
+    dependent_vars = input['dependent_variables']
+
+    # skip 1st entry as these are central data values
+    for dep_var in dependent_vars[1:]:
     
-    for table in tables:
-        hepdata_table = f"rawdata/HEPData-ins1768911-v{version}-Table_{table}.yaml"
-        uncertainties[table] = []
-
-        with open(hepdata_table, 'r') as file:
-            input = yaml.safe_load(file)
-
-        dependent_vars = input['dependent_variables']
-
-        # skip 1st entry as these are central data values
-        for dep_var in dependent_vars[1:]:
-        
-            name = dep_var['header']['name'] 
-            values = [d['value'] for d in dep_var['values']]
-            uncertainties[table].append([{"name":name, "values":values}])
-            
-        return uncertainties
+        name = dep_var['header']['name'] 
+        values = [d['value'] for d in dep_var['values']]
+        uncertainties.append([{"name":name, "values":values}])
+    
+    return uncertainties
 
 if __name__ == "__main__":
     get_kinematics(tables=[7], version=3)
