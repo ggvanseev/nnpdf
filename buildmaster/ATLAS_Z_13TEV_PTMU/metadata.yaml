@@ -1,0 +1,60 @@
+# Created on Oct 2023, author: Mark N. Costantini
+
+ # Generalia
+setname: "ATLAS_Z_13TEV_PTMU"
+
+version: 3
+
+version_comment: "Initial implementation"
+
+# References
+arXiv:
+  url: "https://arxiv.org/pdf/1912.02844.pdf"
+iNSPIRE:
+  url: "https://inspirehep.net/literature/1768911"
+hepdata:
+  url: "https://www.hepdata.net/record/ins1768911"
+  version: 3
+  tables: [5]
+
+nnpdf_metadata:
+  nnpdf31_process: "DY"
+  experiment: "ATLAS"
+
+
+implemented_observables:
+  - observable_name: "PT"
+    observable: 
+      description: "Transverse momentum distribution of Drell-Yan muon pairs."
+      label: r"$1/\sigma_{fid}d\\sigma/dp_{T}^{\\mu\\mu}$"
+      units: "[1/GeV]"
+
+    ndata: 44
+
+    tables: [5]
+
+    kinematics:
+      variables:
+        pt: {description: "muon pair transverse momentum", label: "$p_T$", units: ""}
+        sqrt_s: {description: "center of mass energy", label: r"$\sqrt(s)$", units: "GeV"}
+      file: kinematics.yaml
+
+    # Data 
+    data_central: data.yaml
+    data_uncertainties:
+      - uncertainties.yaml
+    
+
+    # Theory
+    theory:
+      FK_tables:
+        - - ATLAS_Z_13TEV_PTMU
+      operation: 'null'
+
+
+    kinematic_coverage:
+      pt: pt
+    dataset_label: 'ATLAS 13 TeV normalized differential cross section in $pT_{mu,mu}$'
+    plot_x: pt
+    figure_by: 
+       - pt
