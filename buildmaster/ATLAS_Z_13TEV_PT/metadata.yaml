@@ -49,12 +49,12 @@ implemented_observables:
         pT: {description: "electron pair transverse momentum", label: "$p_T$", units: ""}
         mZ_2: {description: "Z boson mass squared", label: r"$M_Z^2$", units: "GeV"}
         sqrt_s: {description: "center of mass energy", label: r"$\sqrt(s)$", units: "GeV"}
-      file: kinematics.yaml
+      file: kinematics_E.yaml
 
     # Data 
-    data_central: data.yaml
+    data_central: data_E.yaml
     data_uncertainties:
-      - uncertainties.yaml
+      - uncertainties_E.yaml
     
 
     # Theory
@@ -89,12 +89,12 @@ implemented_observables:
         pT: {description: "muon pair transverse momentum", label: "$p_T$", units: ""}
         mZ_2: {description: "Z boson mass squared", label: r"$M_Z^2$", units: "GeV"}
         sqrt_s: {description: "center of mass energy", label: r"$\sqrt(s)$", units: "GeV"}
-      file: kinematics.yaml
+      file: kinematics_MU.yaml
 
     # Data 
-    data_central: data.yaml
+    data_central: data_MU.yaml
     data_uncertainties:
-      - uncertainties.yaml
+      - uncertainties_MU.yaml
     
 
     # Theory
